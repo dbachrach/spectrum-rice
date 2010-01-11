@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C# Express 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spectrum", "Spectrum\Spectrum.csproj", "{1800B3B6-A6B6-42E5-9F98-87908A9B262F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Xbox 360 = Debug|Xbox 360
+		Release|Xbox 360 = Release|Xbox 360
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1800B3B6-A6B6-42E5-9F98-87908A9B262F}.Debug|Xbox 360.ActiveCfg = Debug|Xbox 360
+		{1800B3B6-A6B6-42E5-9F98-87908A9B262F}.Debug|Xbox 360.Build.0 = Debug|Xbox 360
+		{1800B3B6-A6B6-42E5-9F98-87908A9B262F}.Debug|Xbox 360.Deploy.0 = Debug|Xbox 360
+		{1800B3B6-A6B6-42E5-9F98-87908A9B262F}.Release|Xbox 360.ActiveCfg = Release|Xbox 360
+		{1800B3B6-A6B6-42E5-9F98-87908A9B262F}.Release|Xbox 360.Build.0 = Release|Xbox 360
+		{1800B3B6-A6B6-42E5-9F98-87908A9B262F}.Release|Xbox 360.Deploy.0 = Release|Xbox 360
+		{AD3C4186-69E2-4C2D-BDAC-36B48C9FCCC1}.Debug|Xbox 360.ActiveCfg = Debug|Xbox 360
+		{AD3C4186-69E2-4C2D-BDAC-36B48C9FCCC1}.Release|Xbox 360.ActiveCfg = Release|Xbox 360
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
