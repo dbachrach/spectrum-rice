@@ -32,7 +32,7 @@ namespace Spectrum.Model
         public bool ExistsWhenNotViewed { get; set; }
         public Level Container { get; set; }
 
-		public GameObject(int id, Colors viewableColors, ) {
+		public GameObject(int id, Colors viewableColors, Polygon polygon, Texture2D image, Vector2 position, bool affectedByGravity, Vector2 velocity, List<GameObject> combineObjects, List<GameObject> combinableWith, bool pickupable, bool inactive, Texture2D inactiveImage, List<Events> events, bool existsWhenNotViewed, Level container) {
 			Id = id;
 			ViewableColors = viewableColors;
 			Polygon = polygon;
@@ -40,6 +40,7 @@ namespace Spectrum.Model
 			Position = position;
 			AffectedByGravity = affectedByGravity;
 			Velocity = velocity;
+			CombineObjects = combineObjects;
 			CombinableWith = combinableWith;
 			Pickupable = pickupable;
 			Inactive = inactive;
@@ -47,8 +48,6 @@ namespace Spectrum.Model
 			Events = events;
 			ExistsWhenNotViewed = existsWhenNotViewed;
 			Container = container;
-			
-			CombineObjects = new List<GameObject>();
 		}
     }
 }
