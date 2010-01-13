@@ -52,5 +52,10 @@ namespace Spectrum.Model
 			ExistsWhenNotViewed = existsWhenNotViewed;
 			Container = container;
 		}
+
+        public bool currentlyVisible()
+        {
+            return Container.CurrentColor.contains(this.ViewableColors);
+        }
     }
 }
