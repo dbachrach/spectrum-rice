@@ -17,9 +17,9 @@ namespace Spectrum.Model
     class SolidGround : GameObject
     {
 		/* Convenience to create an object with Affected By Gravity = NO, Pickupable = NO, Viewable in All Colors, and Exists When Not Viewed */
-		public SolidGround(int id, Polygon polygon, Texture2D image, Vector2 position, Vector2 velocity, List<GameObject> combineObjects, List<GameObject> combinableWith, List<Events> events, Level container) {
-			
-			base(id, Colors.AllColors, polygon, image, position, false, velocity, combineObjects, combinableWith, false, false, null, events, true, container)
+		public SolidGround(int id, Polygon polygon, Texture2D image, Vector2 position, Vector2 velocity, List<GameObject> combineObjects, List<GameObject> combinableWith, List<Event> events, Level container)
+            : base(id, Colors.AllColors, polygon, image, position, false, velocity, combineObjects, combinableWith, false, false, null, events, true, container)
+        {
 		}
     }
 }

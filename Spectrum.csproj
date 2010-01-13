@@ -84,8 +84,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Action.cs" />
+    <Compile Include="Model\Colors.cs" />
+    <Compile Include="Model\Convenience Objects\Ground.cs" />
+    <Compile Include="Model\Convenience Objects\Platform.cs" />
+    <Compile Include="Model\Convenience Objects\SolidGround.cs" />
+    <Compile Include="Model\Event.cs" />
     <Compile Include="Model\GameObject.cs" />
     <Compile Include="Model\Level.cs" />
+    <Compile Include="Model\Player.cs" />
+    <Compile Include="Model\Polygon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />

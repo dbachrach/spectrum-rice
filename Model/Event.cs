@@ -14,7 +14,7 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace Spectrum.Model
 {
-	enum EventTypes { EventTypeXEvent, EventTypeBehvaior, EventTypeCollision }
+	enum EventType { EventTypeXEvent, EventTypeBehvaior, EventTypeCollision }
 	
     class Event
     {
