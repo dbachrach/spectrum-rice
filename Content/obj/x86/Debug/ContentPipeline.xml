@@ -6,10 +6,10 @@
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Spectrum\Content\</RootDirectory>
-      <LoggerRootDirectory>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Spectrum\</LoggerRootDirectory>
-      <IntermediateDirectory>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Spectrum\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Spectrum\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\Content\</RootDirectory>
+      <LoggerRootDirectory>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\</LoggerRootDirectory>
+      <IntermediateDirectory>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
