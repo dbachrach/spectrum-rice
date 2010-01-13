@@ -2,6 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.GamerServices;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Net;
+using Microsoft.Xna.Framework.Storage;
 
 namespace Spectrum.Model
 {
@@ -23,7 +32,7 @@ namespace Spectrum.Model
         public bool ExistsWhenNotViewed { get; set; }
         public Level Container { get; set; }
 
-		public GameObject(int Id, Colors viewableColors, ) {
+		public GameObject(int id, Colors viewableColors, ) {
 			Id = id;
 			ViewableColors = viewableColors;
 			Polygon = polygon;

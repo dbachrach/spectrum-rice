@@ -36,5 +36,21 @@ namespace Spectrum.Model
         
         // the background image of this level
         public Texture2D Background { get; set; }
+
+        public Level(int id, int number, string name, int width, int height)
+        {
+            Id = id;
+            Number = number;
+            Name = name;
+            Width = width;
+            Height = height;
+
+            Completed = false;
+        }
+
+        public void loadContent(ContentManager manager, string backgroundFile)
+        {
+            Background = manager.Load<Texture2D>(backgroundFile);
+        }
     }
 }
