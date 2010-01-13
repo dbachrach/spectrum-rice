@@ -37,6 +37,8 @@ namespace Spectrum.Model
         // the background image of this level
         public Texture2D Background { get; set; }
 
+        public Vector2 TopCorner = new Vector2(0, 0);
+
         public Level(int id, int number, string name, int width, int height)
         {
             Id = id;
@@ -48,9 +50,16 @@ namespace Spectrum.Model
             Completed = false;
         }
 
-        public void loadContent(ContentManager manager, string backgroundFile)
+        // loads the background image from the specified file
+        public void LoadContent(ContentManager manager, string backgroundFile)
         {
             Background = manager.Load<Texture2D>(backgroundFile);
+        }
+
+        // draws the background image
+        public void Draw(SpriteBatch sprite)
+        {
+            sprite.Draw(Background, TopCorner, Color.White);
         }
     }
 }

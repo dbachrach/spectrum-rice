@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
+using Spectrum.Model;
 
 namespace Spectrum
 {
@@ -20,6 +21,8 @@ namespace Spectrum
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+
+        Level level;
 
         public Game1()
         {
@@ -37,6 +40,8 @@ namespace Spectrum
         {
             // TODO: Add your initialization logic here
 
+            level = new Level(0, 0, "sunset level", 500, 500);
+
             base.Initialize();
         }
 
@@ -48,6 +53,8 @@ namespace Spectrum
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            level.LoadContent(this.Content, "sunset");
 
             // TODO: use this.Content to load your game content here
         }
@@ -85,7 +92,9 @@ namespace Spectrum
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            spriteBatch.Begin();
+            level.Draw(spriteBatch);
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
