@@ -37,6 +37,9 @@ namespace Spectrum.Model
         // the background image of this level
         public Texture2D Background { get; set; }
 
+        // the color the user is viewing the level at the moment
+        public Colors CurrentColor { get; set; }
+
         public Vector2 TopCorner = new Vector2(0, 0);
 
         public Level(int id, int number, string name, int width, int height)
@@ -48,6 +51,7 @@ namespace Spectrum.Model
             Height = height;
 
             Completed = false;
+            CurrentColor = Colors.NoColors;
         }
 
         // loads the background image from the specified file
