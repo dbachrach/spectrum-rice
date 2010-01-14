@@ -61,12 +61,13 @@ namespace Spectrum.Model
 		// Whether this represents just a singluar color like red, green, blue, etc
         public bool isSingularColor()
         {
-			return (Bitstring == Red || Bitstring == Orange || Bitstring == Yellow || Bitstring == Green || Bitstring == Blue || Bitstring == Purple);
+            return (Bitstring == (int)RawColors.Red || Bitstring == (int)RawColors.Orange || Bitstring == (int)RawColors.Yellow || 
+                    Bitstring == (int)RawColors.Green || Bitstring == (int)RawColors.Blue || Bitstring == (int)RawColors.Purple);
         }
 
 		// Returns a new Colors object by combining components of this and 
 		// another Colors object
-		public bool combine(Colors c) {
+		public Colors combine(Colors c) {
 			return new Colors(Bitstring | c.Bitstring);
 		}
 

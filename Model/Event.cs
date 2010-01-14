@@ -20,12 +20,14 @@ namespace Spectrum.Model
     {
         public EventType Type { get; set; }
 		public string DisplayName { get; set; }
+        public GameObject CollisionTarget { get; set; }
 		public List<Action> Actions { get; set; }
 
-        public Event(EventType type, string displayName, List<Action> actions)
+        public Event(EventType type, string displayName, GameObject collisionTarget, List<Action> actions)
         {
             Type = type;
 			DisplayName = displayName;
+            CollisionTarget = collisionTarget;
 			Actions = actions;
         }
     }
