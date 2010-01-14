@@ -2,23 +2,23 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>sunset.JPG</Source>
+      <Source>sunset.jpg</Source>
       <Name>sunset</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\sunset.xnb</Output>
-      <Time>2010-01-13T14:53:45.8823904-06:00</Time>
+      <Output>U:\comp410\bin\x86\Debug\Content\sunset.xnb</Output>
+      <Time>2010-01-14T12:57:47.443-06:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\Content\</RootDirectory>
-      <LoggerRootDirectory>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\</LoggerRootDirectory>
-      <IntermediateDirectory>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>U:\comp410\Content\</RootDirectory>
+      <LoggerRootDirectory>U:\comp410\</LoggerRootDirectory>
+      <IntermediateDirectory>U:\comp410\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>U:\comp410\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

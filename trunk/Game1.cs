@@ -40,7 +40,7 @@ namespace Spectrum
         {
             // TODO: Add your initialization logic here
 
-            level = new Level(0, 0, "sunset level", 500, 500);
+            level = new Level(0, 0, "sunset level", 500, 500, Colors.AllColors);
 
             base.Initialize();
         }
