@@ -40,15 +40,19 @@ namespace Spectrum.Model
         // the color the user is viewing the level at the moment
         public Colors CurrentColor { get; set; }
 
+        // the colors this level can be viewed in
+        public Colors AllowedColors { get; set; }
+
         public Vector2 TopCorner = new Vector2(0, 0);
 
-        public Level(int id, int number, string name, int width, int height)
+        public Level(int id, int number, string name, int width, int height, Colors allowedColors)
         {
             Id = id;
             Number = number;
             Name = name;
             Width = width;
             Height = height;
+            AllowedColors = allowedColors;
 
             Completed = false;
             CurrentColor = Colors.NoColors;
