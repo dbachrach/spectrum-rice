@@ -1,0 +1,147 @@
+﻿/* 1 Level */
+{
+	"object" : "level"
+	"id" : 1,
+	"number" : 1,
+	"name" : "Demo Level",
+	"width" : 500,
+	"height" : 500
+}
+
+/* 2 Blue Block A */
+{
+	"object" : "block"
+	"id" : 2,
+	"position" : [0, 0 /* TODO */],
+	"colors" : ["blue"],
+	"combinable-with" : [3,4]
+}
+
+/* 3 Yellow Block A */
+{
+	"object" : "block"
+	"id" : 3,
+	"position" : [0, 0 /* TODO */],
+	"colors" : ["yellow"],
+	"combinable-with" : [2, 5, 6]
+}
+
+/* 4 Yellow Block B */
+{
+	"object" : "block"
+	"id" : 4,
+	"position" : [0, 0 /* TODO */],
+	"colors" : ["yellow"],
+	"combinable-with" : [2, 5, 6]
+}
+
+/* 5 Red Block */
+{
+	"object" : "block"
+	"id" : 5,
+	"position" : [0, 0 /* TODO */],
+	"colors" : ["red"],
+	"combinable-with" : [3,4]
+}
+
+/* 6 Blue Block B*/
+{
+	"object" : "block"
+	"id" : 6,
+	"position" : [0, 0 /* TODO */],
+	"colors" : ["red"],
+	"combinable-with" : [3,4]
+}
+
+/* 7 Door*/
+{
+	"object" : "door"
+	"id" : 7,
+	"position" : [0, 0 /* TODO */],
+	"colors" : ["all"]
+}
+
+/* 8 Solid Ground */
+{
+	"object" : "solid-ground"
+	"id" : 8,
+	"position" : [0, 0],
+	"polygon" : [ [0,0] , [500, 0] , [500, 50] , [0,50] ]
+}
+
+/* 9 Green Platform A */
+{
+	"object" : "platform"
+	"id" : 9,
+	"colors" : ["green"],
+	"position" : [0, 0] /* TODO */ ,
+	"polygon" : [/* TODO */],
+	"affected-by-gravity" : false,
+	"exists-when-not-viewed" : false
+}
+
+/* 10 Orange Platform */
+{
+	"object" : "platform"
+	"id" : 10,
+	"colors" : ["orange"],
+	"position" : [0, 0] /* TODO */ ,
+	"polygon" : [/* TODO */],
+	"affected-by-gravity" : false,
+	"exists-when-not-viewed" : false
+}
+
+/* 11 Green Platform B */
+{
+	"object" : "platform"
+	"id" : 11,
+	"colors" : ["green"],
+	"position" : [0, 0] /* TODO */ ,
+	"polygon" : [/* TODO */],
+	"affected-by-gravity" : false,
+	"exists-when-not-viewed" : false
+}
+
+/* 12 Green Switch */
+{
+	"object" : "game-object"
+	"id" : 12,
+	"colors" : ["green"],
+	"position" : [0, 0] /* TODO */ ,
+	"polygon" : [/* TODO */],
+	"image" : "" /* TODO */,
+	"affected-by-gravity" : false,
+	"exists-when-not-viewed" : false,
+	"events" : [{
+					"type" : "collision",
+					"collision-target" : -1 /* Player's ID */
+					"actions" : [{
+									"receiver" : 9 /* Green Platfrom A */
+									"property" : "colors"
+									"type" : "change"
+									"value" : "all"
+								 }]
+				}]
+}
+
+/* 13 Orange Switch */
+{
+	"object" : "game-object"
+	"id" : 13,
+	"colors" : ["orange"],
+	"position" : [0, 0] /* TODO */ ,
+	"polygon" : [/* TODO */],
+	"image" : "" /* TODO */,
+	"affected-by-gravity" : false,
+	"exists-when-not-viewed" : false,
+	"events" : [{
+					"type" : "collision",
+					"collision-target" : -1 /* Player's ID */
+					"actions" : [{
+									"receiver" : 10 /* Orange Platfrom */
+									"property" : "colors"
+									"type" : "change"
+									"value" : "all"
+								 }]
+				}]
+}
