@@ -5,7 +5,8 @@
 	"number" : 1,
 	"name" : "Demo Level",
 	"width" : 500,
-	"height" : 500
+	"height" : 500,
+	"allowed-colors" : ["all"]
 }
 
 /* 2 Blue Block A */
