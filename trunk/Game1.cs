@@ -1,5 +1,5 @@
 using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
@@ -38,38 +38,42 @@ namespace Spectrum
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
 
-			string levelJSON = "true";
-			ArrayList<HashTable> levelData = JSON.JsonDecode(levelJSON);
+			//string levelJSON = "[{\"object\" : \"level\"\"id\" : 1,\"number\" : 1,\"name\" : \"Demo Level\",\"width\" : 500,\"height\" : 500,\"allowed-colors\" : [\"all\"]}{\"object\" : \"game-object\"\"id\" : 2,\"position\" : [0, 0],\"image\" : \"dude\", \"colors\" : [\"blue\"]}]";
+            string levelJSON = "[{\"object\" : \"level\"\"id\" : 1,\"number\" : 1,\"name\" : \"Demo Level\",\"width\" : 500,\"height\" : 500,\"allowed-colors\" : [\"all\"]}]";
+
+            ArrayList levelData = (ArrayList) JSON.JsonDecode(levelJSON);
 			
 			/* Parse Level */
-			foreach (HashTable obj in levelData) {
-				string objType = obj["object"];
+			foreach (Hashtable obj in levelData) {
+				string objType = (string) obj["object"];
 				if (objType.Equals("level")) {
-					level = new level();
-					
-					if(!obj.containsKey("id") || !obj.containsKey("number") || !obj.containsKey("name") ||
-					   !obj.containsKey("width") || !obj.containsKey("height") || !obj.containsKey("background") ||
-					   !obj.containsKey("allowed-colors")) {
+					level = new Level();
+
+                    if (!obj.ContainsKey("id") || !obj.ContainsKey("number") || !obj.ContainsKey("name") ||
+                       !obj.ContainsKey("width") || !obj.ContainsKey("height") || !obj.ContainsKey("background") ||
+                       !obj.ContainsKey("allowed-colors"))
+                    {
 						Console.WriteLine("Level must have all properties.");
 					}
 					
-					level.Id = obj["id"];
-	 				level.Number = obj["number"];
-	 				level.Name = obj["name"];
-	 				level.Width = obj["width"];
-	 				level.Height = obj["height"];
-	 				level.Background = obj["background"]; /* Turn this into a Textur2D */
-	 				level.AllowedColors = obj["allowed-colors"]; /* TODO: create Colors object from array */
+					level.Id = (double) obj["id"];
+	 				level.Number = (double) obj["number"];
+	 				level.Name = (string) obj["name"];
+	 				level.Width = (double) obj["width"];
+	 				level.Height = (double) obj["height"];
+	 				//level.Background = obj["background"]; /* TODO Turn this into a Textur2D */
+                    level.AllowedColors = Colors.ColorsFromJsonArray((ArrayList) obj["allowed-colors"]);
 				}
 				break;
-			}	
+			}
+
+            Console.WriteLine("Level: " + level);
 		
 			/* Parse Game Objects */
-			foreach (HashTable obj in levelData) {
-				object newObject;
-				string objType = obj["object"];
+			foreach (Hashtable obj in levelData) {
+				GameObject newObject = null;
+				string objType = (string) obj["object"];
 				if (!objType.Equals("level")) {
 			
 					if (objType.Equals("game-object")) {
@@ -89,36 +93,52 @@ namespace Spectrum
 					}
 					
 					/* Set properties */
-					if(obj.containsKey("id"))
-						Id = obj["id"];
-					if(obj.containsKey("colors"))
-						ViewableColors = obj["colors"];
-					if(obj.containsKey("polygon"))
-						Polygon = obj["polygon"];
-					if(obj.containsKey("image"))
-						Image = obj["image"];
-					if(obj.containsKey("position"))
-						Position = obj["position"];
-					if(obj.containsKey("affected-by-gravity"))
-						AffectedByGravity = obj["affected-by-gravity"];
-					if(obj.containsKey("velocity"))
-						Velocity = obj["velocity"];
-					if(obj.containsKey("combinable-with"))
-						CombinableWith = obj["combinable-with"];
-					if(obj.containsKey("pickupable"))
-						Pickupable = obj["pickupable"];
-					if(obj.containsKey("inactive"))
-						Inactive = obj["inactive"];
-					if(obj.containsKey("inactive-image"))
-						InactiveImage = obj["inactive-image"];
-					if(obj.containsKey("events"))
-						Events = obj["events"];
-					if(obj.containsKey("exists-when-not-viewed"))
-						ExistsWhenNotViewed = obj["exists-when-not-viewed"];
-					
-					Container = level;
+                    if (obj.ContainsKey("id"))
+                        newObject.Id = (double) obj["id"];
+                    if (obj.ContainsKey("colors"))
+                        newObject.ViewableColors = Colors.ColorsFromJsonArray((ArrayList)obj["colors"]);
+                    //if (obj.ContainsKey("polygon"))
+                        // TODO: newObject.Polygon = obj["polygon"];
+                    if (obj.ContainsKey("image"))
+                        newObject.ImageName = (string)obj["image"];
+                    if (obj.ContainsKey("position"))
+                    {
+                        ArrayList positionJson = (ArrayList) obj["position"];
+                        newObject.Position = new Vector2((float)((double)positionJson[0]), (float)((double)positionJson[1]));
+                    }
+                    if (obj.ContainsKey("affected-by-gravity"))
+                        newObject.AffectedByGravity = (bool) obj["affected-by-gravity"];
+                    if (obj.ContainsKey("velocity"))
+                    {
+                        ArrayList velocityJson = (ArrayList)obj["velocity"];
+                        newObject.Velocity = new Vector2((float)velocityJson[0], (float)velocityJson[1]);
+                    }
+                    //if (obj.ContainsKey("combinable-with"))
+                        // TODO: newObject.CombinableWith = obj["combinable-with"];
+                    if (obj.ContainsKey("pickupable"))
+                        newObject.Pickupable = (bool) obj["pickupable"];
+                    if (obj.ContainsKey("inactive"))
+                        newObject.Inactive = (bool) obj["inactive"];
+                    //if (obj.ContainsKey("inactive-image"))
+                        // TODO: newObject.InactiveImage = obj["inactive-image"];
+                    //if (obj.ContainsKey("events"))
+                        // TODO: newObject.Events = obj["events"];
+                    if (obj.ContainsKey("exists-when-not-viewed"))
+                        newObject.ExistsWhenNotViewed = (bool) obj["exists-when-not-viewed"];
+
+                    newObject.Container = level;
+
+                    level.AddGameObject(newObject);
 				}
 			}
+
+            /* Create Player */
+            Player player = new Player();
+            level.AddGameObject(player);
+            
+            
+
+            /* TODO: Go through all objects and peice together their pointers to other objects */
 
             base.Initialize();
         }
@@ -133,8 +153,6 @@ namespace Spectrum
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             level.LoadContent(this.Content, "sunset");
-
-            // TODO: use this.Content to load your game content here
         }
 
         /// <summary>
@@ -157,7 +175,7 @@ namespace Spectrum
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            // TODO: Add your update logic here
+            level.Update(gameTime);
 
             base.Update(gameTime);
         }

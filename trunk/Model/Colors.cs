@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 
 namespace Spectrum.Model
 {
-    enum RawColors
+    enum RawColor
     {
         Red = 1 << 0,
         Orange = 1 << 1,
@@ -36,22 +36,62 @@ namespace Spectrum.Model
         {
             Bitstring = 0;
             if (r)
-                Bitstring |= (int)RawColors.Red;
+                Bitstring |= (int)RawColor.Red;
             if (o)
-                Bitstring |= (int)RawColors.Orange;
+                Bitstring |= (int)RawColor.Orange;
             if (y)
-                Bitstring |= (int)RawColors.Yellow;
+                Bitstring |= (int)RawColor.Yellow;
             if (g)
-                Bitstring |= (int)RawColors.Green;
+                Bitstring |= (int)RawColor.Green;
             if (b)
-                Bitstring |= (int)RawColors.Blue;
+                Bitstring |= (int)RawColor.Blue;
             if (p)
-                Bitstring |= (int)RawColors.Purple;
+                Bitstring |= (int)RawColor.Purple;
         }
 
 		public Colors(int bitstring) {
 			Bitstring = bitstring;
 		}
+
+        public static Colors ColorsFromJsonArray(ArrayList jsonArray)
+        {
+            Colors colors = new Colors(0);
+            foreach (string color in jsonArray)
+            {
+                if (color.Equals("all")) {
+                    return Colors.AllColors;
+                }
+                else if (color.Equals("no"))
+                {
+                    return Colors.NoColors;
+                }
+                else if (color.Equals("red"))
+                {
+                    colors.addRawColors(RawColor.Red);
+                }
+                else if (color.Equals("orange"))
+                {
+                    colors.addRawColors(RawColor.Orange);
+                }
+                else if (color.Equals("yellow"))
+                {
+                    colors.addRawColors(RawColor.Yellow);
+                }
+                else if (color.Equals("green"))
+                {
+                    colors.addRawColors(RawColor.Green);
+                }
+                else if (color.Equals("blue"))
+                {
+                    colors.addRawColors(RawColor.Blue);
+                }
+                else if (color.Equals("purple"))
+                {
+                    colors.addRawColors(RawColor.Purple);
+                }
+            }
+            return colors;
+        }
 
         // the player's viewing color is the receiver
         // the colors of the object to be seen is the parameter
@@ -63,8 +103,8 @@ namespace Spectrum.Model
 		// Whether this represents just a singluar color like red, green, blue, etc
         public bool isSingularColor()
         {
-            return (Bitstring == (int)RawColors.Red || Bitstring == (int)RawColors.Orange || Bitstring == (int)RawColors.Yellow || 
-                    Bitstring == (int)RawColors.Green || Bitstring == (int)RawColors.Blue || Bitstring == (int)RawColors.Purple);
+            return (Bitstring == (int)RawColor.Red || Bitstring == (int)RawColor.Orange || Bitstring == (int)RawColor.Yellow || 
+                    Bitstring == (int)RawColor.Green || Bitstring == (int)RawColor.Blue || Bitstring == (int)RawColor.Purple);
         }
 
 		// Returns a new Colors object by combining components of this and 
@@ -73,6 +113,14 @@ namespace Spectrum.Model
 			return new Colors(Bitstring | c.Bitstring);
 		}
 
-  
+        public void addRawColors(RawColor raw)
+        {
+            Bitstring |= (int) raw;
+        }
+
+        public override string ToString()
+        {
+            return string.Format("(Color {0})", Convert.ToString(this.Bitstring,2));
+        }
     }
 }

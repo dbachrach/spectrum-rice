@@ -16,10 +16,10 @@ namespace Spectrum.Model
 {
     class GameObject
     {
-        public int Id { get; set; }
+        public double Id { get; set; }
         public Colors ViewableColors { get; set; }
         public Polygon Polygon { get; set; }
-        public Texture2D Image { get; set; }
+        public string ImageName { get; set; }
         public Vector2 Position { get; set; }
         public bool AffectedByGravity { get; set; }		
         public Vector2 Velocity { get; set; }
@@ -32,25 +32,27 @@ namespace Spectrum.Model
         public bool ExistsWhenNotViewed { get; set; }
         public Level Container { get; set; }
 
+        private Texture2D Texture { get; set; }
+
 		/* Default Constructor */
 		public GameObject() {
 			ViewableColors = Colors.AllColors;
 			AffectedByGravity = true;
 			Velocity = new Vector2(0,0);
-			CombineObjects = null
+            CombineObjects = null;
 			CombinableWith = null;
 			Pickupable = false;
 			Inactive = false;
 			ExistsWhenNotViewed = true;
 		}
-		public GameObject(int id, Colors viewableColors, Polygon polygon, Texture2D image, 
+        public GameObject(double id, Colors viewableColors, Polygon polygon, string imageName, 
             Vector2 position, bool affectedByGravity, Vector2 velocity, List<GameObject> combineObjects, 
             List<GameObject> combinableWith, bool pickupable, bool inactive, Texture2D inactiveImage, 
             List<Event> events, bool existsWhenNotViewed, Level container) {
 			Id = id;
 			ViewableColors = viewableColors;
 			Polygon = polygon;
-			Image = image;
+			ImageName = imageName;
 			Position = position;
 			AffectedByGravity = affectedByGravity;
 			Velocity = velocity;
@@ -68,5 +70,25 @@ namespace Spectrum.Model
         {
             return Container.CurrentColor.contains(this.ViewableColors);
         }
+
+        //Load the texture for the sprite using the Content Pipeline
+        public void LoadContent(ContentManager theContentManager)
+        {
+            Texture = theContentManager.Load<Texture2D>(ImageName);
+        }
+
+        //Draw the sprite to the screen
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(Texture, Position, Color.White);
+        }
+
+        //Update the Sprite and change it's position based on the passed in speed, direction and elapsed time.
+        public void Update(GameTime theGameTime)
+        {
+            Position += Velocity * (float)theGameTime.ElapsedGameTime.TotalSeconds;
+        }
+
+
     }
 }

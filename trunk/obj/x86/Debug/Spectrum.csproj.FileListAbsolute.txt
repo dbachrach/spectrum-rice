@@ -18,3 +18,4 @@ U:\comp410\obj\x86\Debug\Spectrum.pdb
 U:\comp410\bin\x86\Debug\Content\sunset.xnb
 U:\comp410\bin\x86\Debug\Spectrum.exe
 U:\comp410\bin\x86\Debug\Spectrum.pdb
+U:\comp410\bin\x86\Debug\Content\dude.xnb

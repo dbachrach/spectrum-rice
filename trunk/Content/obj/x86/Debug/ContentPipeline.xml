@@ -10,6 +10,15 @@
       <Output>U:\comp410\bin\x86\Debug\Content\sunset.xnb</Output>
       <Time>2010-01-14T12:57:47.443-06:00</Time>
     </Item>
+    <Item>
+      <Source>dude.png</Source>
+      <Name>dude</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>U:\comp410\bin\x86\Debug\Content\dude.xnb</Output>
+      <Time>2010-01-15T14:38:01.861-06:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

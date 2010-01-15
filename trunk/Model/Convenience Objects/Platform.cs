@@ -20,8 +20,8 @@ namespace Spectrum.Model
 			// TODO: Add default image for a platform
 		}
 		// Convenience to create an object with Pickupable = NO
-		public Platform(int id, Colors viewableColors, Polygon polygon, Texture2D image, Vector2 position, bool affectedByGravity, Vector2 velocity, List<GameObject> combineObjects, List<GameObject> combinableWith, bool inactive, Texture2D inactiveImage, List<Event> events, bool existsWhenNotViewed, Level container)
-			: base(id, viewableColors, polygon, image, position, affectedByGravity, velocity, combineObjects, combinableWith, false, inactive, inactiveImage, events, existsWhenNotViewed, container)
+        public Platform(double id, Colors viewableColors, Polygon polygon, string imageName, Vector2 position, bool affectedByGravity, Vector2 velocity, List<GameObject> combineObjects, List<GameObject> combinableWith, bool inactive, Texture2D inactiveImage, List<Event> events, bool existsWhenNotViewed, Level container)
+			: base(id, viewableColors, polygon, imageName, position, affectedByGravity, velocity, combineObjects, combinableWith, false, inactive, inactiveImage, events, existsWhenNotViewed, container)
 		{}
     }
 }
