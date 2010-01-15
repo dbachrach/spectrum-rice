@@ -40,7 +40,85 @@ namespace Spectrum
         {
             // TODO: Add your initialization logic here
 
-            level = new Level(0, 0, "sunset level", 500, 500, Colors.AllColors);
+			string levelJSON = "true";
+			ArrayList<HashTable> levelData = JSON.JsonDecode(levelJSON);
+			
+			/* Parse Level */
+			foreach (HashTable obj in levelData) {
+				string objType = obj["object"];
+				if (objType.Equals("level")) {
+					level = new level();
+					
+					if(!obj.containsKey("id") || !obj.containsKey("number") || !obj.containsKey("name") ||
+					   !obj.containsKey("width") || !obj.containsKey("height") || !obj.containsKey("background") ||
+					   !obj.containsKey("allowed-colors")) {
+						Console.WriteLine("Level must have all properties.");
+					}
+					
+					level.Id = obj["id"];
+	 				level.Number = obj["number"];
+	 				level.Name = obj["name"];
+	 				level.Width = obj["width"];
+	 				level.Height = obj["height"];
+	 				level.Background = obj["background"]; /* Turn this into a Textur2D */
+	 				level.AllowedColors = obj["allowed-colors"]; /* TODO: create Colors object from array */
+				}
+				break;
+			}	
+		
+			/* Parse Game Objects */
+			foreach (HashTable obj in levelData) {
+				object newObject;
+				string objType = obj["object"];
+				if (!objType.Equals("level")) {
+			
+					if (objType.Equals("game-object")) {
+						newObject = new GameObject();
+					}
+					else if (objType.Equals("ground")) {
+						newObject = new Ground();
+					}
+					else if (objType.Equals("solid-ground")) {
+						newObject = new SolidGround();
+					}
+					else if (objType.Equals("door")) {
+						newObject = new Door();
+					}
+					else if (objType.Equals("platform")) {
+						newObject = new Platform();
+					}
+					
+					/* Set properties */
+					if(obj.containsKey("id"))
+						Id = obj["id"];
+					if(obj.containsKey("colors"))
+						ViewableColors = obj["colors"];
+					if(obj.containsKey("polygon"))
+						Polygon = obj["polygon"];
+					if(obj.containsKey("image"))
+						Image = obj["image"];
+					if(obj.containsKey("position"))
+						Position = obj["position"];
+					if(obj.containsKey("affected-by-gravity"))
+						AffectedByGravity = obj["affected-by-gravity"];
+					if(obj.containsKey("velocity"))
+						Velocity = obj["velocity"];
+					if(obj.containsKey("combinable-with"))
+						CombinableWith = obj["combinable-with"];
+					if(obj.containsKey("pickupable"))
+						Pickupable = obj["pickupable"];
+					if(obj.containsKey("inactive"))
+						Inactive = obj["inactive"];
+					if(obj.containsKey("inactive-image"))
+						InactiveImage = obj["inactive-image"];
+					if(obj.containsKey("events"))
+						Events = obj["events"];
+					if(obj.containsKey("exists-when-not-viewed"))
+						ExistsWhenNotViewed = obj["exists-when-not-viewed"];
+					
+					Container = level;
+				}
+			}
 
             base.Initialize();
         }

@@ -32,6 +32,17 @@ namespace Spectrum.Model
         public bool ExistsWhenNotViewed { get; set; }
         public Level Container { get; set; }
 
+		/* Default Constructor */
+		public GameObject() {
+			ViewableColors = Colors.AllColors;
+			AffectedByGravity = true;
+			Velocity = new Vector2(0,0);
+			CombineObjects = null
+			CombinableWith = null;
+			Pickupable = false;
+			Inactive = false;
+			ExistsWhenNotViewed = true;
+		}
 		public GameObject(int id, Colors viewableColors, Polygon polygon, Texture2D image, 
             Vector2 position, bool affectedByGravity, Vector2 velocity, List<GameObject> combineObjects, 
             List<GameObject> combinableWith, bool pickupable, bool inactive, Texture2D inactiveImage, 

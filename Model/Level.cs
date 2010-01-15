@@ -45,6 +45,12 @@ namespace Spectrum.Model
 
         public Vector2 TopCorner = new Vector2(0, 0);
 
+		/* Default Constructor */
+		public Level() {
+			Completed = false;
+			CurrentColor = Colors.NoColors;
+			AllowedColors = Colors.AllColors;
+		}
         public Level(int id, int number, string name, int width, int height, Colors allowedColors)
         {
             Id = id;
