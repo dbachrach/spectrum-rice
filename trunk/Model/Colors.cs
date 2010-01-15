@@ -20,9 +20,11 @@ namespace Spectrum.Model
         // beware! fairly internal
         public int Bitstring { get; set; }
 
+		/* Convenience Color Object */
+
         public static Colors AllColors = new Colors(true, true, true, true, true, true);
         public static Colors NoColors = new Colors(false, false, false, false, false, false);
-		
+
 		public static Colors RedColor = new Colors(true, false, false, false, false, false);
 		public static Colors OrangeColor = new Colors(false, true, false, false, false, false);
 		public static Colors YellowColor = new Colors(false, false, true, false, false, false);

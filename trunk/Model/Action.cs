@@ -28,6 +28,15 @@ namespace Spectrum.Model
 		public bool Repeats { get; set; }
 		public bool RepeatDelay { get; set; }
 
+		/* Default constructor. */
+		public Action() {
+			Animated = false;
+			AnimationDuration = 1;
+			Delay = 0;
+			Repeats = false;
+			RepeatDelay = 0;
+		}
+		
         public Action(GameObject receiver, string property, ActionType type, string value, bool animated, int animationDuration, int delay, bool repeats, bool repeatDelay)
         {
             Receiver = receiver;
