@@ -22,12 +22,48 @@ namespace Spectrum.Model
 
         public GameObject Possession { get; set; }
 
-        public Player(int id, int timesDied, TimeSpan playTime, GameObject possession, Polygon polygon, Texture2D image)
-            : base(id, Colors.NoColors, polygon, image, new Vector2(0,0), true, new Vector2(0,0), null, null, false, false, null, null, true, null)
+        private KeyboardState PreviousKeyboardState { get; set; }
+
+
+        public Player()
+            : base()
+        {
+            Id = -1;
+            ImageName = "dude";
+            Position = new Vector2(50, 300);
+            TimesDied = 0;
+            PlayTime = TimeSpan.Zero;
+            Possession = null;
+        }
+
+        public Player(double id, int timesDied, TimeSpan playTime, GameObject possession, Polygon polygon, string imageName)
+            : base(id, Colors.NoColors, polygon, imageName, new Vector2(0,0), true, new Vector2(0,0), null, null, false, false, null, null, true, null)
         {
             TimesDied = timesDied;
             PlayTime = playTime;
             Possession = possession;
+        }
+
+        public void Update(GameTime theGameTime)
+        {
+            KeyboardState aCurrentKeyboardState = Keyboard.GetState();
+            UpdateMovement(aCurrentKeyboardState);
+            PreviousKeyboardState = aCurrentKeyboardState;
+            base.Update(theGameTime);
+        }
+
+        private void UpdateMovement(KeyboardState aCurrentKeyboardState)
+        {
+            if (aCurrentKeyboardState.IsKeyDown(Keys.Left) == true)
+            {
+                Vector2 v = Velocity;
+                v.X = -5;
+            }
+            else if (aCurrentKeyboardState.IsKeyDown(Keys.Right) == true)
+            {
+                Vector2 v = Velocity;
+                v.X = 5;
+            }
         }
     }
 }

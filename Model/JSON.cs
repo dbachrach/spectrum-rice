@@ -4,7 +4,7 @@ using System.Collections;
 using System.Globalization;
 using System.Text;
 
-namespace Procurios.Public
+namespace Spectrum.Model
 {
 	/// <summary>
 	/// This class encodes and decodes JSON strings.

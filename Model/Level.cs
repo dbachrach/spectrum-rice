@@ -17,19 +17,19 @@ namespace Spectrum.Model
     class Level
     {
         // a unique id for this level
-        public int Id { get; set; }
+        public double Id { get; set; }
 
         // the number of this level in the sequence of the levels
-        public int Number { get; set; }
+        public double Number { get; set; }
 
         // the name of the level
         public string Name { get; set; }
 
         // width of the level
-        public int Width { get; set; }
+        public double Width { get; set; }
 
         // height of the level
-        public int Height { get; set; }
+        public double Height { get; set; }
 
         // flag whether this level has been completed
         public bool Completed { get; set; }
@@ -43,15 +43,21 @@ namespace Spectrum.Model
         // the colors this level can be viewed in
         public Colors AllowedColors { get; set; }
 
+        // the objects contained in this level
+        public List<GameObject> GameObjects { get; set; }
+
         public Vector2 TopCorner = new Vector2(0, 0);
+
+        
 
 		/* Default Constructor */
 		public Level() {
 			Completed = false;
 			CurrentColor = Colors.NoColors;
 			AllowedColors = Colors.AllColors;
+            GameObjects = new List<GameObject>();
 		}
-        public Level(int id, int number, string name, int width, int height, Colors allowedColors)
+        public Level(double id, double number, string name, double width, double height, Colors allowedColors)
         {
             Id = id;
             Number = number;
@@ -64,16 +70,45 @@ namespace Spectrum.Model
             CurrentColor = Colors.NoColors;
         }
 
+        public void AddGameObject(GameObject obj)
+        {
+            GameObjects.Add(obj);
+        }
+
         // loads the background image from the specified file
         public void LoadContent(ContentManager manager, string backgroundFile)
         {
             Background = manager.Load<Texture2D>(backgroundFile);
+
+            foreach (GameObject obj in GameObjects)
+            {
+                obj.LoadContent(manager);
+            }
+        }
+
+        public void Update(GameTime gameTime)
+        {
+            foreach (GameObject obj in GameObjects)
+            {
+                obj.Update(gameTime);
+            }
         }
 
         // draws the background image
-        public void Draw(SpriteBatch sprite)
+        public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(Background, TopCorner, Color.White);
+            spriteBatch.Draw(Background, TopCorner, Color.White);
+
+            foreach (GameObject obj in GameObjects)
+            {
+                obj.Draw(spriteBatch);
+            }
         }
+
+        public override string ToString()
+        {
+            return string.Format("Level-- id {0}\nnumber {1}\n width {2}\n height {3}\n allowed colors {4}", this.Id, this.Number, this.Width, this.Height, this.AllowedColors);
+        }
+
     }
 }

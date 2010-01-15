@@ -19,13 +19,13 @@ namespace Spectrum.Model
 	
 		public Block() : base() {
 			/* TODO: Square polygon */
-			/* TODO: Square image */
+			/* TODO: Square image name */
 			AffectedByGravity = true;
 			Pickupable = true;
 		}
 		/* Polygon = Square, Image = DefaultBlock, Affected By Gravity = YES, Pickupable = YES */
-		public Block(int id, Colors viewableColors, Vector2 position, Vector2 velocity, List<GameObject> combineObjects, List<GameObject> combinableWith, bool inactive, Texture2D inactiveImage, List<Event> events, bool existsWhenNotViewed, Level container)
-           : base(id, viewableColors, null /* TODO: Square polygon */, null /* TODO: Square image */, position, true, velocity, combineObjects, combinableWith, true, inactive, inactiveImage, events, existsWhenNotViewed, container)
+        public Block(double id, Colors viewableColors, Vector2 position, Vector2 velocity, List<GameObject> combineObjects, List<GameObject> combinableWith, bool inactive, Texture2D inactiveImage, List<Event> events, bool existsWhenNotViewed, Level container)
+           : base(id, viewableColors, null /* TODO: Square polygon */, null /* TODO: Square image name */, position, true, velocity, combineObjects, combinableWith, true, inactive, inactiveImage, events, existsWhenNotViewed, container)
         {
 		}
     }

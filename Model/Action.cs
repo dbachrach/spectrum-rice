@@ -23,10 +23,10 @@ namespace Spectrum.Model
 		public ActionType Type { get; set; }
 		public string Value { get; set; }
 		public bool Animated { get; set; }
-		public int AnimationDuration { get; set; }
-		public int Delay { get; set; }
+		public float AnimationDuration { get; set; }
+		public float Delay { get; set; }
 		public bool Repeats { get; set; }
-		public bool RepeatDelay { get; set; }
+		public float RepeatDelay { get; set; }
 
 		/* Default constructor. */
 		public Action() {
@@ -37,7 +37,7 @@ namespace Spectrum.Model
 			RepeatDelay = 0;
 		}
 		
-        public Action(GameObject receiver, string property, ActionType type, string value, bool animated, int animationDuration, int delay, bool repeats, bool repeatDelay)
+        public Action(GameObject receiver, string property, ActionType type, string value, bool animated, float animationDuration, float delay, bool repeats, float repeatDelay)
         {
             Receiver = receiver;
 			Property = property;

@@ -85,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Action.cs" />
+    <Compile Include="Model\JSON.cs" />
     <Compile Include="Model\Polygon.cs" />
     <Compile Include="Model\Player.cs" />
     <Compile Include="Model\Colors.cs" />
