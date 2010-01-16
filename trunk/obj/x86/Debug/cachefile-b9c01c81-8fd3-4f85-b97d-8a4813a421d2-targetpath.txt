@@ -1,2 +1,3 @@
 Content\sunset.xnb
 Content\dude.xnb
+Content\block.xnb

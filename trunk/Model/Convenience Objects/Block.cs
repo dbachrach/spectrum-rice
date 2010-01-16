@@ -20,6 +20,7 @@ namespace Spectrum.Model
 		public Block() : base() {
 			/* TODO: Square polygon */
 			/* TODO: Square image name */
+            ImageName = "block";
 			AffectedByGravity = true;
 			Pickupable = true;
 		}

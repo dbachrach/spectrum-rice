@@ -39,8 +39,8 @@ namespace Spectrum
         protected override void Initialize()
         {
 
-			//string levelJSON = "[{\"object\" : \"level\"\"id\" : 1,\"number\" : 1,\"name\" : \"Demo Level\",\"width\" : 500,\"height\" : 500,\"allowed-colors\" : [\"all\"]}{\"object\" : \"game-object\"\"id\" : 2,\"position\" : [0, 0],\"image\" : \"dude\", \"colors\" : [\"blue\"]}]";
-            string levelJSON = "[{\"object\" : \"level\"\"id\" : 1,\"number\" : 1,\"name\" : \"Demo Level\",\"width\" : 500,\"height\" : 500,\"allowed-colors\" : [\"all\"]}]";
+			//string levelJSON = "[{\"object\" : \"level\",\"id\" : 1,\"number\" : 1,\"name\" : \"Demo Level\",\"width\" : 500,\"height\" : 500,\"allowed-colors\" : [\"all\"]}{\"object\" : \"game-object\"\"id\" : 2,\"position\" : [0, 0],\"image\" : \"dude\", \"colors\" : [\"blue\"]}]";
+              string levelJSON = "[{\"object\" : \"level\",\"id\" : 1,\"number\" : 1,\"name\" : \"Demo Level\",\"width\" : 500,\"height\" : 500,\"allowed-colors\" : [\"all\"]}{\"object\" : \"block\",\"id\" : 2,\"position\" : [275, 350],\"colors\" : [\"green\"]}]";
 
             ArrayList levelData = (ArrayList) JSON.JsonDecode(levelJSON);
 			
@@ -64,6 +64,7 @@ namespace Spectrum
 	 				level.Height = (double) obj["height"];
 	 				//level.Background = obj["background"]; /* TODO Turn this into a Textur2D */
                     level.AllowedColors = Colors.ColorsFromJsonArray((ArrayList) obj["allowed-colors"]);
+                    level.CurrentColor = Colors.GreenColor;
 				}
 				break;
 			}
@@ -91,6 +92,10 @@ namespace Spectrum
 					else if (objType.Equals("platform")) {
 						newObject = new Platform();
 					}
+                    else if (objType.Equals("block"))
+                    {
+                        newObject = new Block();
+                    }
 					
 					/* Set properties */
                     if (obj.ContainsKey("id"))
@@ -134,6 +139,7 @@ namespace Spectrum
 
             /* Create Player */
             Player player = new Player();
+            player.Container = level;
             level.AddGameObject(player);
             
             
@@ -152,7 +158,7 @@ namespace Spectrum
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            level.LoadContent(this.Content, "sunset");
+            level.LoadContent(this.Content);
         }
 
         /// <summary>
@@ -174,7 +180,7 @@ namespace Spectrum
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
-
+         
             level.Update(gameTime);
 
             base.Update(gameTime);
@@ -186,7 +192,7 @@ namespace Spectrum
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.White);
 
             spriteBatch.Begin();
             level.Draw(spriteBatch);

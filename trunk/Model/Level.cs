@@ -76,9 +76,9 @@ namespace Spectrum.Model
         }
 
         // loads the background image from the specified file
-        public void LoadContent(ContentManager manager, string backgroundFile)
+        public void LoadContent(ContentManager manager)
         {
-            Background = manager.Load<Texture2D>(backgroundFile);
+            //Background = manager.Load<Texture2D>("sunset");
 
             foreach (GameObject obj in GameObjects)
             {
@@ -97,7 +97,7 @@ namespace Spectrum.Model
         // draws the background image
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(Background, TopCorner, Color.White);
+            //spriteBatch.Draw(Background, TopCorner, Color.White);
 
             foreach (GameObject obj in GameObjects)
             {
