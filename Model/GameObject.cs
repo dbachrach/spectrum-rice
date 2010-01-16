@@ -31,6 +31,8 @@ namespace Spectrum.Model
         public List<Event> Events { get; set; }
         public bool ExistsWhenNotViewed { get; set; }
         public Level Container { get; set; }
+        public SpriteEffects DrawEffects { get; set; }
+       
 
         private Texture2D Texture { get; set; }
 
@@ -44,6 +46,7 @@ namespace Spectrum.Model
 			Pickupable = false;
 			Inactive = false;
 			ExistsWhenNotViewed = true;
+            DrawEffects = SpriteEffects.None;
 		}
         public GameObject(double id, Colors viewableColors, Polygon polygon, string imageName, 
             Vector2 position, bool affectedByGravity, Vector2 velocity, List<GameObject> combineObjects, 
@@ -81,7 +84,7 @@ namespace Spectrum.Model
         public void Draw(SpriteBatch spriteBatch)
         {
             if(currentlyVisible()) {
-                spriteBatch.Draw(Texture, Position, Container.CurrentColor.SystemColor() /*TODO: Should be Color.White when we have custom images for each color */);
+                spriteBatch.Draw(Texture, Position, null, Container.CurrentColor.SystemColor() /*TODO: Should be Color.White when we have custom images for each color */, 0, Vector2.Zero, 1.0f, DrawEffects, 0.0f);
             }
         }
 
