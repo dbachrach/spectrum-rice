@@ -17,7 +17,7 @@ namespace Spectrum.Model
     class Platform : GameObject
     {
 		public Platform() : base() {
-			// TODO: Add default image for a platform
+            ImageName = "platform";
 		}
     }
 }

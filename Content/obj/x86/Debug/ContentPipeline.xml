@@ -35,7 +35,25 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\PlayerRun.xnb</Output>
-      <Time>2010-01-16T11:52:17-06:00</Time>
+      <Time>2010-01-16T15:42:45-06:00</Time>
+    </Item>
+    <Item>
+      <Source>platform.png</Source>
+      <Name>platform</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\platform.xnb</Output>
+      <Time>2010-01-16T15:38:16-06:00</Time>
+    </Item>
+    <Item>
+      <Source>switch.png</Source>
+      <Name>switch</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switch.xnb</Output>
+      <Time>2010-01-16T15:40:24-06:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

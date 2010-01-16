@@ -14,9 +14,9 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace Spectrum.Model
 {
-	enum ActionType { ActionTypeChange, ActionTypeIncrement, ActionTypeDecrement }
+	enum ActionType { Change, Increment, Decrement }
 	
-    class Action
+    class EventAction
     {
         public GameObject Receiver { get; set; }
 		public string Property { get; set; }
@@ -29,12 +29,33 @@ namespace Spectrum.Model
 		public float RepeatDelay { get; set; }
 
 		/* Default constructor. */
-		public Action() {
+        public EventAction()
+        {
 			Animated = false;
 			AnimationDuration = 1;
 			Delay = 0;
 			Repeats = false;
 			RepeatDelay = 0;
 		}
+
+        public static ActionType ActionTypeForString(string str)
+        {
+            if (str.Equals("change"))
+            {
+                return ActionType.Change;
+            }
+            else if (str.Equals("increment"))
+            {
+                return ActionType.Increment;
+            }
+            else if (str.Equals("decrement"))
+            {
+                return ActionType.Decrement;
+            }
+            else
+            {
+                throw new Exception("Type for action was not an action type: " + str);
+            }
+        }
     }
 }

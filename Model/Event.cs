@@ -14,18 +14,34 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace Spectrum.Model
 {
-	enum EventType { EventTypeXEvent, EventTypeBehvaior, EventTypeCollision }
+	enum EventType { XEvent, Behavior, Collision }
 	
     class Event
     {
         public EventType Type { get; set; }
 		public string DisplayName { get; set; }
         public GameObject CollisionTarget { get; set; }
-		public List<Action> Actions { get; set; }
+        public List<EventAction> Actions { get; set; }
 
         public Event()
         {
             DisplayName = "";
+            CollisionTarget = null;
+        }
+
+        public static EventType EventTypeForString(string str) {
+            if(str.Equals("x-event")) {
+                return EventType.XEvent;
+            }
+            else if(str.Equals("behavior")) {
+                return EventType.Behavior;
+            }
+            else if(str.Equals("collision")) {
+                return EventType.Collision;
+            }
+            else {
+                throw new Exception("Type for event was not an event type: " + str);
+            }
         }
     }
 }
