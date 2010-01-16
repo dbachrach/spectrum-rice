@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -39,8 +41,9 @@ namespace Spectrum
         protected override void Initialize()
         {
 
-			//string levelJSON = "[{\"object\" : \"level\",\"id\" : 1,\"number\" : 1,\"name\" : \"Demo Level\",\"width\" : 500,\"height\" : 500,\"allowed-colors\" : [\"all\"]}{\"object\" : \"game-object\"\"id\" : 2,\"position\" : [0, 0],\"image\" : \"dude\", \"colors\" : [\"blue\"]}]";
-            string levelJSON = "[{\"object\" : \"level\",\"id\" : 1,\"number\" : 1,\"name\" : \"Demo Level\",\"width\" : 500,\"height\" : 500,\"allowed-colors\" : [\"all\"], \"start-position\" : [50,300] }{\"object\" : \"block\",\"id\" : 2,\"position\" : [275, 350],\"colors\" : [\"orange\"]}{\"object\" : \"block\",\"id\" : 3,\"position\" : [325, 350],\"colors\" : [\"blue\"]}]";
+		    //string levelJSON = "[{\"object\" : \"level\",\"id\" : 1,\"number\" : 1,\"name\" : \"Demo Level\",\"width\" : 500,\"height\" : 500,\"allowed-colors\" : [\"all\"], \"start-position\" : [50,300] }{\"object\" : \"block\",\"id\" : 2,\"position\" : [275, 350],\"colors\" : [\"yellow\"]}{\"object\" : \"block\",\"id\" : 3,\"position\" : [325, 350],\"colors\" : [\"blue\"]} {\"object\" : \"platform\",\"id\" : 4,\"colors\" : [\"green\"],\"position\" : [400, 200],\"affected-by-gravity\" : false,\"exists-when-not-viewed\" : false}{\"object\" : \"game-object\",\"id\" : 5,\"colors\" : [\"green\"],\"position\" : [425, 187],\"image\" : \"switch\",\"affected-by-gravity\" : false,\"exists-when-not-viewed\" : false}]";
+            string levelJSON = FileAsString("demo.txt");
+
 
             ArrayList levelData = (ArrayList) JSON.JsonDecode(levelJSON);
 			
@@ -130,8 +133,8 @@ namespace Spectrum
                         newObject.Inactive = (bool) obj["inactive"];
                     //if (obj.ContainsKey("inactive-image"))
                         // TODO: newObject.InactiveImage = obj["inactive-image"];
-                    //if (obj.ContainsKey("events"))
-                        // TODO: newObject.Events = obj["events"];
+                    if (obj.ContainsKey("events"))
+                        newObject.Events = ParseEvents( (ArrayList) (obj["events"]));
                     if (obj.ContainsKey("exists-when-not-viewed"))
                         newObject.ExistsWhenNotViewed = (bool) obj["exists-when-not-viewed"];
 
@@ -152,6 +155,80 @@ namespace Spectrum
             /* TODO: Go through all objects and peice together their pointers to other objects */
 
             base.Initialize();
+        }
+        
+        private string FileAsString(string filename)
+        {
+            // Both Windows and Xbox - Ensures we are looking in the game's folder.
+            String path = StorageContainer.TitleLocation + "\\" + filename;
+            return File.ReadAllText(path);
+            /*
+            try
+            {
+                String text = "";
+                StreamReader streamReader = new StreamReader(path);
+                String line;
+
+                while ((line = streamReader.ReadLine()) != null)
+                {
+                    text += line;
+                }
+
+                streamReader.Close();
+                return line;
+            }
+            catch (Exception e)
+            {
+                // Do things here incase it can't read the file
+                Console.WriteLine("File Exception: " + e);
+                return "";
+            }
+             */
+        }
+        
+        private List<Event> ParseEvents(ArrayList events)
+        {
+            List<Event> evs = new List<Event>();
+            foreach (Hashtable ev in events)
+            {
+                Event e = new Event();
+                e.Type = Event.EventTypeForString((string)ev["type"]);
+                // TODO: Parse this to an object e.CollisionTarget = ev["collision-target"];
+                e.DisplayName = (string) ev["display-name"];
+                e.Actions = ParseActions((ArrayList)ev["actions"]);
+            }
+            return evs;
+        }
+
+        private List<EventAction> ParseActions(ArrayList actions)
+        {
+            List<EventAction> acts = new List<EventAction>();
+            foreach (Hashtable ac in actions)
+            {
+                EventAction a = new EventAction();
+                if (!ac.ContainsKey("receiver") || !ac.ContainsKey("property") || !ac.ContainsKey("type")
+                    || !ac.ContainsKey("value"))
+                {
+                    Console.WriteLine("Action must have all required properties.");
+                }
+                // TODO: Parse this to an object a.Receiver = ac["receiver"]; 
+                a.Property = (string)ac["property"];
+                a.Type = EventAction.ActionTypeForString((string)ac["type"]);
+                a.Value = (string)ac["value"];
+
+                if(ac.ContainsKey("animated"))
+                    a.Animated = (bool) ac["animated"];
+                if(ac.ContainsKey("animation-duration"))
+                    a.AnimationDuration = (float) ac["animation-duration"];
+                if(ac.ContainsKey("delay"))
+                    a.Delay = (float) ac["delay"];
+                if(ac.ContainsKey("repeats"))
+                    a.Repeats = (bool) ac["repeats"];
+                if(ac.ContainsKey("repeat-delay"))
+                    a.RepeatDelay = (float) ac["repeat-delay"];
+                
+            }
+            return acts;
         }
 
         /// <summary>

@@ -70,23 +70,23 @@ namespace Spectrum.Model
         }
 
         // class AnimatedTexture
-        public void DrawFrame(SpriteBatch Batch, Vector2 screenpos, SpriteEffects drawEffects)
+        public void DrawFrame(SpriteBatch Batch, Vector2 screenpos, Color tint, SpriteEffects drawEffects)
         {
             if (Paused)
             {
                 Frame = 1;
             }
-            DrawFrame(Batch, Frame, screenpos, drawEffects);
+            DrawFrame(Batch, Frame, screenpos, tint, drawEffects);
 
         }
 
-        public void DrawFrame(SpriteBatch Batch, int Frame, Vector2 screenpos, SpriteEffects drawEffects)
+        public void DrawFrame(SpriteBatch Batch, int Frame, Vector2 screenpos, Color tint, SpriteEffects drawEffects)
         {
 
             int FrameWidth = myTexture.Width / framecount;
             Rectangle sourcerect = new Rectangle(FrameWidth * Frame, 0,
             FrameWidth, myTexture.Height);
-            Batch.Draw(myTexture, screenpos, sourcerect, Color.White,
+            Batch.Draw(myTexture, screenpos, sourcerect, tint,
             Rotation, Origin, Scale, drawEffects, Depth);
 
         }

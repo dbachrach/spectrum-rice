@@ -84,7 +84,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Action.cs" />
+    <Compile Include="Model\EventAction.cs" />
     <Compile Include="Model\AnimatedTexture.cs" />
     <Compile Include="Model\JSON.cs" />
     <Compile Include="Model\Polygon.cs" />
@@ -103,9 +103,14 @@
     <Compile Include="Game1.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="demoLevel.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="demo.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
-    <None Include="Model\demoLevel.json" />
   </ItemGroup>
   <ItemGroup>
     <NestedContentProject Include="Content\Content.contentproj">
