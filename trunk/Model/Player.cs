@@ -37,7 +37,6 @@ namespace Spectrum.Model
         {
             Id = -1;
             ImageName = "dude";
-            Position = new Vector2(50, 300);
             TimesDied = 0;
             PlayTime = TimeSpan.Zero;
             Possession = null;
@@ -58,6 +57,7 @@ namespace Spectrum.Model
             KeyboardState aCurrentKeyboardState = Keyboard.GetState();
             UpdateMovement(aCurrentKeyboardState);
             UpdateJump(aCurrentKeyboardState);
+            UpdateColor(aCurrentKeyboardState);
             PreviousKeyboardState = aCurrentKeyboardState;
             base.Update(theGameTime);
         }
@@ -113,6 +113,18 @@ namespace Spectrum.Model
                     v.Y = 0;
                     Velocity = v;
                 }
+            }
+        }
+
+        private void UpdateColor(KeyboardState aCurrentKeyboardState)
+        {
+            if (aCurrentKeyboardState.IsKeyDown(Keys.A) == true && PreviousKeyboardState.IsKeyDown(Keys.A) == false)
+            {
+                Container.CurrentColor = Container.CurrentColor.ForwardColor();
+            }
+            else if (aCurrentKeyboardState.IsKeyDown(Keys.Z) == true && PreviousKeyboardState.IsKeyDown(Keys.Z) == false)
+            {
+                Container.CurrentColor = Container.CurrentColor.BackwardColor();
             }
         }
 

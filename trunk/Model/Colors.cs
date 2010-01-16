@@ -2,6 +2,15 @@
 using System.Collections;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.GamerServices;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Net;
+using Microsoft.Xna.Framework.Storage;
 
 namespace Spectrum.Model
 {
@@ -18,7 +27,7 @@ namespace Spectrum.Model
     class Colors
     {
         // beware! fairly internal
-        public int Bitstring { get; set; }
+        public int Bitstring { get; set;}
 
 		/* Convenience Color Object */
 
@@ -118,9 +127,76 @@ namespace Spectrum.Model
             Bitstring |= (int) raw;
         }
 
+        public Colors ForwardColor()
+        {
+            if (!isSingularColor())
+            {
+                return RedColor;
+            }
+            else
+            {
+                int next = (int)Bitstring << 1;
+                if (next > 1 << 5)
+                {
+                    next = 1;
+                }
+                return new Colors(next);
+            }
+        }
+
+        public Colors BackwardColor()
+        {
+            if (!isSingularColor())
+            {
+                return RedColor;
+            }
+            else
+            {
+                int next = (int)Bitstring >> 1;
+                if (next <= 0)
+                {
+                    next = 1 << 5;
+                }
+                return new Colors(next);
+            }
+        }
+
         public override string ToString()
         {
             return string.Format("(Color {0})", Convert.ToString(this.Bitstring,2));
+        }
+
+        public Color SystemColor()
+        {
+            if (!isSingularColor())
+            {
+                return Color.LightPink;
+            }
+            if (Bitstring == (int) RawColor.Red)
+            {
+                return Color.LightPink;
+            }
+            else if (Bitstring == (int)RawColor.Orange)
+            {
+                return Color.Orange;
+            }
+            else if (Bitstring == (int)RawColor.Yellow)
+            {
+                return Color.LightYellow;
+            }
+            else if (Bitstring == (int)RawColor.Green)
+            {
+                return Color.LightGreen;
+            }
+            else if (Bitstring == (int)RawColor.Blue)
+            {
+                return Color.LightBlue;
+            }
+            else if (Bitstring == (int)RawColor.Purple)
+            {
+                return Color.Purple;
+            }
+            return Color.LightPink;
         }
     }
 }

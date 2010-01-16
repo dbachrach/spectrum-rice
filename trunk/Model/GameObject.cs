@@ -81,7 +81,7 @@ namespace Spectrum.Model
         public void Draw(SpriteBatch spriteBatch)
         {
             if(currentlyVisible()) {
-                spriteBatch.Draw(Texture, Position, Color.Green);
+                spriteBatch.Draw(Texture, Position, Container.CurrentColor.SystemColor() /*TODO: Should be Color.White when we have custom images for each color */);
             }
         }
 

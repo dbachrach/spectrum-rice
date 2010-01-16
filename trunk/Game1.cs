@@ -40,7 +40,7 @@ namespace Spectrum
         {
 
 			//string levelJSON = "[{\"object\" : \"level\",\"id\" : 1,\"number\" : 1,\"name\" : \"Demo Level\",\"width\" : 500,\"height\" : 500,\"allowed-colors\" : [\"all\"]}{\"object\" : \"game-object\"\"id\" : 2,\"position\" : [0, 0],\"image\" : \"dude\", \"colors\" : [\"blue\"]}]";
-              string levelJSON = "[{\"object\" : \"level\",\"id\" : 1,\"number\" : 1,\"name\" : \"Demo Level\",\"width\" : 500,\"height\" : 500,\"allowed-colors\" : [\"all\"]}{\"object\" : \"block\",\"id\" : 2,\"position\" : [275, 350],\"colors\" : [\"green\"]}]";
+            string levelJSON = "[{\"object\" : \"level\",\"id\" : 1,\"number\" : 1,\"name\" : \"Demo Level\",\"width\" : 500,\"height\" : 500,\"allowed-colors\" : [\"all\"], \"start-position\" : [50,300] }{\"object\" : \"block\",\"id\" : 2,\"position\" : [275, 350],\"colors\" : [\"orange\"]}{\"object\" : \"block\",\"id\" : 3,\"position\" : [325, 350],\"colors\" : [\"blue\"]}]";
 
             ArrayList levelData = (ArrayList) JSON.JsonDecode(levelJSON);
 			
@@ -62,6 +62,10 @@ namespace Spectrum
 	 				level.Name = (string) obj["name"];
 	 				level.Width = (double) obj["width"];
 	 				level.Height = (double) obj["height"];
+
+                    ArrayList positionJson = (ArrayList)obj["start-position"];
+                    level.StartPosition = new Vector2((float)((double)positionJson[0]), (float)((double)positionJson[1]));
+
 	 				//level.Background = obj["background"]; /* TODO Turn this into a Textur2D */
                     level.AllowedColors = Colors.ColorsFromJsonArray((ArrayList) obj["allowed-colors"]);
                     level.CurrentColor = Colors.GreenColor;
@@ -140,6 +144,7 @@ namespace Spectrum
             /* Create Player */
             Player player = new Player();
             player.Container = level;
+            player.Position = level.StartPosition;
             level.AddGameObject(player);
             
             
@@ -192,7 +197,7 @@ namespace Spectrum
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.White);
+            GraphicsDevice.Clear(level.CurrentColor.SystemColor());
 
             spriteBatch.Begin();
             level.Draw(spriteBatch);
