@@ -72,7 +72,10 @@ namespace Spectrum.Model
         // class AnimatedTexture
         public void DrawFrame(SpriteBatch Batch, Vector2 screenpos, SpriteEffects drawEffects)
         {
-
+            if (Paused)
+            {
+                Frame = 1;
+            }
             DrawFrame(Batch, Frame, screenpos, drawEffects);
 
         }
