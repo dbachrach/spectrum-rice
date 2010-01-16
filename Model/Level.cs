@@ -40,6 +40,8 @@ namespace Spectrum.Model
         // the color the user is viewing the level at the moment
         public Colors CurrentColor { get; set; }
 
+        public Vector2 StartPosition { get; set; }
+
         // the colors this level can be viewed in
         public Colors AllowedColors { get; set; }
 
