@@ -1,7 +1,7 @@
 ﻿[
 /* 1 Level */
 {
-	"object" : "level"
+	"object" : "level",
 	"id" : 1,
 	"number" : 1,
 	"name" : "Demo Level",
@@ -12,7 +12,7 @@
 
 /* 2 Blue Block A */
 {
-	"object" : "block"
+	"object" : "block",
 	"id" : 2,
 	"position" : [0, 0 /* TODO */],
 	"colors" : ["blue"],
@@ -21,7 +21,7 @@
 
 /* 3 Yellow Block A */
 {
-	"object" : "block"
+	"object" : "block",
 	"id" : 3,
 	"position" : [0, 0 /* TODO */],
 	"colors" : ["yellow"],
@@ -30,7 +30,7 @@
 
 /* 4 Yellow Block B */
 {
-	"object" : "block"
+	"object" : "block",
 	"id" : 4,
 	"position" : [0, 0 /* TODO */],
 	"colors" : ["yellow"],
@@ -39,7 +39,7 @@
 
 /* 5 Red Block */
 {
-	"object" : "block"
+	"object" : "block",
 	"id" : 5,
 	"position" : [0, 0 /* TODO */],
 	"colors" : ["red"],
@@ -48,7 +48,7 @@
 
 /* 6 Blue Block B*/
 {
-	"object" : "block"
+	"object" : "block",
 	"id" : 6,
 	"position" : [0, 0 /* TODO */],
 	"colors" : ["red"],
@@ -57,7 +57,7 @@
 
 /* 7 Door*/
 {
-	"object" : "door"
+	"object" : "door",
 	"id" : 7,
 	"position" : [0, 0 /* TODO */],
 	"colors" : ["all"]
@@ -65,7 +65,7 @@
 
 /* 8 Solid Ground */
 {
-	"object" : "solid-ground"
+	"object" : "solid-ground",
 	"id" : 8,
 	"position" : [0, 0],
 	"polygon" : [ [0,0] , [500, 0] , [500, 50] , [0,50] ]
@@ -73,7 +73,7 @@
 
 /* 9 Green Platform A */
 {
-	"object" : "platform"
+	"object" : "platform",
 	"id" : 9,
 	"colors" : ["green"],
 	"position" : [0, 0] /* TODO */ ,
@@ -84,7 +84,7 @@
 
 /* 10 Orange Platform */
 {
-	"object" : "platform"
+	"object" : "platform",
 	"id" : 10,
 	"colors" : ["orange"],
 	"position" : [0, 0] /* TODO */ ,
@@ -95,7 +95,7 @@
 
 /* 11 Green Platform B */
 {
-	"object" : "platform"
+	"object" : "platform",
 	"id" : 11,
 	"colors" : ["green"],
 	"position" : [0, 0] /* TODO */ ,
@@ -106,7 +106,7 @@
 
 /* 12 Green Switch */
 {
-	"object" : "game-object"
+	"object" : "game-object",
 	"id" : 12,
 	"colors" : ["green"],
 	"position" : [0, 0] /* TODO */ ,
@@ -128,7 +128,7 @@
 
 /* 13 Orange Switch */
 {
-	"object" : "game-object"
+	"object" : "game-object",
 	"id" : 13,
 	"colors" : ["orange"],
 	"position" : [0, 0] /* TODO */ ,

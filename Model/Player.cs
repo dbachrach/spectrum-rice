@@ -14,6 +14,8 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace Spectrum.Model
 {
+    enum PlayerState { Walking, Jumping }
+
     class Player : GameObject
     {
         public int TimesDied { get; set; }
@@ -24,6 +26,11 @@ namespace Spectrum.Model
 
         private KeyboardState PreviousKeyboardState { get; set; }
 
+        private PlayerState State { get; set; }
+
+        private Vector2 StartingPosition { get; set; }
+
+        private const float MaxJumpHeight = 75.0f;
 
         public Player()
             : base()
@@ -34,6 +41,7 @@ namespace Spectrum.Model
             TimesDied = 0;
             PlayTime = TimeSpan.Zero;
             Possession = null;
+            State = PlayerState.Walking;
         }
 
         public Player(double id, int timesDied, TimeSpan playTime, GameObject possession, Polygon polygon, string imageName)
@@ -42,27 +50,81 @@ namespace Spectrum.Model
             TimesDied = timesDied;
             PlayTime = playTime;
             Possession = possession;
+            State = PlayerState.Walking;
         }
 
-        public void Update(GameTime theGameTime)
+        public override void Update(GameTime theGameTime)
         {
             KeyboardState aCurrentKeyboardState = Keyboard.GetState();
             UpdateMovement(aCurrentKeyboardState);
+            UpdateJump(aCurrentKeyboardState);
             PreviousKeyboardState = aCurrentKeyboardState;
             base.Update(theGameTime);
         }
 
         private void UpdateMovement(KeyboardState aCurrentKeyboardState)
         {
-            if (aCurrentKeyboardState.IsKeyDown(Keys.Left) == true)
+            Vector2 v1 = Velocity;
+            v1.X = 0;
+            Velocity = v1;
+
+            if (Keyboard.GetState().IsKeyDown(Keys.Left) == true)
             {
                 Vector2 v = Velocity;
-                v.X = -5;
+                v.X = -3;
+                Velocity = v;
             }
             else if (aCurrentKeyboardState.IsKeyDown(Keys.Right) == true)
             {
                 Vector2 v = Velocity;
-                v.X = 5;
+                v.X = 3;
+                Velocity = v;
+            }
+        }
+
+        private void UpdateJump(KeyboardState aCurrentKeyboardState)
+        {
+            if (State == PlayerState.Walking)
+            {
+                if (aCurrentKeyboardState.IsKeyDown(Keys.Space) == true && PreviousKeyboardState.IsKeyDown(Keys.Space) == false)
+                {
+                    Jump();
+                }
+            }
+
+            if (State == PlayerState.Jumping)
+            {
+                if (StartingPosition.Y - Position.Y > MaxJumpHeight)
+                {
+                    Vector2 v = Velocity;
+                    v.Y = 3;
+                    Velocity = v;
+                }
+
+                if (Position.Y > StartingPosition.Y)
+                {
+                    Vector2 p = Position;
+                    p.Y = StartingPosition.Y;
+                    Position = p;
+
+                    State = PlayerState.Walking;
+
+                    Vector2 v = Velocity;
+                    v.Y = 0;
+                    Velocity = v;
+                }
+            }
+        }
+
+        private void Jump()
+        {
+            if (State != PlayerState.Jumping)
+            {
+                State = PlayerState.Jumping;
+                StartingPosition = Position;
+                Vector2 v = Velocity;
+                v.Y = -3;
+                Velocity = v;
             }
         }
     }

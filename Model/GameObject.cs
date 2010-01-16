@@ -80,13 +80,15 @@ namespace Spectrum.Model
         //Draw the sprite to the screen
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(Texture, Position, Color.White);
+            if(currentlyVisible()) {
+                spriteBatch.Draw(Texture, Position, Color.Green);
+            }
         }
 
         //Update the Sprite and change it's position based on the passed in speed, direction and elapsed time.
-        public void Update(GameTime theGameTime)
+        public virtual void Update(GameTime theGameTime)
         {
-            Position += Velocity * (float)theGameTime.ElapsedGameTime.TotalSeconds;
+            Position += Velocity /** (float)theGameTime.ElapsedGameTime.TotalSeconds*/;
         }
 
 
