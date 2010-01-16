@@ -36,11 +36,14 @@ namespace Spectrum.Model
             : base()
         {
             Id = -1;
-            ImageName = "dude";
+            ImageName = "PlayerRun";
             TimesDied = 0;
             PlayTime = TimeSpan.Zero;
             Possession = null;
             State = PlayerState.Walking;
+            Animated = true;
+            FrameCount = 4;
+            FramesPerSec = 12;
         }
 
         public override void Update(GameTime theGameTime)

@@ -28,3 +28,4 @@ C:\Users\Administrator\Documents\spectrum-rice\obj\x86\Debug\Microsoft.Xna.Frame
 C:\Users\Administrator\Documents\spectrum-rice\obj\x86\Debug\Spectrum.exe
 C:\Users\Administrator\Documents\spectrum-rice\obj\x86\Debug\Spectrum.pdb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\block.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\PlayerRun.xnb
