@@ -30,7 +30,7 @@ namespace Spectrum.Model
 
         private Vector2 StartingPosition { get; set; }
 
-        private const float MaxJumpHeight = 75.0f;
+        private const float MaxJumpHeight = 90.0f;
 
         public Player()
             : base()
@@ -43,21 +43,13 @@ namespace Spectrum.Model
             State = PlayerState.Walking;
         }
 
-        public Player(double id, int timesDied, TimeSpan playTime, GameObject possession, Polygon polygon, string imageName)
-            : base(id, Colors.NoColors, polygon, imageName, new Vector2(0,0), true, new Vector2(0,0), null, null, false, false, null, null, true, null)
-        {
-            TimesDied = timesDied;
-            PlayTime = playTime;
-            Possession = possession;
-            State = PlayerState.Walking;
-        }
-
         public override void Update(GameTime theGameTime)
         {
             KeyboardState aCurrentKeyboardState = Keyboard.GetState();
             UpdateMovement(aCurrentKeyboardState);
             UpdateJump(aCurrentKeyboardState);
             UpdateColor(aCurrentKeyboardState);
+            UpdatePickup(aCurrentKeyboardState);
             PreviousKeyboardState = aCurrentKeyboardState;
             base.Update(theGameTime);
         }
@@ -128,6 +120,15 @@ namespace Spectrum.Model
             else if (aCurrentKeyboardState.IsKeyDown(Keys.Z) == true && PreviousKeyboardState.IsKeyDown(Keys.Z) == false)
             {
                 Container.CurrentColor = Container.CurrentColor.BackwardColor();
+            }
+        }
+
+        private void UpdatePickup(KeyboardState aCurrentKeyboardState)
+        {
+            if (aCurrentKeyboardState.IsKeyDown(Keys.X) == true && PreviousKeyboardState.IsKeyDown(Keys.X) == false)
+            {
+                /* TODO: find object near that is pickupable and pick it up. */
+                Possession = null;
             }
         }
 

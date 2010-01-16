@@ -59,18 +59,6 @@ namespace Spectrum.Model
 			AllowedColors = Colors.AllColors;
             GameObjects = new List<GameObject>();
 		}
-        public Level(double id, double number, string name, double width, double height, Colors allowedColors)
-        {
-            Id = id;
-            Number = number;
-            Name = name;
-            Width = width;
-            Height = height;
-            AllowedColors = allowedColors;
-
-            Completed = false;
-            CurrentColor = Colors.NoColors;
-        }
 
         public void AddGameObject(GameObject obj)
         {

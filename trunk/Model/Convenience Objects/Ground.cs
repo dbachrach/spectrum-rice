@@ -20,10 +20,5 @@ namespace Spectrum.Model
 			AffectedByGravity = false;
 			Pickupable = false;
 		}
-		/* Convenience to create an object with Affected By Gravity = NO, Pickupable = NO */
-        public Ground(double id, Colors viewableColors, Polygon polygon, string imageName, Vector2 position, Vector2 velocity, List<GameObject> combineObjects, List<GameObject> combinableWith, bool inactive, Texture2D inactiveImage, List<Event> events, bool existsWhenNotViewed, Level container)
-           : base(id, viewableColors, polygon, imageName, position, false, velocity, combineObjects, combinableWith, false, inactive, inactiveImage, events, existsWhenNotViewed, container)
-        {
-		}
     }
 }

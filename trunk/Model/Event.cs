@@ -23,12 +23,9 @@ namespace Spectrum.Model
         public GameObject CollisionTarget { get; set; }
 		public List<Action> Actions { get; set; }
 
-        public Event(EventType type, string displayName, GameObject collisionTarget, List<Action> actions)
+        public Event()
         {
-            Type = type;
-			DisplayName = displayName;
-            CollisionTarget = collisionTarget;
-			Actions = actions;
+            DisplayName = "";
         }
     }
 }

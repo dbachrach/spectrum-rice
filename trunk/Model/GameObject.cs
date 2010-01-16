@@ -48,26 +48,6 @@ namespace Spectrum.Model
 			ExistsWhenNotViewed = true;
             DrawEffects = SpriteEffects.None;
 		}
-        public GameObject(double id, Colors viewableColors, Polygon polygon, string imageName, 
-            Vector2 position, bool affectedByGravity, Vector2 velocity, List<GameObject> combineObjects, 
-            List<GameObject> combinableWith, bool pickupable, bool inactive, Texture2D inactiveImage, 
-            List<Event> events, bool existsWhenNotViewed, Level container) {
-			Id = id;
-			ViewableColors = viewableColors;
-			Polygon = polygon;
-			ImageName = imageName;
-			Position = position;
-			AffectedByGravity = affectedByGravity;
-			Velocity = velocity;
-			CombineObjects = combineObjects;
-			CombinableWith = combinableWith;
-			Pickupable = pickupable;
-			Inactive = inactive;
-			InactiveImage = inactiveImage;
-			Events = events;
-			ExistsWhenNotViewed = existsWhenNotViewed;
-			Container = container;
-		}
 
         public bool currentlyVisible()
         {
