@@ -36,18 +36,5 @@ namespace Spectrum.Model
 			Repeats = false;
 			RepeatDelay = 0;
 		}
-		
-        public Action(GameObject receiver, string property, ActionType type, string value, bool animated, float animationDuration, float delay, bool repeats, float repeatDelay)
-        {
-            Receiver = receiver;
-			Property = property;
-			Type = type;
-			Value = value;
-			Animated = animated;
-			AnimationDuration = animationDuration;
-			Delay = delay;
-			Repeats = repeats;
-			RepeatDelay = repeatDelay;
-		}
     }
 }
