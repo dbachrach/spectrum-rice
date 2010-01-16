@@ -14,7 +14,7 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace Spectrum.Model
 {
-    enum PlayerState { Walking, Jumping }
+    enum PlayerState { None, Walking, Jumping }
 
     class Player : GameObject
     {
@@ -44,6 +44,7 @@ namespace Spectrum.Model
             Animated = true;
             FrameCount = 4;
             FramesPerSec = 12;
+            State = PlayerState.None;
         }
 
         public override void Update(GameTime theGameTime)
@@ -63,26 +64,46 @@ namespace Spectrum.Model
             v1.X = 0;
             Velocity = v1;
 
-            DrawEffects = SpriteEffects.None;
-
+            AnimTexture.Pause();
             if (Keyboard.GetState().IsKeyDown(Keys.Left) == true)
             {
                 Vector2 v = Velocity;
                 v.X = -3;
                 Velocity = v;
-                DrawEffects = SpriteEffects.FlipHorizontally;
+                DirectionFacing = Direction.Left;
+
+                if (State == PlayerState.Jumping)
+                {
+                    AnimTexture.Pause();
+                }
+                else
+                {
+                    State = PlayerState.Walking;
+                    AnimTexture.Play();
+                }
             }
             else if (aCurrentKeyboardState.IsKeyDown(Keys.Right) == true)
             {
                 Vector2 v = Velocity;
                 v.X = 3;
                 Velocity = v;
+                DirectionFacing = Direction.Right;
+
+                if (State == PlayerState.Jumping)
+                {
+                    AnimTexture.Pause();
+                }
+                else
+                {
+                    State = PlayerState.Walking;
+                    AnimTexture.Play();
+                }
             }
         }
 
         private void UpdateJump(KeyboardState aCurrentKeyboardState)
         {
-            if (State == PlayerState.Walking)
+            if (State != PlayerState.Jumping)
             {
                 if (aCurrentKeyboardState.IsKeyDown(Keys.Space) == true && PreviousKeyboardState.IsKeyDown(Keys.Space) == false)
                 {
@@ -105,7 +126,7 @@ namespace Spectrum.Model
                     p.Y = StartingPosition.Y;
                     Position = p;
 
-                    State = PlayerState.Walking;
+                    State = PlayerState.None;
 
                     Vector2 v = Velocity;
                     v.Y = 0;

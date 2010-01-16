@@ -14,6 +14,8 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace Spectrum.Model
 {
+    enum Direction { Up, Down, Left, Right }
+
     class GameObject
     {
         public double Id { get; set; }
@@ -31,13 +33,13 @@ namespace Spectrum.Model
         public List<Event> Events { get; set; }
         public bool ExistsWhenNotViewed { get; set; }
         public Level Container { get; set; }
-        public SpriteEffects DrawEffects { get; set; }
         public bool Animated { get; set; }
         public int FrameCount { get; set; }
         public int FramesPerSec { get; set; }
+        public Direction DirectionFacing { get; set; }
 
-        private Texture2D Texture { get; set; }
-        private AnimatedTexture AnimTexture;
+        protected Texture2D Texture { get; set; }
+        protected AnimatedTexture AnimTexture;
 
 		/* Default Constructor */
 		public GameObject() {
@@ -49,8 +51,8 @@ namespace Spectrum.Model
 			Pickupable = false;
 			Inactive = false;
 			ExistsWhenNotViewed = true;
-            DrawEffects = SpriteEffects.None;
             Animated = false;
+            DirectionFacing = Direction.Right;
 		}
 
         public bool currentlyVisible()
@@ -65,6 +67,7 @@ namespace Spectrum.Model
             {
                 AnimTexture = new AnimatedTexture(Vector2.Zero, 0.0f, 1.0f, .5f);
                 AnimTexture.Load(theContentManager, ImageName, FrameCount, FramesPerSec);
+                AnimTexture.Pause();
             }
             else
             {
@@ -78,11 +81,11 @@ namespace Spectrum.Model
             if(currentlyVisible()) {
                 if (Animated)
                 {
-                    AnimTexture.DrawFrame(spriteBatch, Position, DrawEffects);
+                    AnimTexture.DrawFrame(spriteBatch, Position, DrawEffects());
                 }
                 else
                 {
-                    spriteBatch.Draw(Texture, Position, null, Container.CurrentColor.SystemColor() /*TODO: Should be Color.White when we have custom images for each color */, 0, Vector2.Zero, 1.0f, DrawEffects, 0.0f);
+                    spriteBatch.Draw(Texture, Position, null, Container.CurrentColor.SystemColor() /*TODO: Should be Color.White when we have custom images for each color */, 0, Vector2.Zero, 1.0f, DrawEffects(), 0.0f);
                 }
                 
             }
@@ -100,6 +103,18 @@ namespace Spectrum.Model
             }
         }
 
+        // Returns a SpriteEffects value based on the DirectionFacing property of this GameObject
+        public SpriteEffects DrawEffects()
+        {
+            SpriteEffects effects = SpriteEffects.None;
+
+            if (DirectionFacing == Direction.Left)
+            {
+                effects = SpriteEffects.FlipHorizontally;
+            }
+
+            return effects;
+        }
 
     }
 }
