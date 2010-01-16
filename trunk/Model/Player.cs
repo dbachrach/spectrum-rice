@@ -68,11 +68,14 @@ namespace Spectrum.Model
             v1.X = 0;
             Velocity = v1;
 
+            DrawEffects = SpriteEffects.None;
+
             if (Keyboard.GetState().IsKeyDown(Keys.Left) == true)
             {
                 Vector2 v = Velocity;
                 v.X = -3;
                 Velocity = v;
+                DrawEffects = SpriteEffects.FlipHorizontally;
             }
             else if (aCurrentKeyboardState.IsKeyDown(Keys.Right) == true)
             {
