@@ -32,9 +32,12 @@ namespace Spectrum.Model
         public bool ExistsWhenNotViewed { get; set; }
         public Level Container { get; set; }
         public SpriteEffects DrawEffects { get; set; }
-       
+        public bool Animated { get; set; }
+        public int FrameCount { get; set; }
+        public int FramesPerSec { get; set; }
 
         private Texture2D Texture { get; set; }
+        private AnimatedTexture AnimTexture;
 
 		/* Default Constructor */
 		public GameObject() {
@@ -47,6 +50,7 @@ namespace Spectrum.Model
 			Inactive = false;
 			ExistsWhenNotViewed = true;
             DrawEffects = SpriteEffects.None;
+            Animated = false;
 		}
 
         public bool currentlyVisible()
@@ -57,14 +61,30 @@ namespace Spectrum.Model
         //Load the texture for the sprite using the Content Pipeline
         public void LoadContent(ContentManager theContentManager)
         {
-            Texture = theContentManager.Load<Texture2D>(ImageName);
+            if (Animated)
+            {
+                AnimTexture = new AnimatedTexture(Vector2.Zero, 0.0f, 1.0f, .5f);
+                AnimTexture.Load(theContentManager, ImageName, FrameCount, FramesPerSec);
+            }
+            else
+            {
+                Texture = theContentManager.Load<Texture2D>(ImageName);
+            }
         }
 
         //Draw the sprite to the screen
         public void Draw(SpriteBatch spriteBatch)
         {
             if(currentlyVisible()) {
-                spriteBatch.Draw(Texture, Position, null, Container.CurrentColor.SystemColor() /*TODO: Should be Color.White when we have custom images for each color */, 0, Vector2.Zero, 1.0f, DrawEffects, 0.0f);
+                if (Animated)
+                {
+                    AnimTexture.DrawFrame(spriteBatch, Position, DrawEffects);
+                }
+                else
+                {
+                    spriteBatch.Draw(Texture, Position, null, Container.CurrentColor.SystemColor() /*TODO: Should be Color.White when we have custom images for each color */, 0, Vector2.Zero, 1.0f, DrawEffects, 0.0f);
+                }
+                
             }
         }
 
@@ -72,6 +92,12 @@ namespace Spectrum.Model
         public virtual void Update(GameTime theGameTime)
         {
             Position += Velocity /** (float)theGameTime.ElapsedGameTime.TotalSeconds*/;
+
+            if (Animated)
+            {
+                float elapsed = (float)theGameTime.ElapsedGameTime.TotalSeconds;
+                AnimTexture.UpdateFrame(elapsed);
+            }
         }
 
 

@@ -28,6 +28,15 @@
       <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\block.xnb</Output>
       <Time>2010-01-15T23:34:09.2763671-06:00</Time>
     </Item>
+    <Item>
+      <Source>PlayerRun.png</Source>
+      <Name>PlayerRun</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\PlayerRun.xnb</Output>
+      <Time>2010-01-16T11:52:17-06:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
