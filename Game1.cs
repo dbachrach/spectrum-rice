@@ -148,7 +148,7 @@ namespace Spectrum
             Player player = new Player();
             player.Container = level;
             player.Position = level.StartPosition;
-            level.AddGameObject(player);
+            level.AddPlayer(player);
             
             
 

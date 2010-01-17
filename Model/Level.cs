@@ -50,7 +50,7 @@ namespace Spectrum.Model
 
         public Vector2 TopCorner = new Vector2(0, 0);
 
-        
+        private Player player;
 
 		/* Default Constructor */
 		public Level() {
@@ -63,6 +63,11 @@ namespace Spectrum.Model
         public void AddGameObject(GameObject obj)
         {
             GameObjects.Add(obj);
+        }
+        public void AddPlayer(Player p)
+        {
+            player = p;
+            AddGameObject(p);
         }
 
         // loads the background image from the specified file
@@ -78,10 +83,26 @@ namespace Spectrum.Model
 
         public void Update(GameTime gameTime)
         {
+            /* TODO: Modify this colision stuff to use polygons */
+            //Rectangle playerRectangle = new Rectangle((int)player.Position.X, (int)player.Position.Y, player.Texture.Width, player.Texture.Height);
+
             foreach (GameObject obj in GameObjects)
             {
                 obj.Update(gameTime);
+
+                /* Check for collisions with player to an obj */
+                //if (obj != player)
+                //{
+                //    Rectangle objRectangle = new Rectangle((int)obj.Position.X, (int)obj.Position.Y, obj.Texture.Width, obj.Texture.Height);
+                //    if (playerRectangle.Intersects(objRectangle) && player.currentlyVisible() && obj.currentlyVisible())
+                //    {
+                //        
+                //    }
+                //}
             }
+
+            
+          
         }
 
         // draws the background image
