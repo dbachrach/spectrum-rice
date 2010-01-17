@@ -240,7 +240,7 @@ namespace Spectrum
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            level.LoadContent(this.Content);
+            level.LoadContent(this.Content, GraphicsDevice);
         }
 
         /// <summary>

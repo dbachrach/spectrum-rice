@@ -43,7 +43,7 @@ namespace Spectrum.Model
             State = PlayerState.Walking;
             Animated = true;
             FrameCount = 4;
-            FramesPerSec = 12;
+            FramesPerSec = 8;
             State = PlayerState.None;
         }
 

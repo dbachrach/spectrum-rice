@@ -66,13 +66,13 @@ namespace Spectrum.Model
         }
 
         // loads the background image from the specified file
-        public void LoadContent(ContentManager manager)
+        public void LoadContent(ContentManager manager, GraphicsDevice graphicsDevice)
         {
             //Background = manager.Load<Texture2D>("sunset");
 
             foreach (GameObject obj in GameObjects)
             {
-                obj.LoadContent(manager);
+                obj.LoadContent(manager, graphicsDevice);
             }
         }
 

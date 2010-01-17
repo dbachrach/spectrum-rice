@@ -61,13 +61,17 @@ namespace Spectrum.Model
         }
 
         //Load the texture for the sprite using the Content Pipeline
-        public void LoadContent(ContentManager theContentManager)
+        public void LoadContent(ContentManager theContentManager, GraphicsDevice graphicsDevice)
         {
             if (Animated)
             {
                 AnimTexture = new AnimatedTexture(Vector2.Zero, 0.0f, 1.0f, .5f);
                 AnimTexture.Load(theContentManager, ImageName, FrameCount, FramesPerSec);
                 AnimTexture.Pause();
+            }
+            else if (ImageName == null || ImageName.Equals(""))
+            {
+                Texture = CreateRectangle(800, 120, graphicsDevice);
             }
             else
             {
@@ -114,6 +118,18 @@ namespace Spectrum.Model
             }
 
             return effects;
+        }
+
+        private Texture2D CreateRectangle(int width, int height, GraphicsDevice graphicsDevice)
+        {
+            Texture2D rectangleTexture = new Texture2D(graphicsDevice, width, height, 1, TextureUsage.None, SurfaceFormat.Color);// create the rectangle texture, ,but it will have no color! lets fix that
+            Color[] color = new Color[width * height];//set the color to the amount of pixels in the textures
+            for (int i = 0; i < color.Length; i++)//loop through all the colors setting them to whatever values we want
+            {
+                color[i] = new Color(0, 0, 0, 255);
+            }
+            rectangleTexture.SetData(color);//set the color data on the texture
+            return rectangleTexture;//return the texture
         }
 
     }
