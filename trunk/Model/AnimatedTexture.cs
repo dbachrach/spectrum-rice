@@ -84,11 +84,15 @@ namespace Spectrum.Model
         {
 
             int FrameWidth = myTexture.Width / framecount;
-            Rectangle sourcerect = new Rectangle(FrameWidth * Frame, 0,
-            FrameWidth, myTexture.Height);
-            Batch.Draw(myTexture, screenpos, sourcerect, tint,
-            Rotation, Origin, Scale, drawEffects, Depth);
+            Rectangle sourcerect = new Rectangle(FrameWidth * Frame, 0, FrameWidth, myTexture.Height);
+            Batch.Draw(myTexture, screenpos, sourcerect, tint,Rotation, Origin, Scale, drawEffects, Depth);
 
+        }
+
+        public Vector2 TextureSize()
+        {
+            int FrameWidth = myTexture.Width / framecount;
+            return new Vector2(FrameWidth, myTexture.Height);
         }
 
         public bool IsPaused

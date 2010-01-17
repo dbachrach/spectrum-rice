@@ -50,8 +50,11 @@ namespace Spectrum.Model
         public override void Update(GameTime theGameTime)
         {
             KeyboardState aCurrentKeyboardState = Keyboard.GetState();
+
+
             UpdateMovement(aCurrentKeyboardState);
             UpdateJump(aCurrentKeyboardState);
+
             UpdateColor(aCurrentKeyboardState);
             UpdatePickup(aCurrentKeyboardState);
             PreviousKeyboardState = aCurrentKeyboardState;
@@ -63,10 +66,18 @@ namespace Spectrum.Model
             Vector2 v1 = Velocity;
             v1.X = 0;
             Velocity = v1;
-
             AnimTexture.Pause();
+
+
+
+
             if (Keyboard.GetState().IsKeyDown(Keys.Left) == true)
             {
+                if (CollisionDetect(Direction.Left))
+                {
+                    return;
+                }
+
                 Vector2 v = Velocity;
                 v.X = -3;
                 Velocity = v;
@@ -84,6 +95,11 @@ namespace Spectrum.Model
             }
             else if (aCurrentKeyboardState.IsKeyDown(Keys.Right) == true)
             {
+                if (CollisionDetect(Direction.Right))
+                {
+                    return;
+                }
+
                 Vector2 v = Velocity;
                 v.X = 3;
                 Velocity = v;
@@ -101,6 +117,34 @@ namespace Spectrum.Model
             }
         }
 
+        private bool CollisionDetect(Direction dir)
+        {
+            /* TODO: Modify this colision stuff to use polygons */
+
+            /* TODO: Do we need to check moves 1, 2, and 3. not just 3. In the case that its a very thin wall */
+            int move = 3;
+            if (dir == Direction.Left)
+            {
+                move *= -1;
+            }
+
+            Rectangle playerRectangle = new Rectangle((int)Position.X + move, (int)Position.Y, (int)AnimTexture.TextureSize().X, (int)AnimTexture.TextureSize().Y);
+            foreach (GameObject obj in Container.GameObjects)
+            {
+                /* Check for collisions with player to an obj */
+                if (obj != this)
+                {
+                    Rectangle objRectangle = new Rectangle((int)obj.Position.X, (int)obj.Position.Y, obj.Texture.Width, obj.Texture.Height);
+
+                    if (playerRectangle.Intersects(objRectangle) && this.currentlyVisible() && obj.currentlyVisible())
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
         private void UpdateJump(KeyboardState aCurrentKeyboardState)
         {
             if (State != PlayerState.Jumping)
@@ -113,12 +157,15 @@ namespace Spectrum.Model
 
             if (State == PlayerState.Jumping)
             {
-                if (StartingPosition.Y - Position.Y > MaxJumpHeight)
+                /* Check to see if they've reached the apex of the jump */
+
+                if (StartingPosition.Y - Position.Y > MaxJumpHeight || CollisionDetect(Direction.Up))
                 {
                     Vector2 v = Velocity;
                     v.Y = 3;
                     Velocity = v;
                 }
+                
 
                 if (Position.Y > StartingPosition.Y)
                 {
@@ -131,6 +178,19 @@ namespace Spectrum.Model
                     Vector2 v = Velocity;
                     v.Y = 0;
                     Velocity = v;
+                }
+
+                if (Velocity.Y == 3)
+                {
+                    if (CollisionDetect(Direction.Down))
+                    {
+                        /* All done jumping up and falling down */
+                        Vector2 vel = Velocity;
+                        vel.Y = 0;
+                        Velocity = vel;
+                        State = PlayerState.None;
+                        return;
+                    }
                 }
             }
         }
@@ -160,6 +220,10 @@ namespace Spectrum.Model
         {
             if (State != PlayerState.Jumping)
             {
+                if (CollisionDetect(Direction.Up))
+                {
+                    return;
+                }
                 State = PlayerState.Jumping;
                 StartingPosition = Position;
                 Vector2 v = Velocity;

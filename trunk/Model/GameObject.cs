@@ -38,8 +38,8 @@ namespace Spectrum.Model
         public int FramesPerSec { get; set; }
         public Direction DirectionFacing { get; set; }
 
-        protected Texture2D Texture { get; set; }
-        protected AnimatedTexture AnimTexture;
+        public Texture2D Texture { get; set; }
+        public AnimatedTexture AnimTexture;
 
 		/* Default Constructor */
 		public GameObject() {
