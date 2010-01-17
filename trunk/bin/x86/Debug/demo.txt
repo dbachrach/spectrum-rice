@@ -3,4 +3,9 @@
 {"object" : "block","id" : 3,"position" : [325, 430],"colors" : ["blue"]}
 {"object" : "platform","id" : 4,"colors" : ["green"],"position" : [400, 300],"affected-by-gravity" : false,"exists-when-not-viewed" : false}
 {"object" : "game-object","id" : 5,"colors" : ["green"],"position" : [425, 287],"image" : "switch","affected-by-gravity" : false,"exists-when-not-viewed" : false} 
+
+{"object" : "platform","id" : 6,"colors" : ["orange"],"position" : [300, 200],"affected-by-gravity" : false,"exists-when-not-viewed" : false}
+{"object" : "game-object","id" : 7,"colors" : ["orange"],"position" : [325, 187],"image" : "switch","affected-by-gravity" : false,"exists-when-not-viewed" : false} 
+
+
 {"object" : "solid-ground", "id" : 100, "position" : [0,480]}]

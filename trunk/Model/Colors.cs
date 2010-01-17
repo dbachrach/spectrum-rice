@@ -170,11 +170,11 @@ namespace Spectrum.Model
         {
             if (!isSingularColor())
             {
-                return Color.LightPink;
+                throw new Exception("System color from multi-color");
             }
-            if (Bitstring == (int) RawColor.Red)
+            else if (Bitstring == (int) RawColor.Red)
             {
-                return Color.LightPink;
+                return new Color(226, 9, 21, 255);
             }
             else if (Bitstring == (int)RawColor.Orange)
             {
@@ -182,7 +182,7 @@ namespace Spectrum.Model
             }
             else if (Bitstring == (int)RawColor.Yellow)
             {
-                return Color.LightYellow;
+                return new Color(255,248,99,255);
             }
             else if (Bitstring == (int)RawColor.Green)
             {
@@ -190,13 +190,13 @@ namespace Spectrum.Model
             }
             else if (Bitstring == (int)RawColor.Blue)
             {
-                return Color.LightBlue;
+                return new Color(51,124,255,255);
             }
             else if (Bitstring == (int)RawColor.Purple)
             {
-                return Color.Purple;
+                return Color.BlueViolet;
             }
-            return Color.LightPink;
+            throw new Exception("Color was invalid color value");
         }
     }
 }
