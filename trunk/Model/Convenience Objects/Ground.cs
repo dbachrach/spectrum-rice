@@ -19,6 +19,7 @@ namespace Spectrum.Model
 		public Ground() : base() {
 			AffectedByGravity = false;
 			Pickupable = false;
+            ImageName = null;
 		}
     }
 }
