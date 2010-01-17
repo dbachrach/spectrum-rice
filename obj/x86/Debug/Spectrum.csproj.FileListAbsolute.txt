@@ -33,3 +33,4 @@ C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\platform.xn
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switch.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\demoLevel.txt
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\demo.txt
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\door.xnb

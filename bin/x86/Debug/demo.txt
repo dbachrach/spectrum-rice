@@ -1,11 +1,17 @@
-[{"object" : "level","id" : 1,"number" : 1,"name" : "Demo Level","width" : 500,"height" : 500,"allowed-colors" : ["all"], "start-position" : [50,375] }
-{"object" : "block","id" : 2,"position" : [275, 430],"colors" : ["yellow"]}
-{"object" : "block","id" : 3,"position" : [325, 430],"colors" : ["blue"]}
-{"object" : "platform","id" : 4,"colors" : ["green"],"position" : [400, 300],"affected-by-gravity" : false,"exists-when-not-viewed" : false}
-{"object" : "game-object","id" : 5,"colors" : ["green"],"position" : [425, 287],"image" : "switch","affected-by-gravity" : false,"exists-when-not-viewed" : false} 
+[{"object" : "level","id" : 1,"number" : 1,"name" : "Demo Level","width" : 500,"height" : 500,"allowed-colors" : ["all"], "start-position" : [50,425] }
+{"object" : "block","id" : 2,"position" : [325, 480],"colors" : ["blue"]}
+{"object" : "block","id" : 3,"position" : [445, 480],"colors" : ["yellow"]}
+{"object" : "block","id" : 11,"position" : [600, 480],"colors" : ["yellow"]}
 
-{"object" : "platform","id" : 6,"colors" : ["orange"],"position" : [300, 200],"affected-by-gravity" : false,"exists-when-not-viewed" : false}
-{"object" : "game-object","id" : 7,"colors" : ["orange"],"position" : [325, 187],"image" : "switch","affected-by-gravity" : false,"exists-when-not-viewed" : false} 
+{"object" : "platform","id" : 4,"colors" : ["green"],"position" : [400, 350],"affected-by-gravity" : false,"exists-when-not-viewed" : false}
+{"object" : "game-object","id" : 5,"colors" : ["green"],"position" : [425, 337],"image" : "switch","affected-by-gravity" : false,"exists-when-not-viewed" : false} 
+{"object" : "block","id" : 11,"position" : [495, 300],"colors" : ["red"]}
 
+{"object" : "platform","id" : 6,"colors" : ["orange"],"position" : [200, 250],"affected-by-gravity" : false,"exists-when-not-viewed" : false}
+{"object" : "game-object","id" : 7,"colors" : ["orange"],"position" : [285, 237],"image" : "switch","affected-by-gravity" : false,"exists-when-not-viewed" : false} 
+{"object" : "block","id" : 11,"position" : [375, 200],"colors" : ["blue"]}
 
-{"object" : "solid-ground", "id" : 100, "position" : [0,480]}]
+{"object" : "platform","id" : 8,"colors" : ["green"],"position" : [400, 150],"affected-by-gravity" : false,"exists-when-not-viewed" : false}
+{"object" : "door","id" : 9,"colors" : ["green"],"position" : [560, 42],"exists-when-not-viewed" : false} 
+
+{"object" : "solid-ground", "id" : 10, "position" : [0,530]}]

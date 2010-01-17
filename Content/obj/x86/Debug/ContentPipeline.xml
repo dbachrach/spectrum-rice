@@ -55,6 +55,15 @@
       <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switch.xnb</Output>
       <Time>2010-01-16T15:40:24-06:00</Time>
     </Item>
+    <Item>
+      <Source>door.png</Source>
+      <Name>door</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\door.xnb</Output>
+      <Time>2010-01-17T15:37:20-06:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
