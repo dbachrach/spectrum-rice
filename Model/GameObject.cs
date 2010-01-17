@@ -126,7 +126,7 @@ namespace Spectrum.Model
             Color[] color = new Color[width * height];//set the color to the amount of pixels in the textures
             for (int i = 0; i < color.Length; i++)//loop through all the colors setting them to whatever values we want
             {
-                color[i] = new Color(0, 0, 0, 255);
+                color[i] = new Color(0,0,0,150);
             }
             rectangleTexture.SetData(color);//set the color data on the texture
             return rectangleTexture;//return the texture
