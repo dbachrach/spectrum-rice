@@ -122,13 +122,27 @@ namespace Spectrum.Model
             /* TODO: Modify this colision stuff to use polygons */
 
             /* TODO: Do we need to check moves 1, 2, and 3. not just 3. In the case that its a very thin wall */
-            int move = 3;
+            int moveX = 0;
+            int moveY = 0 ;
             if (dir == Direction.Left)
             {
-                move *= -1;
+                moveX = -3;
+            }
+            else if (dir == Direction.Right)
+            {
+                moveX = 3;
+            }
+            else if (dir == Direction.Up)
+            {
+                moveY = -3;
+            }
+            else if (dir == Direction.Down)
+            {
+                moveY = 3;
             }
 
-            Rectangle playerRectangle = new Rectangle((int)Position.X + move, (int)Position.Y, (int)AnimTexture.TextureSize().X, (int)AnimTexture.TextureSize().Y);
+
+            Rectangle playerRectangle = new Rectangle((int)Position.X + moveX, (int)Position.Y + moveY, (int)AnimTexture.TextureSize().X, (int)AnimTexture.TextureSize().Y);
             foreach (GameObject obj in Container.GameObjects)
             {
                 /* Check for collisions with player to an obj */
