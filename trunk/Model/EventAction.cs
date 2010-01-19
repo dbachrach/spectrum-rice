@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
@@ -14,14 +14,14 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace Spectrum.Model
 {
-	enum ActionType { Change, Increment, Decrement }
+	enum ActionType { Change, Increment, Decrement } /* TODO: AddColor & RemoveColor */
 	
     class EventAction
     {
         public GameObject Receiver { get; set; }
 		public string Property { get; set; }
 		public ActionType Type { get; set; }
-		public string Value { get; set; }
+		public object Value { get; set; }
 		public bool Animated { get; set; }
 		public float AnimationDuration { get; set; }
 		public float Delay { get; set; }
@@ -55,6 +55,19 @@ namespace Spectrum.Model
             else
             {
                 throw new Exception("Type for action was not an action type: " + str);
+            }
+        }
+
+        public void Execute()
+        {
+            Console.WriteLine("Executed");
+            if (Property.Equals("colors"))
+            {
+                if (Type == ActionType.Change)
+                {
+                    Receiver.ViewableColors = Colors.ColorsFromJsonArray( (ArrayList)Value);
+                    /* TODO: Indicate this to user with flash of light or something */
+                }
             }
         }
     }

@@ -18,7 +18,7 @@ namespace Spectrum.Model
 
     class GameObject
     {
-        public double Id { get; set; }
+        public string Id { get; set; }
         public Colors ViewableColors { get; set; }
         public Polygon Polygon { get; set; }
         public string ImageName { get; set; }
