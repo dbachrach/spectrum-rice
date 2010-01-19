@@ -32,12 +32,12 @@ namespace Spectrum.Model
 
         public GameObject NearObject { get; set;}
 
-        private const float MaxJumpHeight = 90.0f;
+        private const float MaxJumpHeight = 200.0f;
 
         public Player()
             : base()
         {
-            Id = -1;
+            Id = "player";
             ImageName = "PlayerRun";
             TimesDied = 0;
             PlayTime = TimeSpan.Zero;
@@ -175,6 +175,23 @@ namespace Spectrum.Model
                     if (playerRectangle.Intersects(objRectangle) && this.currentlyVisible() && obj.currentlyVisible())
                     {
                         NearObject = obj;
+                        Console.WriteLine("Near object {0}", NearObject.Id);
+                        /* TODO: This whole collision thing needs to be redone */
+
+                        if (NearObject.Events != null)
+                        {
+                            Console.WriteLine("Has events");
+                            foreach (Event e in NearObject.Events)
+                            {
+                                Console.WriteLine("Event e {0} {1} {2}", e, e.CollisionTarget,e.Type);
+                                if (e.Type == EventType.Collision && e.CollisionTarget == this)
+                                {
+                                    Console.WriteLine("Collision with player event");
+                                    e.Execute();
+                                }
+                            }
+                        }
+
                         return true;
                     }
                 }
@@ -298,7 +315,6 @@ namespace Spectrum.Model
             {
                 return;
             }
-            // todo: drop the object
 
             int myWidth = (int) this.AnimTexture.TextureSize().X; // TODO: don't use texture;
             int myHeight = (int)this.AnimTexture.TextureSize().Y; // TODO: don't use texture;

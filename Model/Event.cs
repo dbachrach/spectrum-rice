@@ -43,5 +43,13 @@ namespace Spectrum.Model
                 throw new Exception("Type for event was not an event type: " + str);
             }
         }
+
+        public void Execute()
+        {
+            foreach (EventAction a in Actions)
+            {
+                a.Execute();
+            }
+        }
     }
 }

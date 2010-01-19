@@ -17,7 +17,7 @@ namespace Spectrum.Model
     class Level
     {
         // a unique id for this level
-        public double Id { get; set; }
+        public string Id { get; set; }
 
         // the number of this level in the sequence of the levels
         public double Number { get; set; }
@@ -86,6 +86,18 @@ namespace Spectrum.Model
         {
             player = p;
             AddGameObject(p);
+        }
+
+        public GameObject GameObjectForId(string i)
+        {
+            foreach (GameObject o in GameObjects) 
+            {
+                if (o.Id.Equals(i))
+                {
+                    return o;
+                }
+            }
+            return null;
         }
 
         // loads the background image from the specified file

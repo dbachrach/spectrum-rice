@@ -60,7 +60,7 @@ namespace Spectrum
 						Console.WriteLine("Level must have all properties.");
 					}
 					
-					level.Id = (double) obj["id"];
+					level.Id = (string) obj["id"];
 	 				level.Number = (double) obj["number"];
 	 				level.Name = (string) obj["name"];
 	 				level.Width = (double) obj["width"];
@@ -78,7 +78,7 @@ namespace Spectrum
 
             Console.WriteLine("Level: " + level);
 		
-			/* Parse Game Objects */
+			/* Parse Game Objects and find id*/
 			foreach (Hashtable obj in levelData) {
 				GameObject newObject = null;
 				string objType = (string) obj["object"];
@@ -103,52 +103,82 @@ namespace Spectrum
                     {
                         newObject = new Block();
                     }
-					
+
 					/* Set properties */
                     if (obj.ContainsKey("id"))
-                        newObject.Id = (double) obj["id"];
-                    if (obj.ContainsKey("colors"))
-                        newObject.ViewableColors = Colors.ColorsFromJsonArray((ArrayList)obj["colors"]);
-                    //if (obj.ContainsKey("polygon"))
-                        // TODO: newObject.Polygon = obj["polygon"];
-                    if (obj.ContainsKey("image"))
-                        newObject.ImageName = (string)obj["image"];
-                    if (obj.ContainsKey("position"))
-                    {
-                        ArrayList positionJson = (ArrayList) obj["position"];
-                        newObject.Position = new Vector2((float)((double)positionJson[0]), (float)((double)positionJson[1]));
-                    }
-                    if (obj.ContainsKey("affected-by-gravity"))
-                        newObject.AffectedByGravity = (bool) obj["affected-by-gravity"];
-                    if (obj.ContainsKey("velocity"))
-                    {
-                        ArrayList velocityJson = (ArrayList)obj["velocity"];
-                        newObject.Velocity = new Vector2((float)velocityJson[0], (float)velocityJson[1]);
-                    }
-                    //if (obj.ContainsKey("combinable-with"))
-                        // TODO: newObject.CombinableWith = obj["combinable-with"];
-                    if (obj.ContainsKey("pickupable"))
-                        newObject.Pickupable = (bool) obj["pickupable"];
-                    if (obj.ContainsKey("inactive"))
-                        newObject.Inactive = (bool) obj["inactive"];
-                    //if (obj.ContainsKey("inactive-image"))
-                        // TODO: newObject.InactiveImage = obj["inactive-image"];
-                    if (obj.ContainsKey("events"))
-                        newObject.Events = ParseEvents( (ArrayList) (obj["events"]));
-                    if (obj.ContainsKey("exists-when-not-viewed"))
-                        newObject.ExistsWhenNotViewed = (bool) obj["exists-when-not-viewed"];
+                        newObject.Id = (string) obj["id"];
 
                     newObject.Container = level;
 
                     level.AddGameObject(newObject);
-				}
-			}
+                }
+            }
 
             /* Create Player */
             Player player = new Player();
             player.Container = level;
             player.Position = level.StartPosition;
             level.AddPlayer(player);
+
+            
+            /* Set game object properties and resolve pointers to other objects */
+
+            foreach (Hashtable obj in levelData)
+            {
+                string objID = (string)obj["id"];
+
+                GameObject newObject = level.GameObjectForId(objID);
+
+                if (obj.ContainsKey("colors"))
+                {
+                    newObject.ViewableColors = Colors.ColorsFromJsonArray((ArrayList)obj["colors"]);
+                }
+                //if (obj.ContainsKey("polygon")) 
+                //{
+                    // TODO: newObject.Polygon = obj["polygon"];
+               // }
+                if (obj.ContainsKey("image"))
+                {
+                    newObject.ImageName = (string)obj["image"];
+                }
+                if (obj.ContainsKey("position"))
+                {
+                    ArrayList positionJson = (ArrayList)obj["position"];
+                    newObject.Position = new Vector2((float)((double)positionJson[0]), (float)((double)positionJson[1]));
+                }
+                if (obj.ContainsKey("affected-by-gravity"))
+                {
+                    newObject.AffectedByGravity = (bool)obj["affected-by-gravity"];
+                }
+                if (obj.ContainsKey("velocity"))
+                {
+                    ArrayList velocityJson = (ArrayList)obj["velocity"];
+                    newObject.Velocity = new Vector2((float)velocityJson[0], (float)velocityJson[1]);
+                }
+                //if (obj.ContainsKey("combinable-with"))
+                // TODO: newObject.CombinableWith = obj["combinable-with"];
+                if (obj.ContainsKey("pickupable"))
+                {
+                    newObject.Pickupable = (bool)obj["pickupable"];
+                }
+                if (obj.ContainsKey("inactive"))
+                {
+                    newObject.Inactive = (bool)obj["inactive"];
+                }
+                //if (obj.ContainsKey("inactive-image"))
+                // TODO: newObject.InactiveImage = obj["inactive-image"];
+                if (obj.ContainsKey("events"))
+                {
+                    newObject.Events = ParseEvents((ArrayList)(obj["events"]));
+                }
+                if (obj.ContainsKey("exists-when-not-viewed"))
+                {
+                    newObject.ExistsWhenNotViewed = (bool)obj["exists-when-not-viewed"];
+                }
+
+            }
+
+           
             
             
 
@@ -193,9 +223,12 @@ namespace Spectrum
             {
                 Event e = new Event();
                 e.Type = Event.EventTypeForString((string)ev["type"]);
-                // TODO: Parse this to an object e.CollisionTarget = ev["collision-target"];
+                
+                e.CollisionTarget = level.GameObjectForId((string)ev["collision-target"]);
                 e.DisplayName = (string) ev["display-name"];
                 e.Actions = ParseActions((ArrayList)ev["actions"]);
+
+                evs.Add(e);
             }
             return evs;
         }
@@ -211,10 +244,11 @@ namespace Spectrum
                 {
                     Console.WriteLine("Action must have all required properties.");
                 }
-                // TODO: Parse this to an object a.Receiver = ac["receiver"]; 
+
+                a.Receiver = level.GameObjectForId((string)ac["receiver"]);
                 a.Property = (string)ac["property"];
                 a.Type = EventAction.ActionTypeForString((string)ac["type"]);
-                a.Value = (string)ac["value"];
+                a.Value = ac["value"];
 
                 if(ac.ContainsKey("animated"))
                     a.Animated = (bool) ac["animated"];
@@ -226,6 +260,8 @@ namespace Spectrum
                     a.Repeats = (bool) ac["repeats"];
                 if(ac.ContainsKey("repeat-delay"))
                     a.RepeatDelay = (float) ac["repeat-delay"];
+
+                acts.Add(a);
                 
             }
             return acts;
