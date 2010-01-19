@@ -80,7 +80,7 @@ namespace Spectrum.Model
         }
 
         //Draw the sprite to the screen
-        public void Draw(SpriteBatch spriteBatch)
+        public virtual void Draw(SpriteBatch spriteBatch)
         {
             if(currentlyVisible()) {
                 if (Animated)

@@ -30,6 +30,8 @@ namespace Spectrum.Model
 
         private Vector2 StartingPosition { get; set; }
 
+        public GameObject NearObject { get; set;}
+
         private const float MaxJumpHeight = 90.0f;
 
         public Player()
@@ -45,6 +47,17 @@ namespace Spectrum.Model
             FrameCount = 4;
             FramesPerSec = 8;
             State = PlayerState.None;
+            NearObject = null;
+        }
+
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            if (Possession != null)
+            {
+                Possession.Draw(spriteBatch);
+            }
+
+            base.Draw(spriteBatch);
         }
 
         public override void Update(GameTime theGameTime)
@@ -56,8 +69,17 @@ namespace Spectrum.Model
             UpdateJump(aCurrentKeyboardState);
 
             UpdateColor(aCurrentKeyboardState);
-            UpdatePickup(aCurrentKeyboardState);
+            UpdateXEvent(aCurrentKeyboardState);
             PreviousKeyboardState = aCurrentKeyboardState;
+
+            if (Possession != null)
+            {
+                Possession.Position = new Vector2(this.Position.X, this.Position.Y - Possession.Texture.Height); /* Change this from going through possesion's texture to going through polygon */
+                Possession.DirectionFacing = this.DirectionFacing;
+                Possession.Update(theGameTime);
+
+            }
+
             base.Update(theGameTime);
         }
 
@@ -152,10 +174,12 @@ namespace Spectrum.Model
 
                     if (playerRectangle.Intersects(objRectangle) && this.currentlyVisible() && obj.currentlyVisible())
                     {
+                        NearObject = obj;
                         return true;
                     }
                 }
             }
+            NearObject = null;
             return false;
         }
 
@@ -221,12 +245,26 @@ namespace Spectrum.Model
             }
         }
 
-        private void UpdatePickup(KeyboardState aCurrentKeyboardState)
+        private void UpdateXEvent(KeyboardState aCurrentKeyboardState)
         {
             if (aCurrentKeyboardState.IsKeyDown(Keys.X) == true && PreviousKeyboardState.IsKeyDown(Keys.X) == false)
             {
                 /* TODO: find object near that is pickupable and pick it up. */
-                Possession = null;
+                //Possession = null;
+
+                if (Possession != null)
+                {
+                    Drop();
+                }
+                else if (NearObject != null && NearObject.Pickupable)
+                {
+                    Pickup(NearObject);
+                }
+                else if (false /* TODO: Check for x-event */) 
+                {
+
+                }
+
             }
         }
 
@@ -244,6 +282,40 @@ namespace Spectrum.Model
                 v.Y = -3;
                 Velocity = v;
             }
+        }
+
+        private void Pickup(GameObject obj)
+        {
+            Possession = obj;
+            Container.DeferRemoveGameObject(obj);
+        }
+
+        private void Drop()
+        {
+            /* TODO: Check to see if we are dropping on an existent object */
+
+            if (Possession == null)
+            {
+                return;
+            }
+            // todo: drop the object
+
+            int myWidth = (int) this.AnimTexture.TextureSize().X; // TODO: don't use texture;
+            int myHeight = (int)this.AnimTexture.TextureSize().Y; // TODO: don't use texture;
+
+            int offset = 0;
+            if (DirectionFacing == Direction.Left)
+            {
+                offset = -myWidth; 
+            }
+            else if (DirectionFacing == Direction.Right)
+            {
+                offset = myWidth;
+            }
+            Possession.Position = new Vector2(this.Position.X + offset, this.Position.Y + myHeight - Possession.Texture.Height); // TODO: don't use texture
+            Container.DeferAddGameObject(Possession);
+
+            Possession = null;
         }
     }
 }

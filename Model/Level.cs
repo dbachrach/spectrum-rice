@@ -52,6 +52,11 @@ namespace Spectrum.Model
 
         private Player player;
 
+        private SpriteFont font;
+
+        private GameObject DoomedObject;
+        private GameObject ResurrectedObject;
+
 		/* Default Constructor */
 		public Level() {
 			Completed = false;
@@ -64,6 +69,19 @@ namespace Spectrum.Model
         {
             GameObjects.Add(obj);
         }
+        public void DeferAddGameObject(GameObject obj)
+        {
+            ResurrectedObject = obj;
+        }
+        public void RemoveGameObject(GameObject obj)
+        {
+            GameObjects.Remove(obj);
+        }
+        public void DeferRemoveGameObject(GameObject obj)
+        {
+            DoomedObject = obj;
+        }
+        
         public void AddPlayer(Player p)
         {
             player = p;
@@ -74,6 +92,7 @@ namespace Spectrum.Model
         public void LoadContent(ContentManager manager, GraphicsDevice graphicsDevice)
         {
             //Background = manager.Load<Texture2D>("sunset");
+            font = manager.Load<SpriteFont>("Pesca");
 
             foreach (GameObject obj in GameObjects)
             {
@@ -86,6 +105,14 @@ namespace Spectrum.Model
             /* TODO: Modify this colision stuff to use polygons */
             //Rectangle playerRectangle = new Rectangle((int)player.Position.X, (int)player.Position.Y, player.Texture.Width, player.Texture.Height);
 
+            if (DoomedObject != null)
+            {
+                RemoveGameObject(DoomedObject);
+            }
+            if (ResurrectedObject != null)
+            {
+                AddGameObject(ResurrectedObject);
+            }
             foreach (GameObject obj in GameObjects)
             {
                 obj.Update(gameTime);
@@ -102,6 +129,8 @@ namespace Spectrum.Model
             }
 
             
+
+            
           
         }
 
@@ -113,6 +142,11 @@ namespace Spectrum.Model
             foreach (GameObject obj in GameObjects)
             {
                 obj.Draw(spriteBatch);
+            }
+
+            if (player.NearObject != null)
+            {
+                spriteBatch.DrawString(font, "Hello", new Vector2(250, 500), Color.White);
             }
         }
 

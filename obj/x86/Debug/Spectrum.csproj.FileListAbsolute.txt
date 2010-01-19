@@ -34,3 +34,11 @@ C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switch.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\demoLevel.txt
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\demo.txt
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\door.xnb
+U:\comp410\bin\x86\Debug\demoLevel.txt
+U:\comp410\bin\x86\Debug\demo.txt
+U:\comp410\bin\x86\Debug\Content\block.xnb
+U:\comp410\bin\x86\Debug\Content\PlayerRun.xnb
+U:\comp410\bin\x86\Debug\Content\platform.xnb
+U:\comp410\bin\x86\Debug\Content\switch.xnb
+U:\comp410\bin\x86\Debug\Content\door.xnb
+U:\comp410\bin\x86\Debug\Content\Pesca.xnb
