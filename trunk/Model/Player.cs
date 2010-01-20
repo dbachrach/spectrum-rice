@@ -14,7 +14,7 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace Spectrum.Model
 {
-    enum PlayerState { None, Walking, Jumping }
+    enum PlayerState { None, Walking, Jumping, Falling }
 
     class Player : GameObject
     {
@@ -71,6 +71,7 @@ namespace Spectrum.Model
 
             UpdateColor(aCurrentKeyboardState);
             UpdateXEvent(aCurrentKeyboardState);
+
             PreviousKeyboardState = aCurrentKeyboardState;
 
             if (Possession != null)
@@ -91,44 +92,37 @@ namespace Spectrum.Model
             Velocity = v1;
             AnimTexture.Pause();
 
+            Direction d = Direction.None;
 
-
-
-            if (Keyboard.GetState().IsKeyDown(Keys.Left) == true)
+            if (Keyboard.GetState().IsKeyDown(Keys.Left) == true) 
             {
-                if (CollisionDetect(Direction.Left))
-                {
-                    return;
-                }
-
-                Vector2 v = Velocity;
-                v.X = -3;
-                Velocity = v;
-                DirectionFacing = Direction.Left;
-
-                if (State == PlayerState.Jumping)
-                {
-                    AnimTexture.Pause();
-                }
-                else
-                {
-                    State = PlayerState.Walking;
-                    AnimTexture.Play();
-                }
+                d = Direction.Left;
             }
-            else if (aCurrentKeyboardState.IsKeyDown(Keys.Right) == true)
+            else if (aCurrentKeyboardState.IsKeyDown(Keys.Right) == true) {
+                d = Direction.Right;
+            }
+
+            if (d != Direction.None)
             {
-                if (CollisionDetect(Direction.Right))
+                if (CollisionDetect(d))
                 {
                     return;
                 }
 
                 Vector2 v = Velocity;
-                v.X = 3;
+                if (d == Direction.Left)
+                {
+                    v.X = -3;
+                }
+                else if (d == Direction.Right)
+                {
+                    v.X = 3;
+                }
+                
                 Velocity = v;
-                DirectionFacing = Direction.Right;
+                DirectionFacing = d;
 
-                if (State == PlayerState.Jumping)
+                if (State == PlayerState.Jumping || State == PlayerState.Falling)
                 {
                     AnimTexture.Pause();
                 }
@@ -235,12 +229,17 @@ namespace Spectrum.Model
                     Vector2 v = Velocity;
                     v.Y = 3;
                     Velocity = v;
+                    State = PlayerState.Falling;
                 }
                 else
                 {
                     Vector2 v = Velocity;
                     v.Y = 0;
                     Velocity = v;
+                    if (State == PlayerState.Falling)
+                    {
+                        State = PlayerState.None;
+                    }
                 }
             }
         }
