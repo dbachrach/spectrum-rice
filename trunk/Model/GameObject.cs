@@ -85,7 +85,7 @@ namespace Spectrum.Model
             if(currentlyVisible()) {
                 if (Animated)
                 {
-                    AnimTexture.DrawFrame(spriteBatch, Position, Container.CurrentColor.SystemColor(), DrawEffects());
+                    AnimTexture.DrawFrame(spriteBatch, Container.CurrentColor, Position, DrawEffects());
                 }
                 else
                 {

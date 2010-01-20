@@ -70,22 +70,53 @@ namespace Spectrum.Model
         }
 
         // class AnimatedTexture
-        public void DrawFrame(SpriteBatch Batch, Vector2 screenpos, Color tint, SpriteEffects drawEffects)
+        public void DrawFrame(SpriteBatch Batch, Colors color, Vector2 screenpos, SpriteEffects drawEffects)
         {
-            if (Paused)
+            if (Paused || framecount == 1)
             {
                 Frame = 1;
             }
-            DrawFrame(Batch, Frame, screenpos, tint, drawEffects);
+            DrawFrame(Batch, Frame, color, screenpos, drawEffects);
 
         }
 
-        public void DrawFrame(SpriteBatch Batch, int Frame, Vector2 screenpos, Color tint, SpriteEffects drawEffects)
+        public void DrawFrame(SpriteBatch Batch, int Frame, Colors color, Vector2 screenpos, SpriteEffects drawEffects)
         {
 
             int FrameWidth = myTexture.Width / framecount;
-            Rectangle sourcerect = new Rectangle(FrameWidth * Frame, 0, FrameWidth, myTexture.Height);
-            Batch.Draw(myTexture, screenpos, sourcerect, tint,Rotation, Origin, Scale, drawEffects, Depth);
+
+            int divisor = 0;
+
+            if (color.Equals(Colors.RedColor))
+            {
+                divisor = 0;
+            }
+            else if (color.Equals(Colors.OrangeColor))
+            {
+                divisor = 1;
+            }
+            else if (color.Equals(Colors.YellowColor))
+            {
+                divisor = 2;
+            }
+            else if (color.Equals(Colors.GreenColor))
+            {
+                divisor = 3;
+            }
+            else if (color.Equals(Colors.BlueColor))
+            {
+                divisor = 4;
+            }
+            else if (color.Equals(Colors.PurpleColor))
+            {
+                divisor = 5;
+            }
+            
+
+
+            int FrameHeight = myTexture.Height / 6;
+            Rectangle sourcerect = new Rectangle(FrameWidth * Frame,FrameHeight * divisor, FrameWidth, myTexture.Height);
+            Batch.Draw(myTexture, screenpos, sourcerect, Color.White,Rotation, Origin, Scale, drawEffects, Depth);
 
         }
 
