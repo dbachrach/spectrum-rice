@@ -84,6 +84,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Parser.cs" />
     <Compile Include="Model\EventAction.cs" />
     <Compile Include="Model\AnimatedTexture.cs" />
     <Compile Include="Model\JSON.cs" />
