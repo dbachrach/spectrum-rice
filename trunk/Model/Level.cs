@@ -54,8 +54,8 @@ namespace Spectrum.Model
 
         private SpriteFont font;
 
-        private GameObject DoomedObject;
-        private GameObject ResurrectedObject;
+        private List<GameObject> DoomedObjects;
+        private List<GameObject> ResurrectedObjects;
 
 		/* Default Constructor */
 		public Level() {
@@ -63,6 +63,9 @@ namespace Spectrum.Model
 			CurrentColor = Colors.NoColors;
 			AllowedColors = Colors.AllColors;
             GameObjects = new List<GameObject>();
+
+            DoomedObjects = new List<GameObject>();
+            ResurrectedObjects = new List<GameObject>();
 		}
 
         public void AddGameObject(GameObject obj)
@@ -71,7 +74,7 @@ namespace Spectrum.Model
         }
         public void DeferAddGameObject(GameObject obj)
         {
-            ResurrectedObject = obj;
+            ResurrectedObjects.Add(obj);
         }
         public void RemoveGameObject(GameObject obj)
         {
@@ -79,7 +82,7 @@ namespace Spectrum.Model
         }
         public void DeferRemoveGameObject(GameObject obj)
         {
-            DoomedObject = obj;
+            DoomedObjects.Add(obj);
         }
         
         public void AddPlayer(Player p)
@@ -116,13 +119,19 @@ namespace Spectrum.Model
             /* TODO: Modify this colision stuff to use polygons */
             //Rectangle playerRectangle = new Rectangle((int)player.Position.X, (int)player.Position.Y, player.Texture.Width, player.Texture.Height);
 
-            if (DoomedObject != null)
+            if (DoomedObjects != null)
             {
-                RemoveGameObject(DoomedObject);
+                foreach (GameObject DoomedObj in DoomedObjects)
+                {
+                    RemoveGameObject(DoomedObj);
+                }
             }
-            if (ResurrectedObject != null)
+            if (ResurrectedObjects != null)
             {
-                AddGameObject(ResurrectedObject);
+                foreach (GameObject ResurrectedObj in ResurrectedObjects)
+                {
+                    AddGameObject(ResurrectedObj);
+                }
             }
             foreach (GameObject obj in GameObjects)
             {
