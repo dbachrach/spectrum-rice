@@ -102,6 +102,11 @@ namespace Spectrum.Model
             return colors;
         }
 
+        public bool Equals(Colors c)
+        {
+            return ( (Bitstring & c.Bitstring) == Bitstring && (Bitstring & c.Bitstring) == c.Bitstring);
+        }
+
         // the player's viewing color is the receiver
         // the colors of the object to be seen is the parameter
         public bool Contains(Colors c)
