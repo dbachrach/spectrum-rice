@@ -158,7 +158,23 @@ namespace Spectrum.Model
 
             if (player.NearObject != null)
             {
-                spriteBatch.DrawString(font, "Hello", new Vector2(250, 500), Color.White);
+                string displayName = "";
+                if (player.NearObject.Pickupable)
+                {
+                    displayName = "Pickup";
+                }
+                if (player.NearObject.Events != null)
+                {
+                    foreach (Event e in player.NearObject.Events)
+                    {
+                        if (e.Type == EventType.XEvent)
+                        {
+                            displayName = e.DisplayName;
+                            break;
+                        }
+                    }
+                }
+                spriteBatch.DrawString(font, displayName, new Vector2(350, 540), Color.White);
             }
         }
 
