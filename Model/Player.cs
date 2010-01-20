@@ -67,6 +67,7 @@ namespace Spectrum.Model
 
             UpdateMovement(aCurrentKeyboardState);
             UpdateJump(aCurrentKeyboardState);
+            UpdateFall(aCurrentKeyboardState);
 
             UpdateColor(aCurrentKeyboardState);
             UpdateXEvent(aCurrentKeyboardState);
@@ -216,36 +217,30 @@ namespace Spectrum.Model
 
                 if (StartingPosition.Y - Position.Y > MaxJumpHeight || CollisionDetect(Direction.Up))
                 {
+                    Vector2 vel = Velocity;
+                    vel.Y = 0;
+                    Velocity = vel;
+                    State = PlayerState.None;
+                    return;
+                }
+            }
+        }
+
+        private void UpdateFall(KeyboardState aCurrentKeyboardState)
+        {
+            if (State != PlayerState.Jumping)
+            {
+                if (!CollisionDetect(Direction.Down))
+                {
                     Vector2 v = Velocity;
                     v.Y = 3;
                     Velocity = v;
                 }
-                
-
-                if (Position.Y > StartingPosition.Y)
+                else
                 {
-                    Vector2 p = Position;
-                    p.Y = StartingPosition.Y;
-                    Position = p;
-
-                    State = PlayerState.None;
-
                     Vector2 v = Velocity;
                     v.Y = 0;
                     Velocity = v;
-                }
-
-                if (Velocity.Y == 3)
-                {
-                    if (CollisionDetect(Direction.Down))
-                    {
-                        /* All done jumping up and falling down */
-                        Vector2 vel = Velocity;
-                        vel.Y = 0;
-                        Velocity = vel;
-                        State = PlayerState.None;
-                        return;
-                    }
                 }
             }
         }
