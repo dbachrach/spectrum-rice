@@ -18,7 +18,7 @@ namespace Spectrum.Model
     {
 		public Block() : base() {
 			/* TODO: Square polygon */
-            ImageName = "box";
+            ImageName = "block";
 			AffectedByGravity = true;
 			Pickupable = true;
             Boundary = new Rectangle(0, 0, 50, 53);
