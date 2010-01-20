@@ -27,6 +27,7 @@ namespace Spectrum.Model
 		public float Delay { get; set; }
 		public bool Repeats { get; set; }
 		public float RepeatDelay { get; set; }
+        public string Special { get; set; } 
 
 		/* Default constructor. */
         public EventAction()
@@ -36,6 +37,7 @@ namespace Spectrum.Model
 			Delay = 0;
 			Repeats = false;
 			RepeatDelay = 0;
+            Special = "";
 		}
 
         public static ActionType ActionTypeForString(string str)
@@ -61,11 +63,19 @@ namespace Spectrum.Model
         public void Execute()
         {
             Console.WriteLine("Executed");
-            if (Property.Equals("colors"))
+
+            if (Special != null && !Special.Equals(""))
+            {
+                if (Special.Equals("win"))
+                {
+                    /* TODO: Win */
+                }
+            }
+            else if (Property.Equals("colors"))
             {
                 if (Type == ActionType.Change)
                 {
-                    Receiver.ViewableColors = Colors.ColorsFromJsonArray( (ArrayList)Value);
+                    Receiver.ViewableColors = Colors.ColorsFromJsonArray((ArrayList)Value);
                     /* TODO: Indicate this to user with flash of light or something */
                 }
             }

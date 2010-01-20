@@ -41,7 +41,6 @@ namespace Spectrum
         protected override void Initialize()
         {
 
-		    //string levelJSON = "[{\"object\" : \"level\",\"id\" : 1,\"number\" : 1,\"name\" : \"Demo Level\",\"width\" : 500,\"height\" : 500,\"allowed-colors\" : [\"all\"], \"start-position\" : [50,300] }{\"object\" : \"block\",\"id\" : 2,\"position\" : [275, 350],\"colors\" : [\"yellow\"]}{\"object\" : \"block\",\"id\" : 3,\"position\" : [325, 350],\"colors\" : [\"blue\"]} {\"object\" : \"platform\",\"id\" : 4,\"colors\" : [\"green\"],\"position\" : [400, 200],\"affected-by-gravity\" : false,\"exists-when-not-viewed\" : false}{\"object\" : \"game-object\",\"id\" : 5,\"colors\" : [\"green\"],\"position\" : [425, 187],\"image\" : \"switch\",\"affected-by-gravity\" : false,\"exists-when-not-viewed\" : false}]";
             string levelJSON = FileAsString("demo.txt");
 
 
@@ -69,14 +68,13 @@ namespace Spectrum
                     ArrayList positionJson = (ArrayList)obj["start-position"];
                     level.StartPosition = new Vector2((float)((double)positionJson[0]), (float)((double)positionJson[1]));
 
-	 				//level.Background = obj["background"]; /* TODO Turn this into a Textur2D */
+	 				//level.Background = obj["background"]; /* TODO Turn this into a Texture2D */
                     level.AllowedColors = Colors.ColorsFromJsonArray((ArrayList) obj["allowed-colors"]);
                     level.CurrentColor = Colors.GreenColor;
 				}
 				break;
 			}
 
-            Console.WriteLine("Level: " + level);
 		
 			/* Parse Game Objects and find id*/
 			foreach (Hashtable obj in levelData) {
@@ -106,7 +104,9 @@ namespace Spectrum
 
 					/* Set properties */
                     if (obj.ContainsKey("id"))
-                        newObject.Id = (string) obj["id"];
+                    {
+                        newObject.Id = (string)obj["id"];
+                    }
 
                     newObject.Container = level;
 
@@ -133,10 +133,10 @@ namespace Spectrum
                 {
                     newObject.ViewableColors = Colors.ColorsFromJsonArray((ArrayList)obj["colors"]);
                 }
-                //if (obj.ContainsKey("polygon")) 
-                //{
+                if (obj.ContainsKey("polygon"))
+                {
                     // TODO: newObject.Polygon = obj["polygon"];
-               // }
+                }
                 if (obj.ContainsKey("image"))
                 {
                     newObject.ImageName = (string)obj["image"];
@@ -155,8 +155,16 @@ namespace Spectrum
                     ArrayList velocityJson = (ArrayList)obj["velocity"];
                     newObject.Velocity = new Vector2((float)velocityJson[0], (float)velocityJson[1]);
                 }
-                //if (obj.ContainsKey("combinable-with"))
-                // TODO: newObject.CombinableWith = obj["combinable-with"];
+                if (obj.ContainsKey("combinable-with"))
+                {
+                    // TODO: newObject.CombinableWith = obj["combinable-with"];
+                    newObject.CombinableWith = new List<GameObject>();
+
+                    foreach (string cID in (ArrayList)obj["combinable-with"])
+                    {
+                        newObject.CombinableWith.Add(level.GameObjectForId(cID));
+                    }
+                }
                 if (obj.ContainsKey("pickupable"))
                 {
                     newObject.Pickupable = (bool)obj["pickupable"];
@@ -166,7 +174,9 @@ namespace Spectrum
                     newObject.Inactive = (bool)obj["inactive"];
                 }
                 //if (obj.ContainsKey("inactive-image"))
+                //{
                 // TODO: newObject.InactiveImage = obj["inactive-image"];
+                //}
                 if (obj.ContainsKey("events"))
                 {
                     newObject.Events = ParseEvents((ArrayList)(obj["events"]));
@@ -178,12 +188,6 @@ namespace Spectrum
 
             }
 
-           
-            
-            
-
-            /* TODO: Go through all objects and peice together their pointers to other objects */
-
             base.Initialize();
         }
         
@@ -192,28 +196,6 @@ namespace Spectrum
             // Both Windows and Xbox - Ensures we are looking in the game's folder.
             String path = StorageContainer.TitleLocation + "\\" + filename;
             return File.ReadAllText(path);
-            /*
-            try
-            {
-                String text = "";
-                StreamReader streamReader = new StreamReader(path);
-                String line;
-
-                while ((line = streamReader.ReadLine()) != null)
-                {
-                    text += line;
-                }
-
-                streamReader.Close();
-                return line;
-            }
-            catch (Exception e)
-            {
-                // Do things here incase it can't read the file
-                Console.WriteLine("File Exception: " + e);
-                return "";
-            }
-             */
         }
         
         private List<Event> ParseEvents(ArrayList events)
