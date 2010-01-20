@@ -21,7 +21,19 @@ namespace Spectrum.Model
             ImageName = "door";
 			AffectedByGravity = false;
 			Pickupable = false;
-			/* TODO: X-Event complete level */
+
+            Events = new List<Event>();
+
+            Event e = new Event();
+            e.Type = EventType.XEvent;
+            e.DisplayName = "Open Door";
+            e.Actions = new List<EventAction>();
+
+            EventAction a = new EventAction();
+            a.Special = "win";
+
+            e.Actions.Add(a);
+            Events.Add(e);
 		}
     }
 }

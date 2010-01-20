@@ -7,5 +7,6 @@ namespace Spectrum.Model
 {
     class Polygon
     {
+        /* TODO: Polygon class */
     }
 }
