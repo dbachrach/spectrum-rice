@@ -159,30 +159,43 @@ namespace Spectrum.Model
             }
 
 
-            Rectangle playerRectangle = new Rectangle((int)Position.X + moveX, (int)Position.Y + moveY, (int)AnimTexture.TextureSize().X, (int)AnimTexture.TextureSize().Y);
+            Rectangle playerRectangle;
+            if (Possession == null)
+            {
+                playerRectangle = new Rectangle((int)Position.X + moveX, (int)Position.Y + moveY, (int)AnimTexture.TextureSize().X, (int)AnimTexture.TextureSize().Y);
+            }
+            else
+            {
+               /* Remove references to Texture below */
+                playerRectangle = new Rectangle((int)Position.X + moveX, (int)Position.Y + moveY - Possession.Texture.Height, (int)AnimTexture.TextureSize().X, (int)AnimTexture.TextureSize().Y + Possession.Texture.Height);
+            }
+            
             foreach (GameObject obj in Container.GameObjects)
             {
                 /* Check for collisions with player to an obj */
-                if (obj != this)
+                if (obj != this && obj != Possession)
                 {
                     Rectangle objRectangle = new Rectangle((int)obj.Position.X, (int)obj.Position.Y, obj.Texture.Width, obj.Texture.Height);
 
                     if (playerRectangle.Intersects(objRectangle) && this.currentlyVisible() && obj.currentlyVisible())
                     {
-                        NearObject = obj;
-                        Console.WriteLine("Near object {0}", NearObject.Id);
-                        /* TODO: This whole collision thing needs to be redone */
-
-                        if (NearObject.Events != null)
+                        if (obj.Pickupable || (obj.Events != null && obj.Events.Count > 0))
                         {
-                            Console.WriteLine("Has events");
-                            foreach (Event e in NearObject.Events)
+                            NearObject = obj;
+                            Console.WriteLine("Near object {0}", NearObject.Id);
+                            /* TODO: This whole collision thing needs to be redone */
+
+                            if (NearObject.Events != null)
                             {
-                                Console.WriteLine("Event e {0} {1} {2}", e, e.CollisionTarget,e.Type);
-                                if (e.Type == EventType.Collision && e.CollisionTarget == this)
+                                Console.WriteLine("Has events");
+                                foreach (Event e in NearObject.Events)
                                 {
-                                    Console.WriteLine("Collision with player event");
-                                    e.Execute();
+                                    Console.WriteLine("Event e {0} {1} {2}", e, e.CollisionTarget, e.Type);
+                                    if (e.Type == EventType.Collision && e.CollisionTarget == this)
+                                    {
+                                        Console.WriteLine("Collision with player event");
+                                        e.Execute();
+                                    }
                                 }
                             }
                         }
