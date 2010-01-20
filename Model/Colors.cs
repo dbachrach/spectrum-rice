@@ -76,27 +76,27 @@ namespace Spectrum.Model
                 }
                 else if (color.Equals("red"))
                 {
-                    colors.addRawColors(RawColor.Red);
+                    colors.AddRawColors(RawColor.Red);
                 }
                 else if (color.Equals("orange"))
                 {
-                    colors.addRawColors(RawColor.Orange);
+                    colors.AddRawColors(RawColor.Orange);
                 }
                 else if (color.Equals("yellow"))
                 {
-                    colors.addRawColors(RawColor.Yellow);
+                    colors.AddRawColors(RawColor.Yellow);
                 }
                 else if (color.Equals("green"))
                 {
-                    colors.addRawColors(RawColor.Green);
+                    colors.AddRawColors(RawColor.Green);
                 }
                 else if (color.Equals("blue"))
                 {
-                    colors.addRawColors(RawColor.Blue);
+                    colors.AddRawColors(RawColor.Blue);
                 }
                 else if (color.Equals("purple"))
                 {
-                    colors.addRawColors(RawColor.Purple);
+                    colors.AddRawColors(RawColor.Purple);
                 }
             }
             return colors;
@@ -104,13 +104,13 @@ namespace Spectrum.Model
 
         // the player's viewing color is the receiver
         // the colors of the object to be seen is the parameter
-        public bool contains(Colors c)
+        public bool Contains(Colors c)
         {
             return (Bitstring & c.Bitstring) == Bitstring;
         }
 
 		// Whether this represents just a singluar color like red, green, blue, etc
-        public bool isSingularColor()
+        public bool IsSingularColor()
         {
             return (Bitstring == (int)RawColor.Red || Bitstring == (int)RawColor.Orange || Bitstring == (int)RawColor.Yellow || 
                     Bitstring == (int)RawColor.Green || Bitstring == (int)RawColor.Blue || Bitstring == (int)RawColor.Purple);
@@ -118,18 +118,24 @@ namespace Spectrum.Model
 
 		// Returns a new Colors object by combining components of this and 
 		// another Colors object
-		public Colors combine(Colors c) {
+		public Colors Combine(Colors c) 
+        {
 			return new Colors(Bitstring | c.Bitstring);
 		}
+        public Colors Difference(Colors c)
+        {
+            return new Colors(Bitstring - (Bitstring & c.Bitstring));
+        }
 
-        public void addRawColors(RawColor raw)
+
+        public void AddRawColors(RawColor raw)
         {
             Bitstring |= (int) raw;
         }
 
         public Colors ForwardColor()
         {
-            if (!isSingularColor())
+            if (!IsSingularColor())
             {
                 return RedColor;
             }
@@ -146,7 +152,7 @@ namespace Spectrum.Model
 
         public Colors BackwardColor()
         {
-            if (!isSingularColor())
+            if (!IsSingularColor())
             {
                 return RedColor;
             }
@@ -168,7 +174,7 @@ namespace Spectrum.Model
 
         public Color SystemColor()
         {
-            if (!isSingularColor())
+            if (!IsSingularColor())
             {
                 throw new Exception("System color from multi-color");
             }

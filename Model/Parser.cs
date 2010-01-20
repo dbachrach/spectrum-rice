@@ -59,6 +59,11 @@ namespace Spectrum.Model
                 break;
             }
 
+            /* Create Player */
+            Player player = new Player();
+            player.Container = level;
+            player.Position = level.StartPosition;
+            level.AddPlayer(player);
 
             /* Parse Game Objects and find id*/
             foreach (Hashtable obj in levelData)
@@ -82,7 +87,7 @@ namespace Spectrum.Model
                     }
                     else if (objType.Equals("door"))
                     {
-                        newObject = new Door();
+                        newObject = new Door(player);
                     }
                     else if (objType.Equals("platform"))
                     {
@@ -105,11 +110,7 @@ namespace Spectrum.Model
                 }
             }
 
-            /* Create Player */
-            Player player = new Player();
-            player.Container = level;
-            player.Position = level.StartPosition;
-            level.AddPlayer(player);
+            
 
 
             /* Set game object properties and resolve pointers to other objects */

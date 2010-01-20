@@ -57,7 +57,7 @@ namespace Spectrum.Model
 
         public bool currentlyVisible()
         {
-            return Container.CurrentColor.contains(this.ViewableColors);
+            return Container.CurrentColor.Contains(this.ViewableColors);
         }
 
         //Load the texture for the sprite using the Content Pipeline
