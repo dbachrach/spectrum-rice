@@ -14,7 +14,7 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace Spectrum.Model
 {
-    enum Direction { Up, Down, Left, Right }
+    enum Direction { Up, Down, Left, Right, None }
 
     class GameObject
     {
