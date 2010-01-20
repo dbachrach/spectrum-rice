@@ -2,6 +2,8 @@ Demo
 ----
 Make player fall.
 Combine objects together
+When player jumps, take into account he might be holding something
+
 
 Post-Demo
 ---------
