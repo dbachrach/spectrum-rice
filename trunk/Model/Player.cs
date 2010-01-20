@@ -38,7 +38,7 @@ namespace Spectrum.Model
             : base()
         {
             Id = "player";
-            ImageName = "PlayerRun";
+            ImageName = "player";
             TimesDied = 0;
             PlayTime = TimeSpan.Zero;
             Possession = null;
@@ -49,6 +49,8 @@ namespace Spectrum.Model
             State = PlayerState.None;
             NearObject = null;
         }
+
+        
 
         public override void Draw(SpriteBatch spriteBatch)
         {
@@ -76,7 +78,8 @@ namespace Spectrum.Model
 
             if (Possession != null)
             {
-                Possession.Position = new Vector2(this.Position.X, this.Position.Y - Possession.Texture.Height); /* Change this from going through possesion's texture to going through polygon */
+                Possession.SetPosition(this.Boundary.Left, this.Boundary.Top - Possession.Boundary.Height);
+                //Possession.Position = new Vector2(this.Position.X, this.Position.Y - Possession.Texture.Height); /* Change this from going through possesion's texture to going through polygon */
                 Possession.DirectionFacing = this.DirectionFacing;
                 Possession.Update(theGameTime);
 
@@ -162,12 +165,11 @@ namespace Spectrum.Model
             Rectangle playerRectangle;
             if (Possession == null)
             {
-                playerRectangle = new Rectangle((int)Position.X + moveX, (int)Position.Y + moveY, (int)AnimTexture.TextureSize().X, (int)AnimTexture.TextureSize().Y);
+                playerRectangle = new Rectangle( (int) (Position().X + moveX), (int) (Position().Y + moveY), (int) Size().X, (int) Size().Y);
             }
             else
             {
-               /* Remove references to Texture below */
-                playerRectangle = new Rectangle((int)Position.X + moveX, (int)Position.Y + moveY - Possession.Texture.Height, (int)AnimTexture.TextureSize().X, (int)AnimTexture.TextureSize().Y + Possession.Texture.Height);
+                playerRectangle = new Rectangle((int)(Position().X + moveX), (int)(Position().Y + moveY - Possession.Boundary.Height), (int)Size().X, (int)Size().Y + Possession.Boundary.Height);
             }
             
             foreach (GameObject obj in Container.GameObjects)
@@ -175,7 +177,7 @@ namespace Spectrum.Model
                 /* Check for collisions with player to an obj */
                 if (obj != this && obj != Possession)
                 {
-                    Rectangle objRectangle = new Rectangle((int)obj.Position.X, (int)obj.Position.Y, obj.Texture.Width, obj.Texture.Height);
+                    Rectangle objRectangle = obj.Boundary;
                     if (playerRectangle.Intersects(objRectangle) && this.currentlyVisible() && obj.currentlyVisible())
                     {
                         if (obj.Pickupable || (obj.Events != null && obj.Events.Count > 0))
@@ -221,7 +223,7 @@ namespace Spectrum.Model
             {
                 /* Check to see if they've reached the apex of the jump */
 
-                if (StartingPosition.Y - Position.Y > MaxJumpHeight || CollisionDetect(Direction.Up))
+                if (StartingPosition.Y - Position().Y > MaxJumpHeight || CollisionDetect(Direction.Up))
                 {
                     Vector2 vel = Velocity;
                     vel.Y = 0;
@@ -307,7 +309,7 @@ namespace Spectrum.Model
                     return;
                 }
                 State = PlayerState.Jumping;
-                StartingPosition = Position;
+                StartingPosition = Position();
                 Vector2 v = Velocity;
                 v.Y = -3;
                 Velocity = v;
@@ -341,7 +343,8 @@ namespace Spectrum.Model
             {
                 offset = myWidth;
             }
-            Possession.Position = new Vector2(this.Position.X + offset, this.Position.Y + myHeight - Possession.Texture.Height); // TODO: don't use texture
+            //Possession.Position = new Vector2(this.Position().X + offset, this.Position().Y + myHeight - Possession.Texture.Height); // TODO: don't use texture
+            Possession.SetPosition( (int) (this.Position().X + offset), (int) (this.Position().Y + myHeight - Possession.Size().Y));
             Container.DeferAddGameObject(Possession);
 
 

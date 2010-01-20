@@ -62,7 +62,7 @@ namespace Spectrum.Model
             /* Create Player */
             Player player = new Player();
             player.Container = level;
-            player.Position = level.StartPosition;
+            player.Boundary = new Rectangle((int) level.StartPosition.X, (int) level.StartPosition.Y, 0, 0);
             level.AddPlayer(player);
 
             /* Parse Game Objects and find id*/
@@ -125,10 +125,6 @@ namespace Spectrum.Model
                 {
                     newObject.ViewableColors = Colors.ColorsFromJsonArray((ArrayList)obj["colors"]);
                 }
-                if (obj.ContainsKey("polygon"))
-                {
-                    // TODO: newObject.Polygon = obj["polygon"];
-                }
                 if (obj.ContainsKey("image"))
                 {
                     newObject.ImageName = (string)obj["image"];
@@ -136,7 +132,7 @@ namespace Spectrum.Model
                 if (obj.ContainsKey("position"))
                 {
                     ArrayList positionJson = (ArrayList)obj["position"];
-                    newObject.Position = new Vector2((float)((double)positionJson[0]), (float)((double)positionJson[1]));
+                    newObject.Boundary = new Rectangle((int)((double)positionJson[0]), (int)((double)positionJson[1]), 0, 0);
                 }
                 if (obj.ContainsKey("affected-by-gravity"))
                 {

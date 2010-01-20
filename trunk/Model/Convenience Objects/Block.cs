@@ -18,7 +18,7 @@ namespace Spectrum.Model
     {
 		public Block() : base() {
 			/* TODO: Square polygon */
-            ImageName = "block";
+            ImageName = "boxverticle";
 			AffectedByGravity = true;
 			Pickupable = true;
 		}
