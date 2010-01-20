@@ -176,7 +176,6 @@ namespace Spectrum.Model
                 if (obj != this && obj != Possession)
                 {
                     Rectangle objRectangle = new Rectangle((int)obj.Position.X, (int)obj.Position.Y, obj.Texture.Width, obj.Texture.Height);
-
                     if (playerRectangle.Intersects(objRectangle) && this.currentlyVisible() && obj.currentlyVisible())
                     {
                         if (obj.Pickupable || (obj.Events != null && obj.Events.Count > 0))
