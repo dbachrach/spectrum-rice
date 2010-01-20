@@ -20,9 +20,11 @@ namespace Spectrum.Model
     {
         public string Id { get; set; }
         public Colors ViewableColors { get; set; }
-        public Polygon Polygon { get; set; }
+
+        private Rectangle _boundary;
+
+        public Rectangle Boundary { get { return _boundary; } set { _boundary = value; } }
         public string ImageName { get; set; }
-        public Vector2 Position { get; set; }
         public bool AffectedByGravity { get; set; }		
         public Vector2 Velocity { get; set; }
         public List<GameObject> CombineObjects { get; set; }
@@ -39,7 +41,7 @@ namespace Spectrum.Model
         public Direction DirectionFacing { get; set; }
 
         public Texture2D Texture { get; set; }
-        public AnimatedTexture AnimTexture;
+        public GameTexture AnimTexture; /* TODO: Rename Anim Texture */
 
 		/* Default Constructor */
 		public GameObject() {
@@ -53,7 +55,29 @@ namespace Spectrum.Model
 			ExistsWhenNotViewed = true;
             Animated = false;
             DirectionFacing = Direction.Right;
+
+            FrameCount = 1;
+            FramesPerSec = 1;
 		}
+
+        public void SetPosition(int x, int y)
+        {
+            _boundary.Location = new Point(x, y);
+        }
+
+        public void SetSize(int width, int height)
+        {
+            _boundary.Width = width;
+            _boundary.Height = height;
+        }
+        public Vector2 Position()
+        {
+            return new Vector2(_boundary.Left, _boundary.Right);
+        }
+        public Vector2 Size()
+        {
+            return new Vector2(_boundary.Width, _boundary.Height);
+        }
 
         public bool currentlyVisible()
         {
@@ -63,34 +87,26 @@ namespace Spectrum.Model
         //Load the texture for the sprite using the Content Pipeline
         public void LoadContent(ContentManager theContentManager, GraphicsDevice graphicsDevice)
         {
-            if (Animated)
-            {
-                AnimTexture = new AnimatedTexture(Vector2.Zero, 0.0f, 1.0f, .5f);
-                AnimTexture.Load(theContentManager, ImageName, FrameCount, FramesPerSec);
-                AnimTexture.Pause();
-            }
-            else if (ImageName == null || ImageName.Equals(""))
-            {
-                Texture = CreateRectangle(800, 120, graphicsDevice);
-            }
-            else
-            {
-                Texture = theContentManager.Load<Texture2D>(ImageName);
-            }
+            
+            AnimTexture = new GameTexture(Vector2.Zero, 0.0f, 1.0f, .5f);
+            AnimTexture.Load(theContentManager, graphicsDevice, ImageName, FrameCount, FramesPerSec);
+            AnimTexture.Pause();
+
+            SetSize((int)AnimTexture.TextureSize().X, (int)AnimTexture.TextureSize().Y);
         }
 
         //Draw the sprite to the screen
         public virtual void Draw(SpriteBatch spriteBatch)
         {
             if(currentlyVisible()) {
-                if (Animated)
-                {
-                    AnimTexture.DrawFrame(spriteBatch, Container.CurrentColor, Position, DrawEffects());
-                }
-                else
-                {
-                    spriteBatch.Draw(Texture, Position, null, Container.CurrentColor.SystemColor() /*TODO: Should be Color.White when we have custom images for each color */, 0, Vector2.Zero, 1.0f, DrawEffects(), 0.0f);
-                }
+                //if (Animated)
+                //{
+                    AnimTexture.DrawFrame(spriteBatch, Container.CurrentColor, new Vector2(Boundary.Left, Boundary.Top), DrawEffects());
+                //}
+                //else
+                //{
+                //    spriteBatch.Draw(Texture, Position(), null, Container.CurrentColor.SystemColor() /*TODO: Should be Color.White when we have custom images for each color */, 0, Vector2.Zero, 1.0f, DrawEffects(), 0.0f);
+                //}
                 
             }
         }
@@ -98,7 +114,9 @@ namespace Spectrum.Model
         //Update the Sprite and change it's position based on the passed in speed, direction and elapsed time.
         public virtual void Update(GameTime theGameTime)
         {
-            Position += Velocity /** (float)theGameTime.ElapsedGameTime.TotalSeconds*/;
+            //Position += Velocity /** (float)theGameTime.ElapsedGameTime.TotalSeconds*/;
+
+            SetPosition((int) (Position().X + Velocity.X), (int) (Position().Y + Velocity.Y));
 
             if (Animated)
             {
@@ -119,18 +137,5 @@ namespace Spectrum.Model
 
             return effects;
         }
-
-        private Texture2D CreateRectangle(int width, int height, GraphicsDevice graphicsDevice)
-        {
-            Texture2D rectangleTexture = new Texture2D(graphicsDevice, width, height, 1, TextureUsage.None, SurfaceFormat.Color);// create the rectangle texture, ,but it will have no color! lets fix that
-            Color[] color = new Color[width * height];//set the color to the amount of pixels in the textures
-            for (int i = 0; i < color.Length; i++)//loop through all the colors setting them to whatever values we want
-            {
-                color[i] = new Color(0,0,0,150);
-            }
-            rectangleTexture.SetData(color);//set the color data on the texture
-            return rectangleTexture;//return the texture
-        }
-
     }
 }
