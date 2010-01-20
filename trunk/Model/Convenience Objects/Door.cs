@@ -16,7 +16,7 @@ namespace Spectrum.Model
 {
     class Door : GameObject
     {
-		public Door() : base() {
+		public Door(Player player) : base() {
 			/* Todo: Polygon rectangle */
             ImageName = "door";
 			AffectedByGravity = false;
@@ -31,6 +31,7 @@ namespace Spectrum.Model
 
             EventAction a = new EventAction();
             a.Special = "win";
+            a.Receiver = player;
 
             e.Actions.Add(a);
             Events.Add(e);

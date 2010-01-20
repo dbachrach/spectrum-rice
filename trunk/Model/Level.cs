@@ -100,7 +100,6 @@ namespace Spectrum.Model
             return null;
         }
 
-        // loads the background image from the specified file
         public void LoadContent(ContentManager manager, GraphicsDevice graphicsDevice)
         {
             //Background = manager.Load<Texture2D>("sunset");
@@ -173,6 +172,10 @@ namespace Spectrum.Model
                             break;
                         }
                     }
+                }
+                if (Completed)
+                {
+                    displayName =  "Level Complete";
                 }
                 spriteBatch.DrawString(font, displayName, new Vector2(350, 540), Color.White);
             }

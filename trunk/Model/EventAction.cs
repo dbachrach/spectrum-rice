@@ -14,7 +14,7 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace Spectrum.Model
 {
-	enum ActionType { Change, Increment, Decrement } /* TODO: AddColor & RemoveColor */
+	enum ActionType { Change, Increment, Decrement, AddColors, RemoveColors } /* TODO: AddColor & RemoveColor */
 	
     class EventAction
     {
@@ -54,6 +54,14 @@ namespace Spectrum.Model
             {
                 return ActionType.Decrement;
             }
+            else if (str.Equals("add-colors"))
+            {
+                return ActionType.AddColors;
+            }
+            else if (str.Equals("remove-colors"))
+            {
+                return ActionType.RemoveColors;
+            }
             else
             {
                 throw new Exception("Type for action was not an action type: " + str);
@@ -63,20 +71,35 @@ namespace Spectrum.Model
         public void Execute()
         {
             Console.WriteLine("Executed");
-
+            /* TODO: All execution properties */
             if (Special != null && !Special.Equals(""))
             {
                 if (Special.Equals("win"))
                 {
-                    /* TODO: Win */
+                    Console.WriteLine("WIN");
+                    Player p = (Player) this.Receiver;
+                    p.WinLevel();
+                }
+                else if (Special.Equals("lose"))
+                {
+                    Player p = (Player)this.Receiver;
+                    p.LoseLevel();
                 }
             }
             else if (Property.Equals("colors"))
             {
-                if (Type == ActionType.Change)
+                /* TODO: Indicate this to user with flash of light or something */
+                switch (Type)
                 {
-                    Receiver.ViewableColors = Colors.ColorsFromJsonArray((ArrayList)Value);
-                    /* TODO: Indicate this to user with flash of light or something */
+                    case ActionType.Change:
+                        Receiver.ViewableColors = Colors.ColorsFromJsonArray((ArrayList)Value);
+                        break;
+                    case ActionType.AddColors:
+                        Receiver.ViewableColors = Receiver.ViewableColors.Combine(Colors.ColorsFromJsonArray((ArrayList)Value));
+                        break;
+                    case ActionType.RemoveColors:
+                        Receiver.ViewableColors = Receiver.ViewableColors.Difference(Colors.ColorsFromJsonArray((ArrayList)Value));
+                        break;
                 }
             }
         }

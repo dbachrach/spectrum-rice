@@ -266,8 +266,6 @@ namespace Spectrum.Model
         {
             if (aCurrentKeyboardState.IsKeyDown(Keys.X) == true && PreviousKeyboardState.IsKeyDown(Keys.X) == false)
             {
-                /* TODO: find object near that is pickupable and pick it up. */
-                //Possession = null;
 
                 if (Possession != null)
                 {
@@ -277,9 +275,18 @@ namespace Spectrum.Model
                 {
                     Pickup(NearObject);
                 }
-                else if (false /* TODO: Check for x-event */) 
+                else if (NearObject != null) 
                 {
-
+                    if (NearObject.Events != null)
+                    {
+                        foreach (Event e in NearObject.Events)
+                        {
+                            if (e.Type == EventType.XEvent)
+                            {
+                                e.Execute();
+                            }
+                        }
+                    }
                 }
 
             }
@@ -331,7 +338,18 @@ namespace Spectrum.Model
             Possession.Position = new Vector2(this.Position.X + offset, this.Position.Y + myHeight - Possession.Texture.Height); // TODO: don't use texture
             Container.DeferAddGameObject(Possession);
 
+
+
             Possession = null;
+        }
+
+        public void WinLevel()
+        {
+            Container.Completed = true;
+        }
+        public void LoseLevel()
+        {
+
         }
     }
 }

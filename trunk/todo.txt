@@ -1,6 +1,7 @@
 Demo
 ----
 Make player fall.
+Combine objects together
 
 Post-Demo
 ---------
