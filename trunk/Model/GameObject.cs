@@ -22,11 +22,12 @@ namespace Spectrum.Model
         public Colors ViewableColors { get; set; }
 
         private Rectangle _boundary;
+        private Vector2 _velocity;
 
         public Rectangle Boundary { get { return _boundary; } set { _boundary = value; } }
         public string ImageName { get; set; }
-        public bool AffectedByGravity { get; set; }		
-        public Vector2 Velocity { get; set; }
+        public bool AffectedByGravity { get; set; }
+        public Vector2 Velocity { get { return _velocity; } set { _velocity = value; } }
         public List<GameObject> CombineObjects { get; set; }
 		public List<GameObject> CombinableWith { get; set; }
         public bool Pickupable { get; set; }
@@ -42,6 +43,8 @@ namespace Spectrum.Model
 
         public Texture2D Texture { get; set; }
         public GameTexture AnimTexture; /* TODO: Rename Anim Texture */
+
+        private int GravityConstant = 1;
 
 		/* Default Constructor */
 		public GameObject() {
@@ -108,6 +111,22 @@ namespace Spectrum.Model
         {
             //Position += Velocity /** (float)theGameTime.ElapsedGameTime.TotalSeconds*/;
             //Console.WriteLine("vel ({0}, {1})", Velocity.X, Velocity.Y);
+
+            if (AffectedByGravity)
+            {
+                if (CheckBelowObject())
+                {
+                    if (Velocity.Y > 0)
+                    {
+                        Velocity = new Vector2(Velocity.X, 0); 
+                    }
+                }
+                else
+                {
+                    Velocity = new Vector2(Velocity.X, Velocity.Y + GravityConstant);
+                }
+            }
+
             SetPosition((int) (Position().X + Velocity.X), (int) (Position().Y + Velocity.Y));
 
             if (Animated)
@@ -115,6 +134,22 @@ namespace Spectrum.Model
                 float elapsed = (float)theGameTime.ElapsedGameTime.TotalSeconds;
                 AnimTexture.UpdateFrame(elapsed);
             }
+        }
+
+        // Returns true if an object is below this one, false otherwise
+        private bool CheckBelowObject()
+        {
+            Rectangle checkRect = new Rectangle(Boundary.Left, (int)(Boundary.Top + 10), Boundary.Width, Boundary.Height);
+
+            foreach (GameObject obj in Container.GameObjects)
+            {
+                if (obj != this && checkRect.Intersects(obj.Boundary))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         // Returns a SpriteEffects value based on the DirectionFacing property of this GameObject
