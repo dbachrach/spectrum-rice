@@ -132,6 +132,7 @@ namespace Spectrum.Model
         {
             
             Rectangle bothRect = new Rectangle((int)(Position().X + Velocity.X), (int)(Position().Y + Velocity.Y), (int)Size().X, (int)Size().Y);
+
             GameObject obj = CollisionWithRect(bothRect);
 
             // see if the object collides with anything
@@ -140,7 +141,10 @@ namespace Spectrum.Model
                 return false;
             }
 
+            
             Rectangle yRect = new Rectangle((int)(Position().X), (int)(Position().Y + Velocity.Y), (int)Size().X, (int)Size().Y);
+            Rectangle xRect = new Rectangle((int)(Position().X + Velocity.X), (int)(Position().Y - 5), (int)Size().X, (int)Size().Y);
+
             if (obj.Boundary.Intersects(yRect))
             {
                 // if falling
@@ -162,7 +166,6 @@ namespace Spectrum.Model
                 Velocity = new Vector2(Velocity.X, 0);
             }
 
-            Rectangle xRect = new Rectangle((int)(Position().X + Velocity.X), (int)(Position().Y), (int)Size().X, (int)Size().Y);
             if (obj.Boundary.Intersects(xRect))
             {
                 // if moving right
