@@ -72,7 +72,7 @@ namespace Spectrum.Model
         }
         public Vector2 Position()
         {
-            return new Vector2(_boundary.Left, _boundary.Right);
+            return new Vector2(_boundary.Left, _boundary.Top);
         }
         public Vector2 Size()
         {
@@ -101,7 +101,8 @@ namespace Spectrum.Model
             if(currentlyVisible()) {
                 //if (Animated)
                 //{
-                    AnimTexture.DrawFrame(spriteBatch, Container.CurrentColor, new Vector2(Boundary.Left, Boundary.Top), DrawEffects());
+                Console.WriteLine("Drawing {0} at {1},{2}", this, Boundary.Left, Boundary.Top);
+                AnimTexture.DrawFrame(spriteBatch, Container.CurrentColor, new Vector2(Boundary.Left, Boundary.Top), DrawEffects());
                 //}
                 //else
                 //{
@@ -115,7 +116,7 @@ namespace Spectrum.Model
         public virtual void Update(GameTime theGameTime)
         {
             //Position += Velocity /** (float)theGameTime.ElapsedGameTime.TotalSeconds*/;
-
+            //Console.WriteLine("vel ({0}, {1})", Velocity.X, Velocity.Y);
             SetPosition((int) (Position().X + Velocity.X), (int) (Position().Y + Velocity.Y));
 
             if (Animated)

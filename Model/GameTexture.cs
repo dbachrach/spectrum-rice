@@ -79,9 +79,9 @@ namespace Spectrum.Model
         // class AnimatedTexture
         public void DrawFrame(SpriteBatch Batch, Colors color, Vector2 screenpos, SpriteEffects drawEffects)
         {
-            if (Paused || framecount == 1)
+            if (Paused)
             {
-                Frame = 1;
+                Frame = 0;
             }
             DrawFrame(Batch, Frame, color, screenpos, drawEffects);
 
@@ -122,7 +122,7 @@ namespace Spectrum.Model
 
 
             int FrameHeight = myTexture.Height / 6;
-            Rectangle sourcerect = new Rectangle(FrameWidth * Frame,FrameHeight * divisor, FrameWidth, myTexture.Height);
+            Rectangle sourcerect = new Rectangle(FrameWidth * Frame, FrameHeight * divisor, FrameWidth, FrameHeight);
             Batch.Draw(myTexture, screenpos, sourcerect, Color.White,Rotation, Origin, Scale, drawEffects, Depth);
 
         }
