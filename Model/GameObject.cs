@@ -109,7 +109,6 @@ namespace Spectrum.Model
         //Update the Sprite and change it's position based on the passed in speed, direction and elapsed time.
         public virtual void Update(GameTime theGameTime)
         {
-
             if (AffectedByGravity && currentlyVisible())
             {
                 Velocity = new Vector2(Velocity.X, Velocity.Y + GravityConstant);
@@ -130,7 +129,6 @@ namespace Spectrum.Model
         // If object collides, then the position & velocity of the object is updated
         private bool CheckCollision()
         {
-            
             Rectangle bothRect = new Rectangle((int)(Position().X + Velocity.X), (int)(Position().Y + Velocity.Y), (int)Size().X, (int)Size().Y);
 
             GameObject obj = CollisionWithRect(bothRect);
@@ -143,7 +141,9 @@ namespace Spectrum.Model
 
             
             Rectangle yRect = new Rectangle((int)(Position().X), (int)(Position().Y + Velocity.Y), (int)Size().X, (int)Size().Y);
-            Rectangle xRect = new Rectangle((int)(Position().X + Velocity.X), (int)(Position().Y - 5), (int)Size().X, (int)Size().Y);
+            Rectangle xRect = new Rectangle((int)(Position().X + Velocity.X), (int)(Position().Y), (int)Size().X, (int)Size().Y);
+            bool collidesY = false;
+            bool collidesX = false;
 
             if (obj.Boundary.Intersects(yRect))
             {
@@ -156,11 +156,13 @@ namespace Spectrum.Model
                 else if (Velocity.Y > 0)
                 {
                     SetPosition((int)(Position().X), (int)(obj.Position().Y - Size().Y));
+                    collidesY = true;
                     this.DidHitGround();
                 }
                 else // if jumping
                 {
                     SetPosition((int)(Position().X), (int)(obj.Position().Y + obj.Size().Y));
+                    collidesY = true;
                 }
                 
                 Velocity = new Vector2(Velocity.X, 0);
@@ -172,21 +174,23 @@ namespace Spectrum.Model
                 // TODO: what happens if it's zero?
                 if (Velocity.X == 0)
                 {
-
+                    // do nothing
                 }
                 else if (Velocity.X > 0)
                 {
                     SetPosition((int)(obj.Position().X - Size().X), (int)(Position().Y));
+                    collidesX = true;
                 }
                 else // if moving left
                 {
                     SetPosition((int)(obj.Position().X + obj.Size().X), (int)(Position().Y));
+                    collidesX = true;
                 }
 
                 Velocity = new Vector2(0, Velocity.Y);
             }
 
-            return true;
+            return collidesY && collidesX;
         }
 
         private GameObject CollisionWithRect(Rectangle rect)
