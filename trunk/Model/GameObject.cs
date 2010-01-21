@@ -131,10 +131,10 @@ namespace Spectrum.Model
         {
             Rectangle bothRect = new Rectangle((int)(Position().X + Velocity.X), (int)(Position().Y + Velocity.Y), (int)Size().X, (int)Size().Y);
 
-            GameObject obj = CollisionWithRect(bothRect);
+            List<GameObject> objects = CollisionWithRect(bothRect);
 
             // see if the object collides with anything
-            if (obj == null)
+            if (objects.Count == 0)
             {
                 return false;
             }
@@ -145,56 +145,61 @@ namespace Spectrum.Model
             bool collidesY = false;
             bool collidesX = false;
 
-            if (obj.Boundary.Intersects(yRect))
+            foreach (GameObject obj in objects)
             {
-                // if falling
-                // TODO: what happens if it's zero?
-                if (Velocity.Y == 0)
+                if (obj.Boundary.Intersects(yRect))
                 {
-                    // do nothing
-                }
-                else if (Velocity.Y > 0)
-                {
-                    SetPosition((int)(Position().X), (int)(obj.Position().Y - Size().Y));
-                    collidesY = true;
-                    this.DidHitGround();
-                }
-                else // if jumping
-                {
-                    SetPosition((int)(Position().X), (int)(obj.Position().Y + obj.Size().Y));
-                    collidesY = true;
-                }
-                
-                Velocity = new Vector2(Velocity.X, 0);
-            }
+                    // if falling
+                    // TODO: what happens if it's zero?
+                    if (Velocity.Y == 0)
+                    {
+                        // do nothing
+                    }
+                    else if (Velocity.Y > 0)
+                    {
+                        SetPosition((int)(Position().X), (int)(obj.Position().Y - Size().Y));
+                        collidesY = true;
+                        this.DidHitGround();
+                    }
+                    else // if jumping
+                    {
+                        SetPosition((int)(Position().X), (int)(obj.Position().Y + obj.Size().Y));
+                        collidesY = true;
+                    }
 
-            if (obj.Boundary.Intersects(xRect))
-            {
-                // if moving right
-                // TODO: what happens if it's zero?
-                if (Velocity.X == 0)
-                {
-                    // do nothing
-                }
-                else if (Velocity.X > 0)
-                {
-                    SetPosition((int)(obj.Position().X - Size().X), (int)(Position().Y));
-                    collidesX = true;
-                }
-                else // if moving left
-                {
-                    SetPosition((int)(obj.Position().X + obj.Size().X), (int)(Position().Y));
-                    collidesX = true;
+                    Velocity = new Vector2(Velocity.X, 0);
                 }
 
-                Velocity = new Vector2(0, Velocity.Y);
+                if (obj.Boundary.Intersects(xRect))
+                {
+                    // if moving right
+                    // TODO: what happens if it's zero?
+                    if (Velocity.X == 0)
+                    {
+                        // do nothing
+                    }
+                    else if (Velocity.X > 0)
+                    {
+                        SetPosition((int)(obj.Position().X - Size().X), (int)(Position().Y));
+                        collidesX = true;
+                    }
+                    else // if moving left
+                    {
+                        SetPosition((int)(obj.Position().X + obj.Size().X), (int)(Position().Y));
+                        collidesX = true;
+                    }
+
+                    Velocity = new Vector2(0, Velocity.Y);
+                }
             }
 
             return collidesY && collidesX;
         }
 
-        private GameObject CollisionWithRect(Rectangle rect)
+        private List<GameObject> CollisionWithRect(Rectangle rect)
         {
+            List<GameObject> objList = new List<GameObject>();
+
             foreach (GameObject obj in Container.GameObjects)
             {
                 /* Check for collisions with player to an obj */
@@ -202,11 +207,11 @@ namespace Spectrum.Model
                 {
                     if (rect.Intersects(obj.Boundary))
                     {
-                        return obj;
+                        objList.Add(obj);
                     }
                 }
             }
-            return null;
+            return objList;
         }
 
         // Returns a SpriteEffects value based on the DirectionFacing property of this GameObject
