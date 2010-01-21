@@ -35,7 +35,7 @@ namespace Spectrum.Model
         public List<Event> Events { get; set; }
         public bool ExistsWhenNotViewed { get; set; }
         public Level Container { get; set; }
-        public bool Animated { get; set; }
+        public bool Animated { get; set; } /* Get rid of this property */
         public int FrameCount { get; set; }
         public int FramesPerSec { get; set; }
         public Direction DirectionFacing { get; set; }
@@ -99,16 +99,7 @@ namespace Spectrum.Model
         public virtual void Draw(SpriteBatch spriteBatch)
         {
             if(currentlyVisible()) {
-                //if (Animated)
-                //{
-                Console.WriteLine("Drawing {0} at {1},{2}", this, Boundary.Left, Boundary.Top);
                 AnimTexture.DrawFrame(spriteBatch, Container.CurrentColor, new Vector2(Boundary.Left, Boundary.Top), DrawEffects());
-                //}
-                //else
-                //{
-                //    spriteBatch.Draw(Texture, Position(), null, Container.CurrentColor.SystemColor() /*TODO: Should be Color.White when we have custom images for each color */, 0, Vector2.Zero, 1.0f, DrawEffects(), 0.0f);
-                //}
-                
             }
         }
 
