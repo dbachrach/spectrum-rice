@@ -33,6 +33,7 @@ namespace Spectrum.Model
         public GameObject NearObject { get; set;}
 
         private const float MaxJumpHeight = 200.0f;
+        private const int MoveAmount = 3;
 
         public Player()
             : base()
@@ -115,11 +116,11 @@ namespace Spectrum.Model
                 Vector2 v = Velocity;
                 if (d == Direction.Left)
                 {
-                    v.X = -3;
+                    v.X = -MoveAmount;
                 }
                 else if (d == Direction.Right)
                 {
-                    v.X = 3;
+                    v.X = MoveAmount;
                 }
                 
                 Velocity = v;
@@ -143,22 +144,22 @@ namespace Spectrum.Model
 
             /* TODO: Do we need to check moves 1, 2, and 3. not just 3. In the case that its a very thin wall */
             int moveX = 0;
-            int moveY = 0 ;
+            int moveY = 0;
             if (dir == Direction.Left)
             {
-                moveX = -3;
+                moveX = -MoveAmount;
             }
             else if (dir == Direction.Right)
             {
-                moveX = 3;
+                moveX = MoveAmount;
             }
             else if (dir == Direction.Up)
             {
-                moveY = -3;
+                moveY = -MoveAmount;
             }
             else if (dir == Direction.Down)
             {
-                moveY = 3;
+                moveY = MoveAmount;
             }
 
 
@@ -311,7 +312,7 @@ namespace Spectrum.Model
                 State = PlayerState.Jumping;
                 StartingPosition = Position();
                 Vector2 v = Velocity;
-                v.Y = -3;
+                v.Y -= 10;
                 Velocity = v;
             }
         }
