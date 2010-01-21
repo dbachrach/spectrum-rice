@@ -54,3 +54,7 @@ C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\Pesca.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\Pesca.xnb
 U:\comp410\bin\x86\Debug\Content\player.xnb
 U:\comp410\bin\x86\Debug\Content\box.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\player.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\box.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\dr.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\pl.xnb

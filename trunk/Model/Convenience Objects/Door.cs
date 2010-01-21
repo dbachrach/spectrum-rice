@@ -18,7 +18,7 @@ namespace Spectrum.Model
     {
 		public Door(Player player) : base() {
 			/* Todo: Polygon rectangle */
-            ImageName = "door";
+            ImageName = "dr";
 			AffectedByGravity = false;
 			Pickupable = false;
 

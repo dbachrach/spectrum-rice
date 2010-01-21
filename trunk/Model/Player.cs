@@ -38,13 +38,13 @@ namespace Spectrum.Model
             : base()
         {
             Id = "player";
-            ImageName = "PlayerRun";
+            ImageName = "pl";
             TimesDied = 0;
             PlayTime = TimeSpan.Zero;
             Possession = null;
             State = PlayerState.Walking;
             Animated = true;
-            FrameCount = 4;
+            FrameCount = 5;
             FramesPerSec = 8;
             State = PlayerState.None;
             NearObject = null;
