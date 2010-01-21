@@ -58,3 +58,5 @@ C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\player.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\box.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\dr.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\pl.xnb
+U:\comp410\bin\x86\Debug\Content\dr.xnb
+U:\comp410\bin\x86\Debug\Content\pl.xnb
