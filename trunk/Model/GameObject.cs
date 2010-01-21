@@ -36,7 +36,7 @@ namespace Spectrum.Model
         public List<Event> Events { get; set; }
         public bool ExistsWhenNotViewed { get; set; }
         public Level Container { get; set; }
-        public bool Animated { get; set; } /* Get rid of this property */
+        public bool Animated { get; set; } /* TODO: Get rid of this property */
         public int FrameCount { get; set; }
         public int FramesPerSec { get; set; }
         public Direction DirectionFacing { get; set; }
@@ -44,7 +44,7 @@ namespace Spectrum.Model
         public Texture2D Texture { get; set; }
         public GameTexture AnimTexture; /* TODO: Rename Anim Texture */
 
-        private int GravityConstant = 1;
+        private float GravityConstant = 1.3f;
 
 		/* Default Constructor */
 		public GameObject() {
@@ -109,25 +109,16 @@ namespace Spectrum.Model
         //Update the Sprite and change it's position based on the passed in speed, direction and elapsed time.
         public virtual void Update(GameTime theGameTime)
         {
-            //Position += Velocity /** (float)theGameTime.ElapsedGameTime.TotalSeconds*/;
-            //Console.WriteLine("vel ({0}, {1})", Velocity.X, Velocity.Y);
 
-            if (AffectedByGravity)
+            if (AffectedByGravity && currentlyVisible())
             {
-                if (CheckBelowObject())
-                {
-                    if (Velocity.Y > 0)
-                    {
-                        Velocity = new Vector2(Velocity.X, 0); 
-                    }
-                }
-                else
-                {
-                    Velocity = new Vector2(Velocity.X, Velocity.Y + GravityConstant);
-                }
+                Velocity = new Vector2(Velocity.X, Velocity.Y + GravityConstant);
             }
 
-            SetPosition((int) (Position().X + Velocity.X), (int) (Position().Y + Velocity.Y));
+            if (!Velocity.Equals(Vector2.Zero) && !CheckCollision())
+            {
+                SetPosition((int)(Position().X + Velocity.X), (int)(Position().Y + Velocity.Y));
+            }
 
             if (Animated)
             {
@@ -136,20 +127,79 @@ namespace Spectrum.Model
             }
         }
 
-        // Returns true if an object is below this one, false otherwise
-        private bool CheckBelowObject()
+        // If object collides, then the position & velocity of the object is updated
+        private bool CheckCollision()
         {
-            Rectangle checkRect = new Rectangle(Boundary.Left, (int)(Boundary.Top + 10), Boundary.Width, Boundary.Height);
+            
+            Rectangle bothRect = new Rectangle((int)(Position().X + Velocity.X), (int)(Position().Y + Velocity.Y), (int)Size().X, (int)Size().Y);
+            GameObject obj = CollisionWithRect(bothRect);
 
-            foreach (GameObject obj in Container.GameObjects)
+            // see if the object collides with anything
+            if (obj == null)
             {
-                if (obj != this && checkRect.Intersects(obj.Boundary))
-                {
-                    return true;
-                }
+                return false;
             }
 
-            return false;
+            Rectangle yRect = new Rectangle((int)(Position().X), (int)(Position().Y + Velocity.Y), (int)Size().X, (int)Size().Y);
+            if (obj.Boundary.Intersects(yRect))
+            {
+                // if falling
+                // TODO: what happens if it's zero?
+                if (Velocity.Y == 0)
+                {
+                    // do nothing
+                }
+                else if (Velocity.Y > 0)
+                {
+                    SetPosition((int)(Position().X), (int)(obj.Position().Y - Size().Y));
+                    this.DidHitGround();
+                }
+                else // if jumping
+                {
+                    SetPosition((int)(Position().X), (int)(obj.Position().Y + obj.Size().Y));
+                }
+                
+                Velocity = new Vector2(Velocity.X, 0);
+            }
+
+            Rectangle xRect = new Rectangle((int)(Position().X + Velocity.X), (int)(Position().Y), (int)Size().X, (int)Size().Y);
+            if (obj.Boundary.Intersects(xRect))
+            {
+                // if moving right
+                // TODO: what happens if it's zero?
+                if (Velocity.X == 0)
+                {
+
+                }
+                else if (Velocity.X > 0)
+                {
+                    SetPosition((int)(obj.Position().X - Size().X), (int)(Position().Y));
+                }
+                else // if moving left
+                {
+                    SetPosition((int)(obj.Position().X + obj.Size().X), (int)(Position().Y));
+                }
+
+                Velocity = new Vector2(0, Velocity.Y);
+            }
+
+            return true;
+        }
+
+        private GameObject CollisionWithRect(Rectangle rect)
+        {
+            foreach (GameObject obj in Container.GameObjects)
+            {
+                /* Check for collisions with player to an obj */
+                if (obj != this && this.currentlyVisible() && obj.currentlyVisible())
+                {
+                    if (rect.Intersects(obj.Boundary))
+                    {
+                        return obj;
+                    }
+                }
+            }
+            return null;
         }
 
         // Returns a SpriteEffects value based on the DirectionFacing property of this GameObject
@@ -163,6 +213,11 @@ namespace Spectrum.Model
             }
 
             return effects;
+        }
+
+        protected virtual void DidHitGround()
+        {
+            // nada
         }
     }
 }

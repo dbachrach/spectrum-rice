@@ -41,7 +41,7 @@ namespace Spectrum.Model
             framecount = FrameCount;
             if (asset == null || asset.Equals(""))
             {
-                myTexture = CreateRectangle(800, 120, graphicsDevice);
+                myTexture = CreateRectangle(800, 120 * 6, graphicsDevice);
             }
             else
             {

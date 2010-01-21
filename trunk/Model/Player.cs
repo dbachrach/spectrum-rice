@@ -32,8 +32,8 @@ namespace Spectrum.Model
 
         public GameObject NearObject { get; set;}
 
-        private const float MaxJumpHeight = 200.0f;
-        private const int MoveAmount = 3;
+        private const int MoveAmount = 2;
+        private const int JumpAmount = 16;
 
         public Player()
             : base()
@@ -70,7 +70,7 @@ namespace Spectrum.Model
 
             UpdateMovement(aCurrentKeyboardState);
             UpdateJump(aCurrentKeyboardState);
-            UpdateFall(aCurrentKeyboardState);
+            //UpdateFall(aCurrentKeyboardState);
 
             UpdateColor(aCurrentKeyboardState);
             UpdateXEvent(aCurrentKeyboardState);
@@ -108,10 +108,10 @@ namespace Spectrum.Model
 
             if (d != Direction.None)
             {
-                if (CollisionDetect(d))
-                {
-                    return;
-                }
+                //if (CollisionDetect(d))
+                //{
+                //    return;
+                //}
 
                 Vector2 v = Velocity;
                 if (d == Direction.Left)
@@ -219,44 +219,6 @@ namespace Spectrum.Model
                     Jump();
                 }
             }
-
-            if (State == PlayerState.Jumping)
-            {
-                /* Check to see if they've reached the apex of the jump */
-
-                if (StartingPosition.Y - Position().Y > MaxJumpHeight || CollisionDetect(Direction.Up))
-                {
-                    Vector2 vel = Velocity;
-                    vel.Y = 0;
-                    Velocity = vel;
-                    State = PlayerState.None;
-                    return;
-                }
-            }
-        }
-
-        private void UpdateFall(KeyboardState aCurrentKeyboardState)
-        {
-            if (State != PlayerState.Jumping)
-            {
-                if (!CollisionDetect(Direction.Down))
-                {
-                    Vector2 v = Velocity;
-                    v.Y = 3;
-                    Velocity = v;
-                    State = PlayerState.Falling;
-                }
-                else
-                {
-                    Vector2 v = Velocity;
-                    v.Y = 0;
-                    Velocity = v;
-                    if (State == PlayerState.Falling)
-                    {
-                        State = PlayerState.None;
-                    }
-                }
-            }
         }
 
         private void UpdateColor(KeyboardState aCurrentKeyboardState)
@@ -305,15 +267,18 @@ namespace Spectrum.Model
         {
             if (State != PlayerState.Jumping)
             {
-                if (CollisionDetect(Direction.Up))
-                {
-                    return;
-                }
                 State = PlayerState.Jumping;
-                StartingPosition = Position();
                 Vector2 v = Velocity;
-                v.Y -= 10;
+                v.Y -= JumpAmount;
                 Velocity = v;
+            }
+        }
+
+        protected override void DidHitGround()
+        {
+            if (State == PlayerState.Jumping)
+            {
+                State = PlayerState.None;
             }
         }
 

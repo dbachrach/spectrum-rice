@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\sunset.xnb</Output>
-      <Time>2010-01-20T19:40:22.9912109-06:00</Time>
+      <Output>U:\comp410\bin\x86\Debug\Content\sunset.xnb</Output>
+      <Time>2010-01-14T12:57:47.443-06:00</Time>
     </Item>
     <Item>
       <Source>dude.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\dude.xnb</Output>
-      <Time>2010-01-20T19:40:22.9951172-06:00</Time>
+      <Output>U:\comp410\bin\x86\Debug\Content\dude.xnb</Output>
+      <Time>2010-01-15T14:38:01.861-06:00</Time>
     </Item>
     <Item>
       <Source>block.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\block.xnb</Output>
-      <Time>2010-01-20T19:40:23.0078125-06:00</Time>
+      <Output>U:\comp410\bin\x86\Debug\Content\block.xnb</Output>
+      <Time>2010-01-19T12:56:38.78-06:00</Time>
     </Item>
     <Item>
       <Source>PlayerRun.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\PlayerRun.xnb</Output>
-      <Time>2010-01-20T19:40:22.993164-06:00</Time>
+      <Output>U:\comp410\bin\x86\Debug\Content\PlayerRun.xnb</Output>
+      <Time>2010-01-19T12:56:38.546-06:00</Time>
     </Item>
     <Item>
       <Source>platform.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\platform.xnb</Output>
-      <Time>2010-01-20T21:14:46.7460937-06:00</Time>
+      <Output>U:\comp410\bin\x86\Debug\Content\platform.xnb</Output>
+      <Time>2010-01-21T12:52:57.847-06:00</Time>
     </Item>
     <Item>
       <Source>switch.png</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switch.xnb</Output>
-      <Time>2010-01-20T22:11:16.2880859-06:00</Time>
+      <Output>U:\comp410\bin\x86\Debug\Content\switch.xnb</Output>
+      <Time>2010-01-21T12:52:57.626-06:00</Time>
     </Item>
     <Item>
       <Source>door.png</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\door.xnb</Output>
-      <Time>2010-01-20T19:40:22.9746093-06:00</Time>
+      <Output>U:\comp410\bin\x86\Debug\Content\door.xnb</Output>
+      <Time>2010-01-19T12:56:38.65-06:00</Time>
     </Item>
     <Item>
       <Source>player.png</Source>
@@ -70,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\player.xnb</Output>
-      <Time>2010-01-20T19:40:22.9589843-06:00</Time>
+      <Output>U:\comp410\bin\x86\Debug\Content\player.xnb</Output>
+      <Time>2010-01-20T14:47:24-06:00</Time>
     </Item>
     <Item>
       <Source>box.png</Source>
@@ -79,8 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\box.xnb</Output>
-      <Time>2010-01-20T20:22:52.2167968-06:00</Time>
+      <Output>U:\comp410\bin\x86\Debug\Content\box.xnb</Output>
+      <Time>2010-01-21T12:52:57.524-06:00</Time>
     </Item>
     <Item>
       <Source>dr.png</Source>
@@ -88,8 +88,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\dr.xnb</Output>
-      <Time>2010-01-20T19:53:15.6689453-06:00</Time>
+      <Output>U:\comp410\bin\x86\Debug\Content\dr.xnb</Output>
+      <Time>2010-01-21T12:52:57.705-06:00</Time>
     </Item>
     <Item>
       <Source>pl.png</Source>
@@ -97,8 +97,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\pl.xnb</Output>
-      <Time>2010-01-20T19:53:15.6728515-06:00</Time>
+      <Output>U:\comp410\bin\x86\Debug\Content\pl.xnb</Output>
+      <Time>2010-01-21T12:52:57.784-06:00</Time>
     </Item>
     <Item>
       <Source>Pesca.spritefont</Source>
@@ -106,43 +106,43 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\Pesca.xnb</Output>
-      <Time>2010-01-20T19:40:22.9863281-06:00</Time>
+      <Output>U:\comp410\bin\x86\Debug\Content\Pesca.xnb</Output>
+      <Time>2010-01-19T13:11:07.654-06:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Administrator\Documents\spectrum-rice\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Administrator\Documents\spectrum-rice\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Administrator\Documents\spectrum-rice\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>U:\comp410\Content\</RootDirectory>
+      <LoggerRootDirectory>U:\comp410\</LoggerRootDirectory>
+      <IntermediateDirectory>U:\comp410\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>U:\comp410\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2009-05-14T11:13:52-06:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2008-10-10T17:42:32-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2009-05-14T11:13:52-06:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2008-10-10T17:43:28-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2009-05-14T11:13:52-06:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2008-10-10T17:43:18-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2009-05-14T11:13:52-06:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2008-10-10T17:48:18-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2009-05-14T11:13:52-06:00</Value>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v3.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2008-10-10T17:48:50-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Windows\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\3.0.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2010-01-15T17:58:37.484375-06:00</Value>
+        <Key>C:\WINDOWS\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\3.0.0.0__6d5c3888ef60e27d\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2009-07-23T18:05:26.078125-05:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
