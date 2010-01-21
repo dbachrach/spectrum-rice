@@ -1,12 +1,11 @@
 Demo
 ----
 Combine objects together
-Change size and position to Rectangle, remove Polygon
 Add in gravity for all objects
-Add new properties to the parser
 
 
 Post-Demo
 ---------
 Make collision detection better
 Add more types to the Execute() method in EventAction
+Add new properties to the parser
