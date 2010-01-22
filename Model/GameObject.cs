@@ -42,7 +42,7 @@ namespace Spectrum.Model
 
         public GameTexture Texture;
 
-        private float GravityConstant = 1.3f;
+        
 
 		/* Default Constructor */
 		public GameObject() {
@@ -60,16 +60,17 @@ namespace Spectrum.Model
             FramesPerSec = 1;
 		}
 
-        public void SetPosition(int x, int y)
-        {
-            _boundary.Location = new Point(x, y);
-        }
-
         public void SetPosition(Vector2 p)
         {
             SetPosition(new Point((int) p.X, (int) p.Y));
         }
 
+
+        public void SetPosition(int x, int y)
+        {
+            SetPosition(new Point(x, y));
+        }
+        
         public void SetPosition(Point p)
         {
             _boundary.Location = p;
@@ -95,7 +96,7 @@ namespace Spectrum.Model
         }
 
         //Load the texture for the sprite using the Content Pipeline
-        public void LoadContent(ContentManager theContentManager, GraphicsDevice graphicsDevice)
+        public virtual void LoadContent(ContentManager theContentManager, GraphicsDevice graphicsDevice)
         {
             
             Texture = new GameTexture(Vector2.Zero, 0.0f, 1.0f, .5f);
@@ -119,7 +120,7 @@ namespace Spectrum.Model
         {
             if (AffectedByGravity && currentlyVisible())
             {
-                Velocity = new Vector2(Velocity.X, Velocity.Y + GravityConstant);
+                Velocity = new Vector2(Velocity.X, Velocity.Y + Container.Gravity);
             }
 
             if (!Velocity.Equals(Vector2.Zero) && !CheckCollision())

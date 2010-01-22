@@ -59,6 +59,8 @@ namespace Spectrum.Model
         private List<GameObject> DoomedObjects;
         private List<GameObject> ResurrectedObjects;
 
+        public int Gravity = 1;
+
 		/* Default Constructor */
 		public Level() {
 			Completed = false;

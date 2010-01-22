@@ -37,11 +37,16 @@ namespace Spectrum.Model
 
         public void Load(ContentManager content, GraphicsDevice graphicsDevice, string asset, int FrameCount, int FramesPerSec)
         {
+            Load(content, graphicsDevice, asset, FrameCount, FramesPerSec, 0, 0);
+        }
+
+        public void Load(ContentManager content, GraphicsDevice graphicsDevice, string asset, int FrameCount, int FramesPerSec, int w, int h)
+        {
 
             framecount = FrameCount;
             if (asset == null || asset.Equals(""))
             {
-                myTexture = CreateRectangle(800, 120 * 6, graphicsDevice);
+                myTexture = CreateRectangle(w, h * 6, graphicsDevice);
             }
             else
             {
@@ -51,7 +56,6 @@ namespace Spectrum.Model
             Frame = 0;
             TotalElapsed = 0;
             Paused = false;
-
         }
 
         // class AnimatedTexture
