@@ -1,9 +1,9 @@
 [{"object" : "level","id" : "level","number" : 1,"name" : "Demo Level","width" : 500,"height" : 500,"allowed-colors" : ["all"], "start-position" : [50,410] }
-{"object" : "block","id" : "blue-block-a", "position" : [325, 480],"colors" : ["blue"], "combinable-with" : ["red-block","yellow-block-a","yellow-block-b"]}
-{"object" : "block","id" : "yellow-block-a", "position" : [445, 480],"colors" : ["yellow"]}
+{"object" : "block","id" : "blue-block-a", "position" : [325, 480],"colors" : ["blue"], "combinable-with" : ["yellow-block-b"]}
+{"object" : "block","id" : "yellow-block-a", "position" : [445, 480],"colors" : ["yellow"], "combinable-with" : ["red-block"]}
 {"object" : "block","id" : "yellow-block-b", "position" : [600, 480],"colors" : ["yellow"]}
 
-{"object" : "platform","id" : "green-platform-a","colors" : ["green"],"position" : [400, 350],"affected-by-gravity" : false,"exists-when-not-viewed" : false}
+{"object" : "platform","id" : "green-platform-a","colors" : ["green"],"position" : [400, 350],"affected-by-gravity" : false,"exists-when-not-viewed" : true}
 {"object" : "game-object","id" : "green-switch","colors" : ["green"],"position" : [425, 337],"image" : "switch","affected-by-gravity" : false,"exists-when-not-viewed" : false, "events" : [{
 					"type" : "collision",
 					"collision-target" : "player",
@@ -16,7 +16,7 @@
 				}]} 
 {"object" : "block","id" : "red-block","position" : [495, 300],"colors" : ["red"]}
 
-{"object" : "platform","id" : "orange-platform","colors" : ["orange"],"position" : [200, 250],"affected-by-gravity" : false,"exists-when-not-viewed" : false}
+{"object" : "platform","id" : "orange-platform","colors" : ["orange"],"position" : [200, 250],"affected-by-gravity" : false,"exists-when-not-viewed" : true}
 {"object" : "game-object","id" : "orange-switch","colors" : ["orange"],"position" : [285, 237],"image" : "switch","affected-by-gravity" : false,"exists-when-not-viewed" : false, "events" : [{
 					"type" : "collision",
 					"collision-target" : "player",
@@ -30,6 +30,6 @@
 {"object" : "block","id" : "block-blue-b","position" : [375, 200],"colors" : ["blue"]}
 
 {"object" : "platform","id" : "green-platform-b","colors" : ["green"],"position" : [400, 150],"affected-by-gravity" : false,"exists-when-not-viewed" : false}
-{"object" : "door","id" : "door","colors" : ["green"],"position" : [560, 42],"exists-when-not-viewed" : false} 
+{"object" : "door","id" : "door","colors" : ["green"],"position" : [560, 42],"exists-when-not-viewed" : true} 
 
 {"object" : "solid-ground", "id" : "ground", "position" : [0,535]}]

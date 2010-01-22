@@ -234,7 +234,7 @@ namespace Spectrum.Model
                 }
                 else if (c.Equals(Colors.RedColor))
                 {
-                    return PurpleColor;
+                    return OrangeColor;
                 }
             }
             else if (this.Equals(Colors.BlueColor))
