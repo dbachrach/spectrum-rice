@@ -14,7 +14,7 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace Spectrum.Model
 {
-	enum ActionType { Change, Increment, Decrement, AddColors, RemoveColors } /* TODO: AddColor & RemoveColor */
+	enum ActionType { Change, Increment, Decrement, AddColors, RemoveColors }
 	
     class EventAction
     {

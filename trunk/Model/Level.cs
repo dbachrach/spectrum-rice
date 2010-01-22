@@ -116,9 +116,6 @@ namespace Spectrum.Model
 
         public void Update(GameTime gameTime)
         {
-            /* TODO: Modify this colision stuff to use polygons */
-            //Rectangle playerRectangle = new Rectangle((int)player.Position.X, (int)player.Position.Y, player.Texture.Width, player.Texture.Height);
-
             if (DoomedObjects != null)
             {
                 foreach (GameObject DoomedObj in DoomedObjects)
@@ -136,16 +133,6 @@ namespace Spectrum.Model
             foreach (GameObject obj in GameObjects)
             {
                 obj.Update(gameTime);
-
-                /* Check for collisions with player to an obj */
-                //if (obj != player)
-                //{
-                //    Rectangle objRectangle = new Rectangle((int)obj.Position.X, (int)obj.Position.Y, obj.Texture.Width, obj.Texture.Height);
-                //    if (playerRectangle.Intersects(objRectangle) && player.currentlyVisible() && obj.currentlyVisible())
-                //    {
-                //        
-                //    }
-                //}
             }
 
             

@@ -44,14 +44,11 @@ namespace Spectrum.Model
             PlayTime = TimeSpan.Zero;
             Possession = null;
             State = PlayerState.Walking;
-            Animated = true;
             FrameCount = 5;
             FramesPerSec = 8;
             State = PlayerState.None;
             NearObject = null;
         }
-
-        
 
         public override void Draw(SpriteBatch spriteBatch)
         {
@@ -70,7 +67,6 @@ namespace Spectrum.Model
 
             UpdateMovement(aCurrentKeyboardState);
             UpdateJump(aCurrentKeyboardState);
-            //UpdateFall(aCurrentKeyboardState);
 
             UpdateColor(aCurrentKeyboardState);
             UpdateXEvent(aCurrentKeyboardState);
@@ -80,7 +76,6 @@ namespace Spectrum.Model
             if (Possession != null)
             {
                 Possession.SetPosition(this.Boundary.Left, this.Boundary.Top - Possession.Boundary.Height);
-                //Possession.Position = new Vector2(this.Position.X, this.Position.Y - Possession.Texture.Height); /* Change this from going through possesion's texture to going through polygon */
                 Possession.DirectionFacing = this.DirectionFacing;
                 Possession.Update(theGameTime);
 
@@ -94,7 +89,7 @@ namespace Spectrum.Model
             Vector2 v1 = Velocity;
             v1.X = 0;
             Velocity = v1;
-            AnimTexture.Pause();
+            Texture.Pause();
 
             Direction d = Direction.None;
             Vector2 v = Velocity;
@@ -117,21 +112,22 @@ namespace Spectrum.Model
 
                 if (State == PlayerState.Jumping || State == PlayerState.Falling)
                 {
-                    AnimTexture.Pause();
+                    Texture.Pause();
                 }
                 else
                 {
                     State = PlayerState.Walking;
-                    AnimTexture.Play();
+                    Texture.Play();
                 }
             }
         }
 
+        /*
         private bool CollisionDetect(Direction dir)
         {
-            /* TODO: Modify this colision stuff to use polygons */
+            // TODO: Modify this colision stuff to use polygons
 
-            /* TODO: Do we need to check moves 1, 2, and 3. not just 3. In the case that its a very thin wall */
+            // TODO: Do we need to check moves 1, 2, and 3. not just 3. In the case that its a very thin wall
             int moveX = 0;
             int moveY = 0;
             if (dir == Direction.Left)
@@ -164,7 +160,7 @@ namespace Spectrum.Model
             
             foreach (GameObject obj in Container.GameObjects)
             {
-                /* Check for collisions with player to an obj */
+                // Check for collisions with player to an obj 
                 if (obj != this && obj != Possession)
                 {
                     Rectangle objRectangle = obj.Boundary;
@@ -174,7 +170,7 @@ namespace Spectrum.Model
                         {
                             NearObject = obj;
                             Console.WriteLine("Near object {0}", NearObject.Id);
-                            /* TODO: This whole collision thing needs to be redone */
+                            // TODO: This whole collision thing needs to be redone 
 
                             if (NearObject.Events != null)
                             {
@@ -198,6 +194,7 @@ namespace Spectrum.Model
             NearObject = null;
             return false;
         }
+        */
 
         private void UpdateJump(KeyboardState aCurrentKeyboardState)
         {
@@ -263,6 +260,30 @@ namespace Spectrum.Model
             }
         }
 
+        /* Notifications */
+
+        protected override void DidCollideWithObjects(List<GameObject> objs)
+        {
+            foreach (GameObject obj in objs)
+            {
+                if (obj.Pickupable || (obj.Events != null && obj.Events.Count > 0))
+                {
+                    NearObject = obj;
+
+                    if (NearObject.Events != null)
+                    {
+                        foreach (Event e in NearObject.Events)
+                        {
+                            if (e.Type == EventType.Collision && e.CollisionTarget == this)
+                            {
+                                e.Execute();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         protected override void DidHitGround()
         {
             if (State == PlayerState.Jumping)
@@ -270,6 +291,8 @@ namespace Spectrum.Model
                 State = PlayerState.None;
             }
         }
+
+
 
         private void Pickup(GameObject obj)
         {
@@ -286,8 +309,8 @@ namespace Spectrum.Model
                 return;
             }
 
-            int myWidth = (int) this.AnimTexture.TextureSize().X; // TODO: don't use texture;
-            int myHeight = (int)this.AnimTexture.TextureSize().Y; // TODO: don't use texture;
+            int myWidth = (int) this.Size().X;
+            int myHeight = (int)this.Size().Y;
 
             int offset = 0;
             if (DirectionFacing == Direction.Left)
@@ -298,11 +321,8 @@ namespace Spectrum.Model
             {
                 offset = myWidth;
             }
-            //Possession.Position = new Vector2(this.Position().X + offset, this.Position().Y + myHeight - Possession.Texture.Height); // TODO: don't use texture
             Possession.SetPosition( (int) (this.Position().X + offset), (int) (this.Position().Y + myHeight - Possession.Size().Y));
             Container.DeferAddGameObject(Possession);
-
-
 
             Possession = null;
         }
