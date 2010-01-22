@@ -3,6 +3,7 @@ Demo
 Combine objects together
 Make blocks not fall when you view their color.
 Weird walking behavior when on switch
+Picking up an object who has a combined child, removes the child
 
 Post-Demo
 ---------

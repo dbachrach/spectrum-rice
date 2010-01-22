@@ -65,6 +65,11 @@ namespace Spectrum.Model
             _boundary.Location = new Point(x, y);
         }
 
+        public void SetPosition(Vector2 p)
+        {
+            _boundary.Location = new Point((int) p.X, (int) p.Y);
+        }
+
         public void SetSize(int width, int height)
         {
             _boundary.Width = width;
@@ -124,26 +129,17 @@ namespace Spectrum.Model
             {
                 foreach (GameObject obj in CombinableWith)
                 {
+                    
                     if (this.PositionFuzzyEqual(obj.Position()))
                     {
-                        
-                        Console.WriteLine("{0} {1}", this.ViewableColors, obj.ViewableColors);
-                        /*
-                        GameObject g = new Block();
-                        g.ViewableColors = this.ViewableColors.Combine(this.ViewableColors.ColorByMixingWith(obj.ViewableColors));
-                        g.SetPosition((int) this.Position().X, (int) this.Position().Y);
-                        g.Container = Container;
-                        */
-
                         GameObject g = this.CombineObjectWith(obj);
                         g.ViewableColors = this.ViewableColors.ColorByMixingWith(obj.ViewableColors);
                         this.CombineObjects.Add(g);
                         obj.CombineObjects.Add(g);
 
                         g.LoadContent(Container.GameRef.Content, Container.GameRef.GraphicsDevice);
-
+                        Console.WriteLine("Created obj");
                         Container.DeferAddGameObject(g);
-                        CombineObjects.Add(g);
                     }
                 }
             }
@@ -285,7 +281,6 @@ namespace Spectrum.Model
 
         protected bool PositionFuzzyEqual(Vector2 p)
         {
-            Console.WriteLine("{0} {1}", this.Position(), p);
             if (Position().Y != p.Y)
             {
                 return false;
