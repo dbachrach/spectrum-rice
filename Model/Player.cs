@@ -32,8 +32,8 @@ namespace Spectrum.Model
 
         public GameObject NearObject { get; set;}
 
-        private const int MoveAmount = 2;
-        private const int JumpAmount = 30;
+        private const int MoveAmount = 4;
+        private const int JumpAmount = 25;
 
         public Player()
             : base()
@@ -97,32 +97,21 @@ namespace Spectrum.Model
             AnimTexture.Pause();
 
             Direction d = Direction.None;
+            Vector2 v = Velocity;
 
             if (Keyboard.GetState().IsKeyDown(Keys.Left) == true) 
             {
                 d = Direction.Left;
+                v.X = -MoveAmount;
             }
-            else if (aCurrentKeyboardState.IsKeyDown(Keys.Right) == true) {
+            else if (aCurrentKeyboardState.IsKeyDown(Keys.Right) == true) 
+            {
                 d = Direction.Right;
+                v.X = MoveAmount;
             }
 
             if (d != Direction.None)
-            {
-                //if (CollisionDetect(d))
-                //{
-                //    return;
-                //}
-
-                Vector2 v = Velocity;
-                if (d == Direction.Left)
-                {
-                    v.X = -MoveAmount;
-                }
-                else if (d == Direction.Right)
-                {
-                    v.X = MoveAmount;
-                }
-                
+            {   
                 Velocity = v;
                 DirectionFacing = d;
 
