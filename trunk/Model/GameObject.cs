@@ -144,13 +144,12 @@ namespace Spectrum.Model
             {
                 if (obj.Boundary.Intersects(yRect))
                 {
-                    // if falling
-                    // TODO: what happens if it's zero?
+                    
                     if (Velocity.Y == 0)
                     {
                         // do nothing
                     }
-                    else if (Velocity.Y > 0)
+                    else if (Velocity.Y > 0) // if falling
                     {
                         SetPosition((int)(Position().X), (int)(obj.Position().Y - Size().Y));
                         collidesY = true;
@@ -167,13 +166,12 @@ namespace Spectrum.Model
 
                 if (obj.Boundary.Intersects(xRect))
                 {
-                    // if moving right
-                    // TODO: what happens if it's zero?
+                    
                     if (Velocity.X == 0)
                     {
                         // do nothing
                     }
-                    else if (Velocity.X > 0)
+                    else if (Velocity.X > 0) // if moving right
                     {
                         SetPosition((int)(obj.Position().X - Size().X), (int)(Position().Y));
                         collidesX = true;
@@ -224,6 +222,7 @@ namespace Spectrum.Model
 
             return effects;
         }
+
 
         /* Notifications */
 
