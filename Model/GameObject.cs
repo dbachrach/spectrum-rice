@@ -65,9 +65,14 @@ namespace Spectrum.Model
             _boundary.Location = new Point(x, y);
         }
 
+        public void SetPosition(Point p)
+        {
+            _boundary.Location = p;
+        }
+
         public void SetPosition(Vector2 p)
         {
-            _boundary.Location = new Point((int) p.X, (int) p.Y);
+            SetPosition(new Point((int) p.X, (int) p.Y));
         }
 
         public void SetSize(int width, int height)
