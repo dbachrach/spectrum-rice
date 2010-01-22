@@ -16,8 +16,27 @@ namespace Spectrum.Model
 {
     class SolidGround : Ground
     {
+        private int _w;
+        private int _h;
 		public SolidGround() : base() {
 			ViewableColors = Colors.AllColors;
 		}
+        public SolidGround(int w, int h)
+            : base()
+        {
+            ViewableColors = Colors.AllColors;
+            _w = w;
+            _h = h;
+        }
+
+        public override void LoadContent(ContentManager theContentManager, GraphicsDevice graphicsDevice)
+        {
+
+            Texture = new GameTexture(Vector2.Zero, 0.0f, 1.0f, .5f);
+            Texture.Load(theContentManager, graphicsDevice, ImageName, FrameCount, FramesPerSec, _w, _h);
+            Texture.Pause();
+
+            SetSize((int)Texture.TextureSize().X, (int)Texture.TextureSize().Y);
+        }
     }
 }

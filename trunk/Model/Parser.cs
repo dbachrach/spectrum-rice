@@ -66,6 +66,32 @@ namespace Spectrum.Model
             player.Boundary = new Rectangle((int) level.StartPosition.X, (int) level.StartPosition.Y, 0, 0);
             level.AddPlayer(player);
 
+            /* Create Game Edges */
+            SolidGround edgeLeft = new SolidGround(1, (int) (level.Height));
+            edgeLeft.SetPosition(-1, 0);
+            edgeLeft.Id = "Left";
+            edgeLeft.Container = level;
+            level.AddGameObject(edgeLeft);
+
+            SolidGround edgeRight = new SolidGround(1, (int)(level.Height));
+            edgeRight.SetPosition((int) (level.Width + 1), 0);
+            edgeRight.Id = "Right";
+            edgeRight.Container = level;
+            level.AddGameObject(edgeRight);
+
+            SolidGround edgeTop = new SolidGround((int)(level.Width), 1);
+            edgeTop.SetPosition(0, -1);
+            edgeTop.Id = "Top";
+            edgeTop.Container = level;
+            level.AddGameObject(edgeTop);
+
+            SolidGround edgeBottom = new SolidGround((int)(level.Width), 1);
+            edgeBottom.SetPosition(0, (int)(level.Height + 1));
+            edgeBottom.Id = "Bottom";
+            edgeBottom.Container = level;
+            /* TODO: Add Death on collision effect */
+            level.AddGameObject(edgeBottom);
+
             /* Parse Game Objects and find id*/
             foreach (Hashtable obj in levelData)
             {
@@ -84,7 +110,9 @@ namespace Spectrum.Model
                     }
                     else if (objType.Equals("solid-ground"))
                     {
-                        newObject = new SolidGround();
+                        double w = (double) obj["_w"];
+                        double h = (double)obj["_h"];
+                        newObject = new SolidGround((int) w, (int) h);
                     }
                     else if (objType.Equals("door"))
                     {
