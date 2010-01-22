@@ -41,6 +41,7 @@ namespace Spectrum
         protected override void Initialize()
         {
             level = Parser.Parse("demo.txt");
+            level.GameRef = this;
 
             base.Initialize();
         }
