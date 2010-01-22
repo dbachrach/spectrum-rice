@@ -36,13 +36,11 @@ namespace Spectrum.Model
         public List<Event> Events { get; set; }
         public bool ExistsWhenNotViewed { get; set; }
         public Level Container { get; set; }
-        public bool Animated { get; set; } /* TODO: Get rid of this property */
         public int FrameCount { get; set; }
         public int FramesPerSec { get; set; }
         public Direction DirectionFacing { get; set; }
 
-        public Texture2D Texture { get; set; }
-        public GameTexture AnimTexture; /* TODO: Rename Anim Texture */
+        public GameTexture Texture;
 
         private float GravityConstant = 1.3f;
 
@@ -56,7 +54,6 @@ namespace Spectrum.Model
 			Pickupable = false;
 			Inactive = false;
 			ExistsWhenNotViewed = true;
-            Animated = false;
             DirectionFacing = Direction.Right;
 
             FrameCount = 1;
@@ -91,18 +88,18 @@ namespace Spectrum.Model
         public void LoadContent(ContentManager theContentManager, GraphicsDevice graphicsDevice)
         {
             
-            AnimTexture = new GameTexture(Vector2.Zero, 0.0f, 1.0f, .5f);
-            AnimTexture.Load(theContentManager, graphicsDevice, ImageName, FrameCount, FramesPerSec);
-            AnimTexture.Pause();
+            Texture = new GameTexture(Vector2.Zero, 0.0f, 1.0f, .5f);
+            Texture.Load(theContentManager, graphicsDevice, ImageName, FrameCount, FramesPerSec);
+            Texture.Pause();
 
-            SetSize((int)AnimTexture.TextureSize().X, (int)AnimTexture.TextureSize().Y);
+            SetSize((int)Texture.TextureSize().X, (int)Texture.TextureSize().Y);
         }
 
         //Draw the sprite to the screen
         public virtual void Draw(SpriteBatch spriteBatch)
         {
             if(currentlyVisible()) {
-                AnimTexture.DrawFrame(spriteBatch, Container.CurrentColor, new Vector2(Boundary.Left, Boundary.Top), DrawEffects());
+                Texture.DrawFrame(spriteBatch, Container.CurrentColor, new Vector2(Boundary.Left, Boundary.Top), DrawEffects());
             }
         }
 
@@ -119,11 +116,9 @@ namespace Spectrum.Model
                 SetPosition((int)(Position().X + Velocity.X), (int)(Position().Y + Velocity.Y));
             }
 
-            if (Animated)
-            {
-                float elapsed = (float)theGameTime.ElapsedGameTime.TotalSeconds;
-                AnimTexture.UpdateFrame(elapsed);
-            }
+            float elapsed = (float)theGameTime.ElapsedGameTime.TotalSeconds;
+            Texture.UpdateFrame(elapsed);
+            
         }
 
         // If object collides, then the position & velocity of the object is updated
@@ -211,6 +206,9 @@ namespace Spectrum.Model
                     }
                 }
             }
+
+            this.DidCollideWithObjects(objList);
+
             return objList;
         }
 
@@ -227,6 +225,25 @@ namespace Spectrum.Model
             return effects;
         }
 
+        /* Notifications */
+
+        protected virtual void DidCollideWithObjects(List<GameObject> objs)
+        {
+            foreach (GameObject obj in objs)
+            {
+                if (obj.Events != null && obj.Events.Count > 0)
+                {
+                    /* TODO: Do we need to go through the event list in THIS also? */
+                    foreach (Event e in obj.Events)
+                    {
+                        if (e.Type == EventType.Collision && e.CollisionTarget == this)
+                        {
+                            e.Execute();
+                        }
+                    }
+                }
+            }
+        }
         protected virtual void DidHitGround()
         {
             // nada

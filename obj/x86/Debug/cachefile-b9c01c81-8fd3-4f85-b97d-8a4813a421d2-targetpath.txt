@@ -1,11 +1,6 @@
-Content\sunset.xnb
 Content\dude.xnb
-Content\block.xnb
-Content\PlayerRun.xnb
 Content\platform.xnb
 Content\switch.xnb
-Content\door.xnb
-Content\player.xnb
 Content\box.xnb
 Content\dr.xnb
 Content\pl.xnb

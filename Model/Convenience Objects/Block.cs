@@ -17,11 +17,9 @@ namespace Spectrum.Model
     class Block : GameObject
     {
 		public Block() : base() {
-			/* TODO: Square polygon */
             ImageName = "box";
 			AffectedByGravity = true;
 			Pickupable = true;
-            //Boundary = new Rectangle(0, 0, 50, 53);
 		}
     }
 }

@@ -1,8 +1,6 @@
 Demo
 ----
 Combine objects together
-Add in gravity for all objects
-
 
 Post-Demo
 ---------

@@ -18,3 +18,18 @@
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\obj\x86\Debug\Spectrum.exe
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\obj\x86\Debug\Spectrum.pdb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\demo.txt
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\demoLevel.txt
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\dude.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\platform.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switch.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\box.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\dr.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\pl.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\Pesca.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Spectrum.exe
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Spectrum.pdb
+C:\Users\Administrator\Documents\spectrum-rice\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\spectrum-rice\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Administrator\Documents\spectrum-rice\obj\x86\Debug\Spectrum.exe
+C:\Users\Administrator\Documents\spectrum-rice\obj\x86\Debug\Spectrum.pdb
