@@ -141,7 +141,6 @@ namespace Spectrum.Model
           
         }
 
-        // draws the background image
         public void Draw(SpriteBatch spriteBatch)
         {
             //spriteBatch.Draw(Background, TopCorner, Color.White);

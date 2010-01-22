@@ -40,7 +40,6 @@ namespace Spectrum
         /// </summary>
         protected override void Initialize()
         {
-
             level = Parser.Parse("demo.txt");
 
             base.Initialize();

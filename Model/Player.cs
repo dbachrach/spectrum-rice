@@ -33,7 +33,7 @@ namespace Spectrum.Model
         public GameObject NearObject { get; set;}
 
         private const int MoveAmount = 4;
-        private const int JumpAmount = 25;
+        private const int JumpAmount = 18;
 
         public Player()
             : base()
@@ -316,12 +316,15 @@ namespace Spectrum.Model
             if (DirectionFacing == Direction.Left)
             {
                 offset = -myWidth; 
+                //offset = -1;
             }
             else if (DirectionFacing == Direction.Right)
             {
                 offset = myWidth;
+                //offset = 1;
             }
-            Possession.SetPosition( (int) (this.Position().X + offset), (int) (this.Position().Y + myHeight - Possession.Size().Y));
+            Possession.SetPosition( (int) (this.Position().X + offset), (int) (/*this.Position().Y + myHeight - Possesion.Size().Y */ Possession.Position().Y));
+            //Possession.Velocity = new Vector2(offset, Possession.Velocity.Y);
             Container.DeferAddGameObject(Possession);
 
             Possession = null;

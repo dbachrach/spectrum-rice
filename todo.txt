@@ -7,3 +7,4 @@ Post-Demo
 Make collision detection better
 Add more types to the Execute() method in EventAction
 Add new properties to the parser
+Make collision detection and things not only use rectangles but work on diagnols
