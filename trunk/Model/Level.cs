@@ -135,12 +135,7 @@ namespace Spectrum.Model
             foreach (GameObject obj in GameObjects)
             {
                 obj.Update(gameTime);
-            }
-
-            
-
-            
-          
+            }          
         }
 
         public void Draw(SpriteBatch spriteBatch)

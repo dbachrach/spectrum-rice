@@ -33,7 +33,7 @@ namespace Spectrum.Model
         public GameObject NearObject { get; set;}
 
         private const int MoveAmount = 4;
-        private const int JumpAmount = 18;
+        private const int JumpAmount = 25;
 
         public Player()
             : base()

@@ -1,6 +1,8 @@
 Demo
 ----
 Combine objects together
+Make blocks not fall when you view their color.
+Weird walking behavior when on switch
 
 Post-Demo
 ---------
