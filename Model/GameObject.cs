@@ -65,14 +65,14 @@ namespace Spectrum.Model
             _boundary.Location = new Point(x, y);
         }
 
-        public void SetPosition(Point p)
-        {
-            _boundary.Location = p;
-        }
-
         public void SetPosition(Vector2 p)
         {
             SetPosition(new Point((int) p.X, (int) p.Y));
+        }
+
+        public void SetPosition(Point p)
+        {
+            _boundary.Location = p;
         }
 
         public void SetSize(int width, int height)
@@ -174,7 +174,61 @@ namespace Spectrum.Model
             {
                 if (obj.Boundary.Intersects(yRect))
                 {
+                    collidesY = true;   
+                }
+
+                if(obj.Boundary.Intersects(xRect))
+                {
+                    collidesX = true;
+                }
+
+                if (collidesX && collidesY)
+                {
+                    int signX = (Velocity.X >= 0 ? 1 : -1);
+                    int signY = (Velocity.Y >= 0 ? 1 : -1);
+
+                    int totalDX = Math.Abs((int)Velocity.X);
+                    int totalDY = Math.Abs((int)Velocity.Y);
+
+                    int dx = totalDX;
+                    int dy = totalDY;
                     
+                    if(totalDX > totalDY)
+                    {
+                        while (dx > 0)
+                        {
+                            dx--;
+                            dy = (int)(totalDY * (float)dx / totalDX);
+                            Rectangle interRect = new Rectangle((int)(Position().X + (signX * dx)), (int)(Position().Y + (signY * dy)), (int)Size().X, (int)Size().Y);
+                            if (!interRect.Intersects(obj.Boundary))
+                            {
+                                SetPosition(interRect.Location);
+                                Velocity = Vector2.Zero;
+                                Console.WriteLine("Both: " + obj.Id);
+                                //return true;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        while (dy > 0)
+                        {
+                            dy--;
+                            dx = (int)(totalDX * (float)dy / totalDY);
+                            Rectangle interRect = new Rectangle((int)(Position().X + (signX * dx)), (int)(Position().Y + (signY * dy)), (int)Size().X, (int)Size().Y);
+                            if (!interRect.Intersects(obj.Boundary))
+                            {
+                                SetPosition(interRect.Location);
+                                Velocity = Vector2.Zero;
+                                Console.WriteLine("Both: " + obj.Id);
+                                //return true;
+                            }
+                        }
+                    }
+                }
+
+                else if (collidesY)
+                {
                     if (Velocity.Y == 0)
                     {
                         // do nothing
@@ -182,21 +236,18 @@ namespace Spectrum.Model
                     else if (Velocity.Y > 0) // if falling
                     {
                         SetPosition((int)(Position().X), (int)(obj.Position().Y - Size().Y));
-                        collidesY = true;
                         this.DidHitGround();
                     }
                     else // if jumping
                     {
                         SetPosition((int)(Position().X), (int)(obj.Position().Y + obj.Size().Y));
-                        collidesY = true;
                     }
 
                     Velocity = new Vector2(Velocity.X, 0);
+                    Console.WriteLine("Y: " + obj.Id);
                 }
-
-                if (obj.Boundary.Intersects(xRect))
+                else if (collidesX)
                 {
-                    
                     if (Velocity.X == 0)
                     {
                         // do nothing
@@ -204,15 +255,14 @@ namespace Spectrum.Model
                     else if (Velocity.X > 0) // if moving right
                     {
                         SetPosition((int)(obj.Position().X - Size().X), (int)(Position().Y));
-                        collidesX = true;
                     }
                     else // if moving left
                     {
                         SetPosition((int)(obj.Position().X + obj.Size().X), (int)(Position().Y));
-                        collidesX = true;
                     }
 
                     Velocity = new Vector2(0, Velocity.Y);
+                    Console.WriteLine("X: " + obj.Id);
                 }
             }
 

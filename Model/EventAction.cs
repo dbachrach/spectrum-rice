@@ -70,7 +70,6 @@ namespace Spectrum.Model
 
         public void Execute()
         {
-            Console.WriteLine("Executed");
             /* TODO: All execution properties */
             if (Special != null && !Special.Equals(""))
             {
