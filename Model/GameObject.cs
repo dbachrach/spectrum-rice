@@ -53,7 +53,7 @@ namespace Spectrum.Model
 			CombinableWith = null;
 			Pickupable = false;
 			Inactive = false;
-			ExistsWhenNotViewed = true;
+			ExistsWhenNotViewed = false;
             DirectionFacing = Direction.Right;
 
             FrameCount = 1;
@@ -124,16 +124,24 @@ namespace Spectrum.Model
             {
                 foreach (GameObject obj in CombinableWith)
                 {
-                    if (this.Position().Equals(obj.Position()))
+                    if (this.PositionFuzzyEqual(obj.Position()))
                     {
                         
                         Console.WriteLine("{0} {1}", this.ViewableColors, obj.ViewableColors);
-
+                        /*
                         GameObject g = new Block();
                         g.ViewableColors = this.ViewableColors.Combine(this.ViewableColors.ColorByMixingWith(obj.ViewableColors));
                         g.SetPosition((int) this.Position().X, (int) this.Position().Y);
                         g.Container = Container;
+                        */
+
+                        GameObject g = this.CombineObjectWith(obj);
+                        g.ViewableColors = this.ViewableColors.ColorByMixingWith(obj.ViewableColors);
+                        this.CombineObjects.Add(g);
+                        obj.CombineObjects.Add(g);
+
                         g.LoadContent(Container.GameRef.Content, Container.GameRef.GraphicsDevice);
+
                         Container.DeferAddGameObject(g);
                         CombineObjects.Add(g);
                     }
@@ -217,7 +225,8 @@ namespace Spectrum.Model
             foreach (GameObject obj in Container.GameObjects)
             {
                 /* Check for collisions with player to an obj */
-                if (obj != this && this.currentlyVisible() && obj.currentlyVisible())
+                /* TODO: The line below is messy */
+                if (obj != this && this.currentlyVisible() && (obj.currentlyVisible() || (obj.ExistsWhenNotViewed && !(this is Player))))
                 {
                     if (rect.Intersects(obj.Boundary))
                     {
@@ -267,6 +276,27 @@ namespace Spectrum.Model
         protected virtual void DidHitGround()
         {
             // nada
+        }
+
+        public virtual GameObject CombineObjectWith(GameObject obj)
+        {
+            return null;
+        }
+
+        protected bool PositionFuzzyEqual(Vector2 p)
+        {
+            Console.WriteLine("{0} {1}", this.Position(), p);
+            if (Position().Y != p.Y)
+            {
+                return false;
+            }
+
+            if (Math.Abs(Position().X - p.X) < 10)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

@@ -21,5 +21,21 @@ namespace Spectrum.Model
 			AffectedByGravity = true;
 			Pickupable = true;
 		}
+
+        public override GameObject CombineObjectWith(GameObject obj)
+        {
+            if (obj is Block)
+            {
+                Block b = new Block();
+                b.Pickupable = false;
+                b.SetPosition((int) this.Position().X, (int) this.Position().Y);
+                b.Container = Container;
+                
+                /* TODO: Set b's parents to be this and obj */
+
+                return b;
+            }
+            return null;
+        }
     }
 }
