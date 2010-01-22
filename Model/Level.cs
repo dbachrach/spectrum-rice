@@ -50,6 +50,8 @@ namespace Spectrum.Model
 
         public Vector2 TopCorner = new Vector2(0, 0);
 
+        public Game1 GameRef { get; set; }
+
         private Player player;
 
         private SpriteFont font;
@@ -149,7 +151,27 @@ namespace Spectrum.Model
             {
                 obj.Draw(spriteBatch);
             }
-
+            /*
+            if (CurrentColor.Equals(Colors.PurpleColor))
+            {
+                foreach (GameObject obj in GameObjects)
+                {
+                    if (obj.ViewableColors.Contains(Colors.RedColor))
+                    {
+                        Console.WriteLine("Found red object");
+                        foreach (GameObject obj2 in GameObjects)
+                        {
+                            if (obj2.ViewableColors.Contains(Colors.BlueColor) && obj.Position().X == obj2.Position().X && obj.Position().Y == obj2.Position().Y)
+                            {
+                                Console.WriteLine("Found two on top ");
+                                obj.ViewableColors.AddRawColors(RawColor.Purple);
+                                obj.Draw(spriteBatch);
+                            }
+                        }
+                    }
+                }
+            }
+            */
             if (player.NearObject != null)
             {
                 string displayName = "";

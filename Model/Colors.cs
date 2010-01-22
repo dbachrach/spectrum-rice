@@ -40,6 +40,9 @@ namespace Spectrum.Model
 		public static Colors GreenColor = new Colors(false, false, false, true, false, false);
 		public static Colors BlueColor = new Colors(false, false, false, false, true, false);
 		public static Colors PurpleColor = new Colors(false, false, false, false, false, true);
+
+        public static Colors PrimaryColors = new Colors(true, false, true, false, true, false);
+        public static Colors SecondaryColors = new Colors(false, true, false, true, false, true);
 		
         public Colors(bool r, bool o, bool y, bool g, bool b, bool p)
         {
@@ -208,6 +211,44 @@ namespace Spectrum.Model
                 return Color.BlueViolet;
             }
             throw new Exception("Color was invalid color value");
+        }
+
+        public Colors ColorByMixingWith(Colors c)
+        {
+            if (this.Equals(Colors.RedColor))
+            {
+                if (c.Equals(Colors.BlueColor))
+                {
+                    return PurpleColor;
+                }
+                else if (c.Equals(Colors.YellowColor))
+                {
+                    return OrangeColor;
+                }
+            }
+            else if (this.Equals(Colors.YellowColor))
+            {
+                if (c.Equals(Colors.BlueColor))
+                {
+                    return GreenColor;
+                }
+                else if (c.Equals(Colors.RedColor))
+                {
+                    return PurpleColor;
+                }
+            }
+            else if (this.Equals(Colors.BlueColor))
+            {
+                if (c.Equals(Colors.RedColor))
+                {
+                    return PurpleColor;
+                }
+                else if (c.Equals(Colors.YellowColor))
+                {
+                    return GreenColor;
+                }
+            }
+            return null;
         }
     }
 }

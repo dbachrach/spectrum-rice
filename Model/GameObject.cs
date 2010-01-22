@@ -49,7 +49,7 @@ namespace Spectrum.Model
 			ViewableColors = Colors.AllColors;
 			AffectedByGravity = true;
 			Velocity = new Vector2(0,0);
-            CombineObjects = null;
+            CombineObjects = new List<GameObject>();
 			CombinableWith = null;
 			Pickupable = false;
 			Inactive = false;
@@ -101,6 +101,7 @@ namespace Spectrum.Model
             if(currentlyVisible()) {
                 Texture.DrawFrame(spriteBatch, Container.CurrentColor, new Vector2(Boundary.Left, Boundary.Top), DrawEffects());
             }
+            
         }
 
         //Update the Sprite and change it's position based on the passed in speed, direction and elapsed time.
@@ -118,7 +119,27 @@ namespace Spectrum.Model
 
             float elapsed = (float)theGameTime.ElapsedGameTime.TotalSeconds;
             Texture.UpdateFrame(elapsed);
-            
+
+            if (CombinableWith != null && CombineObjects.Count == 0)
+            {
+                foreach (GameObject obj in CombinableWith)
+                {
+                    if (this.Position().Equals(obj.Position()))
+                    {
+                        
+                        Console.WriteLine("{0} {1}", this.ViewableColors, obj.ViewableColors);
+
+                        GameObject g = new Block();
+                        g.ViewableColors = this.ViewableColors.Combine(this.ViewableColors.ColorByMixingWith(obj.ViewableColors));
+                        g.SetPosition((int) this.Position().X, (int) this.Position().Y);
+                        g.Container = Container;
+                        g.LoadContent(Container.GameRef.Content, Container.GameRef.GraphicsDevice);
+                        Container.DeferAddGameObject(g);
+                        CombineObjects.Add(g);
+                    }
+                }
+            }
+
         }
 
         // If object collides, then the position & velocity of the object is updated
