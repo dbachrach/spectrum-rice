@@ -205,7 +205,7 @@ namespace Spectrum.Model
                             {
                                 SetPosition(interRect.Location);
                                 Velocity = Vector2.Zero;
-                                Console.WriteLine("Both: " + obj.Id);
+                                //Console.WriteLine("Both: " + obj.Id);
                                 //return true;
                             }
                         }
@@ -221,7 +221,7 @@ namespace Spectrum.Model
                             {
                                 SetPosition(interRect.Location);
                                 Velocity = Vector2.Zero;
-                                Console.WriteLine("Both: " + obj.Id);
+                                //Console.WriteLine("Both: " + obj.Id);
                                 //return true;
                             }
                         }
@@ -245,7 +245,7 @@ namespace Spectrum.Model
                     }
 
                     Velocity = new Vector2(Velocity.X, 0);
-                    Console.WriteLine("Y: " + obj.Id);
+                    //Console.WriteLine("Y: " + obj.Id);
                 }
                 else if (collidesX)
                 {
@@ -263,7 +263,7 @@ namespace Spectrum.Model
                     }
 
                     Velocity = new Vector2(0, Velocity.Y);
-                    Console.WriteLine("X: " + obj.Id);
+                    //Console.WriteLine("X: " + obj.Id);
                 }
             }
 
