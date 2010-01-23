@@ -126,6 +126,7 @@ namespace Spectrum.Model
                 {
                     RemoveGameObject(DoomedObj);
                 }
+                DoomedObjects.RemoveAll(item => true);
             }
             if (ResurrectedObjects != null)
             {
@@ -133,6 +134,7 @@ namespace Spectrum.Model
                 {
                     AddGameObject(ResurrectedObj);
                 }
+                ResurrectedObjects.RemoveAll(item => true);
             }
             foreach (GameObject obj in GameObjects)
             {
