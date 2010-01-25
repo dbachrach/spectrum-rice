@@ -12,6 +12,10 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using FarseerGames.FarseerPhysics;
+using FarseerGames.FarseerPhysics.Dynamics;
+using FarseerGames.FarseerPhysics.Collisions;
+
 namespace Spectrum.Model
 {
     enum Direction { Up, Down, Left, Right, None }
@@ -19,18 +23,19 @@ namespace Spectrum.Model
     class GameObject
     {
         // instance variables
-        private Rectangle _boundary;
-        private Vector2 _velocity;
+        
+        //private Rectangle _boundary;
+        //private Vector2 _velocity;
         protected GameTexture Texture;
         protected GameTexture InactiveTexture;
 
         // properties
         public string Id { get; set; }
         public Colors ViewableColors { get; set; }
-        public Rectangle Boundary { get { return _boundary; } set { _boundary = value; } }
+        //public Rectangle Boundary { get { return _boundary; } set { _boundary = value; } }
         public string ImageName { get; set; }
         public bool AffectedByGravity { get; set; }
-        public Vector2 Velocity { get { return _velocity; } set { _velocity = value; } }
+        //public Vector2 Velocity { get { return _velocity; } set { _velocity = value; } }
         public List<GameObject> CombineObjects { get; set; }
 		public List<GameObject> CombinableWith { get; set; }
         public bool Pickupable { get; set; }
@@ -42,6 +47,11 @@ namespace Spectrum.Model
         public int FrameCount { get; set; }
         public int FramesPerSec { get; set; }
         public Direction DirectionFacing { get; set; }
+        public Vector2 OriginalPosition { get; set; }
+
+        public Body body { get; set; }
+        public Geom geom { get; set; }
+
 
         
 
@@ -51,7 +61,7 @@ namespace Spectrum.Model
 		public GameObject() {
 			ViewableColors = Colors.AllColors;
 			AffectedByGravity = true;
-			Velocity = new Vector2(0,0);
+			//Velocity = new Vector2(0,0);
             CombineObjects = new List<GameObject>();
 			CombinableWith = null;
 			Pickupable = false;
@@ -62,7 +72,7 @@ namespace Spectrum.Model
             FrameCount = 1;
             FramesPerSec = 1;
 		}
-
+        /*
         public void SetPosition(Vector2 p)
         {
             SetPosition(new Point((int) p.X, (int) p.Y));
@@ -92,7 +102,7 @@ namespace Spectrum.Model
         {
             return new Vector2(_boundary.Width, _boundary.Height);
         }
-
+        */
         public bool currentlyVisible()
         {
             return Container.CurrentColor.Contains(this.ViewableColors);
@@ -113,14 +123,20 @@ namespace Spectrum.Model
                 InactiveTexture.Pause();
             }
 
-            SetSize((int)Texture.TextureSize().X, (int)Texture.TextureSize().Y);
+            body = BodyFactory.Instance.CreateRectangleBody(Container.Sim, (int)Texture.TextureSize().X, (int)Texture.TextureSize().Y);
+            body.Position = OriginalPosition;
+            body.isStatic = false;
+
+            geom = GeometryFactory.Instance.CreateRectangleGeometry(Container.Sim, body, (int)Texture.TextureSize().X, (int)Texture.TextureSize().Y);
+
+            //SetSize((int)Texture.TextureSize().X, (int)Texture.TextureSize().Y);
         }
 
         //Draw the sprite to the screen
         public virtual void Draw(SpriteBatch spriteBatch)
         {
             if(currentlyVisible()) {
-                Texture.DrawFrame(spriteBatch, Container.CurrentColor, new Vector2(Boundary.Left, Boundary.Top), DrawEffects());
+                Texture.DrawFrame(spriteBatch, Container.CurrentColor, body.Position /* TODO: REMOVE-- new Vector2(Boundary.Left, Boundary.Top)*/, DrawEffects());
             }
             
         }
@@ -128,6 +144,8 @@ namespace Spectrum.Model
         //Update the Sprite and change it's position based on the passed in speed, direction and elapsed time.
         public virtual void Update(GameTime theGameTime)
         {
+            /* TODO: REMOVE 
+             * 
             if (AffectedByGravity && currentlyVisible())
             {
                 Velocity = new Vector2(Velocity.X, Velocity.Y + Container.Gravity);
@@ -159,7 +177,7 @@ namespace Spectrum.Model
                     }
                 }
             }
-
+            */
         }
 
         // If object collides, then the position & velocity of the object is updated
