@@ -18,12 +18,15 @@ namespace Spectrum.Model
 
     class GameObject
     {
-        public string Id { get; set; }
-        public Colors ViewableColors { get; set; }
-
+        // instance variables
         private Rectangle _boundary;
         private Vector2 _velocity;
+        protected GameTexture Texture;
+        protected GameTexture InactiveTexture;
 
+        // properties
+        public string Id { get; set; }
+        public Colors ViewableColors { get; set; }
         public Rectangle Boundary { get { return _boundary; } set { _boundary = value; } }
         public string ImageName { get; set; }
         public bool AffectedByGravity { get; set; }
@@ -32,7 +35,7 @@ namespace Spectrum.Model
 		public List<GameObject> CombinableWith { get; set; }
         public bool Pickupable { get; set; }
         public bool Inactive { get; set; }
-        public Texture2D InactiveImage { get; set; }
+        public string InactiveImageName { get; set; }
         public List<Event> Events { get; set; }
         public bool ExistsWhenNotViewed { get; set; }
         public Level Container { get; set; }
@@ -40,7 +43,7 @@ namespace Spectrum.Model
         public int FramesPerSec { get; set; }
         public Direction DirectionFacing { get; set; }
 
-        public GameTexture Texture;
+        
 
         
 
@@ -102,6 +105,13 @@ namespace Spectrum.Model
             Texture = new GameTexture(Vector2.Zero, 0.0f, 1.0f, .5f);
             Texture.Load(theContentManager, graphicsDevice, ImageName, FrameCount, FramesPerSec);
             Texture.Pause();
+
+            if (InactiveImageName != null && !InactiveImageName.Equals(""))
+            {
+                InactiveTexture = new GameTexture(Vector2.Zero, 0.0f, 1.0f, .5f);
+                InactiveTexture.Load(theContentManager, graphicsDevice, InactiveImageName, FrameCount, FramesPerSec);
+                InactiveTexture.Pause();
+            }
 
             SetSize((int)Texture.TextureSize().X, (int)Texture.TextureSize().Y);
         }
