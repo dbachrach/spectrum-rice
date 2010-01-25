@@ -172,7 +172,8 @@ namespace Spectrum.Model
                 if (obj.ContainsKey("position"))
                 {
                     ArrayList positionJson = (ArrayList)obj["position"];
-                    newObject.Boundary = new Rectangle((int)((double)positionJson[0]), (int)((double)positionJson[1]), 0, 0);
+                    //newObject.Boundary = new Rectangle((int)((double)positionJson[0]), (int)((double)positionJson[1]), 0, 0);
+                    newObject.OriginalPosition = new Vector2((int)((double)positionJson[0]), (int)((double)positionJson[1]));
                 }
                 if (obj.ContainsKey("affected-by-gravity"))
                 {
