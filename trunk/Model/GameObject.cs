@@ -15,6 +15,7 @@ using Microsoft.Xna.Framework.Storage;
 using FarseerGames.FarseerPhysics;
 using FarseerGames.FarseerPhysics.Dynamics;
 using FarseerGames.FarseerPhysics.Collisions;
+using FarseerGames.FarseerPhysics.Factories;
 
 namespace Spectrum.Model
 {
@@ -48,11 +49,12 @@ namespace Spectrum.Model
         public int FramesPerSec { get; set; }
         public Direction DirectionFacing { get; set; }
         public Vector2 OriginalPosition { get; set; }
+        public Vector2 OriginalVelocity { get; set; }
 
         public Body body { get; set; }
         public Geom geom { get; set; }
-
-
+        public float Mass { get; set; }
+        public bool IsStatic { get; set; }
         
 
         
@@ -71,6 +73,9 @@ namespace Spectrum.Model
 
             FrameCount = 1;
             FramesPerSec = 1;
+
+            Mass = 1;
+            IsStatic = false;
 		}
         /*
         public void SetPosition(Vector2 p)
@@ -123,13 +128,18 @@ namespace Spectrum.Model
                 InactiveTexture.Pause();
             }
 
-            body = BodyFactory.Instance.CreateRectangleBody(Container.Sim, (int)Texture.TextureSize().X, (int)Texture.TextureSize().Y);
-            body.Position = OriginalPosition;
-            body.isStatic = false;
-
-            geom = GeometryFactory.Instance.CreateRectangleGeometry(Container.Sim, body, (int)Texture.TextureSize().X, (int)Texture.TextureSize().Y);
-
+            LoadPhysicsBody(Texture.TextureSize(), IsStatic);
             //SetSize((int)Texture.TextureSize().X, (int)Texture.TextureSize().Y);
+        }
+
+        // load the Farseer body and geometry objects for this GameObject
+        public virtual void LoadPhysicsBody(Vector2 size, bool isStatic)
+        {
+            body = BodyFactory.Instance.CreateRectangleBody(Container.Sim, size.X, size.Y, Mass);
+            body.Position = OriginalPosition;
+            body.isStatic = isStatic;
+
+            geom = GeomFactory.Instance.CreateRectangleGeom(Container.Sim, body, size.X, size.Y);
         }
 
         //Draw the sprite to the screen
@@ -183,7 +193,8 @@ namespace Spectrum.Model
         // If object collides, then the position & velocity of the object is updated
         private bool CheckCollision()
         {
-            Rectangle bothRect = new Rectangle((int)(Position().X + Velocity.X), (int)(Position().Y + Velocity.Y), (int)Size().X, (int)Size().Y);
+            return false;
+            /*Rectangle bothRect = new Rectangle((int)(Position().X + Velocity.X), (int)(Position().Y + Velocity.Y), (int)Size().X, (int)Size().Y);
 
             List<GameObject> objects = CollisionWithRect(bothRect);
 
@@ -295,17 +306,17 @@ namespace Spectrum.Model
                 }
             }
 
-            return collidesY && collidesX;
+            return collidesY && collidesX;*/
         }
 
         private List<GameObject> CollisionWithRect(Rectangle rect)
         {
             List<GameObject> objList = new List<GameObject>();
 
-            foreach (GameObject obj in Container.GameObjects)
+            /*foreach (GameObject obj in Container.GameObjects)
             {
-                /* Check for collisions with player to an obj */
-                /* TODO: The line below is messy */
+                 Check for collisions with player to an obj 
+                TODO: The line below is messy 
                 if (obj != this && this.currentlyVisible() && (obj.currentlyVisible() || (obj.ExistsWhenNotViewed && !(this is Player))))
                 {
                     if (rect.Intersects(obj.Boundary))
@@ -315,7 +326,7 @@ namespace Spectrum.Model
                 }
             }
 
-            this.DidCollideWithObjects(objList);
+            this.DidCollideWithObjects(objList);*/
 
             return objList;
         }
@@ -365,7 +376,7 @@ namespace Spectrum.Model
 
         protected bool PositionFuzzyEqual(Vector2 p)
         {
-            if (Position().Y != p.Y)
+            /*if (Position().Y != p.Y)
             {
                 return false;
             }
@@ -374,7 +385,7 @@ namespace Spectrum.Model
             {
                 return true;
             }
-
+            */
             return false;
         }
     }

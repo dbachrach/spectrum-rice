@@ -28,7 +28,7 @@ namespace Spectrum.Model
             {
                 Block b = new Block();
                 b.Pickupable = false;
-                b.SetPosition((int) this.Position().X, (int) this.Position().Y);
+                b.OriginalPosition = body.Position;
                 b.Container = Container;
                 
                 /* TODO: Set b's parents to be this and obj */

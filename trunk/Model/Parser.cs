@@ -63,30 +63,30 @@ namespace Spectrum.Model
             Player player = new Player();
             player.Container = level;
             Console.WriteLine("Start position {0},{1}", level.StartPosition.X, level.StartPosition.Y);
-            player.Boundary = new Rectangle((int) level.StartPosition.X, (int) level.StartPosition.Y, 0, 0);
+            //player.Boundary = new Rectangle((int) level.StartPosition.X, (int) level.StartPosition.Y, 0, 0);
             level.AddPlayer(player);
 
             /* Create Game Edges */
             SolidGround edgeLeft = new SolidGround(1, (int) (level.Height));
-            edgeLeft.SetPosition(-1, 0);
+            edgeLeft.OriginalPosition = new Vector2(-1, 0);
             edgeLeft.Id = "Left";
             edgeLeft.Container = level;
             level.AddGameObject(edgeLeft);
 
             SolidGround edgeRight = new SolidGround(1, (int)(level.Height));
-            edgeRight.SetPosition((int) (level.Width + 1), 0);
+            edgeRight.OriginalPosition = new Vector2((int)(level.Width + 1), 0);
             edgeRight.Id = "Right";
             edgeRight.Container = level;
             level.AddGameObject(edgeRight);
 
             SolidGround edgeTop = new SolidGround((int)(level.Width), 1);
-            edgeTop.SetPosition(0, -1);
+            edgeTop.OriginalPosition = new Vector2(0, -1);
             edgeTop.Id = "Top";
             edgeTop.Container = level;
             level.AddGameObject(edgeTop);
 
             SolidGround edgeBottom = new SolidGround((int)(level.Width), 1);
-            edgeBottom.SetPosition(0, (int)(level.Height + 1));
+            edgeBottom.OriginalPosition = new Vector2(0, (int)(level.Height + 1));
             edgeBottom.Id = "Bottom";
             edgeBottom.Container = level;
             /* Add Death on collision effect */
@@ -179,10 +179,14 @@ namespace Spectrum.Model
                 {
                     newObject.AffectedByGravity = (bool)obj["affected-by-gravity"];
                 }
+                if (obj.ContainsKey("static"))
+                {
+                    newObject.IsStatic = (bool)obj["static"];
+                }
                 if (obj.ContainsKey("velocity"))
                 {
                     ArrayList velocityJson = (ArrayList)obj["velocity"];
-                    newObject.Velocity = new Vector2((float)velocityJson[0], (float)velocityJson[1]);
+                    newObject.OriginalVelocity = new Vector2((float)velocityJson[0], (float)velocityJson[1]);
                 }
                 if (obj.ContainsKey("combinable-with"))
                 {

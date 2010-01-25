@@ -20,6 +20,7 @@ namespace Spectrum.Model
             ImageName = "dr";
 			AffectedByGravity = false;
 			Pickupable = false;
+            IsStatic = true;
 
             Events = new List<Event>();
 
