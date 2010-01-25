@@ -52,7 +52,7 @@ namespace Spectrum.Model
                     ArrayList positionJson = (ArrayList)obj["start-position"];
                     level.StartPosition = new Vector2((float)((double)positionJson[0]), (float)((double)positionJson[1]));
 
-                    //level.Background = obj["background"]; /* TODO Turn this into a Texture2D */
+                    level.BackgroundImageName = (string) obj["background"];
                     level.AllowedColors = Colors.ColorsFromJsonArray((ArrayList)obj["allowed-colors"]);
                     level.CurrentColor = Colors.GreenColor;
                 }
@@ -89,7 +89,18 @@ namespace Spectrum.Model
             edgeBottom.SetPosition(0, (int)(level.Height + 1));
             edgeBottom.Id = "Bottom";
             edgeBottom.Container = level;
-            /* TODO: Add Death on collision effect */
+            /* Add Death on collision effect */
+            edgeBottom.Events = new List<Event>();
+            Event e = new Event();
+            e.Type = EventType.Collision;
+            e.CollisionTarget = player;
+            e.Actions = new List<EventAction>();
+            EventAction a = new EventAction();
+            a.Special = "lose";
+            a.Receiver = player;
+            e.Actions.Add(a);
+            edgeBottom.Events.Add(e);
+
             level.AddGameObject(edgeBottom);
 
             /* Parse Game Objects and find id*/
@@ -191,7 +202,7 @@ namespace Spectrum.Model
                 }
                 if (obj.ContainsKey("inactive-image"))
                 {
-                    // TODO: newObject.InactiveImage = obj["inactive-image"];
+                    newObject.InactiveImageName = (string) obj["inactive-image"];
                 }
                 if (obj.ContainsKey("events"))
                 {

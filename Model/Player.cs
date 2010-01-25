@@ -264,6 +264,7 @@ namespace Spectrum.Model
 
         protected override void DidCollideWithObjects(List<GameObject> objs)
         {
+            /* TODO: Need to unset NearObject when not near anything */
             foreach (GameObject obj in objs)
             {
                 if (obj.Pickupable || (obj.Events != null && obj.Events.Count > 0))

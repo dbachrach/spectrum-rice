@@ -16,6 +16,8 @@ namespace Spectrum.Model
 {
     class Level
     {
+        private GameTexture Background;
+
         // a unique id for this level
         public string Id { get; set; }
 
@@ -35,7 +37,9 @@ namespace Spectrum.Model
         public bool Completed { get; set; }
         
         // the background image of this level
-        public Texture2D Background { get; set; }
+        public string BackgroundImageName { get; set; }
+        public int BackgroundFrameCount { get; set; }
+        public int BackgroundFramesPerSec { get; set; }
 
         // the color the user is viewing the level at the moment
         public Colors CurrentColor { get; set; }
@@ -70,6 +74,9 @@ namespace Spectrum.Model
 
             DoomedObjects = new List<GameObject>();
             ResurrectedObjects = new List<GameObject>();
+
+            BackgroundFrameCount = 1;
+            BackgroundFramesPerSec = 1;
 		}
 
         public void AddGameObject(GameObject obj)
@@ -109,7 +116,13 @@ namespace Spectrum.Model
 
         public void LoadContent(ContentManager manager, GraphicsDevice graphicsDevice)
         {
-            //Background = manager.Load<Texture2D>("sunset");
+            if (BackgroundImageName != null && !BackgroundImageName.Equals(""))
+            {
+                Background = new GameTexture(Vector2.Zero, 0.0f, 1.0f, .5f);
+                Background.Load(manager, graphicsDevice, BackgroundImageName, BackgroundFrameCount, BackgroundFramesPerSec);
+                Background.Pause();
+            }
+            
             font = manager.Load<SpriteFont>("Pesca");
 
             foreach (GameObject obj in GameObjects)
@@ -144,7 +157,10 @@ namespace Spectrum.Model
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            //spriteBatch.Draw(Background, TopCorner, Color.White);
+            if (Background != null)
+            {
+                Background.DrawFrame(spriteBatch, CurrentColor, Vector2.Zero, SpriteEffects.None);
+            }
 
             foreach (GameObject obj in GameObjects)
             {
@@ -171,7 +187,12 @@ namespace Spectrum.Model
                 }
             }
             */
-            if (player.NearObject != null)
+            if (Completed)
+            {
+                string displayName = "Level Complete";
+                spriteBatch.DrawString(font, displayName, new Vector2(350, 540), Color.White);
+            }
+            else if (player.NearObject != null)
             {
                 string displayName = "";
                 if (player.NearObject.Pickupable)
@@ -188,10 +209,6 @@ namespace Spectrum.Model
                             break;
                         }
                     }
-                }
-                if (Completed)
-                {
-                    displayName =  "Level Complete";
                 }
                 spriteBatch.DrawString(font, displayName, new Vector2(350, 540), Color.White);
             }
