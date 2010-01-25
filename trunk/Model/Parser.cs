@@ -63,6 +63,7 @@ namespace Spectrum.Model
             Player player = new Player();
             player.Container = level;
             Console.WriteLine("Start position {0},{1}", level.StartPosition.X, level.StartPosition.Y);
+            player.OriginalPosition = level.StartPosition;
             //player.Boundary = new Rectangle((int) level.StartPosition.X, (int) level.StartPosition.Y, 0, 0);
             level.AddPlayer(player);
 

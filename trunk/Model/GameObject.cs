@@ -135,8 +135,13 @@ namespace Spectrum.Model
         // load the Farseer body and geometry objects for this GameObject
         public virtual void LoadPhysicsBody(Vector2 size, bool isStatic)
         {
+            LoadPhysicsBody(OriginalPosition, size, isStatic);
+        }
+
+        public virtual void LoadPhysicsBody(Vector2 position, Vector2 size, bool isStatic)
+        {
             body = BodyFactory.Instance.CreateRectangleBody(Container.Sim, size.X, size.Y, Mass);
-            body.Position = OriginalPosition;
+            body.Position = position;
             body.isStatic = isStatic;
 
             geom = GeomFactory.Instance.CreateRectangleGeom(Container.Sim, body, size.X, size.Y);
