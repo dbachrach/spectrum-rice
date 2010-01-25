@@ -217,6 +217,16 @@ namespace Spectrum.Model
             {
                 Container.CurrentColor = Container.CurrentColor.BackwardColor();
             }
+
+            if (aCurrentKeyboardState.IsKeyDown(Keys.R) == true)
+            {
+                Container.CurrentColor = Colors.AllColors;
+            }
+            else if (aCurrentKeyboardState.IsKeyDown(Keys.R) == false && PreviousKeyboardState.IsKeyDown(Keys.R) == true)
+            {
+                Container.CurrentColor = Colors.RedColor;
+            }
+
         }
 
         private void UpdateXEvent(KeyboardState aCurrentKeyboardState)

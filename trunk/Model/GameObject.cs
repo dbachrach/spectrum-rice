@@ -151,7 +151,12 @@ namespace Spectrum.Model
         public virtual void Draw(SpriteBatch spriteBatch)
         {
             if(currentlyVisible()) {
-                Texture.DrawFrame(spriteBatch, Container.CurrentColor, body.Position /* TODO: REMOVE-- new Vector2(Boundary.Left, Boundary.Top)*/, DrawEffects());
+                Colors col = Container.CurrentColor;
+                if (Container.CurrentColor == Colors.AllColors) 
+                {
+                    col = this.ViewableColors;
+                }
+                Texture.DrawFrame(spriteBatch, col, body.Position /* TODO: REMOVE-- new Vector2(Boundary.Left, Boundary.Top)*/, DrawEffects());
             }
             
         }
