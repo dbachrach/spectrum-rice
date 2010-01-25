@@ -29,13 +29,15 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\x86\Debug</OutputPath>
-    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;WINDOWS XNA</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoStdLib>true</NoStdLib>
@@ -84,6 +86,69 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Farseer\Collisions\AABB.cs" />
+    <Compile Include="Farseer\Collisions\BruteForceCollider.cs" />
+    <Compile Include="Farseer\Collisions\CollisionIdGenerator.cs" />
+    <Compile Include="Farseer\Collisions\Contact.cs" />
+    <Compile Include="Farseer\Collisions\ContactId.cs" />
+    <Compile Include="Farseer\Collisions\ContactList.cs" />
+    <Compile Include="Farseer\Collisions\DistanceGrid.cs" />
+    <Compile Include="Farseer\Collisions\Feature.cs" />
+    <Compile Include="Farseer\Collisions\Geom.cs" />
+    <Compile Include="Farseer\Collisions\GeomPairBitmap.cs" />
+    <Compile Include="Farseer\Collisions\RayHelper.cs" />
+    <Compile Include="Farseer\Collisions\SAT.cs" />
+    <Compile Include="Farseer\Collisions\SelectiveSweepCollider.cs" />
+    <Compile Include="Farseer\Collisions\SpatialHashCollider.cs" />
+    <Compile Include="Farseer\Collisions\SweepAndPruneCollider.cs" />
+    <Compile Include="Farseer\Collisions\Vertices.cs" />
+    <Compile Include="Farseer\Controllers\AABBFluidContainer.cs" />
+    <Compile Include="Farseer\Controllers\Controller.cs" />
+    <Compile Include="Farseer\Controllers\ControllerList.cs" />
+    <Compile Include="Farseer\Controllers\FluidDragController.cs" />
+    <Compile Include="Farseer\Controllers\GravityController.cs" />
+    <Compile Include="Farseer\Controllers\InactivityController.cs" />
+    <Compile Include="Farseer\Controllers\ScalingController.cs" />
+    <Compile Include="Farseer\Controllers\WaveController.cs" />
+    <Compile Include="Farseer\Dynamics\Arbiter.cs" />
+    <Compile Include="Farseer\Dynamics\ArbiterList.cs" />
+    <Compile Include="Farseer\Dynamics\Body.cs" />
+    <Compile Include="Farseer\Dynamics\Joints\AngleJoint.cs" />
+    <Compile Include="Farseer\Dynamics\Joints\AngleLimitJoint.cs" />
+    <Compile Include="Farseer\Dynamics\Joints\FixedAngleJoint.cs" />
+    <Compile Include="Farseer\Dynamics\Joints\FixedAngleLimitJoint.cs" />
+    <Compile Include="Farseer\Dynamics\Joints\FixedRevoluteJoint.cs" />
+    <Compile Include="Farseer\Dynamics\Joints\Joint.cs" />
+    <Compile Include="Farseer\Dynamics\Joints\JointList.cs" />
+    <Compile Include="Farseer\Dynamics\Joints\PinJoint.cs" />
+    <Compile Include="Farseer\Dynamics\Joints\RevoluteJoint.cs" />
+    <Compile Include="Farseer\Dynamics\Joints\SliderJoint.cs" />
+    <Compile Include="Farseer\Dynamics\Joints\WeldJoint.cs" />
+    <Compile Include="Farseer\Dynamics\Path.cs" />
+    <Compile Include="Farseer\Dynamics\Springs\AngleSpring.cs" />
+    <Compile Include="Farseer\Dynamics\Springs\FixedAngleSpring.cs" />
+    <Compile Include="Farseer\Dynamics\Springs\FixedLinearSpring.cs" />
+    <Compile Include="Farseer\Dynamics\Springs\LinearSpring.cs" />
+    <Compile Include="Farseer\Dynamics\Springs\Spring.cs" />
+    <Compile Include="Farseer\Dynamics\Springs\SpringList.cs" />
+    <Compile Include="Farseer\Enums.cs" />
+    <Compile Include="Farseer\Factories\BodyFactory.cs" />
+    <Compile Include="Farseer\Factories\ComplexFactory.cs" />
+    <Compile Include="Farseer\Factories\ControllerFactory.cs" />
+    <Compile Include="Farseer\Factories\GeomFactory.cs" />
+    <Compile Include="Farseer\Factories\JointFactory.cs" />
+    <Compile Include="Farseer\Factories\SpringFactory.cs" />
+    <Compile Include="Farseer\GenericList.cs" />
+    <Compile Include="Farseer\Interfaces\IBroadPhaseCollider.cs" />
+    <Compile Include="Farseer\Interfaces\IFluidContainer.cs" />
+    <Compile Include="Farseer\Interfaces\IIsDisposable.cs" />
+    <Compile Include="Farseer\Interfaces\INarrowPhaseCollider.cs" />
+    <Compile Include="Farseer\Mathematics\BilinearInterpolator.cs" />
+    <Compile Include="Farseer\Mathematics\Calculator.cs" />
+    <Compile Include="Farseer\Mathematics\CircularInterpolator.cs" />
+    <Compile Include="Farseer\Mathematics\ConvertUnits.cs" />
+    <Compile Include="Farseer\PhysicsSimulator.cs" />
+    <Compile Include="Farseer\Pool.cs" />
     <Compile Include="Model\Parser.cs" />
     <Compile Include="Model\EventAction.cs" />
     <Compile Include="Model\GameTexture.cs" />
@@ -109,6 +174,7 @@
     <None Include="demo.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Farseer\Content\Content.contentproj" />
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
     <Content Include="todo.txt" />
