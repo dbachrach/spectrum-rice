@@ -4,7 +4,7 @@
 {"object" : "block","id" : "yellow-block-b", "position" : [600, 480],"colors" : ["yellow"], "combinable-with" : ["red-block"]}
 
 {"object" : "platform","id" : "green-platform-a","colors" : ["green"],"position" : [400, 350],"affected-by-gravity" : false,"exists-when-not-viewed" : true}
-{"object" : "game-object","id" : "green-switch","colors" : ["green"],"position" : [425, 337],"image" : "switch","affected-by-gravity" : false,"exists-when-not-viewed" : false, "events" : [{
+{"object" : "game-object","id" : "green-switch","colors" : ["green"],"position" : [425, 337],"image" : "switch","affected-by-gravity" : false,"exists-when-not-viewed" : false, "static" : true, "events" : [{
 					"type" : "collision",
 					"collision-target" : "player",
 					"actions" : [{
@@ -17,7 +17,7 @@
 {"object" : "block","id" : "red-block","position" : [495, 300],"colors" : ["red"]}
 
 {"object" : "platform","id" : "orange-platform","colors" : ["orange"],"position" : [200, 250],"affected-by-gravity" : false,"exists-when-not-viewed" : true}
-{"object" : "game-object","id" : "orange-switch","colors" : ["orange"],"position" : [285, 237],"image" : "switch","affected-by-gravity" : false,"exists-when-not-viewed" : false, "events" : [{
+{"object" : "game-object","id" : "orange-switch","colors" : ["orange"],"position" : [285, 237],"image" : "switch","affected-by-gravity" : false,"exists-when-not-viewed" : false, "static" : true, "events" : [{
 					"type" : "collision",
 					"collision-target" : "player",
 					"actions" : [{

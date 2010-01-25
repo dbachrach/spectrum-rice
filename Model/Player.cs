@@ -75,7 +75,7 @@ namespace Spectrum.Model
 
             if (Possession != null)
             {
-                Possession.SetPosition(this.Boundary.Left, this.Boundary.Top - Possession.Boundary.Height);
+                //Possession.body.Position = new Vector2(this.body.Position.X, this.body.Position.Y - Possession.geom.Height);
                 Possession.DirectionFacing = this.DirectionFacing;
                 Possession.Update(theGameTime);
 
@@ -86,7 +86,7 @@ namespace Spectrum.Model
 
         private void UpdateMovement(KeyboardState aCurrentKeyboardState)
         {
-            Vector2 v1 = Velocity;
+            /*Vector2 v1 = Velocity;
             v1.X = 0;
             Velocity = v1;
             Texture.Pause();
@@ -119,7 +119,7 @@ namespace Spectrum.Model
                     State = PlayerState.Walking;
                     Texture.Play();
                 }
-            }
+            }*/
         }
 
         /*
@@ -251,13 +251,13 @@ namespace Spectrum.Model
 
         private void Jump()
         {
-            if (State != PlayerState.Jumping)
+            /*if (State != PlayerState.Jumping)
             {
                 State = PlayerState.Jumping;
                 Vector2 v = Velocity;
                 v.Y -= JumpAmount;
                 Velocity = v;
-            }
+            }*/
         }
 
         /* Notifications */
@@ -305,7 +305,7 @@ namespace Spectrum.Model
         {
             /* TODO: Check to see if we are dropping on an existent object */
 
-            if (Possession == null)
+            /*if (Possession == null)
             {
                 return;
             }
@@ -324,11 +324,11 @@ namespace Spectrum.Model
                 offset = myWidth;
                 //offset = 1;
             }
-            Possession.SetPosition( (int) (this.Position().X + offset), (int) (/*this.Position().Y + myHeight - Possesion.Size().Y */ Possession.Position().Y));
+            Possession.SetPosition( (int) (this.Position().X + offset), (int) (this.Position().Y + myHeight - Possesion.Size().Y  Possession.Position().Y));
             //Possession.Velocity = new Vector2(offset, Possession.Velocity.Y);
             Container.DeferAddGameObject(Possession);
 
-            Possession = null;
+            Possession = null;*/
         }
 
         public void WinLevel()

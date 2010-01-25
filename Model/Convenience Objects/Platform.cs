@@ -18,6 +18,7 @@ namespace Spectrum.Model
     {
 		public Platform() : base() {
             ImageName = "platform";
+            IsStatic = true;
 		}
     }
 }
