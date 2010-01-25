@@ -114,7 +114,7 @@ namespace Spectrum.Model
         // the colors of the object to be seen is the parameter
         public bool Contains(Colors c)
         {
-            return (Bitstring & c.Bitstring) == Bitstring;
+            return (Bitstring & c.Bitstring) != 0; //== Bitstring;
         }
 
 		// Whether this represents just a singluar color like red, green, blue, etc
@@ -184,7 +184,7 @@ namespace Spectrum.Model
         {
             if (!IsSingularColor())
             {
-                throw new Exception("System color from multi-color");
+                return new Color(226, 9, 21, 255);
             }
             else if (Bitstring == (int) RawColor.Red)
             {

@@ -62,6 +62,7 @@ namespace Spectrum.Model
 
         public PhysicsSimulator Sim { get; set; }
 
+
         private Player player;
 
         private SpriteFont font;
