@@ -86,6 +86,14 @@ namespace Spectrum.Model
 
         private void UpdateMovement(KeyboardState aCurrentKeyboardState)
         {
+            if (Keyboard.GetState().IsKeyDown(Keys.Left) == true)
+            {
+                this.body.ApplyForce(new Vector2(-350, 0));
+            }
+            else if (Keyboard.GetState().IsKeyDown(Keys.Right) == true)
+            {
+                this.body.ApplyForce(new Vector2(350, 0));
+            }
             /*Vector2 v1 = Velocity;
             v1.X = 0;
             Velocity = v1;
@@ -339,6 +347,11 @@ namespace Spectrum.Model
             Container.DeferAddGameObject(Possession);
 
             Possession = null;*/
+        }
+
+        protected override void DidLoadPhysicsBody()
+        {
+            geom.FrictionCoefficient = .1f;
         }
 
         public void WinLevel()

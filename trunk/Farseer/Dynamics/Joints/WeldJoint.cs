@@ -211,7 +211,7 @@ namespace FarseerGames.FarseerPhysics.Dynamics.Joints
         {
             float a = matrix.M11, b = matrix.M12, c = matrix.M21, d = matrix.M22;
             float det = a * d - b * c;
-            Debug.Assert(det != 0.0f);
+            //Debug.Assert(det != 0.0f);
             det = 1.0f / det;
             _b.M11 = det * d;
             _b.M12 = -det * b;

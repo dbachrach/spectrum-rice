@@ -110,6 +110,12 @@
     <Compile Include="Farseer\Controllers\InactivityController.cs" />
     <Compile Include="Farseer\Controllers\ScalingController.cs" />
     <Compile Include="Farseer\Controllers\WaveController.cs" />
+    <Compile Include="Farseer\DrawingSystem\CircleBrush.cs" />
+    <Compile Include="Farseer\DrawingSystem\DrawingHelper.cs" />
+    <Compile Include="Farseer\DrawingSystem\EllipseBrush.cs" />
+    <Compile Include="Farseer\DrawingSystem\LineBrush.cs" />
+    <Compile Include="Farseer\DrawingSystem\PolygonBrush.cs" />
+    <Compile Include="Farseer\DrawingSystem\RectangleBrush.cs" />
     <Compile Include="Farseer\Dynamics\Arbiter.cs" />
     <Compile Include="Farseer\Dynamics\ArbiterList.cs" />
     <Compile Include="Farseer\Dynamics\Body.cs" />
@@ -148,6 +154,7 @@
     <Compile Include="Farseer\Mathematics\CircularInterpolator.cs" />
     <Compile Include="Farseer\Mathematics\ConvertUnits.cs" />
     <Compile Include="Farseer\PhysicsSimulator.cs" />
+    <Compile Include="Farseer\PhysicsSimulatorView.cs" />
     <Compile Include="Farseer\Pool.cs" />
     <Compile Include="Model\Parser.cs" />
     <Compile Include="Model\EventAction.cs" />

@@ -45,3 +45,14 @@ U:\comp410\obj\x86\Debug\Spectrum.exe
 U:\comp410\obj\x86\Debug\Spectrum.pdb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switchOff.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switchOn.xnb
+U:\comp410\bin\x86\Debug\Content\switchOff.xnb
+U:\comp410\bin\x86\Debug\Content\switchOn.xnb
+U:\comp410\bin\x86\Debug\Content\farseer\background.xnb
+U:\comp410\bin\x86\Debug\Content\farseer\blank.xnb
+U:\comp410\bin\x86\Debug\Content\farseer\gradient.xnb
+U:\comp410\bin\x86\Debug\Content\farseer\logo.xnb
+U:\comp410\bin\x86\Debug\Content\farseer\detailsFont.xnb
+U:\comp410\bin\x86\Debug\Content\farseer\diagnosticFont.xnb
+U:\comp410\bin\x86\Debug\Content\farseer\frameRateCounterFont.xnb
+U:\comp410\bin\x86\Debug\Content\farseer\gamefont.xnb
+U:\comp410\bin\x86\Debug\Content\farseer\menufont.xnb

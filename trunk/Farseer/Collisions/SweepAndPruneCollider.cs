@@ -586,7 +586,7 @@ namespace FarseerGames.FarseerPhysics.Collisions
                 Extent min = ourInfo.Min;
                 Extent max = ourInfo.Max;
 
-                Debug.Assert(min.Value < max.Value);
+                //Debug.Assert(min.Value < max.Value);
 
                 int iMin = InsertIntoSortedList(min);
                 int iMax = InsertIntoSortedList(max);

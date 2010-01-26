@@ -15,6 +15,7 @@ using Microsoft.Xna.Framework.Storage;
 using FarseerGames.FarseerPhysics;
 using FarseerGames.FarseerPhysics.Dynamics;
 using FarseerGames.FarseerPhysics.Collisions;
+using FarseerGames.FarseerPhysics.Debug;
 
 namespace Spectrum.Model
 {
@@ -61,6 +62,7 @@ namespace Spectrum.Model
         public Game1 GameRef { get; set; }
 
         public PhysicsSimulator Sim { get; set; }
+        private PhysicsSimulatorView SimView;
 
 
         private Player player;
@@ -70,7 +72,7 @@ namespace Spectrum.Model
         private List<GameObject> DoomedObjects;
         private List<GameObject> ResurrectedObjects;
 
-        public int Gravity = 200;
+        public int Gravity = 10;
 
 		/* Default Constructor */
 		public Level() {
@@ -86,6 +88,7 @@ namespace Spectrum.Model
             BackgroundFramesPerSec = 1;
 
             Sim = new PhysicsSimulator(new Vector2(0, Gravity));
+            SimView = new PhysicsSimulatorView(Sim);
 		}
 
         public void AddGameObject(GameObject obj)
@@ -125,6 +128,8 @@ namespace Spectrum.Model
 
         public void LoadContent(ContentManager manager, GraphicsDevice graphicsDevice)
         {
+            SimView.LoadContent(graphicsDevice, manager);
+
             if (BackgroundImageName != null && !BackgroundImageName.Equals(""))
             {
                 Background = new GameTexture(Vector2.Zero, 0.0f, 1.0f, .5f);
@@ -159,7 +164,7 @@ namespace Spectrum.Model
                 ResurrectedObjects.RemoveAll(item => true);
             }
 
-            Sim.Update(gameTime.ElapsedGameTime.Milliseconds * .001f);
+            Sim.Update(gameTime.ElapsedGameTime.Milliseconds * .0005f);
 
             foreach (GameObject obj in GameObjects)
             {
@@ -178,6 +183,9 @@ namespace Spectrum.Model
             {
                 obj.Draw(spriteBatch);
             }
+
+            SimView.Draw(spriteBatch);
+
             /*
             if (CurrentColor.Equals(Colors.PurpleColor))
             {
