@@ -31,7 +31,7 @@ namespace Spectrum.Model
 
         public override void LoadContent(ContentManager theContentManager, GraphicsDevice graphicsDevice)
         {
-            Texture = new GameTexture(Vector2.Zero, 0.0f, 1.0f, .5f);
+            Texture = new GameTexture(0.0f, 1.0f, .5f);
             Texture.Load(theContentManager, graphicsDevice, ImageName, FrameCount, FramesPerSec, _w, _h);
             Texture.Pause();
 

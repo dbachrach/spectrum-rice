@@ -123,7 +123,7 @@ namespace Spectrum.Model
 
             if (InactiveImageName != null && !InactiveImageName.Equals(""))
             {
-                InactiveTexture = new GameTexture(Vector2.Zero, 0.0f, 1.0f, .5f);
+                InactiveTexture = new GameTexture(0.0f, 1.0f, .5f);
                 InactiveTexture.Load(theContentManager, graphicsDevice, InactiveImageName, FrameCount, FramesPerSec);
                 InactiveTexture.Pause();
             }
@@ -134,7 +134,7 @@ namespace Spectrum.Model
 
         public void LoadTexture()
         {
-            Texture = new GameTexture(Vector2.Zero, 0.0f, 1.0f, .5f);
+            Texture = new GameTexture(0.0f, 1.0f, .5f);
             Texture.Load(Container.GameRef.Content, Container.GameRef.GraphicsDevice, ImageName, FrameCount, FramesPerSec);
             Texture.Pause();
         }

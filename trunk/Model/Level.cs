@@ -132,7 +132,7 @@ namespace Spectrum.Model
 
             if (BackgroundImageName != null && !BackgroundImageName.Equals(""))
             {
-                Background = new GameTexture(Vector2.Zero, 0.0f, 1.0f, .5f);
+                Background = new GameTexture(0.0f, 1.0f, .5f);
                 Background.Load(manager, graphicsDevice, BackgroundImageName, BackgroundFrameCount, BackgroundFramesPerSec);
                 Background.Pause();
             }
