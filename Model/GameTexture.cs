@@ -25,10 +25,10 @@ namespace Spectrum.Model
         public float Rotation, Scale, Depth;
         public Vector2 Origin;
 
-        public GameTexture(Vector2 Origin, float Rotation, float Scale, float Depth)
+        public GameTexture(float Rotation, float Scale, float Depth)
         {
 
-            this.Origin = Origin;
+            this.Origin = Vector2.Zero;
             this.Rotation = Rotation;
             this.Scale = Scale;
             this.Depth = Depth;
@@ -53,7 +53,7 @@ namespace Spectrum.Model
                 myTexture = content.Load<Texture2D>(asset);
             }
 
-            //this.Origin = new Vector2(myTexture.Width / 2, myTexture.Height / 2);
+            this.Origin = new Vector2(myTexture.Width / 2, myTexture.Height / (6*2));
 
             TimePerFrame = (float)1 / FramesPerSec;
             Frame = 0;

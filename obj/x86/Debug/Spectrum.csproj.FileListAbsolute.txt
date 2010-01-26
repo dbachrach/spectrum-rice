@@ -56,3 +56,12 @@ U:\comp410\bin\x86\Debug\Content\farseer\diagnosticFont.xnb
 U:\comp410\bin\x86\Debug\Content\farseer\frameRateCounterFont.xnb
 U:\comp410\bin\x86\Debug\Content\farseer\gamefont.xnb
 U:\comp410\bin\x86\Debug\Content\farseer\menufont.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\farseer\background.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\farseer\blank.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\farseer\gradient.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\farseer\logo.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\farseer\detailsFont.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\farseer\diagnosticFont.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\farseer\frameRateCounterFont.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\farseer\gamefont.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\farseer\menufont.xnb
