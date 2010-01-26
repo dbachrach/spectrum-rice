@@ -12,6 +12,12 @@
 									"property" : "colors",
 									"type" : "change",
 									"value" : ["all"]
+								 },
+								 {
+									"receiver" : "green-switch",
+									"property" : "image",
+									"type" : "change",
+									"value" : "switchOn"
 								 }]
 				}]} 
 {"object" : "block","id" : "red-block","position" : [495, 300],"colors" : ["red"]}

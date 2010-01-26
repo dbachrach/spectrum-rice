@@ -101,6 +101,16 @@ namespace Spectrum.Model
                         break;
                 }
             }
+            else if (Property.Equals("image")) {
+                switch (Type)
+                {
+                    case ActionType.Change:
+                        Receiver.ImageName = (string)Value;
+                        Receiver.LoadTexture();
+                        
+                        break;
+                }
+            }
         }
     }
 }
