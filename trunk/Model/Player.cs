@@ -276,6 +276,7 @@ namespace Spectrum.Model
                 v.Y -= JumpAmount;
                 Velocity = v;
             }*/
+            body.ApplyImpulse(new Vector2(0, -50));
         }
 
         /* Notifications */
