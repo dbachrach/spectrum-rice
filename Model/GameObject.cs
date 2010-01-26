@@ -116,10 +116,8 @@ namespace Spectrum.Model
         //Load the texture for the sprite using the Content Pipeline
         public virtual void LoadContent(ContentManager theContentManager, GraphicsDevice graphicsDevice)
         {
-            
-            Texture = new GameTexture(Vector2.Zero, 0.0f, 1.0f, .5f);
-            Texture.Load(theContentManager, graphicsDevice, ImageName, FrameCount, FramesPerSec);
-            Texture.Pause();
+
+            LoadTexture();
 
             if (InactiveImageName != null && !InactiveImageName.Equals(""))
             {
@@ -130,6 +128,13 @@ namespace Spectrum.Model
 
             LoadPhysicsBody(Texture.TextureSize(), IsStatic);
             //SetSize((int)Texture.TextureSize().X, (int)Texture.TextureSize().Y);
+        }
+
+        public void LoadTexture()
+        {
+            Texture = new GameTexture(Vector2.Zero, 0.0f, 1.0f, .5f);
+            Texture.Load(Container.GameRef.Content, Container.GameRef.GraphicsDevice, ImageName, FrameCount, FramesPerSec);
+            Texture.Pause();
         }
 
         // load the Farseer body and geometry objects for this GameObject
