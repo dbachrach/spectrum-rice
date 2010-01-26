@@ -5,3 +5,5 @@ Content\box.xnb
 Content\dr.xnb
 Content\pl.xnb
 Content\Pesca.xnb
+Content\switchOff.xnb
+Content\switchOn.xnb
