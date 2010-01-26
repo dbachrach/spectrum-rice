@@ -52,6 +52,9 @@ namespace Spectrum.Model
             {
                 myTexture = content.Load<Texture2D>(asset);
             }
+
+            //this.Origin = new Vector2(myTexture.Width / 2, myTexture.Height / 2);
+
             TimePerFrame = (float)1 / FramesPerSec;
             Frame = 0;
             TotalElapsed = 0;

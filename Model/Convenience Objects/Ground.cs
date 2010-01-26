@@ -20,6 +20,12 @@ namespace Spectrum.Model
 			AffectedByGravity = false;
 			Pickupable = false;
             ImageName = null;
+            IsStatic = true;
 		}
+
+        protected override void DidLoadPhysicsBody()
+        {
+            geom.FrictionCoefficient = .2f;
+        }
     }
 }

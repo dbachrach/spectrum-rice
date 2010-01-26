@@ -14,6 +14,7 @@ using Microsoft.Xna.Framework.Storage;
 
 using FarseerGames.FarseerPhysics;
 using FarseerGames.FarseerPhysics.Dynamics;
+using FarseerGames.FarseerPhysics.Dynamics.Joints;
 using FarseerGames.FarseerPhysics.Collisions;
 using FarseerGames.FarseerPhysics.Factories;
 
@@ -53,6 +54,7 @@ namespace Spectrum.Model
 
         public Body body { get; set; }
         public Geom geom { get; set; }
+        public FixedAngleJoint joint { get; set; }
         public float Mass { get; set; }
         public bool IsStatic { get; set; }
         
@@ -140,7 +142,8 @@ namespace Spectrum.Model
         // load the Farseer body and geometry objects for this GameObject
         public virtual void LoadPhysicsBody(Vector2 size, bool isStatic)
         {
-            LoadPhysicsBody(OriginalPosition, size, isStatic);
+
+            LoadPhysicsBody(new Vector2(OriginalPosition.X + (size.X / 2), OriginalPosition.Y + (size.Y / 2)), size, isStatic);
         }
 
         public virtual void LoadPhysicsBody(Vector2 position, Vector2 size, bool isStatic)
@@ -149,7 +152,14 @@ namespace Spectrum.Model
             body.Position = position;
             body.isStatic = isStatic;
 
+            joint = JointFactory.Instance.CreateFixedAngleJoint(Container.Sim, body);
+
             geom = GeomFactory.Instance.CreateRectangleGeom(Container.Sim, body, size.X, size.Y);
+
+            geom.OnCollision += OnCollision;
+            geom.OnSeparation += OnSeparation;
+
+            this.DidLoadPhysicsBody();
         }
 
         //Draw the sprite to the screen
@@ -384,6 +394,11 @@ namespace Spectrum.Model
             // nada
         }
 
+        protected virtual void DidLoadPhysicsBody()
+        {
+
+        }
+
         public virtual GameObject CombineObjectWith(GameObject obj)
         {
             return null;
@@ -403,5 +418,19 @@ namespace Spectrum.Model
             */
             return false;
         }
+
+        private bool OnCollision(Geom g1, Geom g2, ContactList contactList)
+        {
+            //Console.WriteLine("On colision {0}", this);
+            return true;
+        }
+
+        private void OnSeparation(Geom g1, Geom g2)
+        {
+            //Console.WriteLine("On seperation {0}", this);
+        
+        }
+
+
     }
 }

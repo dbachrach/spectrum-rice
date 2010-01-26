@@ -1,0 +1,9 @@
+/COM,ANSYS RELEASE 12.0.1  UP20090415       13:35:12    01/26/2010
+
+ *** ERROR ***                           CP =       0.391   TIME= 13:35:14
+ Data file U:\comp410\Content\farseer\Thumbs.db has incorrect format, is 
+ missing READ/WRITE permission, or is empty for RESUME.                  
+
+ *** WARNING ***                         CP =       0.391   TIME= 13:35:14
+ WHILE PROCESSING FILE BASED INPUT (/INPUT OR MACRO) AN ERROR HAS        
+ OCCURRED.  SHOULD INPUT PROCESSING BE SUSPENDED?                        
