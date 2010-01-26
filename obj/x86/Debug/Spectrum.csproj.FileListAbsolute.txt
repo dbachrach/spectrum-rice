@@ -43,3 +43,5 @@ U:\comp410\obj\x86\Debug\ResolveAssemblyReference.cache
 U:\comp410\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 U:\comp410\obj\x86\Debug\Spectrum.exe
 U:\comp410\obj\x86\Debug\Spectrum.pdb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switchOff.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switchOn.xnb

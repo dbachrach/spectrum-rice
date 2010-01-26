@@ -64,6 +64,24 @@
       <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\Pesca.xnb</Output>
       <Time>2010-01-21T18:48:57.421875-06:00</Time>
     </Item>
+    <Item>
+      <Source>switchOff.png</Source>
+      <Name>switchOff</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switchOff.xnb</Output>
+      <Time>2010-01-25T19:29:59-06:00</Time>
+    </Item>
+    <Item>
+      <Source>switchOn.png</Source>
+      <Name>switchOn</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switchOn.xnb</Output>
+      <Time>2010-01-25T19:27:05-06:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
