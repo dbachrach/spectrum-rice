@@ -229,12 +229,13 @@ namespace Spectrum.Model
         }
         protected virtual void DidHitGround()
         {
-            // nada
+            // TODO: Add code in collision notification to call this method
         }
 
-        protected virtual void DidLoadPhysicsBody()
+        /* Subclasses should override this method to modify physics body object after it is created */
+        protected virtual void DidLoadPhysicsBody() 
         {
-
+            // do nothing
         }
 
         public virtual GameObject CombineObjectWith(GameObject obj)

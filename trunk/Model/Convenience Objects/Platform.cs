@@ -20,5 +20,10 @@ namespace Spectrum.Model
             ImageName = "platform";
             IsStatic = true;
 		}
+
+        protected override void DidLoadPhysicsBody()
+        {
+            geom.FrictionCoefficient = .6f; // TODO: Pick a good value for friction
+        }
     }
 }
