@@ -6,4 +6,3 @@ Weird walking behavior when on switch
 Picking up an object who has a combined child, removes the child
 Add more types to the Execute() method in EventAction
 Add new properties to the parser
-Put mass in parser

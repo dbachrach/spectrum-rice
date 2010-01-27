@@ -12,6 +12,8 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using FarseerGames.FarseerPhysics.Collisions;
+
 namespace Spectrum.Model
 {
     enum PlayerState { None, Walking, Jumping, Falling }
@@ -34,6 +36,16 @@ namespace Spectrum.Model
 
         private const int MoveAmount = 4;
         private const int JumpAmount = 25;
+
+        private static float minAngle = -45;
+        private static float minRad = (float)((-minAngle + 90.0) * (Math.PI / 180.0));
+        private static Vector2 MinVector = new Vector2((float)Math.Cos(minRad), (float)Math.Sin(minRad));
+
+        private static float maxAngle = 45;
+        private static float maxRad = (float)((-maxAngle + 90.0) * (Math.PI / 180.0));
+        private static Vector2 MaxVector = new Vector2((float)Math.Cos(maxRad), (float)Math.Sin(maxRad));
+
+        public bool IsTouchingGround { get; set; }
 
         public Player()
             : base()
@@ -301,12 +313,15 @@ namespace Spectrum.Model
                 v.Y -= JumpAmount;
                 Velocity = v;
             }*/
-            body.ApplyImpulse(new Vector2(0, -350));
+            if (IsTouchingGround)
+            {
+                body.ApplyImpulse(new Vector2(0, -350));
+            }
         }
 
         /* Notifications */
 
-        protected override void DidCollideWithObject(GameObject obj)
+        protected override void DidCollideWithObject(GameObject obj, ref ContactList contactList)
         {
             /* TODO: Need to unset NearObject when not near anything */
             if (obj.Pickupable || (obj.Events != null && obj.Events.Count > 0))
@@ -325,7 +340,24 @@ namespace Spectrum.Model
                 }
             }
 
-            base.DidCollideWithObject(obj);
+            // check if the player is touching the ground
+            // if his normal vector is pointing upwards (plus or minus 45 degrees), he is on solid ground
+            Vector2 normal = Vector2.Zero;
+
+            foreach (Contact contact in contactList)
+            {
+                normal += contact.Normal;
+            }
+
+            double minCrossP = normal.X * MinVector.Y - normal.Y * MinVector.X;
+            double maxCrossP = normal.X * MaxVector.Y - normal.Y * MaxVector.X;
+
+            if (minCrossP >= 0 && maxCrossP <= 0)
+            {
+                IsTouchingGround = true;
+            }
+
+            base.DidCollideWithObject(obj, ref contactList);
         }
 
         protected override void DidHitGround()
@@ -336,6 +368,11 @@ namespace Spectrum.Model
             }
         }
 
+        // before each simulation step, reset the player's status variables
+        public void ResetStatus()
+        {
+            IsTouchingGround = false;
+        }
 
 
         private void Pickup(GameObject obj)

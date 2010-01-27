@@ -184,6 +184,10 @@ namespace Spectrum.Model
                 {
                     newObject.IsStatic = (bool)obj["static"];
                 }
+                if (obj.ContainsKey("mass"))
+                {
+                    newObject.Mass = (float)(double)obj["mass"];
+                }
                 if (obj.ContainsKey("velocity"))
                 {
                     ArrayList velocityJson = (ArrayList)obj["velocity"];
