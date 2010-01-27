@@ -171,6 +171,7 @@ namespace Spectrum.Model
                 {
                     col = this.ViewableColors;
                 }
+                Texture.Rotation = body.Rotation;
                 Texture.DrawFrame(spriteBatch, col, body.Position /* TODO: REMOVE-- new Vector2(Boundary.Left, Boundary.Top)*/, DrawEffects());
             }
             
