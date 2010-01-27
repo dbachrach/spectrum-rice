@@ -232,7 +232,7 @@ namespace Spectrum.Model
         }
          */
 
-        protected virtual void DidCollideWithObject(GameObject obj)
+        protected virtual void DidCollideWithObject(GameObject obj, ref ContactList contactList)
         {
 
         }
@@ -274,7 +274,7 @@ namespace Spectrum.Model
             GameObject o1 = (GameObject) g1.Tag;
             GameObject o2 = (GameObject) g2.Tag;
 
-            this.DidCollideWithObject(o2);
+            this.DidCollideWithObject(o2, ref contactList);
 
             return ((o1.currentlyVisible() || (o1.ExistsWhenNotViewed && !(o2 is Player))) && (o2.currentlyVisible() || (o2.ExistsWhenNotViewed && !(o1 is Player))));
             /*
