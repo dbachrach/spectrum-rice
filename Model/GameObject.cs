@@ -154,10 +154,24 @@ namespace Spectrum.Model
 
             joint = JointFactory.Instance.CreateFixedAngleJoint(Container.Sim, body);
 
-            geom = GeomFactory.Instance.CreateRectangleGeom(Container.Sim, body, size.X, size.Y);
+            float xv = size.X / 2;
+            float yv = size.Y / 2;
+
+            Vertices vertices = new Vertices();
+            vertices.Add(new Vector2(-xv, -yv));
+            vertices.Add(new Vector2(xv, -yv));
+            vertices.Add(new Vector2(xv, yv));
+            vertices.Add(new Vector2(-xv, yv));
+            vertices.SubDivideEdges(5);
+
+            //geom = GeomFactory.Instance.CreateRectangleGeom(Container.Sim, body, size.X, size.Y);
+            geom = new Geom(body, vertices, 0);
+            Container.Sim.Add(geom);
 
             geom.OnCollision += OnCollision;
             geom.OnSeparation += OnSeparation;
+
+            geom.RestitutionCoefficient = 0;
 
             this.DidLoadPhysicsBody();
         }

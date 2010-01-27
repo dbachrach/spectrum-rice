@@ -67,7 +67,7 @@ namespace Spectrum.Model
             //player.Boundary = new Rectangle((int) level.StartPosition.X, (int) level.StartPosition.Y, 0, 0);
             level.AddPlayer(player);
 
-            int borderWidth = 50;
+            int borderWidth = 150;
 
             /* Create Game Edges */
             SolidGround edgeLeft = new SolidGround(borderWidth, (int)(level.Height));

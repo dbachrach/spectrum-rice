@@ -29,6 +29,8 @@ namespace Spectrum
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.PreferredBackBufferWidth = 1000;
+            graphics.PreferredBackBufferHeight = 700;
             Content.RootDirectory = "Content";
         }
 
