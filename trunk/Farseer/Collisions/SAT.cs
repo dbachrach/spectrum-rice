@@ -40,6 +40,9 @@ namespace FarseerGames.FarseerPhysics.Collisions
         /// NOTE- this will be empty if no contacts are present.</param>
         public void Collide(Geom geomA, Geom geomB, ContactList contactList)
         {
+          
+
+            
             PolygonCollisionResult result = PolygonCollision(geomA.WorldVertices, geomB.WorldVertices);
             float distance = result.MinimumTranslationVector.Length();
             int contactsDetected = 0;
@@ -118,6 +121,7 @@ namespace FarseerGames.FarseerPhysics.Collisions
                     contactList.Add(c);
                 }
             }
+             
         }
 
         public bool Intersect(Geom geom, ref Vector2 position)

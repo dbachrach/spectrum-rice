@@ -30,6 +30,7 @@ namespace Spectrum.Model
         //private Vector2 _velocity;
         protected GameTexture Texture;
         protected GameTexture InactiveTexture;
+        //protected bool _isStatic;
 
         // properties
         public string Id { get; set; }
@@ -57,7 +58,18 @@ namespace Spectrum.Model
         public FixedAngleJoint joint { get; set; }
         public float Mass { get; set; }
         public bool IsStatic { get; set; }
-        
+        /*
+            get { 
+                return _isStatic; 
+            } 
+            set { 
+                _isStatic = value; 
+                if (IsStatic) { 
+                    Mass = float.MaxValue; 
+                } 
+            } 
+        }
+        */
 
         
 
@@ -148,10 +160,14 @@ namespace Spectrum.Model
 
         public virtual void LoadPhysicsBody(Vector2 position, Vector2 size, bool isStatic)
         {
+            if (isStatic)
+            {
+                Mass = float.MaxValue;
+            }
             body = BodyFactory.Instance.CreateRectangleBody(Container.Sim, size.X, size.Y, Mass);
             body.Position = position;
             body.isStatic = isStatic;
-
+            
             joint = JointFactory.Instance.CreateFixedAngleJoint(Container.Sim, body);
 
             float xv = size.X / 2;
@@ -162,7 +178,7 @@ namespace Spectrum.Model
             vertices.Add(new Vector2(xv, -yv));
             vertices.Add(new Vector2(xv, yv));
             vertices.Add(new Vector2(-xv, yv));
-            vertices.SubDivideEdges(5);
+            vertices.SubDivideEdges(10);
 
             //geom = GeomFactory.Instance.CreateRectangleGeom(Container.Sim, body, size.X, size.Y);
             geom = new Geom(body, vertices, 0);
