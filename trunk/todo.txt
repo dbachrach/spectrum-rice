@@ -1,13 +1,11 @@
-Demo
-----
+
 Combine objects together
 Make blocks not fall when you view their color.
 Weird walking behavior when on switch
 Picking up an object who has a combined child, removes the child
-
-Post-Demo
----------
 Make collision detection better
 Add more types to the Execute() method in EventAction
 Add new properties to the parser
 Make collision detection and things not only use rectangles but work on diagnols
+Put mass in parser
+Save a size on game object

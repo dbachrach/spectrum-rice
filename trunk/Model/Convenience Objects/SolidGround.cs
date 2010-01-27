@@ -38,13 +38,15 @@ namespace Spectrum.Model
             LoadPhysicsBody(Texture.TextureSize(), true);
 
             // An attempt to subdivide the solid ground into smaller pieces. Doesn't work right now
-            /*int subdivisions = 10;
+            /* TODO:
+            int subdivisions = 10;
             Vector2 smallSize = new Vector2((float)(_w/10.0), (float)(_h/10.0));
             for (int i = subdivisions; i >= 0; i--)
             {
                 LoadPhysicsBody(new Vector2(OriginalPosition.X + i * _w / subdivisions, OriginalPosition.Y), smallSize, true);
                 //LoadPhysicsBody(Texture.TextureSize(), true);
-            }*/
+            }
+             */
         }
     }
 }
