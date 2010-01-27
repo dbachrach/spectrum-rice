@@ -76,6 +76,7 @@ namespace Spectrum.Model
             if (Possession != null)
             {
                 //Possession.body.Position = new Vector2(this.body.Position.X, this.body.Position.Y - Possession.geom.Height);
+                // TODO: Move the possesion to above the player
                 Possession.DirectionFacing = this.DirectionFacing;
                 Possession.Update(theGameTime);
 
@@ -88,11 +89,13 @@ namespace Spectrum.Model
         {
             if (Keyboard.GetState().IsKeyDown(Keys.Left) == true)
             {
-                this.body.ApplyForce(new Vector2(-350, 0));
+                //this.body.ApplyForce(new Vector2(-350, 0));
+                this.body.ApplyImpulse(new Vector2(-50, 0));
             }
             else if (Keyboard.GetState().IsKeyDown(Keys.Right) == true)
             {
-                this.body.ApplyForce(new Vector2(350, 0));
+                //this.body.ApplyForce(new Vector2(350, 0));
+                this.body.ApplyImpulse(new Vector2(50, 0));
             }
             /*Vector2 v1 = Velocity;
             v1.X = 0;
@@ -276,7 +279,7 @@ namespace Spectrum.Model
                 v.Y -= JumpAmount;
                 Velocity = v;
             }*/
-            body.ApplyImpulse(new Vector2(0, -50));
+            body.ApplyImpulse(new Vector2(0, -250));
         }
 
         /* Notifications */
@@ -352,7 +355,7 @@ namespace Spectrum.Model
 
         protected override void DidLoadPhysicsBody()
         {
-            geom.FrictionCoefficient = .1f;
+            geom.FrictionCoefficient = 2.0f;
         }
 
         public void WinLevel()

@@ -72,7 +72,7 @@ namespace Spectrum.Model
         private List<GameObject> DoomedObjects;
         private List<GameObject> ResurrectedObjects;
 
-        public int Gravity = 200;
+        public int Gravity = 900;
 
 		/* Default Constructor */
 		public Level() {
@@ -88,7 +88,7 @@ namespace Spectrum.Model
             BackgroundFramesPerSec = 1;
 
             Sim = new PhysicsSimulator(new Vector2(0, Gravity));
-            //Sim.Iterations = 10;
+            //Sim.Iterations = 10; TODO: We can increase this value for better accuracy at the expense of performance
             
             SimView = new PhysicsSimulatorView(Sim);
 		}
@@ -167,7 +167,7 @@ namespace Spectrum.Model
             }
 
             Sim.Update(gameTime.ElapsedGameTime.Milliseconds * .001f);
-            //Sim.Update(.001f);
+
             foreach (GameObject obj in GameObjects)
             {
                 obj.Update(gameTime);
