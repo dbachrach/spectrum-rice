@@ -72,7 +72,7 @@ namespace Spectrum.Model
         private List<GameObject> DoomedObjects;
         private List<GameObject> ResurrectedObjects;
 
-        public int Gravity = 200;
+        public int Gravity = 00;
 
 		/* Default Constructor */
 		public Level() {
@@ -88,6 +88,7 @@ namespace Spectrum.Model
             BackgroundFramesPerSec = 1;
 
             Sim = new PhysicsSimulator(new Vector2(0, Gravity));
+            
             SimView = new PhysicsSimulatorView(Sim);
 		}
 
@@ -164,7 +165,7 @@ namespace Spectrum.Model
                 ResurrectedObjects.RemoveAll(item => true);
             }
 
-            Sim.Update(gameTime.ElapsedGameTime.Milliseconds * .0005f);
+            Sim.Update(gameTime.ElapsedGameTime.Milliseconds * .001f);
 
             foreach (GameObject obj in GameObjects)
             {
