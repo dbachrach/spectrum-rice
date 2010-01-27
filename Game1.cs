@@ -45,9 +45,6 @@ namespace Spectrum
             level = Parser.Parse("demo.txt");
             level.GameRef = this;
 
-            IsFixedTimeStep = true;
-            TargetElapsedTime = new TimeSpan(0, 0, 0, 0, 10);
-
             base.Initialize();
         }
         
