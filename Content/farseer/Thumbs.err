@@ -7,3 +7,28 @@
  *** WARNING ***                         CP =       0.391   TIME= 13:35:14
  WHILE PROCESSING FILE BASED INPUT (/INPUT OR MACRO) AN ERROR HAS        
  OCCURRED.  SHOULD INPUT PROCESSING BE SUSPENDED?                        
+
+ *** ERROR ***                           CP =       0.391   TIME= 14:26:24
+ An unexpected error ( SIG$BREAK ) has occurred...  ANSYS internal data  
+ has been corrupted.  ANSYS is unable to recover and will terminate.     
+                                                                         
+  Previously saved files are unaffected.                                 
+
+ *** WARNING ***                         CP =       0.391   TIME= 14:26:24
+ WHILE PROCESSING FILE BASED INPUT (/INPUT OR MACRO) AN ERROR HAS        
+ OCCURRED.  SHOULD INPUT PROCESSING BE SUSPENDED?                        
+
+ *** ERROR ***                           CP =       0.391   TIME= 14:26:34
+ Unable to open file Thumbs.db.  Unit 16 is already in use.  Please send 
+ the data leading to this operation to your technical support provider,  
+ as this will allow ANSYS, Inc to improve the program.                   
+
+ *** ERROR ***                           CP =       0.391   TIME= 14:26:34
+ Database file Thumbs.db exists but does not have READ/WRITE permission, 
+ so it cannot be overwritten.                                            
+
+ *** ERROR ***                           CP =       0.391   TIME= 14:26:34
+ An unexpected error ( SIG$SEGV ) has occurred...  ANSYS internal data   
+ has been corrupted.  ANSYS is unable to recover and will terminate.     
+                                                                         
+  Previously saved files are unaffected.                                 
