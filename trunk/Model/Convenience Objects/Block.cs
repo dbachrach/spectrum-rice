@@ -20,6 +20,8 @@ namespace Spectrum.Model
             ImageName = "box";
 			AffectedByGravity = true;
 			Pickupable = true;
+            Mass = 2000;
+            ExistsWhenNotViewed = true; // todo: remove
 		}
 
         public override GameObject CombineObjectWith(GameObject obj)

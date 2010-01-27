@@ -143,6 +143,8 @@ namespace Spectrum.Model
 
             geom.RestitutionCoefficient = 0; // bounciness
 
+            geom.Tag = this;
+
             this.DidLoadPhysicsBody();
         }
 
@@ -210,13 +212,14 @@ namespace Spectrum.Model
 
         /* Notifications */
 
+        /*
         protected virtual void DidCollideWithObjects(List<GameObject> objs)
         {
             foreach (GameObject obj in objs)
             {
                 if (obj.Events != null && obj.Events.Count > 0)
                 {
-                    /* TODO: Do we need to go through the event list in THIS also? */
+                    // TODO: Do we need to go through the event list in THIS also? 
                     foreach (Event e in obj.Events)
                     {
                         if (e.Type == EventType.Collision && e.CollisionTarget == this)
@@ -227,6 +230,13 @@ namespace Spectrum.Model
                 }
             }
         }
+         */
+
+        protected virtual void DidCollideWithObject(GameObject obj)
+        {
+
+        }
+
         protected virtual void DidHitGround()
         {
             // TODO: Add code in collision notification to call this method
@@ -260,8 +270,21 @@ namespace Spectrum.Model
 
         private bool OnCollision(Geom g1, Geom g2, ContactList contactList)
         {
+            
+            GameObject o1 = (GameObject) g1.Tag;
+            GameObject o2 = (GameObject) g2.Tag;
+
+            this.DidCollideWithObject(o2);
+
+            return ((o1.currentlyVisible() || (o1.ExistsWhenNotViewed && !(o2 is Player))) && (o2.currentlyVisible() || (o2.ExistsWhenNotViewed && !(o1 is Player))));
+            /*
+            if (!o1.currentlyVisible() || !o2.currentlyVisible())
+            {
+                return false;
+            }
             //Console.WriteLine("On colision {0}", this);
             return true;
+             * */
         }
 
         private void OnSeparation(Geom g1, Geom g2)

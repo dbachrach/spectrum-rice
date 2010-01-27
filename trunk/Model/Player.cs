@@ -87,16 +87,38 @@ namespace Spectrum.Model
 
         private void UpdateMovement(KeyboardState aCurrentKeyboardState)
         {
+            Texture.Pause();
+            Direction d = Direction.None;
             if (Keyboard.GetState().IsKeyDown(Keys.Left) == true)
             {
                 //this.body.ApplyForce(new Vector2(-350, 0));
-                this.body.ApplyImpulse(new Vector2(-50, 0));
+                this.body.ApplyImpulse(new Vector2(-25, 0));
+
+                d = Direction.Left;
             }
             else if (Keyboard.GetState().IsKeyDown(Keys.Right) == true)
             {
                 //this.body.ApplyForce(new Vector2(350, 0));
-                this.body.ApplyImpulse(new Vector2(50, 0));
+                this.body.ApplyImpulse(new Vector2(25, 0));
+
+                d = Direction.Right;
             }
+
+            if (d != Direction.None)
+            {
+                DirectionFacing = d;
+
+                if (State == PlayerState.Jumping || State == PlayerState.Falling)
+                {
+                    Texture.Pause();
+                }
+                else
+                {
+                    State = PlayerState.Walking;
+                    Texture.Play();
+                }
+            }
+
             /*Vector2 v1 = Velocity;
             v1.X = 0;
             Velocity = v1;
@@ -279,32 +301,31 @@ namespace Spectrum.Model
                 v.Y -= JumpAmount;
                 Velocity = v;
             }*/
-            body.ApplyImpulse(new Vector2(0, -250));
+            body.ApplyImpulse(new Vector2(0, -350));
         }
 
         /* Notifications */
 
-        protected override void DidCollideWithObjects(List<GameObject> objs)
+        protected override void DidCollideWithObject(GameObject obj)
         {
             /* TODO: Need to unset NearObject when not near anything */
-            foreach (GameObject obj in objs)
+            if (obj.Pickupable || (obj.Events != null && obj.Events.Count > 0))
             {
-                if (obj.Pickupable || (obj.Events != null && obj.Events.Count > 0))
-                {
-                    NearObject = obj;
+                NearObject = obj;
 
-                    if (NearObject.Events != null)
+                if (NearObject.Events != null)
+                {
+                    foreach (Event e in NearObject.Events)
                     {
-                        foreach (Event e in NearObject.Events)
+                        if (e.Type == EventType.Collision && e.CollisionTarget == this)
                         {
-                            if (e.Type == EventType.Collision && e.CollisionTarget == this)
-                            {
-                                e.Execute();
-                            }
+                            e.Execute();
                         }
                     }
                 }
             }
+
+            base.DidCollideWithObject(obj);
         }
 
         protected override void DidHitGround()
@@ -356,6 +377,7 @@ namespace Spectrum.Model
         protected override void DidLoadPhysicsBody()
         {
             geom.FrictionCoefficient = 2.0f;
+            body.LinearDragCoefficient = 2.0f;
         }
 
         public void WinLevel()

@@ -21,6 +21,7 @@ namespace Spectrum.Model
 			Pickupable = false;
             ImageName = null;
             IsStatic = true;
+            ExistsWhenNotViewed = true;
 		}
 
         protected override void DidLoadPhysicsBody()
