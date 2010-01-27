@@ -25,20 +25,14 @@ namespace Spectrum.Model
     class GameObject
     {
         // instance variables
-        
-        //private Rectangle _boundary;
-        //private Vector2 _velocity;
         protected GameTexture Texture;
         protected GameTexture InactiveTexture;
-        //protected bool _isStatic;
 
         // properties
         public string Id { get; set; }
         public Colors ViewableColors { get; set; }
-        //public Rectangle Boundary { get { return _boundary; } set { _boundary = value; } }
         public string ImageName { get; set; }
         public bool AffectedByGravity { get; set; }
-        //public Vector2 Velocity { get { return _velocity; } set { _velocity = value; } }
         public List<GameObject> CombineObjects { get; set; }
 		public List<GameObject> CombinableWith { get; set; }
         public bool Pickupable { get; set; }
@@ -58,31 +52,21 @@ namespace Spectrum.Model
         public FixedAngleJoint joint { get; set; }
         public float Mass { get; set; }
         public bool IsStatic { get; set; }
-        /*
-            get { 
-                return _isStatic; 
-            } 
-            set { 
-                _isStatic = value; 
-                if (IsStatic) { 
-                    Mass = float.MaxValue; 
-                } 
-            } 
-        }
-        */
+        public Vector2 Size { get; set; }
+        
 
         
 
 		/* Default Constructor */
-		public GameObject() {
-			ViewableColors = Colors.AllColors;
-			AffectedByGravity = true;
-			//Velocity = new Vector2(0,0);
+        public GameObject()
+        {
+            ViewableColors = Colors.AllColors;
+            AffectedByGravity = true;
             CombineObjects = new List<GameObject>();
-			CombinableWith = null;
-			Pickupable = false;
-			Inactive = false;
-			ExistsWhenNotViewed = false;
+            CombinableWith = null;
+            Pickupable = false;
+            Inactive = false;
+            ExistsWhenNotViewed = false;
             DirectionFacing = Direction.Right;
 
             FrameCount = 1;
@@ -90,38 +74,8 @@ namespace Spectrum.Model
 
             Mass = 1;
             IsStatic = false;
-		}
-        /*
-        public void SetPosition(Vector2 p)
-        {
-            SetPosition(new Point((int) p.X, (int) p.Y));
         }
 
-
-        public void SetPosition(int x, int y)
-        {
-            SetPosition(new Point(x, y));
-        }
-        
-        public void SetPosition(Point p)
-        {
-            _boundary.Location = p;
-        }
-
-        public void SetSize(int width, int height)
-        {
-            _boundary.Width = width;
-            _boundary.Height = height;
-        }
-        public Vector2 Position()
-        {
-            return new Vector2(_boundary.Left, _boundary.Top);
-        }
-        public Vector2 Size()
-        {
-            return new Vector2(_boundary.Width, _boundary.Height);
-        }
-        */
         public bool currentlyVisible()
         {
             return Container.CurrentColor.Contains(this.ViewableColors);
@@ -140,8 +94,7 @@ namespace Spectrum.Model
                 InactiveTexture.Pause();
             }
 
-            LoadPhysicsBody(Texture.TextureSize(), IsStatic);
-            //SetSize((int)Texture.TextureSize().X, (int)Texture.TextureSize().Y);
+            LoadPhysicsBody(Size, IsStatic);
         }
 
         public void LoadTexture()
@@ -149,12 +102,13 @@ namespace Spectrum.Model
             Texture = new GameTexture(0.0f, 1.0f, .5f);
             Texture.Load(Container.GameRef.Content, Container.GameRef.GraphicsDevice, ImageName, FrameCount, FramesPerSec);
             Texture.Pause();
+
+            Size = Texture.TextureSize();
         }
 
         // load the Farseer body and geometry objects for this GameObject
         public virtual void LoadPhysicsBody(Vector2 size, bool isStatic)
         {
-
             LoadPhysicsBody(new Vector2(OriginalPosition.X + (size.X / 2), OriginalPosition.Y + (size.Y / 2)), size, isStatic);
         }
 
@@ -170,24 +124,24 @@ namespace Spectrum.Model
             
             joint = JointFactory.Instance.CreateFixedAngleJoint(Container.Sim, body);
 
-            float xv = size.X / 2;
-            float yv = size.Y / 2;
+            // TODO: This is subdivide code. We might need it later
+            //float xv = size.X / 2;
+            //float yv = size.Y / 2;
+            //Vertices vertices = new Vertices();
+            //vertices.Add(new Vector2(-xv, -yv));
+            //vertices.Add(new Vector2(xv, -yv));
+            //vertices.Add(new Vector2(xv, yv));
+            //vertices.Add(new Vector2(-xv, yv));
+            //vertices.SubDivideEdges(10);
+            //geom = new Geom(body, vertices, 0);
+            //Container.Sim.Add(geom);
 
-            Vertices vertices = new Vertices();
-            vertices.Add(new Vector2(-xv, -yv));
-            vertices.Add(new Vector2(xv, -yv));
-            vertices.Add(new Vector2(xv, yv));
-            vertices.Add(new Vector2(-xv, yv));
-            vertices.SubDivideEdges(10);
-
-            //geom = GeomFactory.Instance.CreateRectangleGeom(Container.Sim, body, size.X, size.Y);
-            geom = new Geom(body, vertices, 0);
-            Container.Sim.Add(geom);
-
+            geom = GeomFactory.Instance.CreateRectangleGeom(Container.Sim, body, size.X, size.Y);
+            
             geom.OnCollision += OnCollision;
             geom.OnSeparation += OnSeparation;
 
-            geom.RestitutionCoefficient = 0;
+            geom.RestitutionCoefficient = 0; // bounciness
 
             this.DidLoadPhysicsBody();
         }
@@ -202,7 +156,7 @@ namespace Spectrum.Model
                     col = this.ViewableColors;
                 }
                 Texture.Rotation = body.Rotation;
-                Texture.DrawFrame(spriteBatch, col, body.Position /* TODO: REMOVE-- new Vector2(Boundary.Left, Boundary.Top)*/, DrawEffects());
+                Texture.DrawFrame(spriteBatch, col, body.Position, DrawEffects());
             }
             
         }
@@ -210,21 +164,10 @@ namespace Spectrum.Model
         //Update the Sprite and change it's position based on the passed in speed, direction and elapsed time.
         public virtual void Update(GameTime theGameTime)
         {
-            /* TODO: REMOVE 
-             * 
-            if (AffectedByGravity && currentlyVisible())
-            {
-                Velocity = new Vector2(Velocity.X, Velocity.Y + Container.Gravity);
-            }
-
-            if (!Velocity.Equals(Vector2.Zero) && !CheckCollision())
-            {
-                SetPosition((int)(Position().X + Velocity.X), (int)(Position().Y + Velocity.Y));
-            }
-
             float elapsed = (float)theGameTime.ElapsedGameTime.TotalSeconds;
             Texture.UpdateFrame(elapsed);
 
+            /* TODO: Reimplement 
             if (CombinableWith != null && CombineObjects.Count == 0)
             {
                 foreach (GameObject obj in CombinableWith)
@@ -246,146 +189,10 @@ namespace Spectrum.Model
             */
         }
 
-        // If object collides, then the position & velocity of the object is updated
-        private bool CheckCollision()
-        {
-            return false;
-            /*Rectangle bothRect = new Rectangle((int)(Position().X + Velocity.X), (int)(Position().Y + Velocity.Y), (int)Size().X, (int)Size().Y);
 
-            List<GameObject> objects = CollisionWithRect(bothRect);
+        // TODO: This line of code is how we check for whether two objs collide (taking into account things like color
+        //       if (obj != this && this.currentlyVisible() && (obj.currentlyVisible() || (obj.ExistsWhenNotViewed && !(this is Player))))
 
-            // see if the object collides with anything
-            if (objects.Count == 0)
-            {
-                return false;
-            }
-
-            
-            Rectangle yRect = new Rectangle((int)(Position().X), (int)(Position().Y + Velocity.Y), (int)Size().X, (int)Size().Y);
-            Rectangle xRect = new Rectangle((int)(Position().X + Velocity.X), (int)(Position().Y), (int)Size().X, (int)Size().Y);
-            bool collidesY = false;
-            bool collidesX = false;
-
-            foreach (GameObject obj in objects)
-            {
-                if (obj.Boundary.Intersects(yRect))
-                {
-                    collidesY = true;   
-                }
-
-                if(obj.Boundary.Intersects(xRect))
-                {
-                    collidesX = true;
-                }
-
-                if (collidesX && collidesY)
-                {
-                    int signX = (Velocity.X >= 0 ? 1 : -1);
-                    int signY = (Velocity.Y >= 0 ? 1 : -1);
-
-                    int totalDX = Math.Abs((int)Velocity.X);
-                    int totalDY = Math.Abs((int)Velocity.Y);
-
-                    int dx = totalDX;
-                    int dy = totalDY;
-                    
-                    if(totalDX > totalDY)
-                    {
-                        while (dx > 0)
-                        {
-                            dx--;
-                            dy = (int)(totalDY * (float)dx / totalDX);
-                            Rectangle interRect = new Rectangle((int)(Position().X + (signX * dx)), (int)(Position().Y + (signY * dy)), (int)Size().X, (int)Size().Y);
-                            if (!interRect.Intersects(obj.Boundary))
-                            {
-                                SetPosition(interRect.Location);
-                                Velocity = Vector2.Zero;
-                                //Console.WriteLine("Both: " + obj.Id);
-                                //return true;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        while (dy > 0)
-                        {
-                            dy--;
-                            dx = (int)(totalDX * (float)dy / totalDY);
-                            Rectangle interRect = new Rectangle((int)(Position().X + (signX * dx)), (int)(Position().Y + (signY * dy)), (int)Size().X, (int)Size().Y);
-                            if (!interRect.Intersects(obj.Boundary))
-                            {
-                                SetPosition(interRect.Location);
-                                Velocity = Vector2.Zero;
-                                //Console.WriteLine("Both: " + obj.Id);
-                                //return true;
-                            }
-                        }
-                    }
-                }
-
-                else if (collidesY)
-                {
-                    if (Velocity.Y == 0)
-                    {
-                        // do nothing
-                    }
-                    else if (Velocity.Y > 0) // if falling
-                    {
-                        SetPosition((int)(Position().X), (int)(obj.Position().Y - Size().Y));
-                        this.DidHitGround();
-                    }
-                    else // if jumping
-                    {
-                        SetPosition((int)(Position().X), (int)(obj.Position().Y + obj.Size().Y));
-                    }
-
-                    Velocity = new Vector2(Velocity.X, 0);
-                    //Console.WriteLine("Y: " + obj.Id);
-                }
-                else if (collidesX)
-                {
-                    if (Velocity.X == 0)
-                    {
-                        // do nothing
-                    }
-                    else if (Velocity.X > 0) // if moving right
-                    {
-                        SetPosition((int)(obj.Position().X - Size().X), (int)(Position().Y));
-                    }
-                    else // if moving left
-                    {
-                        SetPosition((int)(obj.Position().X + obj.Size().X), (int)(Position().Y));
-                    }
-
-                    Velocity = new Vector2(0, Velocity.Y);
-                    //Console.WriteLine("X: " + obj.Id);
-                }
-            }
-
-            return collidesY && collidesX;*/
-        }
-
-        private List<GameObject> CollisionWithRect(Rectangle rect)
-        {
-            List<GameObject> objList = new List<GameObject>();
-
-            /*foreach (GameObject obj in Container.GameObjects)
-            {
-                 Check for collisions with player to an obj 
-                TODO: The line below is messy 
-                if (obj != this && this.currentlyVisible() && (obj.currentlyVisible() || (obj.ExistsWhenNotViewed && !(this is Player))))
-                {
-                    if (rect.Intersects(obj.Boundary))
-                    {
-                        objList.Add(obj);
-                    }
-                }
-            }
-
-            this.DidCollideWithObjects(objList);*/
-
-            return objList;
-        }
 
         // Returns a SpriteEffects value based on the DirectionFacing property of this GameObject
         public SpriteEffects DrawEffects()
