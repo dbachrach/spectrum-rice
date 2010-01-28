@@ -56,24 +56,6 @@
       <Time>2010-01-21T12:52:57.784-06:00</Time>
     </Item>
     <Item>
-      <Source>switchOff.png</Source>
-      <Name>switchOff</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\switchOff.xnb</Output>
-      <Time>2010-01-26T12:59:38.496-06:00</Time>
-    </Item>
-    <Item>
-      <Source>switchOn.png</Source>
-      <Name>switchOn</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\switchOn.xnb</Output>
-      <Time>2010-01-26T12:59:38.609-06:00</Time>
-    </Item>
-    <Item>
       <Source>farseer\background.png</Source>
       <Name>farseer\background</Name>
       <Importer>TextureImporter</Importer>
@@ -162,6 +144,24 @@
       <Options>None</Options>
       <Output>U:\comp410\bin\x86\Debug\Content\farseer\menufont.xnb</Output>
       <Time>2010-01-26T13:30:13.314-06:00</Time>
+    </Item>
+    <Item>
+      <Source>switchOn_sm.png</Source>
+      <Name>switchOn_sm</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>U:\comp410\bin\x86\Debug\Content\switchOn_sm.xnb</Output>
+      <Time>2010-01-28T13:31:23.304-06:00</Time>
+    </Item>
+    <Item>
+      <Source>switchOff.png</Source>
+      <Name>switchOff</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>U:\comp410\bin\x86\Debug\Content\switchOff.xnb</Output>
+      <Time>2010-01-26T12:59:38.496-06:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

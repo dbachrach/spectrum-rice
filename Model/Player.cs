@@ -12,7 +12,12 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using FarseerGames.FarseerPhysics;
+using FarseerGames.FarseerPhysics.Dynamics;
 using FarseerGames.FarseerPhysics.Collisions;
+using FarseerGames.FarseerPhysics.Debug;
+using FarseerGames.FarseerPhysics.Dynamics.Joints;
+using FarseerGames.FarseerPhysics.Factories;
 
 namespace Spectrum.Model
 {
@@ -82,6 +87,11 @@ namespace Spectrum.Model
 
             UpdateColor(aCurrentKeyboardState);
             UpdateXEvent(aCurrentKeyboardState);
+
+            if (aCurrentKeyboardState.IsKeyDown(Keys.D) == true && PreviousKeyboardState.IsKeyDown(Keys.D) == false)
+            {
+                Container.DebugMode = !Container.DebugMode;
+            }
 
             PreviousKeyboardState = aCurrentKeyboardState;
 
@@ -354,7 +364,7 @@ namespace Spectrum.Model
 
             if (minCrossP >= 0 && maxCrossP <= 0)
             {
-                IsTouchingGround = true;
+                this.DidHitGround();
             }
 
             base.DidCollideWithObject(obj, ref contactList);
@@ -362,6 +372,8 @@ namespace Spectrum.Model
 
         protected override void DidHitGround()
         {
+            IsTouchingGround = true;
+            // todo: do we want to remove this and whole idea of state
             if (State == PlayerState.Jumping)
             {
                 State = PlayerState.None;
@@ -372,12 +384,19 @@ namespace Spectrum.Model
         public void ResetStatus()
         {
             IsTouchingGround = false;
+            NearObject = null;
         }
 
 
         private void Pickup(GameObject obj)
         {
             Possession = obj;
+
+            obj.body.position = new Vector2(this.body.position.X, this.body.position.Y - (this.Size.Y / 2) - (obj.Size.Y / 2));
+            obj.body.Mass = 1;
+            Joint connector = JointFactory.Instance.CreatePinJoint(this.body, new Vector2(0, -(this.Size.Y / 2)), obj.body, new Vector2(0, (obj.Size.Y / 2)));
+            Container.Sim.Add(connector);
+
             Container.DeferRemoveGameObject(obj);
         }
 
