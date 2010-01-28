@@ -2,7 +2,6 @@ TODO
 ----
 Combine objects together
 Make blocks not fall when you view their color.
-Weird walking behavior when on switch
 Picking up an object who has a combined child, removes the child
 Add more types to the Execute() method in EventAction
 Add new properties to the parser

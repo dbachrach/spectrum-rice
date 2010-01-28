@@ -64,6 +64,8 @@ namespace Spectrum.Model
         public PhysicsSimulator Sim { get; set; }
         private PhysicsSimulatorView SimView;
 
+        public bool DebugMode { get; set; }
+
 
         private Player player;
 
@@ -91,6 +93,8 @@ namespace Spectrum.Model
             //Sim.Iterations = 10; TODO: We can increase this value for better accuracy at the expense of performance
             
             SimView = new PhysicsSimulatorView(Sim);
+
+            DebugMode = true;
 		}
 
         public void AddGameObject(GameObject obj)
@@ -109,6 +113,7 @@ namespace Spectrum.Model
         {
             DoomedObjects.Add(obj);
         }
+        /* TODO: Add remove methods that remove both object and remove body from physics engine */
         
         public void AddPlayer(Player p)
         {
@@ -149,6 +154,8 @@ namespace Spectrum.Model
 
         public void Update(GameTime gameTime)
         {
+            
+
             if (DoomedObjects != null)
             {
                 foreach (GameObject DoomedObj in DoomedObjects)
@@ -188,8 +195,10 @@ namespace Spectrum.Model
                 obj.Draw(spriteBatch);
             }
 
-            SimView.Draw(spriteBatch);
-
+            if (DebugMode)
+            {
+                SimView.Draw(spriteBatch);
+            }
             /*
             if (CurrentColor.Equals(Colors.PurpleColor))
             {

@@ -274,9 +274,16 @@ namespace Spectrum.Model
             GameObject o1 = (GameObject) g1.Tag;
             GameObject o2 = (GameObject) g2.Tag;
 
-            this.DidCollideWithObject(o2, ref contactList);
+            
 
-            return ((o1.currentlyVisible() || (o1.ExistsWhenNotViewed && !(o2 is Player))) && (o2.currentlyVisible() || (o2.ExistsWhenNotViewed && !(o1 is Player))));
+            bool didHit = ((o1.currentlyVisible() || (o1.ExistsWhenNotViewed && !(o2 is Player))) && (o2.currentlyVisible() || (o2.ExistsWhenNotViewed && !(o1 is Player))));
+
+            if (didHit)
+            {
+                this.DidCollideWithObject(o2, ref contactList);
+            }
+
+            return didHit;
             /*
             if (!o1.currentlyVisible() || !o2.currentlyVisible())
             {
