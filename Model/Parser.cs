@@ -165,7 +165,15 @@ namespace Spectrum.Model
 
                 if (obj.ContainsKey("colors"))
                 {
-                    newObject.Visibility = Colors.ColorsFromJsonArray((ArrayList)obj["colors"]);
+                    newObject.setVisibility(Colors.ColorsFromJsonArray((ArrayList)obj["colors"]));
+                }
+                if (obj.ContainsKey("tangibility"))
+                {
+                    newObject.Tangibility = Colors.ColorsFromJsonArray((ArrayList)obj["tangibility"]);
+                }
+                if (obj.ContainsKey("player-tangibility"))
+                {
+                    newObject.PlayerTangibility = Colors.ColorsFromJsonArray((ArrayList)obj["player-tangibility"]);
                 }
                 if (obj.ContainsKey("image"))
                 {

@@ -56,8 +56,6 @@ namespace Spectrum.Model
         public Vector2 Size { get; set; }
         
 
-        
-
 		/* Default Constructor */
         public GameObject()
         {
@@ -79,9 +77,28 @@ namespace Spectrum.Model
             IsStatic = false;
         }
 
+        // the default property for game objects is that the player can only collide with this
+        // object if it is currently visible. if you wish to have objects with different properties,
+        // override this method or set the tangibility explicitly.
+        public virtual void setVisibility(Colors vis)
+        {
+            Visibility = vis;
+            PlayerTangibility = vis;
+        }
+
         public bool currentlyVisible()
         {
             return Container.CurrentColor.Contains(this.Visibility);
+        }
+
+        public bool currentlyTangible()
+        {
+            return Container.CurrentColor.Contains(this.Tangibility);
+        }
+
+        public bool currentlyPlayerTangible()
+        {
+            return Container.CurrentColor.Contains(this.PlayerTangibility);
         }
 
         //Load the texture for the sprite using the Content Pipeline
@@ -237,7 +254,7 @@ namespace Spectrum.Model
 
         protected virtual void DidCollideWithObject(GameObject obj, ref ContactList contactList)
         {
-
+            // a generic game object doesn't do anything special on collision
         }
 
         protected virtual void DidHitGround()
@@ -256,31 +273,38 @@ namespace Spectrum.Model
             return null;
         }
 
-        protected bool PositionFuzzyEqual(Vector2 p)
-        {
-            /*if (Position().Y != p.Y)
-            {
-                return false;
-            }
-
-            if (Math.Abs(Position().X - p.X) < 10)
-            {
-                return true;
-            }
-            */
-            return false;
-        }
-
         private bool OnCollision(Geom g1, Geom g2, ContactList contactList)
         {
             
             GameObject o1 = (GameObject) g1.Tag;
             GameObject o2 = (GameObject) g2.Tag;
 
+            bool didHit = false;
+
+            if (o1 is Player)
+            {
+                if(o2.currentlyPlayerTangible())
+                {
+                    didHit = true;
+                }
+            }
+            else if (o2 is Player)
+            {
+                if (o1.currentlyPlayerTangible())
+                {
+                    didHit = true;
+                }
+            }
+            else if(o1.currentlyTangible() && o2.currentlyTangible())
+            {
+                didHit = true;
+            }
+            
+            
 
 
             //bool didHit = ((o1.currentlyVisible() || (o1.ExistsWhenNotViewed && !(o2 is Player) && o1 != ((Player)o2).Possession)) && (o2.currentlyVisible() || (o2.ExistsWhenNotViewed && !(o1 is Player && o2 != ((Player)o1).Possession))));
-            bool didHit = true ;
+
 
 
             if (didHit)

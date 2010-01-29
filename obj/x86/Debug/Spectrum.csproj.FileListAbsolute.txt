@@ -63,7 +63,6 @@ C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\farseer\fra
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\farseer\gamefont.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\farseer\menufont.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\switchOff.xnb
-\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\switchOn.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\farseer\background.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\farseer\blank.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\farseer\gradient.xnb
@@ -76,3 +75,4 @@ C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\farseer\men
 U:\comp410\bin\x86\Debug\Content\switchOn_sm.xnb
 U:\comp410\bin\x86\Debug\Content\switchOff.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switchOn_sm.xnb
+\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\switchOn_sm.xnb

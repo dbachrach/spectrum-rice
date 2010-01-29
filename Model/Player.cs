@@ -40,7 +40,7 @@ namespace Spectrum.Model
         public GameObject NearObject { get; set;}
 
         private const float _speed = 35;
-        private const float _hops = -500;
+        private const float _hops = -1000;
         private Vector2 moveLeft = new Vector2(-_speed, 0);
         private Vector2 moveRight = new Vector2(_speed, 0);
         private Vector2 moveLeftAir = new Vector2(-_speed / 2, 0);
