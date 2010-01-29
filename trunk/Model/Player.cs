@@ -39,13 +39,20 @@ namespace Spectrum.Model
 
         public GameObject NearObject { get; set;}
 
-        private const int MoveAmount = 4;
+        private const float _speed = 35;
+        private const float _hops = -500;
+        private Vector2 moveLeft = new Vector2(-_speed, 0);
+        private Vector2 moveRight = new Vector2(_speed, 0);
+        private Vector2 moveLeftAir = new Vector2(-_speed / 2, 0);
+        private Vector2 moveRightAir = new Vector2(_speed / 2, 0);
+        private Vector2 jumpUp = new Vector2(0, _hops);
+
         private const int JumpAmount = 25;
 
+        /* To Determine if he's standing on solid ground */
         private static float minAngle = -45;
         private static float minRad = (float)((-minAngle + 90.0) * (Math.PI / 180.0));
         private static Vector2 MinVector = new Vector2((float)Math.Cos(minRad), (float)Math.Sin(minRad));
-
         private static float maxAngle = 45;
         private static float maxRad = (float)((-maxAngle + 90.0) * (Math.PI / 180.0));
         private static Vector2 MaxVector = new Vector2((float)Math.Cos(maxRad), (float)Math.Sin(maxRad));
@@ -113,17 +120,15 @@ namespace Spectrum.Model
             Direction d = Direction.None;
             if (Keyboard.GetState().IsKeyDown(Keys.Left) == true)
             {
-                Vector2 impulse;
-                impulse = (IsTouchingGround) ? new Vector2(-25, 0) : new Vector2(-10, 0);
-                this.body.ApplyImpulse(impulse);
+                /* Chooses a horizontal vector that is adjusted either for moving on the ground or in the air */
+                this.body.ApplyImpulse((IsTouchingGround) ? moveLeft : moveLeftAir);
 
                 d = Direction.Left;
             }
             else if (Keyboard.GetState().IsKeyDown(Keys.Right) == true)
             {
-                Vector2 impulse;
-                impulse = (IsTouchingGround) ? new Vector2(25, 0) : new Vector2(10, 0);
-                this.body.ApplyImpulse(impulse);
+                /* Chooses a horizontal vector that is adjusted either for moving on the ground or in the air */
+                this.body.ApplyImpulse((IsTouchingGround) ? moveRight : moveRightAir);
 
                 d = Direction.Right;
             }
@@ -141,117 +146,13 @@ namespace Spectrum.Model
                     State = PlayerState.Walking;
                     Texture.Play();
                 }
-            }
-
-            /*Vector2 v1 = Velocity;
-            v1.X = 0;
-            Velocity = v1;
-            Texture.Pause();
-
-            Direction d = Direction.None;
-            Vector2 v = Velocity;
-
-            if (Keyboard.GetState().IsKeyDown(Keys.Left) == true) 
-            {
-                d = Direction.Left;
-                v.X = -MoveAmount;
-            }
-            else if (aCurrentKeyboardState.IsKeyDown(Keys.Right) == true) 
-            {
-                d = Direction.Right;
-                v.X = MoveAmount;
-            }
-
-            if (d != Direction.None)
-            {   
-                Velocity = v;
-                DirectionFacing = d;
-
-                if (State == PlayerState.Jumping || State == PlayerState.Falling)
-                {
-                    Texture.Pause();
-                }
-                else
-                {
-                    State = PlayerState.Walking;
-                    Texture.Play();
-                }
-            }*/
-        }
-
-        /*
-        private bool CollisionDetect(Direction dir)
-        {
-            // TODO: Modify this colision stuff to use polygons
-
-            // TODO: Do we need to check moves 1, 2, and 3. not just 3. In the case that its a very thin wall
-            int moveX = 0;
-            int moveY = 0;
-            if (dir == Direction.Left)
-            {
-                moveX = -MoveAmount;
-            }
-            else if (dir == Direction.Right)
-            {
-                moveX = MoveAmount;
-            }
-            else if (dir == Direction.Up)
-            {
-                moveY = -MoveAmount;
-            }
-            else if (dir == Direction.Down)
-            {
-                moveY = MoveAmount;
-            }
-
-
-            Rectangle playerRectangle;
-            if (Possession == null)
-            {
-                playerRectangle = new Rectangle( (int) (Position().X + moveX), (int) (Position().Y + moveY), (int) Size().X, (int) Size().Y);
             }
             else
             {
-                playerRectangle = new Rectangle((int)(Position().X + moveX), (int)(Position().Y + moveY - Possession.Boundary.Height), (int)Size().X, (int)Size().Y + Possession.Boundary.Height);
+                //this.body.LinearVelocity = new Vector2(this.body.LinearVelocity.X / 10, this.body.LinearVelocity.Y);
+                this.body.ApplyImpulse(new Vector2(-this.body.LinearVelocity.X / 4, 0));
             }
-            
-            foreach (GameObject obj in Container.GameObjects)
-            {
-                // Check for collisions with player to an obj 
-                if (obj != this && obj != Possession)
-                {
-                    Rectangle objRectangle = obj.Boundary;
-                    if (playerRectangle.Intersects(objRectangle) && this.currentlyVisible() && obj.currentlyVisible())
-                    {
-                        if (obj.Pickupable || (obj.Events != null && obj.Events.Count > 0))
-                        {
-                            NearObject = obj;
-                            Console.WriteLine("Near object {0}", NearObject.Id);
-                            // TODO: This whole collision thing needs to be redone 
-
-                            if (NearObject.Events != null)
-                            {
-                                Console.WriteLine("Has events");
-                                foreach (Event e in NearObject.Events)
-                                {
-                                    Console.WriteLine("Event e {0} {1} {2}", e, e.CollisionTarget, e.Type);
-                                    if (e.Type == EventType.Collision && e.CollisionTarget == this)
-                                    {
-                                        Console.WriteLine("Collision with player event");
-                                        e.Execute();
-                                    }
-                                }
-                            }
-                        }
-
-                        return true;
-                    }
-                }
-            }
-            NearObject = null;
-            return false;
         }
-        */
 
         private void UpdateJump(KeyboardState aCurrentKeyboardState)
         {
@@ -327,7 +228,8 @@ namespace Spectrum.Model
             }*/
             if (IsTouchingGround)
             {
-                body.ApplyImpulse(new Vector2(0, -400));
+                State = PlayerState.Jumping;
+                body.ApplyImpulse(jumpUp);
             }
         }
 
@@ -397,6 +299,7 @@ namespace Spectrum.Model
             obj.body.position = new Vector2(this.body.position.X, this.body.position.Y - (this.Size.Y / 2) - (obj.Size.Y / 2));
             obj.body.Mass = 0.0001f;
             Joint connector = JointFactory.Instance.CreatePinJoint(this.body, new Vector2(0, -(this.Size.Y / 2)), obj.body, new Vector2(0, (obj.Size.Y / 2)));
+            
             Container.Sim.Add(connector);
 
             Container.DeferRemoveGameObject(obj);
