@@ -246,16 +246,10 @@ namespace Spectrum.Model
                 spriteBatch.DrawString(font, displayName, new Vector2(350, 540), Color.White);
             }
 
-            if (player.IsTouchingGround)
-            {
-                string displayName = "Touching the ground";
-                spriteBatch.DrawString(font, displayName, new Vector2(350, 540), Color.White);
-            }
-            else
-            {
-                string displayName = "Off the ground";
-                spriteBatch.DrawString(font, displayName, new Vector2(350, 540), Color.White);
-            }
+            string label = (player.BlockLeft ? "true" : "false") + " " + (player.BlockRight ? "true" : "false");
+            spriteBatch.DrawString(font, label, new Vector2(350, 540), Color.White);
+
+
         }
 
         public override string ToString()
