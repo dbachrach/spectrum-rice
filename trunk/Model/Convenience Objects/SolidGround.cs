@@ -16,8 +16,8 @@ namespace Spectrum.Model
 {
     class SolidGround : Ground
     {
-        private int _w;
-        private int _h;
+        protected int _w;
+        protected int _h;
 		public SolidGround() : base() {
 			ViewableColors = Colors.AllColors;
 		}
