@@ -69,19 +69,19 @@ namespace Spectrum.Model
             int borderWidth = 150;
 
             /* Create Game Edges */
-            SolidGround edgeLeft = new SolidGround(borderWidth, (int)(level.Height));
+            Wall edgeLeft = new Wall(borderWidth, (int)(level.Height));
             edgeLeft.OriginalPosition = new Vector2(-borderWidth, 0);
             edgeLeft.Id = "Left";
             edgeLeft.Container = level;
             level.AddGameObject(edgeLeft);
 
-            SolidGround edgeRight = new SolidGround(borderWidth, (int)(level.Height));
+            Wall edgeRight = new Wall(borderWidth, (int)(level.Height));
             edgeRight.OriginalPosition = new Vector2((int)(level.Width + 1), 0);
             edgeRight.Id = "Right";
             edgeRight.Container = level;
             level.AddGameObject(edgeRight);
 
-            SolidGround edgeTop = new SolidGround((int)(level.Width), borderWidth);
+            Wall edgeTop = new Wall((int)(level.Width), borderWidth);
             edgeTop.OriginalPosition = new Vector2(0, -borderWidth);
             edgeTop.Id = "Top";
             edgeTop.Container = level;

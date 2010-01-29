@@ -156,6 +156,7 @@
     <Compile Include="Farseer\PhysicsSimulator.cs" />
     <Compile Include="Farseer\PhysicsSimulatorView.cs" />
     <Compile Include="Farseer\Pool.cs" />
+    <Compile Include="Model\Convenience Objects\Wall.cs" />
     <Compile Include="Model\Parser.cs" />
     <Compile Include="Model\EventAction.cs" />
     <Compile Include="Model\GameTexture.cs" />

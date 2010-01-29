@@ -45,8 +45,6 @@ U:\comp410\obj\x86\Debug\Spectrum.exe
 U:\comp410\obj\x86\Debug\Spectrum.pdb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switchOff.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switchOn.xnb
-U:\comp410\bin\x86\Debug\Content\switchOff.xnb
-U:\comp410\bin\x86\Debug\Content\switchOn.xnb
 U:\comp410\bin\x86\Debug\Content\farseer\background.xnb
 U:\comp410\bin\x86\Debug\Content\farseer\blank.xnb
 U:\comp410\bin\x86\Debug\Content\farseer\gradient.xnb
@@ -76,3 +74,5 @@ C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\farseer\men
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\farseer\frameRateCounterFont.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\farseer\gamefont.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\farseer\menufont.xnb
+U:\comp410\bin\x86\Debug\Content\switchOn_sm.xnb
+U:\comp410\bin\x86\Debug\Content\switchOff.xnb

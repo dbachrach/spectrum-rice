@@ -113,15 +113,17 @@ namespace Spectrum.Model
             Direction d = Direction.None;
             if (Keyboard.GetState().IsKeyDown(Keys.Left) == true)
             {
-                //this.body.ApplyForce(new Vector2(-350, 0));
-                this.body.ApplyImpulse(new Vector2(-25, 0));
+                Vector2 impulse;
+                impulse = (IsTouchingGround) ? new Vector2(-25, 0) : new Vector2(-10, 0);
+                this.body.ApplyImpulse(impulse);
 
                 d = Direction.Left;
             }
             else if (Keyboard.GetState().IsKeyDown(Keys.Right) == true)
             {
-                //this.body.ApplyForce(new Vector2(350, 0));
-                this.body.ApplyImpulse(new Vector2(25, 0));
+                Vector2 impulse;
+                impulse = (IsTouchingGround) ? new Vector2(25, 0) : new Vector2(10, 0);
+                this.body.ApplyImpulse(impulse);
 
                 d = Direction.Right;
             }
@@ -325,7 +327,7 @@ namespace Spectrum.Model
             }*/
             if (IsTouchingGround)
             {
-                body.ApplyImpulse(new Vector2(0, -350));
+                body.ApplyImpulse(new Vector2(0, -400));
             }
         }
 
