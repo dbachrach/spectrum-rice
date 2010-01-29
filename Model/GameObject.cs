@@ -278,17 +278,18 @@ namespace Spectrum.Model
             
             GameObject o1 = (GameObject) g1.Tag;
             GameObject o2 = (GameObject) g2.Tag;
+            GameObject poss = Container.player.Possession;
 
             bool didHit = false;
 
-            if (o1 is Player)
+            if (o1 is Player || o1 == poss)
             {
                 if(o2.currentlyPlayerTangible())
                 {
                     didHit = true;
                 }
             }
-            else if (o2 is Player)
+            else if (o2 is Player || o2 == poss)
             {
                 if (o1.currentlyPlayerTangible())
                 {
@@ -299,13 +300,6 @@ namespace Spectrum.Model
             {
                 didHit = true;
             }
-            
-            
-
-
-            //bool didHit = ((o1.currentlyVisible() || (o1.ExistsWhenNotViewed && !(o2 is Player) && o1 != ((Player)o2).Possession)) && (o2.currentlyVisible() || (o2.ExistsWhenNotViewed && !(o1 is Player && o2 != ((Player)o1).Possession))));
-
-
 
             if (didHit)
             {

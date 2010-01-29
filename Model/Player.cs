@@ -39,6 +39,11 @@ namespace Spectrum.Model
 
         public GameObject NearObject { get; set;}
 
+        // whether or not to allow the player to add sideways impulse to the player by pushing the
+        // arrows keys
+        public bool BlockLeft { get; set; }
+        public bool BlockRight { get; set; }
+
         private const float _speed = 35;
         private const float _hops = -1000;
         private Vector2 moveLeft = new Vector2(-_speed, 0);
@@ -49,13 +54,16 @@ namespace Spectrum.Model
 
         private const int JumpAmount = 25;
 
-        /* To Determine if he's standing on solid ground */
+        /* To determine if he's standing on solid ground */
         private static float minAngle = -45;
         private static float minRad = (float)((-minAngle + 90.0) * (Math.PI / 180.0));
-        private static Vector2 MinVector = new Vector2((float)Math.Cos(minRad), (float)Math.Sin(minRad));
+        private static Vector2 NorthEast = new Vector2((float)Math.Cos(minRad), (float)Math.Sin(minRad));
         private static float maxAngle = 45;
         private static float maxRad = (float)((-maxAngle + 90.0) * (Math.PI / 180.0));
-        private static Vector2 MaxVector = new Vector2((float)Math.Cos(maxRad), (float)Math.Sin(maxRad));
+        private static Vector2 NorthWest = new Vector2((float)Math.Cos(maxRad), (float)Math.Sin(maxRad));
+
+        private static Vector2 SouthWest = -NorthEast;
+        private static Vector2 SouthEast = -NorthWest;
 
         public bool IsTouchingGround { get; set; }
 
@@ -72,6 +80,8 @@ namespace Spectrum.Model
             FramesPerSec = 8;
             State = PlayerState.None;
             NearObject = null;
+            BlockLeft = false;
+            BlockRight = false;
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -120,15 +130,21 @@ namespace Spectrum.Model
             Direction d = Direction.None;
             if (Keyboard.GetState().IsKeyDown(Keys.Left) == true)
             {
-                /* Chooses a horizontal vector that is adjusted either for moving on the ground or in the air */
-                this.body.ApplyImpulse((IsTouchingGround) ? moveLeft : moveLeftAir);
+                if (!BlockLeft)
+                {
+                    /* Chooses a horizontal vector that is adjusted either for moving on the ground or in the air */
+                    this.body.ApplyImpulse((IsTouchingGround) ? moveLeft : moveLeftAir);
+                }
 
                 d = Direction.Left;
             }
             else if (Keyboard.GetState().IsKeyDown(Keys.Right) == true)
             {
-                /* Chooses a horizontal vector that is adjusted either for moving on the ground or in the air */
-                this.body.ApplyImpulse((IsTouchingGround) ? moveRight : moveRightAir);
+                if (!BlockRight)
+                {
+                    /* Chooses a horizontal vector that is adjusted either for moving on the ground or in the air */
+                    this.body.ApplyImpulse((IsTouchingGround) ? moveRight : moveRightAir);
+                }
 
                 d = Direction.Right;
             }
@@ -219,13 +235,6 @@ namespace Spectrum.Model
 
         private void Jump()
         {
-            /*if (State != PlayerState.Jumping)
-            {
-                State = PlayerState.Jumping;
-                Vector2 v = Velocity;
-                v.Y -= JumpAmount;
-                Velocity = v;
-            }*/
             if (IsTouchingGround)
             {
                 State = PlayerState.Jumping;
@@ -263,12 +272,33 @@ namespace Spectrum.Model
                 normal += contact.Normal;
             }
 
-            double minCrossP = normal.X * MinVector.Y - normal.Y * MinVector.X;
-            double maxCrossP = normal.X * MaxVector.Y - normal.Y * MaxVector.X;
+            double NECrossP = normal.X * NorthEast.Y - normal.Y * NorthEast.X;
+            double NWCrossP = normal.X * NorthWest.Y - normal.Y * NorthWest.X;
 
-            if (minCrossP >= 0 && maxCrossP <= 0)
+            if (NECrossP >= 0 && NWCrossP <= 0)
             {
+                // the normals are pointing fairly vertically
                 this.DidHitGround();
+            }
+            else
+            {
+                double SWCrossP = normal.X * SouthWest.Y - normal.Y * SouthWest.X;
+                double SECrossP = normal.X * SouthEast.Y - normal.Y * SouthEast.X;
+
+                if (SECrossP >= 0 && NECrossP <= 0)
+                {
+                    // the normals are pointing to the right
+                    // that means there is something immediately to our left
+                    // block the player from moving there
+                    BlockLeft = true;
+                }
+                else if (NWCrossP >= 0 && SWCrossP <= 0)
+                {
+                    // the normals are pointing to the left
+                    // that means there is something immediately to our right
+                    // block the player from moving there
+                    BlockRight = true;
+                }
             }
 
             base.DidCollideWithObject(obj, ref contactList);
@@ -289,6 +319,8 @@ namespace Spectrum.Model
         {
             IsTouchingGround = false;
             NearObject = null;
+            BlockLeft = false;
+            BlockRight = false;
         }
 
 
