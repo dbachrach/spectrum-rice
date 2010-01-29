@@ -18,10 +18,9 @@ namespace Spectrum.Model
     {
 		public Block() : base() {
             ImageName = "box";
-			AffectedByGravity = true;
 			Pickupable = true;
             Mass = 2000;
-            ExistsWhenNotViewed = true; // todo: remove
+            Tangibility = Colors.AllColors;
 		}
 
         public override GameObject CombineObjectWith(GameObject obj)

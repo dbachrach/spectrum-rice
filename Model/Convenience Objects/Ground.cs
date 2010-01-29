@@ -17,11 +17,9 @@ namespace Spectrum.Model
     class Ground : GameObject
     {
 		public Ground() : base() {
-			AffectedByGravity = false;
 			Pickupable = false;
             ImageName = null;
             IsStatic = true;
-            ExistsWhenNotViewed = true;
 		}
 
         protected override void DidLoadPhysicsBody()

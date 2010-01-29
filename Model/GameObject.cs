@@ -30,16 +30,17 @@ namespace Spectrum.Model
 
         // properties
         public string Id { get; set; }
-        public Colors ViewableColors { get; set; }
+        public Colors Visibility { get; set; }
+        public Colors Tangibility { get; set; }
+        public Colors PlayerTangibility { get; set; }
+
         public string ImageName { get; set; }
-        public bool AffectedByGravity { get; set; }
         public List<GameObject> CombineObjects { get; set; }
 		public List<GameObject> CombinableWith { get; set; }
         public bool Pickupable { get; set; }
         public bool Inactive { get; set; }
         public string InactiveImageName { get; set; }
         public List<Event> Events { get; set; }
-        public bool ExistsWhenNotViewed { get; set; }
         public Level Container { get; set; }
         public int FrameCount { get; set; }
         public int FramesPerSec { get; set; }
@@ -60,13 +61,15 @@ namespace Spectrum.Model
 		/* Default Constructor */
         public GameObject()
         {
-            ViewableColors = Colors.AllColors;
-            AffectedByGravity = true;
+            Visibility = Colors.AllColors;
+            Tangibility = Colors.AllColors;
+            PlayerTangibility = Colors.AllColors;
+
             CombineObjects = new List<GameObject>();
             CombinableWith = null;
             Pickupable = false;
             Inactive = false;
-            ExistsWhenNotViewed = false;
+            
             DirectionFacing = Direction.Right;
 
             FrameCount = 1;
@@ -78,7 +81,7 @@ namespace Spectrum.Model
 
         public bool currentlyVisible()
         {
-            return Container.CurrentColor.Contains(this.ViewableColors);
+            return Container.CurrentColor.Contains(this.Visibility);
         }
 
         //Load the texture for the sprite using the Content Pipeline
@@ -155,7 +158,7 @@ namespace Spectrum.Model
                 Colors col = Container.CurrentColor;
                 if (Container.CurrentColor == Colors.AllColors) 
                 {
-                    col = this.ViewableColors;
+                    col = this.Visibility;
                 }
                 Texture.Rotation = body.Rotation;
                 Texture.DrawFrame(spriteBatch, col, body.Position, DrawEffects());
@@ -178,7 +181,7 @@ namespace Spectrum.Model
                     if (this.PositionFuzzyEqual(obj.Position()))
                     {
                         GameObject g = this.CombineObjectWith(obj);
-                        g.ViewableColors = this.ViewableColors.ColorByMixingWith(obj.ViewableColors);
+                        g.Visibility = this.Visibility.ColorByMixingWith(obj.Visibility);
                         this.CombineObjects.Add(g);
                         obj.CombineObjects.Add(g);
 
@@ -277,45 +280,8 @@ namespace Spectrum.Model
 
 
             //bool didHit = ((o1.currentlyVisible() || (o1.ExistsWhenNotViewed && !(o2 is Player) && o1 != ((Player)o2).Possession)) && (o2.currentlyVisible() || (o2.ExistsWhenNotViewed && !(o1 is Player && o2 != ((Player)o1).Possession))));
-            bool didHit;
+            bool didHit = true ;
 
-            if (o1.currentlyVisible())
-            {
-                if (o2.currentlyVisible())
-                {
-                    didHit = true;
-                }
-                else
-                {
-                    if (o2.ExistsWhenNotViewed)
-                    {
-                        if (o1 is Player || o1 == Container.player.Possession)
-                        {
-                            didHit = false;
-                        }
-                        else
-                        {
-                            didHit = true;
-                        }
-                    }
-                    else
-                    {
-                        didHit = false;
-                    }
-                }
-            }
-            else
-            {
-                if (o2.currentlyVisible())
-                {
-
-                }
-                else
-                {
-                    didHit = false;
-                }
-            }
-            
 
             if (didHit)
             {
