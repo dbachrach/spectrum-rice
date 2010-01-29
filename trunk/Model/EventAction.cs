@@ -91,13 +91,13 @@ namespace Spectrum.Model
                 switch (Type)
                 {
                     case ActionType.Change:
-                        Receiver.ViewableColors = Colors.ColorsFromJsonArray((ArrayList)Value);
+                        Receiver.Visibility = Colors.ColorsFromJsonArray((ArrayList)Value);
                         break;
                     case ActionType.AddColors:
-                        Receiver.ViewableColors = Receiver.ViewableColors.Combine(Colors.ColorsFromJsonArray((ArrayList)Value));
+                        Receiver.Visibility = Receiver.Visibility.Combine(Colors.ColorsFromJsonArray((ArrayList)Value));
                         break;
                     case ActionType.RemoveColors:
-                        Receiver.ViewableColors = Receiver.ViewableColors.Difference(Colors.ColorsFromJsonArray((ArrayList)Value));
+                        Receiver.Visibility = Receiver.Visibility.Difference(Colors.ColorsFromJsonArray((ArrayList)Value));
                         break;
                 }
             }

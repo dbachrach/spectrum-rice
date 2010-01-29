@@ -204,15 +204,15 @@ namespace Spectrum.Model
             {
                 foreach (GameObject obj in GameObjects)
                 {
-                    if (obj.ViewableColors.Contains(Colors.RedColor))
+                    if (obj.Visibility.Contains(Colors.RedColor))
                     {
                         Console.WriteLine("Found red object");
                         foreach (GameObject obj2 in GameObjects)
                         {
-                            if (obj2.ViewableColors.Contains(Colors.BlueColor) && obj.Position().X == obj2.Position().X && obj.Position().Y == obj2.Position().Y)
+                            if (obj2.Visibility.Contains(Colors.BlueColor) && obj.Position().X == obj2.Position().X && obj.Position().Y == obj2.Position().Y)
                             {
                                 Console.WriteLine("Found two on top ");
-                                obj.ViewableColors.AddRawColors(RawColor.Purple);
+                                obj.Visibility.AddRawColors(RawColor.Purple);
                                 obj.Draw(spriteBatch);
                             }
                         }

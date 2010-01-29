@@ -18,7 +18,6 @@ namespace Spectrum.Model
     {
 		public Door(Player player) : base() {
             ImageName = "dr";
-			AffectedByGravity = false;
 			Pickupable = false;
             IsStatic = true;
 

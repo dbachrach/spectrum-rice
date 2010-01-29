@@ -19,12 +19,12 @@ namespace Spectrum.Model
         protected int _w;
         protected int _h;
 		public SolidGround() : base() {
-			ViewableColors = Colors.AllColors;
+			Visibility = Colors.AllColors;
 		}
         public SolidGround(int w, int h)
             : base()
         {
-            ViewableColors = Colors.AllColors;
+            Visibility = Colors.AllColors;
             _w = w;
             _h = h;
         }

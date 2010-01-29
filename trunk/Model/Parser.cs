@@ -165,7 +165,7 @@ namespace Spectrum.Model
 
                 if (obj.ContainsKey("colors"))
                 {
-                    newObject.ViewableColors = Colors.ColorsFromJsonArray((ArrayList)obj["colors"]);
+                    newObject.Visibility = Colors.ColorsFromJsonArray((ArrayList)obj["colors"]);
                 }
                 if (obj.ContainsKey("image"))
                 {
@@ -175,10 +175,6 @@ namespace Spectrum.Model
                 {
                     ArrayList positionJson = (ArrayList)obj["position"];
                     newObject.OriginalPosition = new Vector2((int)((double)positionJson[0]), (int)((double)positionJson[1]));
-                }
-                if (obj.ContainsKey("affected-by-gravity"))
-                {
-                    newObject.AffectedByGravity = (bool)obj["affected-by-gravity"];
                 }
                 if (obj.ContainsKey("static"))
                 {
@@ -217,10 +213,6 @@ namespace Spectrum.Model
                 if (obj.ContainsKey("events"))
                 {
                     newObject.Events = ParseEvents((ArrayList)(obj["events"]), level);
-                }
-                if (obj.ContainsKey("exists-when-not-viewed"))
-                {
-                    newObject.ExistsWhenNotViewed = (bool)obj["exists-when-not-viewed"];
                 }
 
             }
