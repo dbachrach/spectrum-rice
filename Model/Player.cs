@@ -395,7 +395,7 @@ namespace Spectrum.Model
             Possession = obj;
 
             obj.body.position = new Vector2(this.body.position.X, this.body.position.Y - (this.Size.Y / 2) - (obj.Size.Y / 2));
-            obj.body.Mass = 1;
+            obj.body.Mass = 0.0001f;
             Joint connector = JointFactory.Instance.CreatePinJoint(this.body, new Vector2(0, -(this.Size.Y / 2)), obj.body, new Vector2(0, (obj.Size.Y / 2)));
             Container.Sim.Add(connector);
 
