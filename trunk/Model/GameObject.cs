@@ -274,9 +274,48 @@ namespace Spectrum.Model
             GameObject o1 = (GameObject) g1.Tag;
             GameObject o2 = (GameObject) g2.Tag;
 
-            
 
-            bool didHit = ((o1.currentlyVisible() || (o1.ExistsWhenNotViewed && !(o2 is Player))) && (o2.currentlyVisible() || (o2.ExistsWhenNotViewed && !(o1 is Player))));
+
+            //bool didHit = ((o1.currentlyVisible() || (o1.ExistsWhenNotViewed && !(o2 is Player) && o1 != ((Player)o2).Possession)) && (o2.currentlyVisible() || (o2.ExistsWhenNotViewed && !(o1 is Player && o2 != ((Player)o1).Possession))));
+            bool didHit;
+
+            if (o1.currentlyVisible())
+            {
+                if (o2.currentlyVisible())
+                {
+                    didHit = true;
+                }
+                else
+                {
+                    if (o2.ExistsWhenNotViewed)
+                    {
+                        if (o1 is Player || o1 == Container.player.Possession)
+                        {
+                            didHit = false;
+                        }
+                        else
+                        {
+                            didHit = true;
+                        }
+                    }
+                    else
+                    {
+                        didHit = false;
+                    }
+                }
+            }
+            else
+            {
+                if (o2.currentlyVisible())
+                {
+
+                }
+                else
+                {
+                    didHit = false;
+                }
+            }
+            
 
             if (didHit)
             {
