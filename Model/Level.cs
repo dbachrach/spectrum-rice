@@ -67,7 +67,7 @@ namespace Spectrum.Model
         public bool DebugMode { get; set; }
 
 
-        private Player player;
+        public Player player;
 
         private SpriteFont font;
 
