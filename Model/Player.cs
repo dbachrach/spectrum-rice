@@ -334,7 +334,7 @@ namespace Spectrum.Model
 
             Container.Sim.Add(connector);
 
-            Container.DeferRemoveGameObject(obj);
+            obj.Reap();
         }
 
         private void Drop()

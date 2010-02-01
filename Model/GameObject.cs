@@ -35,7 +35,8 @@ namespace Spectrum.Model
         public Colors PlayerTangibility { get; set; }
 
         public string ImageName { get; set; }
-        public List<GameObject> CombineObjects { get; set; }
+        public List<GameObject> Parents { get; set; }
+        public List<GameObject> Children { get; set; }
 		public List<GameObject> CombinableWith { get; set; }
         public bool Pickupable { get; set; }
         public bool Inactive { get; set; }
@@ -63,7 +64,7 @@ namespace Spectrum.Model
             Tangibility = Colors.AllColors;
             PlayerTangibility = Colors.AllColors;
 
-            CombineObjects = new List<GameObject>();
+            Children = new List<GameObject>();
             CombinableWith = null;
             Pickupable = false;
             Inactive = false;
@@ -99,6 +100,16 @@ namespace Spectrum.Model
         public bool currentlyPlayerTangible()
         {
             return Container.CurrentColor.Contains(this.PlayerTangibility);
+        }
+
+        public bool hasChildren()
+        {
+            return ((Children != null) && (Children.Count > 0));
+        }
+
+        public bool hasParents()
+        {
+            return ((Parents != null) && (Parents.Count > 0));
         }
 
         //Load the texture for the sprite using the Content Pipeline
@@ -180,7 +191,34 @@ namespace Spectrum.Model
                 Texture.Rotation = body.Rotation;
                 Texture.DrawFrame(spriteBatch, col, body.Position, DrawEffects());
             }
-            
+        }
+
+        // removes the object from the level but does not deallocate it
+        public void Reap()
+        {
+            ReapChildren();
+
+            // remove this object from its parents' list of children
+            if (hasParents())
+            {
+                foreach (GameObject obj in Parents)
+                {
+                    obj.Children.Remove(this);
+                }
+            }
+
+            Container.DeferRemoveGameObject(this);
+        }
+
+        public void ReapChildren()
+        {
+            if (hasChildren())
+            {
+                foreach (GameObject obj in Children)
+                {
+                    obj.Reap();
+                }
+            }
         }
 
         //Update the Sprite and change it's position based on the passed in speed, direction and elapsed time.
