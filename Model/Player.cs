@@ -337,7 +337,7 @@ namespace Spectrum.Model
             Connector = connector;
             Container.Sim.Add(connector);
 
-            obj.Reap();
+            obj.Reap(false);
         }
 
         private void Drop()

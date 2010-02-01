@@ -105,14 +105,30 @@ namespace Spectrum.Model
         {
             ResurrectedObjects.Add(obj);
         }
-        public void RemoveGameObject(GameObject obj)
+        public void Obliterate(GameObject obj)
+        {
+            RemoveObjectFromLevel(obj);
+            Sim.Remove(obj.body);
+            Sim.Remove(obj.geom);
+        }
+
+        // Calls through to RemoveObjectFromLevel not Obliterate
+        public void DeferObliterate(GameObject obj)
+        {
+            DoomedObjects.Add(obj);
+            Sim.Remove(obj.body);
+            Sim.Remove(obj.geom);
+        }
+
+        public void RemoveObjectFromLevel(GameObject obj)
         {
             GameObjects.Remove(obj);
         }
-        public void DeferRemoveGameObject(GameObject obj)
+        public void DeferRemoveObjectFromLevel(GameObject obj) 
         {
             DoomedObjects.Add(obj);
         }
+
         /* TODO: Add remove methods that remove both object and remove body from physics engine */
         
         public void AddPlayer(Player p)
@@ -160,7 +176,7 @@ namespace Spectrum.Model
             {
                 foreach (GameObject DoomedObj in DoomedObjects)
                 {
-                    RemoveGameObject(DoomedObj);
+                    RemoveObjectFromLevel(DoomedObj);
                 }
                 DoomedObjects.RemoveAll(item => true);
             }
