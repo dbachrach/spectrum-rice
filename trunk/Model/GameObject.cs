@@ -38,6 +38,7 @@ namespace Spectrum.Model
         public List<GameObject> Parents { get; set; }
         public List<GameObject> Children { get; set; }
 		public List<GameObject> CombinableWith { get; set; }
+        public List<GameObject> CurrentlyCombined { get; set; }
         public bool Pickupable { get; set; }
         public bool Inactive { get; set; }
         public string InactiveImageName { get; set; }
@@ -57,8 +58,8 @@ namespace Spectrum.Model
         public Vector2 Size { get; set; }
 
         // constants to figure out if objects are "close enough"
-        private static int FUZZY_DX_TOLERANCE = 5;
-        private static int FUZZY_DY_TOLERANCE = 0;
+        private static int FUZZY_DX_TOLERANCE = 10; /* TODO: Readjust both parent blocks when we create a combine block */
+        private static int FUZZY_DY_TOLERANCE = 2;
 
 		/* Default Constructor */
         public GameObject()
@@ -68,6 +69,7 @@ namespace Spectrum.Model
             PlayerTangibility = Colors.AllColors;
 
             CombinableWith = new List<GameObject>();
+            CurrentlyCombined = new List<GameObject>();
 
             Children = new List<GameObject>();
             Parents = new List<GameObject>();
@@ -199,7 +201,7 @@ namespace Spectrum.Model
         }
 
         // removes the object from the level but does not deallocate it
-        public void Reap()
+        public void Reap(bool devestation)
         {
             ReapChildren();
 
@@ -209,10 +211,20 @@ namespace Spectrum.Model
                 foreach (GameObject obj in Parents)
                 {
                     obj.Children.Remove(this);
+                    foreach(GameObject parent in Parents)
+                    {
+                        obj.CurrentlyCombined.Remove(parent);
+                    }
                 }
             }
-
-            Container.DeferRemoveGameObject(this);
+            if (devestation)
+            {
+                Container.DeferObliterate(this);
+            }
+            else 
+            {
+                Container.DeferRemoveObjectFromLevel(this);
+            }
         }
 
         public void ReapChildren()
@@ -221,8 +233,10 @@ namespace Spectrum.Model
             {
                 foreach (GameObject obj in Children)
                 {
-                    obj.Reap();
+                    obj.Parents.Remove(this);
+                    obj.Reap(true);
                 }
+                Children.RemoveAll(x => true);
             }
         }
 
@@ -235,11 +249,15 @@ namespace Spectrum.Model
             // check if this object is close enough to combine with any of the possible objects
             if (CombinableWith != null && Children.Count == 0)
             {
+                //List<GameObject> toDelete = new List<GameObject>();
                 foreach (GameObject obj in CombinableWith)
                 {
-                    if (this.PositionFuzzyEqual(obj))
+                    if (!CurrentlyCombined.Contains(obj) && this.PositionFuzzyEqual(obj))
                     {
                         GameObject g = this.CombineObjectWith(obj);
+                        CurrentlyCombined.Add(obj);
+                        obj.CurrentlyCombined.Add(this);
+                        //toDelete.Add(obj);
                         
                         this.Children.Add(g);
                         obj.Children.Add(g);
@@ -252,6 +270,10 @@ namespace Spectrum.Model
                         Container.DeferAddGameObject(g);
                     }
                 }
+
+                // Remove toDelete objects from combinable with
+                //CombinableWith.RemoveAll(x => toDelete.Contains(x));
+
             }
         }
 
@@ -329,12 +351,8 @@ namespace Spectrum.Model
 
             bool didHit = false;
             
-            if (o1.CombinableWith.Contains(o2) || o2.CombinableWith.Contains(o1)) 
-            {
-                // Objects that can combine with each other do not collide
-                didHit = false;
-            }
-            else if (o1 is Player || o1 == poss)
+            
+            if (o1 is Player || o1 == poss)
             {
                 if(o2.currentlyPlayerTangible())
                 {
@@ -353,6 +371,51 @@ namespace Spectrum.Model
                 didHit = true;
             }
 
+            if (didHit == true)
+            {
+
+                /* Overriding checks on collision */
+                if (o1.CombinableWith.Contains(o2) || o2.CombinableWith.Contains(o1))
+                {
+                    // Objects that can combine with each other do not collide
+                    didHit = false;
+                }
+                else if (o1.hasParents() || o2.hasParents())
+                {
+                    foreach (GameObject a in o1.Parents)
+                    {
+                        if (a.CombinableWith.Contains(o2))
+                        {
+                            // object 2 combines with one of a's parents
+                            didHit = false;
+                            break;
+                        }
+                        else
+                        {
+                            foreach (GameObject b in o2.Parents)
+                            {
+                                if (a.CombinableWith.Contains(b)) {
+                                    didHit = false;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+
+                    if (didHit == true)
+                    {
+                        foreach (GameObject b in o2.Parents)
+                        {
+                            if (b.CombinableWith.Contains(o1))
+                            {
+                                // object 2 combines with one of a's parents
+                                didHit = false;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
 
             if (didHit)
             {
