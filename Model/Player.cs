@@ -39,6 +39,8 @@ namespace Spectrum.Model
 
         public GameObject NearObject { get; set;}
 
+        public Joint Connector { get; set; }
+
         // whether or not to allow the player to add sideways impulse to the player by pushing the
         // arrows keys
         public bool BlockLeft { get; set; }
@@ -332,6 +334,7 @@ namespace Spectrum.Model
             obj.body.Mass = 0.0001f;
             SliderJoint connector = JointFactory.Instance.CreateSliderJoint(this.body, new Vector2(0, -(this.Size.Y / 2)), obj.body, new Vector2(0, (obj.Size.Y / 2)), 0, 0);
 
+            Connector = connector;
             Container.Sim.Add(connector);
 
             obj.Reap();
@@ -341,30 +344,34 @@ namespace Spectrum.Model
         {
             /* TODO: Check to see if we are dropping on an existent object */
 
-            /*if (Possession == null)
+            if (Possession == null)
             {
                 return;
             }
 
-            int myWidth = (int) this.Size().X;
-            int myHeight = (int)this.Size().Y;
+            int myWidth = (int)this.Size.X;
+            int myHeight = (int)this.Size.Y;
 
             int offset = 0;
             if (DirectionFacing == Direction.Left)
             {
-                offset = -myWidth; 
-                //offset = -1;
+                offset = -myWidth;
             }
             else if (DirectionFacing == Direction.Right)
             {
                 offset = myWidth;
-                //offset = 1;
             }
-            Possession.SetPosition( (int) (this.Position().X + offset), (int) (this.Position().Y + myHeight - Possesion.Size().Y  Possession.Position().Y));
-            //Possession.Velocity = new Vector2(offset, Possession.Velocity.Y);
+            Possession.body.Position = new Vector2( (int) (this.body.Position.X + offset), (int) (this.body.Position.Y + myHeight - Possession.Size.Y));
             Container.DeferAddGameObject(Possession);
 
-            Possession = null;*/
+            // Restores mass from what it used to be before we zeroed it
+            Possession.body.Mass = Possession.Mass;
+
+            // remove the joint from the simulator
+            Container.Sim.Remove(Connector);
+            Connector = null;
+
+            Possession = null;
         }
 
         protected override void DidLoadPhysicsBody()

@@ -199,7 +199,7 @@ namespace Spectrum.Model
                 }
                 if (obj.ContainsKey("combinable-with"))
                 {
-                    newObject.CombinableWith = new List<GameObject>();
+                    //newObject.CombinableWith = new List<GameObject>();
 
                     foreach (string cID in (ArrayList)obj["combinable-with"])
                     {
