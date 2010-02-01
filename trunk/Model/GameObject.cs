@@ -55,7 +55,10 @@ namespace Spectrum.Model
         public float Mass { get; set; }
         public bool IsStatic { get; set; }
         public Vector2 Size { get; set; }
-        
+
+        // constants to figure out if objects are "close enough"
+        private static int FUZZY_DX_TOLERANCE = 5;
+        private static int FUZZY_DY_TOLERANCE = 0;
 
 		/* Default Constructor */
         public GameObject()
@@ -64,8 +67,10 @@ namespace Spectrum.Model
             Tangibility = Colors.AllColors;
             PlayerTangibility = Colors.AllColors;
 
+            CombinableWith = new List<GameObject>();
+
             Children = new List<GameObject>();
-            CombinableWith = null;
+            Parents = new List<GameObject>();
             Pickupable = false;
             Inactive = false;
             
@@ -227,18 +232,20 @@ namespace Spectrum.Model
             float elapsed = (float)theGameTime.ElapsedGameTime.TotalSeconds;
             Texture.UpdateFrame(elapsed);
 
-            /* TODO: Reimplement 
-            if (CombinableWith != null && CombineObjects.Count == 0)
+            // check if this object is close enough to combine with any of the possible objects
+            if (CombinableWith != null && Children.Count == 0)
             {
                 foreach (GameObject obj in CombinableWith)
                 {
-                    
-                    if (this.PositionFuzzyEqual(obj.Position()))
+                    if (this.PositionFuzzyEqual(obj))
                     {
                         GameObject g = this.CombineObjectWith(obj);
-                        g.Visibility = this.Visibility.ColorByMixingWith(obj.Visibility);
-                        this.CombineObjects.Add(g);
-                        obj.CombineObjects.Add(g);
+                        
+                        this.Children.Add(g);
+                        obj.Children.Add(g);
+
+                        g.Parents.Add(this);
+                        g.Parents.Add(obj);
 
                         g.LoadContent(Container.GameRef.Content, Container.GameRef.GraphicsDevice);
                         Console.WriteLine("Created obj");
@@ -246,13 +253,15 @@ namespace Spectrum.Model
                     }
                 }
             }
-            */
         }
 
+        public bool PositionFuzzyEqual(GameObject other)
+        {
+            double dx = Math.Abs(other.body.Position.X - this.body.Position.X);
+            double dy = Math.Abs(other.body.Position.Y - this.body.Position.Y);
 
-        // TODO: This line of code is how we check for whether two objs collide (taking into account things like color
-        //       if (obj != this && this.currentlyVisible() && (obj.currentlyVisible() || (obj.ExistsWhenNotViewed && !(this is Player))))
-
+            return ((dy <= FUZZY_DY_TOLERANCE) && (dx <= FUZZY_DX_TOLERANCE));
+        }
 
         // Returns a SpriteEffects value based on the DirectionFacing property of this GameObject
         public SpriteEffects DrawEffects()
@@ -319,8 +328,13 @@ namespace Spectrum.Model
             GameObject poss = Container.player.Possession;
 
             bool didHit = false;
-
-            if (o1 is Player || o1 == poss)
+            
+            if (o1.CombinableWith.Contains(o2) || o2.CombinableWith.Contains(o1)) 
+            {
+                // Objects that can combine with each other do not collide
+                didHit = false;
+            }
+            else if (o1 is Player || o1 == poss)
             {
                 if(o2.currentlyPlayerTangible())
                 {
@@ -338,6 +352,7 @@ namespace Spectrum.Model
             {
                 didHit = true;
             }
+
 
             if (didHit)
             {

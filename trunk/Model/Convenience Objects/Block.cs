@@ -29,10 +29,18 @@ namespace Spectrum.Model
             {
                 Block b = new Block();
                 b.Pickupable = false;
-                b.OriginalPosition = body.Position;
-                b.Container = Container;
+
+                Vector2 v = body.Position;
+                v.X = v.X - (obj.Size.X / 2);
+                v.Y = v.Y - (obj.Size.Y / 2);
+
+                b.OriginalPosition = v;
                 
-                /* TODO: Set b's parents to be this and obj */
+                b.Container = Container;
+                Colors newColor = this.Visibility.ColorByMixingWith(obj.Visibility);
+
+                b.setVisibility(newColor);
+                b.Tangibility = Colors.AllColors;
 
                 return b;
             }
