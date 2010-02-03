@@ -74,6 +74,9 @@ namespace Spectrum.Model
         private List<GameObject> DoomedObjects;
         private List<GameObject> ResurrectedObjects;
 
+        private Texture2D ColorWheelOverlay;
+        private Texture2D ColorWheel;
+
         public int Gravity = 3000;
 
 		/* Default Constructor */
@@ -167,6 +170,9 @@ namespace Spectrum.Model
             {
                 obj.LoadContent(manager, graphicsDevice);
             }
+
+            ColorWheel = manager.Load<Texture2D>("color-wheel");
+            ColorWheelOverlay = manager.Load<Texture2D>("color-wheel-overlay");
         }
 
         public void Update(GameTime gameTime)
@@ -266,7 +272,9 @@ namespace Spectrum.Model
             string label = (player.BlockLeft ? "true" : "false") + " " + (player.BlockRight ? "true" : "false");
             spriteBatch.DrawString(font, label, new Vector2(350, 540), Color.White);
 
-
+            float wheelRotation = (float) (2 * Math.PI / 6 * CurrentColor.Index());
+            spriteBatch.Draw(ColorWheel, new Vector2(10 + ColorWheel.Width/2, 10 + ColorWheel.Height/2), null, Color.White, wheelRotation, new Vector2(ColorWheel.Width / 2, ColorWheel.Height / 2), 1.0f, SpriteEffects.None, 1.0f);
+            spriteBatch.Draw(ColorWheelOverlay, new Vector2(10,10), Color.White);
         }
 
         public override string ToString()

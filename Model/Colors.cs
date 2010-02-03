@@ -65,6 +65,40 @@ namespace Spectrum.Model
 			Bitstring = bitstring;
 		}
 
+        // returns a number representing the color
+        public float Index()
+        {
+            if (!IsSingularColor())
+            {
+                return 1.0f;
+            }
+            else if (Bitstring == (int)RawColor.Red)
+            {
+                return 0.0f;
+            }
+            else if (Bitstring == (int)RawColor.Orange)
+            {
+                return 1.0f;
+            }
+            else if (Bitstring == (int)RawColor.Yellow)
+            {
+                return 2.0f;
+            }
+            else if (Bitstring == (int)RawColor.Green)
+            {
+                return 3.0f;
+            }
+            else if (Bitstring == (int)RawColor.Blue)
+            {
+                return 4.0f;
+            }
+            else if (Bitstring == (int)RawColor.Purple)
+            {
+                return 5.0f;
+            }
+            throw new Exception("Finding index threw an error");
+        }
+
         public static Colors ColorsFromJsonArray(ArrayList jsonArray)
         {
             Colors colors = new Colors(0);
@@ -149,10 +183,10 @@ namespace Spectrum.Model
             }
             else
             {
-                int next = (int)Bitstring << 1;
-                if (next > 1 << 5)
+                int next = (int)Bitstring >> 1;
+                if (next <= 0)
                 {
-                    next = 1;
+                    next = 1 << 5;
                 }
                 return new Colors(next);
             }
@@ -166,14 +200,14 @@ namespace Spectrum.Model
             }
             else
             {
-                int next = (int)Bitstring >> 1;
-                if (next <= 0)
+                int next = (int)Bitstring << 1;
+                if (next > 1 << 5)
                 {
-                    next = 1 << 5;
+                    next = 1;
                 }
                 return new Colors(next);
             }
-        }
+          }
 
         public override string ToString()
         {
