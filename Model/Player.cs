@@ -46,8 +46,8 @@ namespace Spectrum.Model
         public bool BlockLeft { get; set; }
         public bool BlockRight { get; set; }
 
-        private const float _speed = 35;
-        private const float _hops = -1000;
+        private const float _speed = 60;
+        private const float _hops = -1200;
         private Vector2 moveLeft = new Vector2(-_speed, 0);
         private Vector2 moveRight = new Vector2(_speed, 0);
         private Vector2 moveLeftAir = new Vector2(-_speed / 2, 0);
@@ -362,7 +362,7 @@ namespace Spectrum.Model
             {
                 offset = myWidth;
             }
-            Possession.body.Position = new Vector2( (int) (this.body.Position.X + offset), (int) (this.body.Position.Y + myHeight - Possession.Size.Y));
+            Possession.body.Position = new Vector2( (int) (this.body.Position.X + offset), (int) (this.body.Position.Y + myHeight/2.0 - Possession.Size.Y/2.0));
             Container.DeferAddGameObject(Possession);
 
             // Restores mass from what it used to be before we zeroed it

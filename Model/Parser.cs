@@ -161,6 +161,11 @@ namespace Spectrum.Model
             {
                 string objID = (string)obj["id"];
 
+                if (objID.Equals("level"))
+                {
+                    continue;
+                }
+
                 GameObject newObject = level.GameObjectForId(objID);
 
                 if (obj.ContainsKey("colors"))

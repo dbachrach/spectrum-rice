@@ -5,3 +5,9 @@ Make blocks not fall when you view their color.
 Picking up an object who has a combined child, removes the child
 Add more types to the Execute() method in EventAction
 Add new properties to the parser
+
+
+Possession should become part of player
+Start menu
+Collision detect before switching colors
+Throw an error in parser when not finding object by id
