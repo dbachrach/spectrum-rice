@@ -155,7 +155,8 @@ namespace Spectrum.Model
             {
                 DirectionFacing = d;
 
-                if (State == PlayerState.Jumping || State == PlayerState.Falling)
+                //if (State == PlayerState.Jumping || State == PlayerState.Falling)
+                if (!IsTouchingGround)
                 {
                     Texture.Pause();
                 }
@@ -306,7 +307,7 @@ namespace Spectrum.Model
             base.DidCollideWithObject(obj, ref contactList);
         }
 
-        protected override void DidHitGround()
+        protected void DidHitGround()
         {
             IsTouchingGround = true;
             // todo: do we want to remove this and whole idea of state
