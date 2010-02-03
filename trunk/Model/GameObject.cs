@@ -200,7 +200,9 @@ namespace Spectrum.Model
             }
         }
 
-        // removes the object from the level but does not deallocate it
+        // removes the object and all of its children and cleans up references in its parents
+        // devestation: true to remove the object from the level and the physics engine
+        //              false to just remove the object from the level but not the engine
         public void Reap(bool devestation)
         {
             ReapChildren();
@@ -227,6 +229,7 @@ namespace Spectrum.Model
             }
         }
 
+        // Calls reap on all of the object's children
         public void ReapChildren()
         {
             if (hasChildren())
@@ -249,7 +252,6 @@ namespace Spectrum.Model
             // check if this object is close enough to combine with any of the possible objects
             if (CombinableWith != null && Children.Count == 0)
             {
-                //List<GameObject> toDelete = new List<GameObject>();
                 foreach (GameObject obj in CombinableWith)
                 {
                     if (!CurrentlyCombined.Contains(obj) && this.PositionFuzzyEqual(obj))
@@ -257,7 +259,6 @@ namespace Spectrum.Model
                         GameObject g = this.CombineObjectWith(obj);
                         CurrentlyCombined.Add(obj);
                         obj.CurrentlyCombined.Add(this);
-                        //toDelete.Add(obj);
                         
                         this.Children.Add(g);
                         obj.Children.Add(g);
@@ -270,10 +271,6 @@ namespace Spectrum.Model
                         Container.DeferAddGameObject(g);
                     }
                 }
-
-                // Remove toDelete objects from combinable with
-                //CombinableWith.RemoveAll(x => toDelete.Contains(x));
-
             }
         }
 
@@ -326,11 +323,6 @@ namespace Spectrum.Model
             // a generic game object doesn't do anything special on collision
         }
 
-        protected virtual void DidHitGround()
-        {
-            // TODO: Add code in collision notification to call this method
-        }
-
         /* Subclasses should override this method to modify physics body object after it is created */
         protected virtual void DidLoadPhysicsBody() 
         {
@@ -342,6 +334,9 @@ namespace Spectrum.Model
             return null;
         }
 
+        // Gets called by the physics engine to determine if two objects should colide.
+        // Returns a boolean based on whether the objects are both tangible and should colide.
+        // If two objects colide, this calls the DidCollideWithObject notification on both objects.
         private bool OnCollision(Geom g1, Geom g2, ContactList contactList)
         {
             
@@ -420,25 +415,15 @@ namespace Spectrum.Model
             if (didHit)
             {
                 this.DidCollideWithObject(o2, ref contactList);
+                o2.DidCollideWithObject(this, ref contactList); /* TODO: We need this right? */
             }
 
             return didHit;
-            /*
-            if (!o1.currentlyVisible() || !o2.currentlyVisible())
-            {
-                return false;
-            }
-            //Console.WriteLine("On colision {0}", this);
-            return true;
-             * */
         }
 
         private void OnSeparation(Geom g1, Geom g2)
         {
-            //Console.WriteLine("On seperation {0}", this);
         
         }
-
-
     }
 }
