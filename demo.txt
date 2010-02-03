@@ -39,7 +39,7 @@
 									"value" : "switchOn_sm"
 								 }]
 				}]} 
-{"object" : "block","id" : "block-blue-b","position" : [375, 200],"mass":1,"colors" : ["blue"], "combinable-with" : ["yellow-block-b","yellow-block-a","red-block"]}
+{"object" : "block","id" : "block-blue-b","position" : [375, 200],"colors" : ["blue"], "combinable-with" : ["yellow-block-b","yellow-block-a","red-block"]}
 
 {"object" : "platform","id" : "green-platform-b","colors" : ["green"],"position" : [400, 150],"affected-by-gravity" : false,"exists-when-not-viewed" : false}
 {"object" : "door","id" : "door","colors" : ["green"],"position" : [560, 42],"exists-when-not-viewed" : true} 
