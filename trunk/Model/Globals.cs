@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Spectrum.Model
+{
+    class Globals
+    {
+        public static string ColorsProperty = "colors";
+        public static string PlayerTangibilityProperty = "player-tangibility";
+        public static string ImageProperty = "image";
+
+        public static string ChangeAction = "change";
+        public static string IncrementAction = "increment";
+        public static string DecrementAction = "decrement";
+        public static string AddColorsAction = "add-colors";
+        public static string RemoveColorsAction = "remove-colors";
+
+        public static string WinSpecial = "win";
+        public static string LoseSpecial = "lose";
+    }
+}
