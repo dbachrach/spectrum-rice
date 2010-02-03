@@ -42,23 +42,23 @@ namespace Spectrum.Model
 
         public static ActionType ActionTypeForString(string str)
         {
-            if (str.Equals("change"))
+            if (str.Equals(Globals.ChangeAction))
             {
                 return ActionType.Change;
             }
-            else if (str.Equals("increment"))
+            else if (str.Equals(Globals.IncrementAction))
             {
                 return ActionType.Increment;
             }
-            else if (str.Equals("decrement"))
+            else if (str.Equals(Globals.DecrementAction))
             {
                 return ActionType.Decrement;
             }
-            else if (str.Equals("add-colors"))
+            else if (str.Equals(Globals.AddColorsAction))
             {
                 return ActionType.AddColors;
             }
-            else if (str.Equals("remove-colors"))
+            else if (str.Equals(Globals.RemoveColorsAction))
             {
                 return ActionType.RemoveColors;
             }
@@ -73,19 +73,19 @@ namespace Spectrum.Model
             /* TODO: All execution properties */
             if (Special != null && !Special.Equals(""))
             {
-                if (Special.Equals("win"))
+                if (Special.Equals(Globals.WinSpecial))
                 {
                     Console.WriteLine("WIN");
                     Player p = (Player) this.Receiver;
                     p.WinLevel();
                 }
-                else if (Special.Equals("lose"))
+                else if (Special.Equals(Globals.LoseSpecial))
                 {
                     Player p = (Player)this.Receiver;
                     p.LoseLevel();
                 }
             }
-            else if (Property.Equals("colors"))
+            else if (Property.Equals(Globals.ColorsProperty))
             {
                 /* TODO: Indicate this to user with flash of light or something */
                 switch (Type)
@@ -101,7 +101,7 @@ namespace Spectrum.Model
                         break;
                 }
             }
-            else if (Property.Equals("player-tangibility"))
+            else if (Property.Equals(Globals.PlayerTangibilityProperty))
             {
                 /* TODO: Indicate this to user with flash of light or something */
                 switch (Type)
@@ -117,7 +117,7 @@ namespace Spectrum.Model
                         break;
                 }
             }
-            else if (Property.Equals("image")) {
+            else if (Property.Equals(Globals.ImageProperty)) {
                 switch (Type)
                 {
                     case ActionType.Change:
