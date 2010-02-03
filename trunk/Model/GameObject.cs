@@ -162,7 +162,7 @@ namespace Spectrum.Model
             
             joint = JointFactory.Instance.CreateFixedAngleJoint(Container.Sim, body);
 
-            // TODO: This is subdivide code. We might need it later
+             //TODO: This is subdivide code. We might need it later
             //float xv = size.X / 2;
             //float yv = size.Y / 2;
             //Vertices vertices = new Vertices();

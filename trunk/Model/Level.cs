@@ -74,7 +74,7 @@ namespace Spectrum.Model
         private List<GameObject> DoomedObjects;
         private List<GameObject> ResurrectedObjects;
 
-        public int Gravity = 900;
+        public int Gravity = 3000;
 
 		/* Default Constructor */
 		public Level() {
@@ -146,7 +146,8 @@ namespace Spectrum.Model
                     return o;
                 }
             }
-            return null;
+
+            throw new Exception("Could not find object in level with id " + i);
         }
 
         public void LoadContent(ContentManager manager, GraphicsDevice graphicsDevice)
