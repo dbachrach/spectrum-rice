@@ -101,6 +101,22 @@ namespace Spectrum.Model
                         break;
                 }
             }
+            else if (Property.Equals("player-tangibility"))
+            {
+                /* TODO: Indicate this to user with flash of light or something */
+                switch (Type)
+                {
+                    case ActionType.Change:
+                        Receiver.PlayerTangibility = Colors.ColorsFromJsonArray((ArrayList)Value);
+                        break;
+                    case ActionType.AddColors:
+                        Receiver.PlayerTangibility = Receiver.Visibility.Combine(Colors.ColorsFromJsonArray((ArrayList)Value));
+                        break;
+                    case ActionType.RemoveColors:
+                        Receiver.PlayerTangibility = Receiver.Visibility.Difference(Colors.ColorsFromJsonArray((ArrayList)Value));
+                        break;
+                }
+            }
             else if (Property.Equals("image")) {
                 switch (Type)
                 {
