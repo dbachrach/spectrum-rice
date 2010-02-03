@@ -107,7 +107,7 @@ namespace Spectrum.Model
             UpdateColor(aCurrentKeyboardState);
             UpdateXEvent(aCurrentKeyboardState);
 
-            if (aCurrentKeyboardState.IsKeyDown(Keys.D) == true && PreviousKeyboardState.IsKeyDown(Keys.D) == false)
+            if (aCurrentKeyboardState.IsKeyDown(Keys.P) == true && PreviousKeyboardState.IsKeyDown(Keys.P) == false)
             {
                 Container.DebugMode = !Container.DebugMode;
             }
@@ -130,7 +130,7 @@ namespace Spectrum.Model
         {
             Texture.Pause();
             Direction d = Direction.None;
-            if (Keyboard.GetState().IsKeyDown(Keys.Left) == true)
+            if (Keyboard.GetState().IsKeyDown(Keys.A) == true)
             {
                 if (!BlockLeft)
                 {
@@ -140,7 +140,7 @@ namespace Spectrum.Model
 
                 d = Direction.Left;
             }
-            else if (Keyboard.GetState().IsKeyDown(Keys.Right) == true)
+            else if (Keyboard.GetState().IsKeyDown(Keys.D) == true)
             {
                 if (!BlockRight)
                 {
@@ -175,9 +175,10 @@ namespace Spectrum.Model
 
         private void UpdateJump(KeyboardState aCurrentKeyboardState)
         {
-            if (State != PlayerState.Jumping)
+            //if (State != PlayerState.Jumping)
+            if (IsTouchingGround)
             {
-                if (aCurrentKeyboardState.IsKeyDown(Keys.Space) == true && PreviousKeyboardState.IsKeyDown(Keys.Space) == false)
+                if (aCurrentKeyboardState.IsKeyDown(Keys.W) == true && PreviousKeyboardState.IsKeyDown(Keys.W) == false)
                 {
                     Jump();
                 }
@@ -186,20 +187,20 @@ namespace Spectrum.Model
 
         private void UpdateColor(KeyboardState aCurrentKeyboardState)
         {
-            if (aCurrentKeyboardState.IsKeyDown(Keys.A) == true && PreviousKeyboardState.IsKeyDown(Keys.A) == false)
+            if (aCurrentKeyboardState.IsKeyDown(Keys.Left) == true && PreviousKeyboardState.IsKeyDown(Keys.Left) == false)
             {
                 Container.CurrentColor = Container.CurrentColor.ForwardColor();
             }
-            else if (aCurrentKeyboardState.IsKeyDown(Keys.Z) == true && PreviousKeyboardState.IsKeyDown(Keys.Z) == false)
+            else if (aCurrentKeyboardState.IsKeyDown(Keys.Right) == true && PreviousKeyboardState.IsKeyDown(Keys.Right) == false)
             {
                 Container.CurrentColor = Container.CurrentColor.BackwardColor();
             }
 
-            if (aCurrentKeyboardState.IsKeyDown(Keys.R) == true)
+            if (aCurrentKeyboardState.IsKeyDown(Keys.Up) == true)
             {
                 Container.CurrentColor = Colors.AllColors;
             }
-            else if (aCurrentKeyboardState.IsKeyDown(Keys.R) == false && PreviousKeyboardState.IsKeyDown(Keys.R) == true)
+            else if (aCurrentKeyboardState.IsKeyDown(Keys.Up) == false && PreviousKeyboardState.IsKeyDown(Keys.Up) == true)
             {
                 Container.CurrentColor = Colors.RedColor;
             }
@@ -208,7 +209,7 @@ namespace Spectrum.Model
 
         private void UpdateXEvent(KeyboardState aCurrentKeyboardState)
         {
-            if (aCurrentKeyboardState.IsKeyDown(Keys.X) == true && PreviousKeyboardState.IsKeyDown(Keys.X) == false)
+            if (aCurrentKeyboardState.IsKeyDown(Keys.E) == true && PreviousKeyboardState.IsKeyDown(Keys.E) == false)
             {
 
                 if (Possession != null)
