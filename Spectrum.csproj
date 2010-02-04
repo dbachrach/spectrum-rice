@@ -185,6 +185,7 @@
     </None>
     <None Include="Farseer\Content\Content.contentproj" />
     <Compile Include="MenuItem.cs" />
+    <Compile Include="PauseMenu.cs" />
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
     <Content Include="todo.txt" />
