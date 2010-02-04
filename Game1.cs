@@ -77,10 +77,10 @@ namespace Spectrum
             Color baseColor = Color.White;
             Color selectedColor = Color.Red;
 
-            menuItem[0] = new MenuItem("Resume", "Resume", font, new Vector2(50f, 150f), baseColor, selectedColor, false);
-            menuItem[1] = new MenuItem("Restart", "Restart", font, new Vector2(50f, 200f), baseColor, selectedColor, false);
-            menuItem[2] = new MenuItem("Settinsg", "Settings", font, new Vector2(50f, 250f), baseColor, selectedColor, false);
-            menuItem[3] = new MenuItem("Exit", "Exit", font, new Vector2(50f, 300f), baseColor, selectedColor, false);
+            menuItem[0] = new MenuItem(Globals.ResumeMenuItem, Globals.ResumeMenuItem, font, new Vector2(50f, 150f), baseColor, selectedColor, false);
+            menuItem[1] = new MenuItem(Globals.RestartMenuItem, Globals.RestartMenuItem, font, new Vector2(50f, 200f), baseColor, selectedColor, false);
+            menuItem[2] = new MenuItem(Globals.SettingsMenuItem, Globals.SettingsMenuItem, font, new Vector2(50f, 250f), baseColor, selectedColor, false);
+            menuItem[3] = new MenuItem(Globals.ExitMenuItem, Globals.ExitMenuItem, font, new Vector2(50f, 300f), baseColor, selectedColor, false);
 
             pauseBackground.Load(Content, GraphicsDevice, null, 1, 1, 800, 600);
             pauseBackground.Pause();
@@ -148,7 +148,19 @@ namespace Spectrum
 
                 if ((keyboard.IsKeyDown(Keys.Enter)) && (PreviousKeyboardState.IsKeyUp(Keys.Enter)))
                 {
-                    if (menuItem[selectedItem].Name == "Exit")
+                    if (menuItem[selectedItem].Name.Equals(Globals.ResumeMenuItem))
+                    {
+                        Paused = false;
+                    }
+                    else if (menuItem[selectedItem].Name.Equals(Globals.RestartMenuItem))
+                    {
+                        // TODO: Restart
+                    }
+                    else if (menuItem[selectedItem].Name.Equals(Globals.SettingsMenuItem))
+                    {
+                        // TODO: Show settings
+                    }
+                    else if (menuItem[selectedItem].Name.Equals(Globals.ExitMenuItem))
                     {
                         Exit();
                     }
