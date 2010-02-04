@@ -107,11 +107,6 @@ namespace Spectrum.Model
             UpdateColor(aCurrentKeyboardState);
             UpdateXEvent(aCurrentKeyboardState);
 
-            if (aCurrentKeyboardState.IsKeyDown(Keys.P) == true && PreviousKeyboardState.IsKeyDown(Keys.P) == false)
-            {
-                Container.DebugMode = !Container.DebugMode;
-            }
-
             PreviousKeyboardState = aCurrentKeyboardState;
 
             if (Possession != null)
