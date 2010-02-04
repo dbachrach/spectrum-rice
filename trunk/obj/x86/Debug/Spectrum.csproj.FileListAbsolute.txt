@@ -78,3 +78,5 @@ C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switchOn_sm
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\switchOn_sm.xnb
 U:\comp410\bin\x86\Debug\Content\color-wheel-overlay.xnb
 U:\comp410\bin\x86\Debug\Content\color-wheel.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\color-wheel-overlay.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\color-wheel.xnb

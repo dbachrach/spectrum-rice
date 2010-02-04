@@ -183,10 +183,10 @@ namespace Spectrum.Model
             }
             else
             {
-                int next = (int)Bitstring >> 1;
-                if (next <= 0)
+                int next = (int)Bitstring << 1;
+                if (next > 1 << 5)
                 {
-                    next = 1 << 5;
+                    next = 1;
                 }
                 return new Colors(next);
             }
@@ -200,14 +200,14 @@ namespace Spectrum.Model
             }
             else
             {
-                int next = (int)Bitstring << 1;
-                if (next > 1 << 5)
+                int next = (int)Bitstring >> 1;
+                if (next <= 0)
                 {
-                    next = 1;
+                    next = 1 << 5;
                 }
                 return new Colors(next);
             }
-          }
+        }
 
         public override string ToString()
         {
