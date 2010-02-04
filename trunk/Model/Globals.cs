@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Spectrum.Model
 {
+    /**
+     * Declares constant string names as static globals
+     */
     class Globals
     {
         public static string ColorsProperty = "colors";
