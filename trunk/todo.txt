@@ -10,10 +10,10 @@ Add new properties to the parser
 Possession should become part of player
 Start menu
 Collision detect before switching colors
-Throw an error in parser when not finding object by id
 when carrying an object to combine with, show things that locally you
    can interact with regardless of color
    
 Color wheel UI in top left
 Should level scroll?
+Sometimes when your next to a block it doesnt register as a collision, so you have to held MOVE keys to be considered near the block
 

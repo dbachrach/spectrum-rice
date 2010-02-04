@@ -24,7 +24,15 @@ namespace Spectrum
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        SpriteFont font;
+        MenuItem[] menuItem = new MenuItem[4];
+        int selectedItem = 0;
+        private GameTexture pauseBackground;
+
         Level level;
+
+        public bool Paused { get; set; }
+        private KeyboardState PreviousKeyboardState { get; set; }
 
         public Game1()
         {
@@ -47,6 +55,10 @@ namespace Spectrum
             level = Parser.Parse("demo.txt");
             level.GameRef = this;
 
+            pauseBackground = new GameTexture(0, 1.0f, 1.0f);
+
+            Paused = false;
+
             base.Initialize();
         }
         
@@ -60,7 +72,20 @@ namespace Spectrum
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            level.LoadContent(this.Content, GraphicsDevice);
+            font = this.Content.Load<SpriteFont>("Pesca");
+
+            Color baseColor = Color.White;
+            Color selectedColor = Color.Red;
+
+            menuItem[0] = new MenuItem("Resume", "Resume", font, new Vector2(50f, 150f), baseColor, selectedColor, false);
+            menuItem[1] = new MenuItem("Restart", "Restart", font, new Vector2(50f, 200f), baseColor, selectedColor, false);
+            menuItem[2] = new MenuItem("Settinsg", "Settings", font, new Vector2(50f, 250f), baseColor, selectedColor, false);
+            menuItem[3] = new MenuItem("Exit", "Exit", font, new Vector2(50f, 300f), baseColor, selectedColor, false);
+
+            pauseBackground.Load(Content, GraphicsDevice, null, 1, 1, 800, 600);
+            pauseBackground.Pause();
+
+            level.LoadContent(Content, GraphicsDevice);
         }
 
         /// <summary>
@@ -79,11 +104,65 @@ namespace Spectrum
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
-         
-            level.Update(gameTime);
+
+            KeyboardState keyboard = Keyboard.GetState();
+
+            if (keyboard.IsKeyDown(Keys.P) == true && PreviousKeyboardState.IsKeyDown(Keys.P) == false)
+            {
+                level.DebugMode = !level.DebugMode;
+            }
+
+            if (keyboard.IsKeyDown(Keys.Escape) == true && PreviousKeyboardState.IsKeyDown(Keys.Escape) == false)
+            {
+                Paused = !Paused;
+            }
+
+
+
+
+
+            if (Paused)
+            {
+                for (int i = 0; i < menuItem.Length; i++)
+                {
+                    menuItem[i].Selected = false;
+                }
+
+                if ((keyboard.IsKeyDown(Keys.Up)) && (PreviousKeyboardState.IsKeyUp(Keys.Up)))
+                {
+                    selectedItem -= 1;
+                    if (selectedItem == -1)
+                    {
+                        selectedItem = menuItem.Length - 1;
+                    }
+                }
+
+                if ((keyboard.IsKeyDown(Keys.Down)) && (PreviousKeyboardState.IsKeyUp(Keys.Down)))
+                {
+                    selectedItem += 1;
+                    if (selectedItem == menuItem.Length)
+                    {
+                        selectedItem = 0;
+                    }
+                }
+
+                if ((keyboard.IsKeyDown(Keys.Enter)) && (PreviousKeyboardState.IsKeyUp(Keys.Enter)))
+                {
+                    if (menuItem[selectedItem].Name == "Exit")
+                    {
+                        Exit();
+                    }
+                }
+
+                menuItem[selectedItem].Selected = true;
+            }
+            else
+            {
+                level.Update(gameTime);
+            }
+
+
+            PreviousKeyboardState = keyboard;
 
             base.Update(gameTime);
         }
@@ -98,6 +177,16 @@ namespace Spectrum
 
             spriteBatch.Begin();
             level.Draw(spriteBatch);
+
+            if (Paused)
+            {
+                pauseBackground.DrawFrame(spriteBatch, level.CurrentColor, new Vector2(400, 300), SpriteEffects.None);
+                for (int i = 0; i < menuItem.Length; i++)
+                {
+                    menuItem[i].Draw(spriteBatch);
+                }
+            }
+
             spriteBatch.End();
 
             base.Draw(gameTime);
