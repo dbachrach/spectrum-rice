@@ -46,12 +46,12 @@ namespace Spectrum.Model
         public bool BlockLeft { get; set; }
         public bool BlockRight { get; set; }
 
-        private const float _speed = 60;
+        private const float _speed = 50;
         private const float _hops = -1200;
         private Vector2 moveLeft = new Vector2(-_speed, 0);
         private Vector2 moveRight = new Vector2(_speed, 0);
-        private Vector2 moveLeftAir = new Vector2(-_speed / 2, 0);
-        private Vector2 moveRightAir = new Vector2(_speed / 2, 0);
+        private Vector2 moveLeftAir = new Vector2(-_speed / 3, 0);
+        private Vector2 moveRightAir = new Vector2(_speed / 3, 0);
         private Vector2 jumpUp = new Vector2(0, _hops);
 
         private const int JumpAmount = 25;
@@ -130,7 +130,12 @@ namespace Spectrum.Model
         {
             Texture.Pause();
             Direction d = Direction.None;
-            if (Keyboard.GetState().IsKeyDown(Keys.A) == true)
+
+            if (Container.CurrentColor.Equals(Colors.AllColors))
+            {
+                /* If we are in ALL COLORS mode, then don't allow movement */
+            }
+            else if (Keyboard.GetState().IsKeyDown(Keys.A) == true)
             {
                 if (!BlockLeft)
                 {
@@ -176,7 +181,7 @@ namespace Spectrum.Model
         private void UpdateJump(KeyboardState aCurrentKeyboardState)
         {
             //if (State != PlayerState.Jumping)
-            if (IsTouchingGround)
+            if (IsTouchingGround && !Container.CurrentColor.Equals(Colors.AllColors))
             {
                 if (aCurrentKeyboardState.IsKeyDown(Keys.W) == true && PreviousKeyboardState.IsKeyDown(Keys.W) == false)
                 {
@@ -209,7 +214,7 @@ namespace Spectrum.Model
 
         private void UpdateXEvent(KeyboardState aCurrentKeyboardState)
         {
-            if (aCurrentKeyboardState.IsKeyDown(Keys.E) == true && PreviousKeyboardState.IsKeyDown(Keys.E) == false)
+            if (aCurrentKeyboardState.IsKeyDown(Keys.E) == true && PreviousKeyboardState.IsKeyDown(Keys.E) == false && !Container.CurrentColor.Equals(Colors.AllColors))
             {
 
                 if (Possession != null)
