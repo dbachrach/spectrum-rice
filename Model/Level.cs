@@ -304,13 +304,13 @@ namespace Spectrum.Model
         public void ForwardColor()
         {
             CurrentColor = CurrentColor.ForwardColor();
-            colorWheel.DidChangeColor(CurrentColor, false);
+            colorWheel.DidChangeColor(CurrentColor, true);
         }
 
         public void BackwardColor()
         {
             CurrentColor = CurrentColor.BackwardColor();
-            colorWheel.DidChangeColor(CurrentColor, true);
+            colorWheel.DidChangeColor(CurrentColor, false);
         }
     }
 }
