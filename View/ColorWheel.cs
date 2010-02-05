@@ -25,7 +25,7 @@ namespace Spectrum.View
 
         private double startTime;
 
-        private const double rotationDuration = 400.0; // in milliseconds
+        private const double rotationDuration = 200.0; // in milliseconds
 
         private bool newRotation;
         private bool Clockwise;
@@ -58,37 +58,28 @@ namespace Spectrum.View
 
                 // Add dx to curRotation
                 double time = gameTime.TotalRealTime.TotalMilliseconds - startTime;
-                Console.WriteLine("time ({0} - {1}) {2}", gameTime.TotalRealTime.TotalMilliseconds, startTime, time);
-                if (time > rotationDuration)
+                //Console.WriteLine("time ({0} - {1}) {2}", gameTime.TotalRealTime.TotalMilliseconds, startTime, time);
+                if (time >= rotationDuration)
                 {
                     curRotation = finalRotation;
                 }
                 else
                 {
                     double percentage = time / rotationDuration;
-
-                    float dx = (float)(percentage * (2 * MathHelper.Pi / 6));
-
+                    
+                    double dx = (1.0 - percentage) * (2 * Math.PI / 6);
+                    //Console.WriteLine("Percentage {0} DX {1}", percentage, dx);
                     if (Clockwise)
                     {
-                        curRotation += dx;
-
-                        if (curRotation > finalRotation)
-                        {
-                            curRotation = finalRotation;
-                        }
+                        curRotation =  finalRotation - dx;
                     }
                     else
                     {
-                        curRotation -= dx;
-                        if (curRotation < finalRotation)
-                        {
-                            curRotation = finalRotation;
-                        }
+                        curRotation = finalRotation + dx;
                     }
                 }
             }
-            Console.WriteLine("{0} {1}", curRotation, finalRotation);
+           // Console.WriteLine("{0} {1}", curRotation, finalRotation);
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -104,7 +95,7 @@ namespace Spectrum.View
         {
             if (colors.IsSingularColor())
             {
-                finalRotation = (float)(2 * Math.PI / 6 * (colors.Index()));
+                finalRotation = (2 * Math.PI / 6 * (colors.Index()));
                 newRotation = true;
                 Clockwise = clockwise;
             }
