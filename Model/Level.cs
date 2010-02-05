@@ -253,27 +253,7 @@ namespace Spectrum.Model
             {
                 SimView.Draw(spriteBatch);
             }
-            /*
-            if (CurrentColor.Equals(Colors.PurpleColor))
-            {
-                foreach (GameObject obj in GameObjects)
-                {
-                    if (obj.Visibility.Contains(Colors.RedColor))
-                    {
-                        Console.WriteLine("Found red object");
-                        foreach (GameObject obj2 in GameObjects)
-                        {
-                            if (obj2.Visibility.Contains(Colors.BlueColor) && obj.Position().X == obj2.Position().X && obj.Position().Y == obj2.Position().Y)
-                            {
-                                Console.WriteLine("Found two on top ");
-                                obj.Visibility.AddRawColors(RawColor.Purple);
-                                obj.Draw(spriteBatch);
-                            }
-                        }
-                    }
-                }
-            }
-            */
+
             if (Completed)
             {
                 string displayName = "Level Complete";
@@ -312,12 +292,20 @@ namespace Spectrum.Model
         {
             if (colorWheel.moveWheel)
             {
-                CurrentColor = CurrentColor.BackwardColor();
+                do
+                {
+                    CurrentColor = CurrentColor.BackwardColor();
+                } while (!AllowedColors.Contains(CurrentColor));
+
                 colorWheel.DidChangeColor(CurrentColor, false);
             }
             else
             {
-                CurrentColor = CurrentColor.ForwardColor();
+                do
+                {
+                    CurrentColor = CurrentColor.ForwardColor();
+                } while (!AllowedColors.Contains(CurrentColor));
+
                 colorWheel.DidChangeColor(CurrentColor, true);
             }
         }
@@ -326,12 +314,20 @@ namespace Spectrum.Model
         {
             if (colorWheel.moveWheel)
             {
-                CurrentColor = CurrentColor.ForwardColor();
+                do
+                {
+                    CurrentColor = CurrentColor.ForwardColor();
+                } while (!AllowedColors.Contains(CurrentColor));
+
                 colorWheel.DidChangeColor(CurrentColor, true);
             }
             else
             {
-                CurrentColor = CurrentColor.BackwardColor();
+                do
+                {
+                    CurrentColor = CurrentColor.BackwardColor();
+                } while (!AllowedColors.Contains(CurrentColor));
+
                 colorWheel.DidChangeColor(CurrentColor, false);
             }
         }
