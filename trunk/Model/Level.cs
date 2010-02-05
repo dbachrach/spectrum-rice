@@ -73,6 +73,9 @@ namespace Spectrum.Model
         // the colors this level can be viewed in
         public Colors AllowedColors { get; set; }
 
+        // indicates which color the level starts in
+        public Colors StartingColor { get; set; }
+
         // the objects contained in this level
         public List<GameObject> GameObjects { get; set; }
 
@@ -257,7 +260,7 @@ namespace Spectrum.Model
             if (Completed)
             {
                 string displayName = "Level Complete";
-                spriteBatch.DrawString(font, displayName, new Vector2(350, 540), Color.White);
+                spriteBatch.DrawString(font, displayName, new Vector2(350, (int)this.Height-50), Color.White);
             }
             else if (player.NearObject != null)
             {
@@ -277,7 +280,7 @@ namespace Spectrum.Model
                         }
                     }
                 }
-                spriteBatch.DrawString(font, displayName, new Vector2(350, 540), Color.White);
+                spriteBatch.DrawString(font, displayName, new Vector2(350, (int)this.Height - 50), Color.White);
             }
 
             colorWheel.Draw(spriteBatch);

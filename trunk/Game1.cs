@@ -35,8 +35,14 @@ namespace Spectrum
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            //graphics.PreferredBackBufferWidth = 1000;
-            //graphics.PreferredBackBufferHeight = 700;
+
+            level = Parser.Parse("tutorial1.txt");
+            level.GameRef = this;
+
+            // TODO: Move this to load level when we make that function
+            graphics.PreferredBackBufferHeight = (int)level.Height;
+            graphics.PreferredBackBufferWidth = (int)level.Width;
+
             Content.RootDirectory = "Content";
         }
 
@@ -50,9 +56,6 @@ namespace Spectrum
         {
             IsFixedTimeStep = true;
             TargetElapsedTime = new TimeSpan(0, 0, 0, 0, 10);
-            level = Parser.Parse("demo.txt");
-            level.GameRef = this;
-
 
             pauseMenu = new PauseMenu(this);
             Paused = false;
