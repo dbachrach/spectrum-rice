@@ -189,9 +189,9 @@ namespace Spectrum.Model
         //Draw the sprite to the screen
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            if(currentlyVisible()) {
+            if(currentlyVisible() || Container.allColorsMode()) {
                 Colors col = Container.CurrentColor;
-                if (Container.CurrentColor == Colors.AllColors) 
+                if (Container.allColorsMode())
                 {
                     col = this.Visibility;
                 }
