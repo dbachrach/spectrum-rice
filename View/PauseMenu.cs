@@ -37,10 +37,10 @@ namespace Spectrum.View
             Color baseColor = Color.White;
             Color selectedColor = Color.Red;
 
-            menuItem[0] = new MenuItem(Globals.ResumeMenuItem, Globals.ResumeMenuItem, font, new Vector2(50f, 150f), baseColor, selectedColor, false);
-            menuItem[1] = new MenuItem(Globals.RestartMenuItem, Globals.RestartMenuItem, font, new Vector2(50f, 200f), baseColor, selectedColor, false);
-            menuItem[2] = new MenuItem(Globals.SettingsMenuItem, Globals.SettingsMenuItem, font, new Vector2(50f, 250f), baseColor, selectedColor, false);
-            menuItem[3] = new MenuItem(Globals.ExitMenuItem, Globals.ExitMenuItem, font, new Vector2(50f, 300f), baseColor, selectedColor, false);
+            menuItem[0] = new MenuItem(Globals.ResumeMenuItem, Globals.ResumeMenuItem, font, new Vector2(350f, 150f), baseColor, selectedColor, false);
+            menuItem[1] = new MenuItem(Globals.RestartMenuItem, Globals.RestartMenuItem, font, new Vector2(350f, 200f), baseColor, selectedColor, false);
+            menuItem[2] = new MenuItem(Globals.SettingsMenuItem, Globals.SettingsMenuItem, font, new Vector2(350f, 250f), baseColor, selectedColor, false);
+            menuItem[3] = new MenuItem(Globals.ExitMenuItem, Globals.ExitMenuItem, font, new Vector2(350f, 300f), baseColor, selectedColor, false);
 
             pauseBackground.Load(content, graphics, null, 1, 1, 800, 600);
             pauseBackground.Pause();

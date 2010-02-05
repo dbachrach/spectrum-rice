@@ -125,7 +125,7 @@ namespace Spectrum.Model
             
             SimView = new PhysicsSimulatorView(Sim);
 
-            DebugMode = true;
+            DebugMode = false;
 
             _allColorsMode = false;
 		}
