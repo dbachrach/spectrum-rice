@@ -30,6 +30,8 @@ namespace Spectrum.View
         private bool newRotation;
         private bool Clockwise;
 
+        public bool moveWheel;
+
         public ColorWheel()
         {
             newRotation = false;
@@ -37,6 +39,8 @@ namespace Spectrum.View
             finalRotation = 0;
             startTime = 0;
             Clockwise = false;
+
+            moveWheel = true;
         }
 
         public void LoadContent(ContentManager manager, GraphicsDevice graphicsDevice)
@@ -84,8 +88,8 @@ namespace Spectrum.View
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(wheelImg, new Vector2(10 + wheelImg.Width / 2, 10 + wheelImg.Height / 2), null, Color.White, 0, new Vector2(wheelImg.Width / 2, wheelImg.Height / 2), 1.0f, SpriteEffects.None, 1.0f);
-            spriteBatch.Draw(overlayImg, new Vector2(10 + wheelImg.Width / 2, 10 + wheelImg.Height / 2), null, Color.White, (float)curRotation, new Vector2(wheelImg.Width / 2, wheelImg.Height / 2), 1.0f, SpriteEffects.None, 1.0f);
+            spriteBatch.Draw(wheelImg, new Vector2(10 + wheelImg.Width / 2, 10 + wheelImg.Height / 2), null, Color.White, moveWheel ? (float)-curRotation : 0, new Vector2(wheelImg.Width / 2, wheelImg.Height / 2), 1.0f, SpriteEffects.None, 1.0f);
+            spriteBatch.Draw(overlayImg, new Vector2(10 + wheelImg.Width / 2, 10 + wheelImg.Height / 2), null, Color.White, moveWheel ? 0 : (float)curRotation, new Vector2(wheelImg.Width / 2, wheelImg.Height / 2), 1.0f, SpriteEffects.None, 1.0f);
 
         }
 
