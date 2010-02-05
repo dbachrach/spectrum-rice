@@ -22,7 +22,7 @@ namespace Spectrum.Model
          */
         public static Level Parse(string filename)
         {
-            string levelJSON = FileAsString("demo.txt");
+            string levelJSON = FileAsString(filename);
 
             Level level = null;
 
@@ -38,7 +38,7 @@ namespace Spectrum.Model
 
                     if (!obj.ContainsKey("id") || !obj.ContainsKey("number") || !obj.ContainsKey("name") ||
                        !obj.ContainsKey("width") || !obj.ContainsKey("height") || !obj.ContainsKey("background") ||
-                       !obj.ContainsKey("allowed-colors"))
+                       !obj.ContainsKey("allowed-colors") || !obj.ContainsKey("starting-color"))
                     {
                         Console.WriteLine("Level must have all properties.");
                     }
@@ -51,10 +51,10 @@ namespace Spectrum.Model
 
                     ArrayList positionJson = (ArrayList)obj["start-position"];
                     level.StartPosition = new Vector2((float)((double)positionJson[0]), (float)((double)positionJson[1]));
-
+                    level.StartingColor = Colors.ColorsFromJsonArray((ArrayList)obj["starting-color"]);
                     level.BackgroundImageName = (string) obj["background"];
                     level.AllowedColors = Colors.ColorsFromJsonArray((ArrayList)obj["allowed-colors"]);
-                    level.CurrentColor = Colors.RedColor;
+                    level.CurrentColor = level.StartingColor;
                 }
                 break;
             }

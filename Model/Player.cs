@@ -47,7 +47,7 @@ namespace Spectrum.Model
         public bool BlockRight { get; set; }
 
         private const float _speed = 50;
-        private const float _hops = -1200;
+        private const float _hops = -900;
         private Vector2 moveLeft = new Vector2(-_speed, 0);
         private Vector2 moveRight = new Vector2(_speed, 0);
         private Vector2 moveLeftAir = new Vector2(-_speed / 3, 0);

@@ -1,4 +1,4 @@
-[{"object" : "level","id" : "level","number" : 1,"name" : "Demo Level","width" : 800,"height" : 600,"allowed-colors" : ["all"], "start-position" : [50,410] }
+[{"object" : "level","id" : "level","number" : 2,"name" : "Platform Mania","width" : 800,"height" : 600,"allowed-colors" : ["all"], "starting-color" : ["red"], "start-position" : [50,410] }
 
 {"object" : "block","id" : "blue-block-a", "position" : [325, 480], "colors" : ["blue"], "combinable-with" : ["yellow-block-b","yellow-block-a","red-block"]}
 {"object" : "block","id" : "yellow-block-a", "position" : [445, 480],"colors" : ["yellow"], "player-tangibility" : ["yellow"], "combinable-with" : ["red-block", "blue-block-a", "blue-block-b"]}

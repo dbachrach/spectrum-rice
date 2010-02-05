@@ -184,6 +184,15 @@
       <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\farseer\menufont.xnb</Output>
       <Time>2010-01-29T14:11:28.793-06:00</Time>
     </Item>
+    <Item>
+      <Source>clouds.png</Source>
+      <Name>clouds</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\clouds.xnb</Output>
+      <Time>2010-02-05T14:28:48.8990462-06:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
