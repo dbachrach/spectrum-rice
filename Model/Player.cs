@@ -189,11 +189,11 @@ namespace Spectrum.Model
         {
             if (aCurrentKeyboardState.IsKeyDown(Keys.Left) == true && PreviousKeyboardState.IsKeyDown(Keys.Left) == false)
             {
-                Container.CurrentColor = Container.CurrentColor.ForwardColor();
+                Container.ForwardColor();
             }
             else if (aCurrentKeyboardState.IsKeyDown(Keys.Right) == true && PreviousKeyboardState.IsKeyDown(Keys.Right) == false)
             {
-                Container.CurrentColor = Container.CurrentColor.BackwardColor();
+                Container.BackwardColor();
             }
 
             if (aCurrentKeyboardState.IsKeyDown(Keys.Up) == true)

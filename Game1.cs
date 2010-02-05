@@ -13,6 +13,7 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 using Spectrum.Model;
+using Spectrum.View;
 
 namespace Spectrum
 {
