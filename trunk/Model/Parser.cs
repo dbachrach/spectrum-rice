@@ -54,7 +54,7 @@ namespace Spectrum.Model
 
                     level.BackgroundImageName = (string) obj["background"];
                     level.AllowedColors = Colors.ColorsFromJsonArray((ArrayList)obj["allowed-colors"]);
-                    level.CurrentColor = Colors.GreenColor;
+                    level.CurrentColor = Colors.RedColor;
                 }
                 break;
             }

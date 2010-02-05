@@ -17,6 +17,8 @@ using FarseerGames.FarseerPhysics.Dynamics;
 using FarseerGames.FarseerPhysics.Collisions;
 using FarseerGames.FarseerPhysics.Debug;
 
+using Spectrum.View;
+
 namespace Spectrum.Model
 {
     class Level
@@ -47,6 +49,21 @@ namespace Spectrum.Model
         public int BackgroundFramesPerSec { get; set; }
 
         // the color the user is viewing the level at the moment
+        /*
+        private Colors _currentColor;
+        public Colors CurrentColor
+        {
+            get
+            {
+                return _currentColor;
+            }
+            set
+            {
+                _currentColor = value;
+                colorWheel.DidChangeCurrentColor(_currentColor);
+            }
+        }
+         */
         public Colors CurrentColor { get; set; }
 
         public Vector2 StartPosition { get; set; }
@@ -74,13 +91,14 @@ namespace Spectrum.Model
         private List<GameObject> DoomedObjects;
         private List<GameObject> ResurrectedObjects;
 
-        private Texture2D ColorWheelOverlay;
-        private Texture2D ColorWheel;
+        private ColorWheel colorWheel;
 
         public int Gravity = 3000;
 
 		/* Default Constructor */
 		public Level() {
+            colorWheel = new ColorWheel();
+
 			Completed = false;
 			CurrentColor = Colors.NoColors;
 			AllowedColors = Colors.AllColors;
@@ -98,6 +116,8 @@ namespace Spectrum.Model
             SimView = new PhysicsSimulatorView(Sim);
 
             DebugMode = true;
+
+            
 		}
 
         public void AddGameObject(GameObject obj)
@@ -171,8 +191,7 @@ namespace Spectrum.Model
                 obj.LoadContent(manager, graphicsDevice);
             }
 
-            ColorWheel = manager.Load<Texture2D>("color-wheel");
-            ColorWheelOverlay = manager.Load<Texture2D>("color-wheel-overlay");
+            colorWheel.LoadContent(manager, graphicsDevice);
         }
 
         public void Update(GameTime gameTime)
@@ -204,6 +223,8 @@ namespace Spectrum.Model
             {
                 obj.Update(gameTime);
             }
+
+            colorWheel.Update(gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -272,9 +293,7 @@ namespace Spectrum.Model
             string label = (player.BlockLeft ? "true" : "false") + " " + (player.BlockRight ? "true" : "false");
             spriteBatch.DrawString(font, label, new Vector2(350, 540), Color.White);
 
-            float wheelRotation = (float) (2 * Math.PI / 6 * -CurrentColor.Index());
-            spriteBatch.Draw(ColorWheel, new Vector2(10 + ColorWheel.Width/2, 10 + ColorWheel.Height/2), null, Color.White, 0, new Vector2(ColorWheel.Width / 2, ColorWheel.Height / 2), 1.0f, SpriteEffects.None, 1.0f);
-            spriteBatch.Draw(ColorWheelOverlay, new Vector2(10 + ColorWheel.Width / 2, 10 + ColorWheel.Height / 2), null, Color.White, wheelRotation, new Vector2(ColorWheel.Width / 2, ColorWheel.Height / 2), 1.0f, SpriteEffects.None, 1.0f);
+            colorWheel.Draw(spriteBatch);
         }
 
         public override string ToString()
@@ -282,5 +301,16 @@ namespace Spectrum.Model
             return string.Format("Level-- id {0}\nnumber {1}\n width {2}\n height {3}\n allowed colors {4}", this.Id, this.Number, this.Width, this.Height, this.AllowedColors);
         }
 
+        public void ForwardColor()
+        {
+            CurrentColor = CurrentColor.ForwardColor();
+            colorWheel.DidChangeColor(CurrentColor, true);
+        }
+
+        public void BackwardColor()
+        {
+            CurrentColor = CurrentColor.BackwardColor();
+            colorWheel.DidChangeColor(CurrentColor, false);
+        }
     }
 }
