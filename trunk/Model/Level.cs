@@ -300,9 +300,6 @@ namespace Spectrum.Model
                 spriteBatch.DrawString(font, displayName, new Vector2(350, 540), Color.White);
             }
 
-            string label = (player.BlockLeft ? "true" : "false") + " " + (player.BlockRight ? "true" : "false");
-            spriteBatch.DrawString(font, label, new Vector2(350, 540), Color.White);
-
             colorWheel.Draw(spriteBatch);
         }
 
@@ -313,14 +310,30 @@ namespace Spectrum.Model
 
         public void ForwardColor()
         {
-            CurrentColor = CurrentColor.ForwardColor();
-            colorWheel.DidChangeColor(CurrentColor, true);
+            if (colorWheel.moveWheel)
+            {
+                CurrentColor = CurrentColor.BackwardColor();
+                colorWheel.DidChangeColor(CurrentColor, false);
+            }
+            else
+            {
+                CurrentColor = CurrentColor.ForwardColor();
+                colorWheel.DidChangeColor(CurrentColor, true);
+            }
         }
 
         public void BackwardColor()
         {
-            CurrentColor = CurrentColor.BackwardColor();
-            colorWheel.DidChangeColor(CurrentColor, false);
+            if (colorWheel.moveWheel)
+            {
+                CurrentColor = CurrentColor.ForwardColor();
+                colorWheel.DidChangeColor(CurrentColor, true);
+            }
+            else
+            {
+                CurrentColor = CurrentColor.BackwardColor();
+                colorWheel.DidChangeColor(CurrentColor, false);
+            }
         }
 
         public void ActivateAllColorsMode()
