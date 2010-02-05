@@ -20,12 +20,12 @@ namespace Spectrum.View
         private Texture2D wheelImg;
         private Texture2D overlayImg;
 
-        private float curRotation;
-        private float finalRotation;
+        private double curRotation;
+        private double finalRotation;
 
-        private float startTime;
+        private double startTime;
 
-        private const float rotationDuration = 2000.0f; // in milliseconds
+        private const double rotationDuration = 400.0; // in milliseconds
 
         private bool newRotation;
         private bool Clockwise;
@@ -50,21 +50,22 @@ namespace Spectrum.View
             if (newRotation) 
             {
                 newRotation = false;
-                startTime = gameTime.TotalGameTime.Milliseconds;
+                startTime = gameTime.TotalRealTime.TotalMilliseconds;
             }
 
             if (curRotation != finalRotation)
             {
 
                 // Add dx to curRotation
-                float time = gameTime.TotalGameTime.Milliseconds * 1.0f - startTime;
+                double time = gameTime.TotalRealTime.TotalMilliseconds - startTime;
+                Console.WriteLine("time ({0} - {1}) {2}", gameTime.TotalRealTime.TotalMilliseconds, startTime, time);
                 if (time > rotationDuration)
                 {
                     curRotation = finalRotation;
                 }
                 else
                 {
-                    float percentage = time / rotationDuration;
+                    double percentage = time / rotationDuration;
 
                     float dx = (float)(percentage * (2 * MathHelper.Pi / 6));
 
@@ -87,12 +88,13 @@ namespace Spectrum.View
                     }
                 }
             }
+            Console.WriteLine("{0} {1}", curRotation, finalRotation);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(wheelImg, new Vector2(10 + wheelImg.Width / 2, 10 + wheelImg.Height / 2), null, Color.White, 0, new Vector2(wheelImg.Width / 2, wheelImg.Height / 2), 1.0f, SpriteEffects.None, 1.0f);
-            spriteBatch.Draw(overlayImg, new Vector2(10 + wheelImg.Width / 2, 10 + wheelImg.Height / 2), null, Color.White, curRotation, new Vector2(wheelImg.Width / 2, wheelImg.Height / 2), 1.0f, SpriteEffects.None, 1.0f);
+            spriteBatch.Draw(overlayImg, new Vector2(10 + wheelImg.Width / 2, 10 + wheelImg.Height / 2), null, Color.White, (float)curRotation, new Vector2(wheelImg.Width / 2, wheelImg.Height / 2), 1.0f, SpriteEffects.None, 1.0f);
 
         }
 
