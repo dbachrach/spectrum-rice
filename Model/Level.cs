@@ -66,6 +66,8 @@ namespace Spectrum.Model
          */
         public Colors CurrentColor { get; set; }
 
+        //private Colors PreviousColor { get; set; }
+
         public Vector2 StartPosition { get; set; }
 
         // the colors this level can be viewed in
@@ -95,6 +97,13 @@ namespace Spectrum.Model
 
         public int Gravity = 3000;
 
+        private bool _allColorsMode;
+
+        public bool allColorsMode()
+        {
+            return _allColorsMode;
+        }
+
 		/* Default Constructor */
 		public Level() {
             colorWheel = new ColorWheel();
@@ -102,6 +111,7 @@ namespace Spectrum.Model
 			Completed = false;
 			CurrentColor = Colors.NoColors;
 			AllowedColors = Colors.AllColors;
+            //PreviousColor = Colors.NoColors;
             GameObjects = new List<GameObject>();
 
             DoomedObjects = new List<GameObject>();
@@ -117,7 +127,7 @@ namespace Spectrum.Model
 
             DebugMode = true;
 
-            
+            _allColorsMode = false;
 		}
 
         public void AddGameObject(GameObject obj)
@@ -311,6 +321,21 @@ namespace Spectrum.Model
         {
             CurrentColor = CurrentColor.BackwardColor();
             colorWheel.DidChangeColor(CurrentColor, false);
+        }
+
+        public void ActivateAllColorsMode()
+        {
+            //PreviousColor = CurrentColor;
+            //CurrentColor = Colors.AllColors;
+            _allColorsMode = true;
+        }
+
+        // Must be called only once after a call to ActivateAllColorsMode()
+        public void DeactivateAllColorsMode()
+        {
+            //CurrentColor = PreviousColor;
+            //PreviousColor = Colors.NoColors;
+            _allColorsMode = false;
         }
     }
 }

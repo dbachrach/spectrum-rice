@@ -126,7 +126,7 @@ namespace Spectrum.Model
             Texture.Pause();
             Direction d = Direction.None;
 
-            if (Container.CurrentColor.Equals(Colors.AllColors))
+            if (Container.allColorsMode())
             {
                 /* If we are in ALL COLORS mode, then don't allow movement */
             }
@@ -176,7 +176,7 @@ namespace Spectrum.Model
         private void UpdateJump(KeyboardState aCurrentKeyboardState)
         {
             //if (State != PlayerState.Jumping)
-            if (IsTouchingGround && !Container.CurrentColor.Equals(Colors.AllColors))
+            if (IsTouchingGround && !Container.allColorsMode())
             {
                 if (aCurrentKeyboardState.IsKeyDown(Keys.W) == true && PreviousKeyboardState.IsKeyDown(Keys.W) == false)
                 {
@@ -187,29 +187,32 @@ namespace Spectrum.Model
 
         private void UpdateColor(KeyboardState aCurrentKeyboardState)
         {
-            if (aCurrentKeyboardState.IsKeyDown(Keys.Left) == true && PreviousKeyboardState.IsKeyDown(Keys.Left) == false)
+            if (!Container.allColorsMode())
             {
-                Container.BackwardColor();
-            }
-            else if (aCurrentKeyboardState.IsKeyDown(Keys.Right) == true && PreviousKeyboardState.IsKeyDown(Keys.Right) == false)
-            {
-                Container.ForwardColor();
+                if (aCurrentKeyboardState.IsKeyDown(Keys.Left) == true && PreviousKeyboardState.IsKeyDown(Keys.Left) == false)
+                {
+                    Container.BackwardColor();
+                }
+                else if (aCurrentKeyboardState.IsKeyDown(Keys.Right) == true && PreviousKeyboardState.IsKeyDown(Keys.Right) == false)
+                {
+                    Container.ForwardColor();
+                }
             }
 
             if (aCurrentKeyboardState.IsKeyDown(Keys.Up) == true)
             {
-                Container.CurrentColor = Colors.AllColors;
+                Container.ActivateAllColorsMode();
             }
             else if (aCurrentKeyboardState.IsKeyDown(Keys.Up) == false && PreviousKeyboardState.IsKeyDown(Keys.Up) == true)
             {
-                Container.CurrentColor = Colors.RedColor;
+                Container.DeactivateAllColorsMode();
             }
 
         }
 
         private void UpdateXEvent(KeyboardState aCurrentKeyboardState)
         {
-            if (aCurrentKeyboardState.IsKeyDown(Keys.E) == true && PreviousKeyboardState.IsKeyDown(Keys.E) == false && !Container.CurrentColor.Equals(Colors.AllColors))
+            if (aCurrentKeyboardState.IsKeyDown(Keys.E) == true && PreviousKeyboardState.IsKeyDown(Keys.E) == false && !Container.allColorsMode())
             {
 
                 if (Possession != null)
