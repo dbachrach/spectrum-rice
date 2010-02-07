@@ -1,0 +1,13 @@
+﻿[{"object" : "level","id" : "level","number" : 1,"name" : "Tutorial","width" : 1200,"height" : 400,"allowed-colors" : ["green","blue"], "starting-color" : ["green"], "start-position" : [50,250] }
+
+{"object" : "solid-ground", "id" : "ground", "position" : [0,350], "_w" : 900, "_h" : 50}
+{"object" : "solid-ground", "id" : "barrier", "position" : [250,300], "_w" : 100, "_h" : 50}
+{"object" : "solid-ground", "id" : "superbarrier", "position" : [675,230], "_w" : 50, "_h" : 120}
+{"object" : "solid-ground", "id" : "pit", "position" : [900,380], "_w" : 150, "_h" : 20}
+{"object" : "solid-ground", "id" : "ledge", "position" : [1050,195], "_w" : 150, "_h" : 205}
+
+{"object" : "block","id" : "block", "position" : [475, 310], "colors" : ["green"]}
+
+{"object" : "platform","id" : "platform","colors" : ["blue"],"position" : [950, 265],"affected-by-gravity" : false,"exists-when-not-viewed" : true}
+
+{"object" : "door","id" : "door","colors" : ["green","blue"],"position" : [1100, 95],"exists-when-not-viewed" : true} ]
