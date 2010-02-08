@@ -24,7 +24,7 @@ namespace Spectrum.Model
 
         protected override void DidLoadPhysicsBody()
         {
-            geom.FrictionCoefficient = .2f; // TODO: Pick a good value for friction
+            geom.FrictionCoefficient = .8f; // TODO: Pick a good value for friction
         }
     }
 }
