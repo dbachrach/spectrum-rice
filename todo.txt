@@ -16,7 +16,5 @@ when carrying an object to combine with, show things that locally you
 Should level scroll?
 Sometimes when your next to a block it doesnt register as a collision, so you have to held MOVE keys to be considered near the block
 
-
-Xbox controller
 Resolve physics
 Put in tooltips

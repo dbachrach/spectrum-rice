@@ -98,7 +98,7 @@ namespace Spectrum.Model
             e.CollisionTarget = player;
             e.Actions = new List<EventAction>();
             EventAction a = new EventAction();
-            a.Special = "lose";
+            a.Special = Globals.LoseSpecial;
             a.Receiver = player;
             e.Actions.Add(a);
             edgeBottom.Events.Add(e);
