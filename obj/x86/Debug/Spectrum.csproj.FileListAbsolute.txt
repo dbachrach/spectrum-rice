@@ -84,3 +84,5 @@ C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\color-wheel
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\color-wheel.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\clouds.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\tutorial1.txt
+U:\comp410\bin\x86\Debug\tutorial1.txt
+U:\comp410\bin\x86\Debug\Content\clouds.xnb

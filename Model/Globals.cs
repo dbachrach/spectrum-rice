@@ -2,6 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.GamerServices;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Net;
+using Microsoft.Xna.Framework.Storage;
 
 namespace Spectrum.Model
 {
@@ -27,5 +36,28 @@ namespace Spectrum.Model
         public static string RestartMenuItem = "Restart";
         public static string SettingsMenuItem = "Settings";
         public static string ExitMenuItem = "Exit";
+
+        /* Must set this externally once per cycle */
+        public static KeyboardState Keyboard { get; set; }
+        public static GamePadState Gamepad { get; set; }
+        public static KeyboardState PreviousKeyboard { get; set; }
+        public static GamePadState PreviousGamepad { get; set; }
+
+        public static bool UserInputPress(Keys key, Buttons button)
+        {
+            return (Keyboard.IsKeyDown(key) && !PreviousKeyboard.IsKeyDown(key)) || (Gamepad.IsButtonDown(button) && !PreviousGamepad.IsButtonDown(button));
+        }
+
+        public static bool UserInputHold(Keys key, Buttons button)
+        {
+            return (Keyboard.IsKeyDown(key)) || (Gamepad.IsButtonDown(button));
+        }
+
+        public static bool UserInputRelease(Keys key, Buttons button)
+        {
+            return (!Keyboard.IsKeyDown(key) && PreviousKeyboard.IsKeyDown(key)) || (!Gamepad.IsButtonDown(button) && PreviousGamepad.IsButtonDown(button));
+        }
     }
+
+    
 }
