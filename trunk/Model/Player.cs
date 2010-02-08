@@ -369,6 +369,7 @@ namespace Spectrum.Model
                 offset = myWidth;
             }
             Possession.body.Position = new Vector2( (int) (this.body.Position.X + offset), (int) (this.body.Position.Y + myHeight/2.0 - Possession.Size.Y/2.0));
+            Possession.body.LinearVelocity = body.LinearVelocity;
             Container.DeferAddGameObject(Possession);
 
             // Restores mass from what it used to be before we zeroed it
