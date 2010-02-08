@@ -21,7 +21,6 @@ namespace Spectrum.View
         private MenuItem[] menuItem = new MenuItem[4];
         private int selectedItem = 0;
         private GameTexture pauseBackground;
-        private KeyboardState PreviousKeyboardState;
         private Game1 game;
 
         public PauseMenu(Game1 g)
@@ -48,14 +47,12 @@ namespace Spectrum.View
 
         public void Update(GameTime gameTime)
         {
-            KeyboardState keyboard = Keyboard.GetState();
-
             for (int i = 0; i < menuItem.Length; i++)
             {
                 menuItem[i].Selected = false;
             }
 
-            if ((keyboard.IsKeyDown(Keys.Up)) && (PreviousKeyboardState.IsKeyUp(Keys.Up)))
+            if (Globals.UserInputPress(Keys.Up, Buttons.LeftThumbstickUp))
             {
                 selectedItem -= 1;
                 if (selectedItem == -1)
@@ -64,7 +61,7 @@ namespace Spectrum.View
                 }
             }
 
-            if ((keyboard.IsKeyDown(Keys.Down)) && (PreviousKeyboardState.IsKeyUp(Keys.Down)))
+            if (Globals.UserInputPress(Keys.Down, Buttons.LeftThumbstickDown))
             {
                 selectedItem += 1;
                 if (selectedItem == menuItem.Length)
@@ -73,7 +70,7 @@ namespace Spectrum.View
                 }
             }
 
-            if ((keyboard.IsKeyDown(Keys.Enter)) && (PreviousKeyboardState.IsKeyUp(Keys.Enter)))
+            if (Globals.UserInputPress(Keys.Enter, Buttons.A))
             {
                 if (menuItem[selectedItem].Name.Equals(Globals.ResumeMenuItem))
                 {
@@ -96,8 +93,6 @@ namespace Spectrum.View
             }
 
             menuItem[selectedItem].Selected = true;
-
-            PreviousKeyboardState = keyboard;
         }
 
         public void Draw(SpriteBatch spriteBatch)

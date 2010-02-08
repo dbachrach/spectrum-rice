@@ -30,8 +30,6 @@ namespace Spectrum
         private PauseMenu pauseMenu;
         public bool Paused { get; set; }
 
-        private KeyboardState PreviousKeyboardState { get; set; }
-
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -94,15 +92,15 @@ namespace Spectrum
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            Globals.Keyboard = Keyboard.GetState();
+            Globals.Gamepad = GamePad.GetState(PlayerIndex.One);
 
-            KeyboardState keyboard = Keyboard.GetState();
-
-            if (keyboard.IsKeyDown(Keys.P) == true && PreviousKeyboardState.IsKeyDown(Keys.P) == false)
+            if (Globals.UserInputPress(Keys.P, Buttons.Back))
             {
                 level.DebugMode = !level.DebugMode;
             }
 
-            if (keyboard.IsKeyDown(Keys.Escape) == true && PreviousKeyboardState.IsKeyDown(Keys.Escape) == false)
+            if (Globals.UserInputPress(Keys.Escape, Buttons.Start))
             {
                 Paused = !Paused;
             }
@@ -116,10 +114,12 @@ namespace Spectrum
                 level.Update(gameTime);
             }
 
-
-            PreviousKeyboardState = keyboard;
-
             base.Update(gameTime);
+
+            Globals.PreviousKeyboard = Globals.Keyboard;
+            Globals.PreviousGamepad = Globals.Gamepad;
+
+            
         }
 
         /// <summary>
