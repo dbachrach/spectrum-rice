@@ -34,7 +34,7 @@ namespace Spectrum
         {
             graphics = new GraphicsDeviceManager(this);
 
-            level = Parser.Parse("cloudy.txt");
+            level = Parser.Parse("tutorial1.txt");
             level.GameRef = this;
 
             // TODO: Move this to load level when we make that function
@@ -70,7 +70,7 @@ namespace Spectrum
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            
             pauseMenu.LoadContent(Content, GraphicsDevice);
 
             level.LoadContent(Content, GraphicsDevice);
