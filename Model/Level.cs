@@ -124,6 +124,7 @@ namespace Spectrum.Model
             BackgroundFramesPerSec = 1;
 
             Sim = new PhysicsSimulator(new Vector2(0, Gravity));
+            Sim.FrictionType = FrictionType.Minimum;
             //Sim.Iterations = 10; TODO: We can increase this value for better accuracy at the expense of performance
             
             SimView = new PhysicsSimulatorView(Sim);
@@ -280,6 +281,7 @@ namespace Spectrum.Model
                         }
                     }
                 }
+
                 spriteBatch.DrawString(font, displayName, new Vector2(350, (int)this.Height - 50), Color.White);
             }
 
