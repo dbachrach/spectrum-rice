@@ -1,0 +1,8 @@
+﻿[{"object" : "level","id" : "level","number" : 5,"name" : "Cloudy with a chance of death","width" : 1000,"height" : 600,"allowed-colors" : ["all"], "starting-color" : ["yellow"], "start-position" : [50,450] }
+
+{"object" : "solid-ground", "id" : "groundA", "position" : [0,550], "_w" : 450, "_h" : 50}
+{"object" : "solid-ground", "id" : "groundB", "position" : [750,550], "_w" : 250, "_h" : 50}
+
+{"object" : "game-object", "id" : "cloudA", "position" : [455,150],"image" : "clouds", "static" : true, "player-tangibility" : ["none"]}
+
+{"object" : "door","id" : "door","colors" : ["all"],"position" : [900, 455],"exists-when-not-viewed" : true} ]

@@ -81,6 +81,7 @@ namespace Spectrum.Model
                 }
                 else if (Special.Equals(Globals.LoseSpecial))
                 {
+                    Console.WriteLine("LOSE");
                     Player p = (Player)this.Receiver;
                     p.LoseLevel();
                 }
