@@ -100,7 +100,6 @@ namespace Spectrum.Model
         {
             KeyboardState aCurrentKeyboardState = Keyboard.GetState();
 
-
             UpdateMovement(aCurrentKeyboardState);
             UpdateJump(aCurrentKeyboardState);
 
@@ -276,35 +275,38 @@ namespace Spectrum.Model
 
             foreach (Contact contact in contactList)
             {
-                normal += contact.Normal;
-            }
+                normal = contact.Normal;
 
-            double NECrossP = normal.X * NorthEast.Y - normal.Y * NorthEast.X;
-            double NWCrossP = normal.X * NorthWest.Y - normal.Y * NorthWest.X;
+                double NECrossP = normal.X * NorthEast.Y - normal.Y * NorthEast.X;
+                double NWCrossP = normal.X * NorthWest.Y - normal.Y * NorthWest.X;
 
-            if (NECrossP >= 0 && NWCrossP <= 0)
-            {
-                // the normals are pointing fairly vertically
-                this.DidHitGround();
-            }
-            else
-            {
-                double SWCrossP = normal.X * SouthWest.Y - normal.Y * SouthWest.X;
-                double SECrossP = normal.X * SouthEast.Y - normal.Y * SouthEast.X;
-
-                if (SECrossP >= 0 && NECrossP <= 0)
+                if (NECrossP >= 0 && NWCrossP <= 0)
                 {
-                    // the normals are pointing to the right
-                    // that means there is something immediately to our left
-                    // block the player from moving there
-                    BlockLeft = true;
+                    // the normals are pointing fairly vertically
+                    this.DidHitGround();
+                    break;
                 }
-                else if (NWCrossP >= 0 && SWCrossP <= 0)
+                else
                 {
-                    // the normals are pointing to the left
-                    // that means there is something immediately to our right
-                    // block the player from moving there
-                    BlockRight = true;
+                    double SWCrossP = normal.X * SouthWest.Y - normal.Y * SouthWest.X;
+                    double SECrossP = normal.X * SouthEast.Y - normal.Y * SouthEast.X;
+
+                    if (SECrossP >= 0 && NECrossP <= 0)
+                    {
+                        // the normals are pointing to the right
+                        // that means there is something immediately to our left
+                        // block the player from moving there
+                        BlockLeft = true;
+                        break;
+                    }
+                    else if (NWCrossP >= 0 && SWCrossP <= 0)
+                    {
+                        // the normals are pointing to the left
+                        // that means there is something immediately to our right
+                        // block the player from moving there
+                        BlockRight = true;
+                        break;
+                    }
                 }
             }
 
@@ -381,7 +383,7 @@ namespace Spectrum.Model
 
         protected override void DidLoadPhysicsBody()
         {
-            geom.FrictionCoefficient = 2.0f;
+            geom.FrictionCoefficient = 0.0f;
             body.LinearDragCoefficient = 2.0f;
         }
 
