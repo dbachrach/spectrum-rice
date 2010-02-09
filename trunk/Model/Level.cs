@@ -49,25 +49,9 @@ namespace Spectrum.Model
         public int BackgroundFramesPerSec { get; set; }
 
         // the color the user is viewing the level at the moment
-        /*
-        private Colors _currentColor;
-        public Colors CurrentColor
-        {
-            get
-            {
-                return _currentColor;
-            }
-            set
-            {
-                _currentColor = value;
-                colorWheel.DidChangeCurrentColor(_currentColor);
-            }
-        }
-         */
         public Colors CurrentColor { get; set; }
 
-        //private Colors PreviousColor { get; set; }
-
+        // position where the player starts at
         public Vector2 StartPosition { get; set; }
 
         // the colors this level can be viewed in
@@ -114,7 +98,7 @@ namespace Spectrum.Model
 			Completed = false;
 			CurrentColor = Colors.NoColors;
 			AllowedColors = Colors.AllColors;
-            //PreviousColor = Colors.NoColors;
+
             GameObjects = new List<GameObject>();
 
             DoomedObjects = new List<GameObject>();
@@ -134,14 +118,19 @@ namespace Spectrum.Model
             _allColorsMode = false;
 		}
 
+        // Adds obj to the level
         public void AddGameObject(GameObject obj)
         {
             GameObjects.Add(obj);
         }
+
+        // Adds obj to the level at the next update cycle.
         public void DeferAddGameObject(GameObject obj)
         {
             ResurrectedObjects.Add(obj);
         }
+
+        // Removes obj from the level and from the simulator.
         public void Obliterate(GameObject obj)
         {
             RemoveObjectFromLevel(obj);
@@ -149,7 +138,8 @@ namespace Spectrum.Model
             Sim.Remove(obj.geom);
         }
 
-        // Calls through to RemoveObjectFromLevel not Obliterate
+        // Removes obj from the level and from the simulator at the next update cycle.
+        // (Calls through to RemoveObjectFromLevel not Obliterate)
         public void DeferObliterate(GameObject obj)
         {
             DoomedObjects.Add(obj);
@@ -157,23 +147,27 @@ namespace Spectrum.Model
             Sim.Remove(obj.geom);
         }
 
+        // Immediately removes obj from the level
         public void RemoveObjectFromLevel(GameObject obj)
         {
             GameObjects.Remove(obj);
         }
+
+        // Removes obj from the level at the next update cycle.
         public void DeferRemoveObjectFromLevel(GameObject obj) 
         {
             DoomedObjects.Add(obj);
         }
-
-        /* TODO: Add remove methods that remove both object and remove body from physics engine */
         
+        // Adds p to the level and marks p as the player of the level
         public void AddPlayer(Player p)
         {
             player = p;
             AddGameObject(p);
         }
 
+        // Returns a game object within this level with the id i. 
+        // Throws an exception if object was not found.
         public GameObject GameObjectForId(string i)
         {
             foreach (GameObject o in GameObjects) 

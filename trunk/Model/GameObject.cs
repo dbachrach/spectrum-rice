@@ -124,13 +124,7 @@ namespace Spectrum.Model
         {
 
             LoadTexture();
-
-            if (InactiveImageName != null && !InactiveImageName.Equals(""))
-            {
-                InactiveTexture = new GameTexture(0.0f, 1.0f, .5f);
-                InactiveTexture.Load(theContentManager, graphicsDevice, InactiveImageName, FrameCount, FramesPerSec);
-                InactiveTexture.Pause();
-            }
+            LoadInactiveTexture();
 
             LoadPhysicsBody(Size, IsStatic);
         }
@@ -142,6 +136,15 @@ namespace Spectrum.Model
             Texture.Pause();
 
             Size = Texture.TextureSize();
+        }
+        public void LoadInactiveTexture()
+        {
+            if (InactiveImageName != null && !InactiveImageName.Equals(""))
+            {
+                InactiveTexture = new GameTexture(0.0f, 1.0f, .5f);
+                InactiveTexture.Load(Container.GameRef.Content, Container.GameRef.GraphicsDevice, InactiveImageName, FrameCount, FramesPerSec);
+                InactiveTexture.Pause();
+            }
         }
 
         // load the Farseer body and geometry objects for this GameObject
@@ -318,6 +321,7 @@ namespace Spectrum.Model
         }
          */
 
+        /* Subclasses should override this method to act on collisions with other objects */
         protected virtual void DidCollideWithObject(GameObject obj, ref ContactList contactList)
         {
             // a generic game object doesn't do anything special on collision
@@ -326,11 +330,13 @@ namespace Spectrum.Model
         /* Subclasses should override this method to modify physics body object after it is created */
         protected virtual void DidLoadPhysicsBody() 
         {
-            // do nothing
+            // a generic game object doesn't do anything extra when loading a physics body
         }
 
+        /* Subclassees should override this method to allow the object to be combined with another object */
         public virtual GameObject CombineObjectWith(GameObject obj)
         {
+            // a generic game object doesn't combine with other objects
             return null;
         }
 
@@ -339,7 +345,6 @@ namespace Spectrum.Model
         // If two objects colide, this calls the DidCollideWithObject notification on both objects.
         private bool OnCollision(Geom g1, Geom g2, ContactList contactList)
         {
-            
             GameObject o1 = (GameObject) g1.Tag;
             GameObject o2 = (GameObject) g2.Tag;
             GameObject poss = Container.player.Possession;
