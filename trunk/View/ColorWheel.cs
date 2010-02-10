@@ -62,7 +62,6 @@ namespace Spectrum.View
 
                 // Add dx to curRotation
                 double time = gameTime.TotalRealTime.TotalMilliseconds - startTime;
-                //Console.WriteLine("time ({0} - {1}) {2}", gameTime.TotalRealTime.TotalMilliseconds, startTime, time);
                 if (time >= rotationDuration)
                 {
                     curRotation = finalRotation;
@@ -72,7 +71,6 @@ namespace Spectrum.View
                     double percentage = time / rotationDuration;
                     
                     double dx = (1.0 - percentage) * (2 * Math.PI / 6);
-                    //Console.WriteLine("Percentage {0} DX {1}", percentage, dx);
                     if (Clockwise)
                     {
                         curRotation =  finalRotation - dx;
@@ -83,23 +81,25 @@ namespace Spectrum.View
                     }
                 }
             }
-           // Console.WriteLine("{0} {1}", curRotation, finalRotation);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(wheelImg, new Vector2(10 + wheelImg.Width / 2, 10 + wheelImg.Height / 2), null, Color.White, moveWheel ? (float)-curRotation : 0, new Vector2(wheelImg.Width / 2, wheelImg.Height / 2), 1.0f, SpriteEffects.None, 1.0f);
             spriteBatch.Draw(overlayImg, new Vector2(10 + wheelImg.Width / 2, 10 + wheelImg.Height / 2), null, Color.White, moveWheel ? 0 : (float)curRotation, new Vector2(wheelImg.Width / 2, wheelImg.Height / 2), 1.0f, SpriteEffects.None, 1.0f);
-
         }
 
+        public void SetWheelColor(Colors colors)
+        {
+            finalRotation = (2 * Math.PI / 6 * (colors.Index()));
+        }
 
         // delegate
         public void DidChangeColor(Colors colors, bool clockwise)
         {
             if (colors.IsSingularColor())
             {
-                finalRotation = (2 * Math.PI / 6 * (colors.Index()));
+                SetWheelColor(colors);
                 newRotation = true;
                 Clockwise = clockwise;
             }

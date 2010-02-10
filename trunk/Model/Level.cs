@@ -200,6 +200,7 @@ namespace Spectrum.Model
             }
 
             colorWheel.LoadContent(manager, graphicsDevice);
+            colorWheel.SetWheelColor(StartingColor);
         }
 
         public void Update(GameTime gameTime)
