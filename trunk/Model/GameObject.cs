@@ -56,6 +56,7 @@ namespace Spectrum.Model
         public float Mass { get; set; }
         public bool IsStatic { get; set; }
         public Vector2 Size { get; set; }
+        public bool IsSensor { get; set; }
 
         // constants to figure out if objects are "close enough"
         private static int FUZZY_DX_TOLERANCE = 10; /* TODO: Readjust both parent blocks when we create a combine block */
@@ -83,6 +84,7 @@ namespace Spectrum.Model
 
             Mass = 1;
             IsStatic = false;
+            IsSensor = false;
         }
 
         // the default property for game objects is that the player can only collide with this
@@ -250,7 +252,10 @@ namespace Spectrum.Model
         public virtual void Update(GameTime theGameTime)
         {
             float elapsed = (float)theGameTime.ElapsedGameTime.TotalSeconds;
-            Texture.UpdateFrame(elapsed);
+            if (Texture != null)
+            {
+                Texture.UpdateFrame(elapsed);
+            }
 
             // check if this object is close enough to combine with any of the possible objects
             if (CombinableWith != null && Children.Count == 0)
@@ -421,6 +426,11 @@ namespace Spectrum.Model
             {
                 this.DidCollideWithObject(o2, ref contactList);
                 o2.DidCollideWithObject(this, ref contactList); /* TODO: We need this right? */
+            }
+
+            if (o1.IsSensor || o2.IsSensor)
+            {
+                didHit = false;
             }
 
             return didHit;
