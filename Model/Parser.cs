@@ -12,6 +12,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
+using Spectrum.Model.Convenience_Objects;
 
 namespace Spectrum.Model
 {
@@ -87,7 +88,8 @@ namespace Spectrum.Model
             edgeTop.Container = level;
             level.AddGameObject(edgeTop);
 
-            SolidGround edgeBottom = new SolidGround((int)(level.Width), borderWidth);
+            Sensor edgeBottom = new Sensor((int)(level.Width), borderWidth);
+            edgeBottom.OneTime = true;
             edgeBottom.OriginalPosition = new Vector2(0, (int)(level.Height + 1));
             edgeBottom.Id = "Bottom";
             edgeBottom.Container = level;
@@ -138,6 +140,12 @@ namespace Spectrum.Model
                     else if (objType.Equals("block"))
                     {
                         newObject = new Block();
+                    }
+                    else if (objType.Equals("sensor"))
+                    {
+                        double w = (double)obj["_w"];
+                        double h = (double)obj["_h"];
+                        newObject = new Sensor((int) w, (int) h);
                     }
 
                     /* Set properties */

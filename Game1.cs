@@ -37,7 +37,7 @@ namespace Spectrum
         {
             graphics = new GraphicsDeviceManager(this);
 
-            level = Parser.Parse("tutorial1.txt");
+            level = Parser.Parse("cloudy.txt");
             level.GameRef = this;
 
             // TODO: Move this to load level when we make that function

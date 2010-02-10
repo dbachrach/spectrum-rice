@@ -20,3 +20,9 @@ Resolve physics
 Put in tooltips
 
 Kill him if he's way off the map
+
+Tutorial 2
+
+Switches
+Combining
+Seeing all colors
