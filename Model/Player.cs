@@ -31,8 +31,6 @@ namespace Spectrum.Model
 
         public GameObject Possession { get; set; }
 
-        private KeyboardState PreviousKeyboardState { get; set; }
-
         private PlayerState State { get; set; }
 
         private Vector2 StartingPosition { get; set; }
@@ -98,15 +96,13 @@ namespace Spectrum.Model
 
         public override void Update(GameTime theGameTime)
         {
-            KeyboardState aCurrentKeyboardState = Keyboard.GetState();
 
-            UpdateMovement(aCurrentKeyboardState);
-            UpdateJump(aCurrentKeyboardState);
+            UpdateMovement();
+            UpdateJump();
 
-            UpdateColor(aCurrentKeyboardState);
-            UpdateXEvent(aCurrentKeyboardState);
+            UpdateColor();
+            UpdateXEvent();
 
-            PreviousKeyboardState = aCurrentKeyboardState;
 
             if (Possession != null)
             {
@@ -120,7 +116,7 @@ namespace Spectrum.Model
             base.Update(theGameTime);
         }
 
-        private void UpdateMovement(KeyboardState aCurrentKeyboardState)
+        private void UpdateMovement()
         {
             Texture.Pause();
             Direction d = Direction.None;
@@ -129,7 +125,7 @@ namespace Spectrum.Model
             {
                 /* If we are in ALL COLORS mode, then don't allow movement */
             }
-            else if (Keyboard.GetState().IsKeyDown(Keys.A) == true)
+            else if (Globals.UserInputHold(Keys.A, Buttons.LeftThumbstickLeft))
             {
                 if (!BlockLeft)
                 {
@@ -139,7 +135,7 @@ namespace Spectrum.Model
 
                 d = Direction.Left;
             }
-            else if (Keyboard.GetState().IsKeyDown(Keys.D) == true)
+            else if (Globals.UserInputHold(Keys.D, Buttons.LeftThumbstickRight))
             {
                 if (!BlockRight)
                 {
@@ -154,7 +150,6 @@ namespace Spectrum.Model
             {
                 DirectionFacing = d;
 
-                //if (State == PlayerState.Jumping || State == PlayerState.Falling)
                 if (!IsTouchingGround)
                 {
                     Texture.Pause();
@@ -172,48 +167,46 @@ namespace Spectrum.Model
             }
         }
 
-        private void UpdateJump(KeyboardState aCurrentKeyboardState)
+        private void UpdateJump()
         {
-            //if (State != PlayerState.Jumping)
             if (IsTouchingGround && !Container.allColorsMode())
             {
-                if (aCurrentKeyboardState.IsKeyDown(Keys.W) == true && PreviousKeyboardState.IsKeyDown(Keys.W) == false)
+                if (Globals.UserInputPress(Keys.W, Buttons.A))
                 {
                     Jump();
                 }
             }
         }
 
-        private void UpdateColor(KeyboardState aCurrentKeyboardState)
+        private void UpdateColor()
         {
             if (!Container.allColorsMode())
             {
-                if (aCurrentKeyboardState.IsKeyDown(Keys.Left) == true && PreviousKeyboardState.IsKeyDown(Keys.Left) == false)
+                if (Globals.UserInputPress(Keys.Left, Buttons.LeftTrigger))
                 {
                     Container.BackwardColor();
                 }
-                else if (aCurrentKeyboardState.IsKeyDown(Keys.Right) == true && PreviousKeyboardState.IsKeyDown(Keys.Right) == false)
+                if (Globals.UserInputPress(Keys.Right, Buttons.RightTrigger))
                 {
                     Container.ForwardColor();
                 }
             }
 
-            if (aCurrentKeyboardState.IsKeyDown(Keys.Up) == true)
+            if (Globals.UserInputHold(Keys.Up, Buttons.RightShoulder))
             {
                 Container.ActivateAllColorsMode();
             }
-            else if (aCurrentKeyboardState.IsKeyDown(Keys.Up) == false && PreviousKeyboardState.IsKeyDown(Keys.Up) == true)
+            else if (Globals.UserInputRelease(Keys.Up, Buttons.RightShoulder))
             {
                 Container.DeactivateAllColorsMode();
             }
 
         }
 
-        private void UpdateXEvent(KeyboardState aCurrentKeyboardState)
+        private void UpdateXEvent()
         {
-            if (aCurrentKeyboardState.IsKeyDown(Keys.E) == true && PreviousKeyboardState.IsKeyDown(Keys.E) == false && !Container.allColorsMode())
+            if (Globals.UserInputPress(Keys.E, Buttons.X) && !Container.allColorsMode())
             {
-
                 if (Possession != null)
                 {
                     Drop();
@@ -275,38 +268,35 @@ namespace Spectrum.Model
 
             foreach (Contact contact in contactList)
             {
-                normal = contact.Normal;
+                normal += contact.Normal;
+            }
 
-                double NECrossP = normal.X * NorthEast.Y - normal.Y * NorthEast.X;
-                double NWCrossP = normal.X * NorthWest.Y - normal.Y * NorthWest.X;
+            double NECrossP = normal.X * NorthEast.Y - normal.Y * NorthEast.X;
+            double NWCrossP = normal.X * NorthWest.Y - normal.Y * NorthWest.X;
 
-                if (NECrossP >= 0 && NWCrossP <= 0)
+            if (NECrossP >= 0 && NWCrossP <= 0)
+            {
+                // the normals are pointing fairly vertically
+                this.DidHitGround();
+            }
+            else
+            {
+                double SWCrossP = normal.X * SouthWest.Y - normal.Y * SouthWest.X;
+                double SECrossP = normal.X * SouthEast.Y - normal.Y * SouthEast.X;
+
+                if (SECrossP >= 0 && NECrossP <= 0)
                 {
-                    // the normals are pointing fairly vertically
-                    this.DidHitGround();
-                    break;
+                    // the normals are pointing to the right
+                    // that means there is something immediately to our left
+                    // block the player from moving there
+                    BlockLeft = true;
                 }
-                else
+                else if (NWCrossP >= 0 && SWCrossP <= 0)
                 {
-                    double SWCrossP = normal.X * SouthWest.Y - normal.Y * SouthWest.X;
-                    double SECrossP = normal.X * SouthEast.Y - normal.Y * SouthEast.X;
-
-                    if (SECrossP >= 0 && NECrossP <= 0)
-                    {
-                        // the normals are pointing to the right
-                        // that means there is something immediately to our left
-                        // block the player from moving there
-                        BlockLeft = true;
-                        break;
-                    }
-                    else if (NWCrossP >= 0 && SWCrossP <= 0)
-                    {
-                        // the normals are pointing to the left
-                        // that means there is something immediately to our right
-                        // block the player from moving there
-                        BlockRight = true;
-                        break;
-                    }
+                    // the normals are pointing to the left
+                    // that means there is something immediately to our right
+                    // block the player from moving there
+                    BlockRight = true;
                 }
             }
 
@@ -369,7 +359,6 @@ namespace Spectrum.Model
                 offset = myWidth;
             }
             Possession.body.Position = new Vector2( (int) (this.body.Position.X + offset), (int) (this.body.Position.Y + myHeight/2.0 - Possession.Size.Y/2.0));
-            Possession.body.LinearVelocity = body.LinearVelocity;
             Container.DeferAddGameObject(Possession);
 
             // Restores mass from what it used to be before we zeroed it
@@ -384,7 +373,7 @@ namespace Spectrum.Model
 
         protected override void DidLoadPhysicsBody()
         {
-            geom.FrictionCoefficient = 0.0f;
+            geom.FrictionCoefficient = 2.0f;
             body.LinearDragCoefficient = 2.0f;
         }
 
