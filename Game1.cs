@@ -26,6 +26,9 @@ namespace Spectrum
         SpriteBatch spriteBatch;
 
         Level level;
+        TimeSpan elapsedTime = TimeSpan.Zero;
+        int frameCount = 0;
+        int frameRate = 0;
 
         private PauseMenu pauseMenu;
         public bool Paused { get; set; }
@@ -95,6 +98,17 @@ namespace Spectrum
             Globals.Keyboard = Keyboard.GetState();
             Globals.Gamepad = GamePad.GetState(PlayerIndex.One);
 
+            // update frame rate
+            elapsedTime += gameTime.ElapsedGameTime;
+
+            if (elapsedTime > TimeSpan.FromSeconds(1))
+            {
+                elapsedTime -= TimeSpan.FromSeconds(1);
+                frameRate = frameCount;
+                frameCount = 0;
+            }
+
+
             if (Globals.UserInputPress(Keys.P, Buttons.Back))
             {
                 level.DebugMode = !level.DebugMode;
@@ -130,8 +144,12 @@ namespace Spectrum
         {
             GraphicsDevice.Clear(level.CurrentColor.SystemColor());
 
+            frameCount++;
+            string fps = string.Format("fps: {0}", frameRate);
+
             spriteBatch.Begin();
             level.Draw(spriteBatch);
+            spriteBatch.DrawString(level.font, fps, Vector2.Zero, Color.Black);
 
             if (Paused)
             {
