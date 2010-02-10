@@ -75,7 +75,7 @@ namespace Spectrum.Model
 
         public Player player;
 
-        private SpriteFont font;
+        public SpriteFont font;
 
         private List<GameObject> DoomedObjects;
         private List<GameObject> ResurrectedObjects;

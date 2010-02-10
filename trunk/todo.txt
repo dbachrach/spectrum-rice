@@ -18,3 +18,5 @@ Sometimes when your next to a block it doesnt register as a collision, so you ha
 
 Resolve physics
 Put in tooltips
+
+Kill him if he's way off the map
