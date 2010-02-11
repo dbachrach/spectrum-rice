@@ -18,6 +18,8 @@ using FarseerGames.FarseerPhysics.Dynamics.Joints;
 using FarseerGames.FarseerPhysics.Collisions;
 using FarseerGames.FarseerPhysics.Factories;
 
+using Spectrum.Model.Convenience_Objects;
+
 namespace Spectrum.Model
 {
     enum Direction { Up, Down, Left, Right, None }
@@ -56,7 +58,6 @@ namespace Spectrum.Model
         public float Mass { get; set; }
         public bool IsStatic { get; set; }
         public Vector2 Size { get; set; }
-        public bool IsSensor { get; set; }
 
         // constants to figure out if objects are "close enough"
         private static int FUZZY_DX_TOLERANCE = 10; /* TODO: Readjust both parent blocks when we create a combine block */
@@ -84,7 +85,6 @@ namespace Spectrum.Model
 
             Mass = 1;
             IsStatic = false;
-            IsSensor = false;
         }
 
         // the default property for game objects is that the player can only collide with this
@@ -187,6 +187,8 @@ namespace Spectrum.Model
             geom.RestitutionCoefficient = 0; // bounciness
 
             geom.Tag = this;
+
+            //geom.IsSensor = IsSensor;
 
             this.DidLoadPhysicsBody();
         }
@@ -428,9 +430,18 @@ namespace Spectrum.Model
                 o2.DidCollideWithObject(this, ref contactList); /* TODO: We need this right? */
             }
 
-            if (o1.IsSensor || o2.IsSensor)
+            if (o1 is Sensor || o2 is Sensor)
             {
                 didHit = false;
+
+                if (o1 is Sensor)
+                {
+                    ((Sensor)o1).DidSense(o2);
+                }
+                else if (o2 is Sensor)
+                {
+                    ((Sensor)o2).DidSense(o1);
+                }
             }
 
             return didHit;

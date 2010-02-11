@@ -87,3 +87,6 @@ C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\color-wheel
 U:\comp410\bin\x86\Debug\tutorial1.txt
 U:\comp410\bin\x86\Debug\Content\clouds.xnb
 U:\comp410\bin\x86\Debug\cloudy.txt
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\cloudy.txt
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\tutorial1.txt
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\clouds.xnb

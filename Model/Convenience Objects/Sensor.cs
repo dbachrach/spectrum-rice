@@ -14,7 +14,6 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace Spectrum.Model.Convenience_Objects
 {
-    // TODO: Sensor repeats its event calls
     class Sensor : GameObject
     {
         protected int _w;
@@ -25,11 +24,11 @@ namespace Spectrum.Model.Convenience_Objects
         public Sensor()
             : base()
         {
-            IsSensor = true;
             PlayerTangibility = Colors.AllColors;
             Tangibility = Colors.AllColors;
             Visibility = Colors.NoColors;
             IsStatic = true; // Sensors are static by default
+            OneTime = true; // Sensors are one time by default
         }
 
         public Sensor(int w, int h)
@@ -49,6 +48,15 @@ namespace Spectrum.Model.Convenience_Objects
         public override void Draw(SpriteBatch spriteBatch)
         {
             /* Sensors do not draw themselves */
+        }
+
+        public void DidSense(GameObject obj)
+        {
+            if (OneTime)
+            {
+                /* Removes collision events with obj */
+                Events.RemoveAll(ev => (ev.Type == EventType.Collision && ev.CollisionTarget.Equals(obj)));
+            }
         }
 
 

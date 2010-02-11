@@ -51,5 +51,10 @@ namespace Spectrum.Model
                 a.Execute();
             }
         }
+
+        public override string ToString()
+        {
+            return "(event " + Type + ", '" + DisplayName + "', " + CollisionTarget + ")";
+        }
     }
 }
