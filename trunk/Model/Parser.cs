@@ -88,6 +88,7 @@ namespace Spectrum.Model
             edgeTop.Container = level;
             level.AddGameObject(edgeTop);
 
+
             Sensor edgeBottom = new Sensor((int)(level.Width), borderWidth);
             edgeBottom.OneTime = true;
             edgeBottom.OriginalPosition = new Vector2(0, (int)(level.Height + 1));
