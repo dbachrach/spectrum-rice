@@ -90,3 +90,7 @@ U:\comp410\bin\x86\Debug\cloudy.txt
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\cloudy.txt
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\tutorial1.txt
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\clouds.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\tutorial\tutorialJump.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\tutorial\tutorialThumb.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\tutorial\tutorialTrigger.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\tutorial\tutorialX.xnb

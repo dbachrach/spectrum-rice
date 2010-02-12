@@ -19,3 +19,7 @@ Content\farseer\diagnosticFont.xnb
 Content\farseer\frameRateCounterFont.xnb
 Content\farseer\gamefont.xnb
 Content\farseer\menufont.xnb
+Content\tutorial\tutorialJump.xnb
+Content\tutorial\tutorialThumb.xnb
+Content\tutorial\tutorialTrigger.xnb
+Content\tutorial\tutorialX.xnb
