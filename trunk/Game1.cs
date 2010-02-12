@@ -25,7 +25,7 @@ namespace Spectrum
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        Level level;
+        private Level level;
         TimeSpan elapsedTime = TimeSpan.Zero;
         int frameCount = 0;
         int frameRate = 0;
@@ -37,7 +37,7 @@ namespace Spectrum
         {
             graphics = new GraphicsDeviceManager(this);
 
-            level = Parser.Parse("demo.txt");
+            level = Parser.Parse("Levels/DrEvil.txt");
             level.GameRef = this;
 
             // TODO: Move this to load level when we make that function
@@ -159,6 +159,15 @@ namespace Spectrum
             spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+        public void Restart()
+        {
+            // TODO: use reload current level
+            level = Parser.Parse("Levels/DrEvil.txt");
+            level.GameRef = this;
+
+            level.LoadContent(Content, GraphicsDevice);
         }
     }
 }

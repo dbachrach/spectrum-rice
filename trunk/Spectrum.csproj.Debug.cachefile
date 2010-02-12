@@ -23,7 +23,7 @@ Content\farseer\diagnosticFont.xnb
 Content\farseer\frameRateCounterFont.xnb
 Content\farseer\gamefont.xnb
 Content\farseer\menufont.xnb
-demoLevel.txt
-demo.txt
-cloudy.txt
-tutorial1.txt
+Levels\demo.txt
+Levels\cloudy.txt
+Levels\DrEvil.txt
+Levels\tutorial1.txt
