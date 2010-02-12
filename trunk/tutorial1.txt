@@ -10,4 +10,7 @@
 
 {"object" : "platform","id" : "platform","colors" : ["blue"],"position" : [950, 265],"affected-by-gravity" : false,"exists-when-not-viewed" : true}
 
-{"object" : "door","id" : "door","colors" : ["green","blue"],"position" : [1100, 95],"exists-when-not-viewed" : true} ]
+{"object" : "door","id" : "door","colors" : ["green","blue"],"position" : [1100, 95],"exists-when-not-viewed" : true} 
+
+{"object" : "game-object", "id" : "tut_jump", "image" : "tutorial/tutorialThumb", "colors" : ["green","blue"], "position" : [80, 200], "tangibility" : ["none"], "player-tangibility" : ["none"], "static" : true,}
+]

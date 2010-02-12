@@ -24,6 +24,7 @@ namespace Spectrum.Model
         private bool Paused;
         public float Rotation, Scale, Depth;
         public Vector2 Origin;
+        private string Asset;
 
         public GameTexture(float Rotation, float Scale, float Depth)
         {
@@ -42,7 +43,7 @@ namespace Spectrum.Model
 
         public void Load(ContentManager content, GraphicsDevice graphicsDevice, string asset, int FrameCount, int FramesPerSec, int w, int h)
         {
-
+            Asset = asset;
             framecount = FrameCount;
             if (asset == null || asset.Equals(""))
             {
@@ -128,6 +129,12 @@ namespace Spectrum.Model
 
 
             int FrameHeight = myTexture.Height / 6;
+
+            if (Asset == "tutorial/tutorialThumb") 
+            {
+                FrameHeight = myTexture.Height;
+                divisor = 0;
+            }
             Rectangle sourcerect = new Rectangle(FrameWidth * Frame, FrameHeight * divisor, FrameWidth, FrameHeight);
             Batch.Draw(myTexture, screenpos, sourcerect, Color.White,Rotation, Origin, Scale, drawEffects, Depth);
 
