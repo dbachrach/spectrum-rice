@@ -82,6 +82,8 @@ namespace Spectrum.Model
             NearObject = null;
             BlockLeft = false;
             BlockRight = false;
+
+            ZIndex = Globals.PlayerZIndex;
         }
 
         public override void Draw(SpriteBatch spriteBatch)

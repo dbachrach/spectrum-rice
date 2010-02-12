@@ -26,3 +26,5 @@ Tutorial 2
 Switches
 Combining
 Seeing all colors
+
+Do we want a z-level to specify what objects get drawn ontop of other ones?
