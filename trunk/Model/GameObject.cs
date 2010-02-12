@@ -51,6 +51,7 @@ namespace Spectrum.Model
         public Direction DirectionFacing { get; set; }
         public Vector2 OriginalPosition { get; set; }
         public Vector2 OriginalVelocity { get; set; }
+        public int ZIndex { get; set; }
 
         public Body body { get; set; }
         public Geom geom { get; set; }
@@ -85,6 +86,8 @@ namespace Spectrum.Model
 
             Mass = 1;
             IsStatic = false;
+
+            ZIndex = 0;
         }
 
         // the default property for game objects is that the player can only collide with this

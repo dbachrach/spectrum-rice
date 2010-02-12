@@ -147,6 +147,7 @@ namespace Spectrum.Model
                         double w = (double)obj["_w"];
                         double h = (double)obj["_h"];
                         newObject = new Sensor((int) w, (int) h);
+                        
                     }
 
                     /* Set properties */

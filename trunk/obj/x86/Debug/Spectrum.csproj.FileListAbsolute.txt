@@ -94,3 +94,7 @@ C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\tutorial\tu
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\tutorial\tutorialThumb.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\tutorial\tutorialTrigger.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\tutorial\tutorialX.xnb
+U:\comp410\bin\x86\Debug\Content\tutorial\tutorialJump.xnb
+U:\comp410\bin\x86\Debug\Content\tutorial\tutorialThumb.xnb
+U:\comp410\bin\x86\Debug\Content\tutorial\tutorialTrigger.xnb
+U:\comp410\bin\x86\Debug\Content\tutorial\tutorialX.xnb
