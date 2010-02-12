@@ -28,8 +28,6 @@ C:\Users\Administrator\Documents\spectrum-rice\obj\x86\Debug\ResolveAssemblyRefe
 C:\Users\Administrator\Documents\spectrum-rice\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Administrator\Documents\spectrum-rice\obj\x86\Debug\Spectrum.exe
 C:\Users\Administrator\Documents\spectrum-rice\obj\x86\Debug\Spectrum.pdb
-U:\comp410\bin\x86\Debug\demoLevel.txt
-U:\comp410\bin\x86\Debug\demo.txt
 U:\comp410\bin\x86\Debug\Content\dude.xnb
 U:\comp410\bin\x86\Debug\Content\platform.xnb
 U:\comp410\bin\x86\Debug\Content\switch.xnb
@@ -84,9 +82,7 @@ C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\color-wheel
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\color-wheel.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\clouds.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\tutorial1.txt
-U:\comp410\bin\x86\Debug\tutorial1.txt
 U:\comp410\bin\x86\Debug\Content\clouds.xnb
-U:\comp410\bin\x86\Debug\cloudy.txt
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\cloudy.txt
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\tutorial1.txt
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\clouds.xnb
@@ -98,3 +94,7 @@ U:\comp410\bin\x86\Debug\Content\tutorial\tutorialJump.xnb
 U:\comp410\bin\x86\Debug\Content\tutorial\tutorialThumb.xnb
 U:\comp410\bin\x86\Debug\Content\tutorial\tutorialTrigger.xnb
 U:\comp410\bin\x86\Debug\Content\tutorial\tutorialX.xnb
+U:\comp410\bin\x86\Debug\Levels\demo.txt
+U:\comp410\bin\x86\Debug\Levels\cloudy.txt
+U:\comp410\bin\x86\Debug\Levels\tutorial1.txt
+U:\comp410\bin\x86\Debug\Levels\DrEvil.txt

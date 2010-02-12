@@ -181,6 +181,11 @@ namespace Spectrum.Model
             throw new Exception("Could not find object in level with id " + i);
         }
 
+        public void Restart()
+        {
+            GameRef.Restart();
+        }
+
         public void LoadContent(ContentManager manager, GraphicsDevice graphicsDevice)
         {
             SimView.LoadContent(graphicsDevice, manager);

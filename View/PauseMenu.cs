@@ -79,7 +79,9 @@ namespace Spectrum.View
                 }
                 else if (menuItem[selectedItem].Name.Equals(Globals.RestartMenuItem))
                 {
-                    // TODO: Restart
+                    game.Restart();
+                    game.Paused = false;
+                    selectedItem = 0;
                 }
                 else if (menuItem[selectedItem].Name.Equals(Globals.SettingsMenuItem))
                 {
