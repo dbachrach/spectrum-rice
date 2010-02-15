@@ -149,6 +149,10 @@ namespace Spectrum.Model
                         newObject = new Sensor((int) w, (int) h);
                         
                     }
+                    else if (objType.Equals("switch"))
+                    {
+                        newObject = new Switch(player);
+                    }
 
                     /* Set properties */
                     if (obj.ContainsKey("id"))
@@ -235,9 +239,25 @@ namespace Spectrum.Model
                 }
                 if (obj.ContainsKey("events"))
                 {
-                    newObject.Events = ParseEvents((ArrayList)(obj["events"]), level);
+                    List<Event> parsedEvents = ParseEvents((ArrayList)(obj["events"]), level);
+                    if (newObject.Events == null || newObject.Events.Count == 0)
+                    {
+                        newObject.Events = parsedEvents;
+                    }
+                    else
+                    {
+                        newObject.Events.AddRange(parsedEvents);
+                    }
                 }
-
+                if (obj.ContainsKey("_switch-actions"))
+                {
+                    
+                    if (newObject is Switch)
+                    {
+                        List<EventAction> parsedActions = ParseActions((ArrayList)obj["_switch-actions"], level);
+                        newObject.Events[0].Actions.AddRange(parsedActions);
+                    }
+                }
             }
 
             return level;

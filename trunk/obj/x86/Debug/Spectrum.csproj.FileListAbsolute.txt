@@ -98,3 +98,4 @@ U:\comp410\bin\x86\Debug\Levels\demo.txt
 U:\comp410\bin\x86\Debug\Levels\cloudy.txt
 U:\comp410\bin\x86\Debug\Levels\tutorial1.txt
 U:\comp410\bin\x86\Debug\Levels\DrEvil.txt
+U:\comp410\bin\x86\Debug\Content\plat.xnb

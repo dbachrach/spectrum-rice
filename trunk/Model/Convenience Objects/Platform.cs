@@ -17,7 +17,7 @@ namespace Spectrum.Model
     class Platform : GameObject
     {
 		public Platform() : base() {
-            ImageName = "platform";
+            ImageName = "plat";
             IsStatic = true;
 		}
 

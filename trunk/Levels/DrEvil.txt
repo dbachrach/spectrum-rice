@@ -5,5 +5,30 @@
 {"object" : "solid-ground", "id" : "west-bank", "position" : [0,400], "_w" : 200, "_h" : 400}
 {"object" : "solid-ground", "id" : "east-bank", "position" : [1000,400], "_w" : 200, "_h" : 400}
 
+{"object" : "platform","id" : "a-plat","colors" : ["orange"],"position" : [350, 375]}
+{"object" : "switch","id" : "a-switch","colors" : ["orange"],"position" : [360, 345], "_switch-actions" : [{
+									"receiver" : "a-plat",
+									"property" : "colors",
+									"type" : "change",
+									"value" : ["all"]
+								 }]}
+								 
+{"object" : "platform","id" : "b-plat","colors" : ["green"],"position" : [550, 375]}
+{"object" : "switch","id" : "b-switch","colors" : ["green"],"position" : [560, 345], "_switch-actions" : [{
+									"receiver" : "b-plat",
+									"property" : "colors",
+									"type" : "change",
+									"value" : ["all"]
+								 }]}
+								 
+{"object" : "platform","id" : "c-plat","colors" : ["purple"],"position" : [750, 375]}
+{"object" : "switch","id" : "c-switch","colors" : ["purple"],"position" : [760, 345], "_switch-actions" : [{
+									"receiver" : "c-plat",
+									"property" : "colors",
+									"type" : "change",
+									"value" : ["all"]
+								 }]}
+
+
 {"object" : "door","id" : "door","colors" : ["all"],"position" : [1100, 300]} 
 ]
