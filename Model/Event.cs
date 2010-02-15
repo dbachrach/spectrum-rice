@@ -54,7 +54,7 @@ namespace Spectrum.Model
 
         public override string ToString()
         {
-            return "(event " + Type + ", '" + DisplayName + "', " + CollisionTarget + ")";
+            return "(event " + Type + ", '" + DisplayName + "', " + CollisionTarget + ", (actions + " + Actions.ToString() + "))";
         }
     }
 }

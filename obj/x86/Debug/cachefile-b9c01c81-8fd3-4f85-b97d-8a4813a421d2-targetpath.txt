@@ -23,3 +23,4 @@ Content\farseer\diagnosticFont.xnb
 Content\farseer\frameRateCounterFont.xnb
 Content\farseer\gamefont.xnb
 Content\farseer\menufont.xnb
+Content\plat.xnb
