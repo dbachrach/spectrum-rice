@@ -14,7 +14,7 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace Spectrum.Model
 {
-	enum EventType { XEvent, Behavior, Collision }
+	enum EventType { XEvent, Behavior, Collision, Separation }
 	
     class Event
     {
@@ -30,16 +30,24 @@ namespace Spectrum.Model
         }
 
         public static EventType EventTypeForString(string str) {
-            if(str.Equals("x-event")) {
+            if (str.Equals("x-event"))
+            {
                 return EventType.XEvent;
             }
-            else if(str.Equals("behavior")) {
+            else if (str.Equals("behavior"))
+            {
                 return EventType.Behavior;
             }
-            else if(str.Equals("collision")) {
+            else if (str.Equals("collision"))
+            {
                 return EventType.Collision;
             }
-            else {
+            else if (str.Equals("separation"))
+            {
+                return EventType.Separation;
+            }
+            else
+            {
                 throw new Exception("Type for event was not an event type: " + str);
             }
         }

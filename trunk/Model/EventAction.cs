@@ -128,6 +128,16 @@ namespace Spectrum.Model
                         break;
                 }
             }
+            else if (Property.Equals("HasBecomeVisibleInAllColors"))
+            {
+                switch (Type)
+                {
+                    case ActionType.Change:
+                        Receiver.HasBecomeVisibleInAllColors = (bool)Value;
+                        Receiver.setVisibility(Colors.AllColors);
+                        break;
+                }
+            }
         }
     }
 }

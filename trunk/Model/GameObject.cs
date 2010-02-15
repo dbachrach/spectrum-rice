@@ -52,6 +52,7 @@ namespace Spectrum.Model
         public Vector2 OriginalPosition { get; set; }
         public Vector2 OriginalVelocity { get; set; }
         public int ZIndex { get; set; }
+        public bool HasBecomeVisibleInAllColors { get; set; }
 
         public Body body { get; set; }
         public Geom geom { get; set; }
@@ -88,6 +89,8 @@ namespace Spectrum.Model
             IsStatic = false;
 
             ZIndex = 0;
+
+            HasBecomeVisibleInAllColors = false;
         }
 
         // the default property for game objects is that the player can only collide with this
@@ -132,10 +135,9 @@ namespace Spectrum.Model
         //Load the texture for the sprite using the Content Pipeline
         public virtual void LoadContent(ContentManager theContentManager, GraphicsDevice graphicsDevice)
         {
-
+            /* If you change this, change VisibleSensor's LoadContent as well. */
             LoadTexture();
             LoadInactiveTexture();
-
             LoadPhysicsBody(Size, IsStatic);
         }
 
@@ -211,7 +213,7 @@ namespace Spectrum.Model
                     col = this.Visibility;
                 }
                 Texture.Rotation = body.Rotation;
-                Texture.DrawFrame(spriteBatch, col, body.Position, DrawEffects());
+                Texture.DrawFrame(spriteBatch, col, body.Position, DrawEffects(), HasBecomeVisibleInAllColors);
             }
         }
 
@@ -457,7 +459,18 @@ namespace Spectrum.Model
 
         private void OnSeparation(Geom g1, Geom g2)
         {
-        
+            /*
+            GameObject o1 = (GameObject)g1.Tag;
+            GameObject o2 = (GameObject)g2.Tag;
+
+            foreach (Event e in o1.Events)
+            {
+                if (e.Type == EventType.Separation)
+                {
+                    if (o2.col
+                }
+            }
+             */
         }
     }
 }
