@@ -47,6 +47,7 @@ namespace Spectrum.Model
                     level.Id = (string)obj["id"];
                     level.Number = (double)obj["number"];
                     level.Name = (string)obj["name"];
+                    Console.WriteLine("Level name {0}", level.Name);
                     level.Width = (double)obj["width"];
                     level.Height = (double)obj["height"];
 
@@ -249,6 +250,10 @@ namespace Spectrum.Model
                         newObject.Events.AddRange(parsedEvents);
                     }
                 }
+                if (obj.ContainsKey("zindex"))
+                {
+                    newObject.ZIndex = (int)(double)obj["zindex"];
+                }
                 if (obj.ContainsKey("_switch-actions"))
                 {
                     
@@ -259,6 +264,8 @@ namespace Spectrum.Model
                     }
                 }
             }
+
+            //level.GameObjects.Sort(); TODO: Something isn't working about this sort.
 
             return level;
         }
