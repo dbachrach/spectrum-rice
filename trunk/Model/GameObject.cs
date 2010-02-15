@@ -24,7 +24,7 @@ namespace Spectrum.Model
 {
     enum Direction { Up, Down, Left, Right, None }
 
-    class GameObject
+    class GameObject : IComparable<GameObject>
     {
         // instance variables
         protected GameTexture Texture;
@@ -122,6 +122,11 @@ namespace Spectrum.Model
         public bool hasParents()
         {
             return ((Parents != null) && (Parents.Count > 0));
+        }
+
+        public int CompareTo(GameObject obj)
+        {
+            return ZIndex.CompareTo(obj.ZIndex);
         }
 
         //Load the texture for the sprite using the Content Pipeline
