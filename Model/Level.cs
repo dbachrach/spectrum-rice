@@ -245,7 +245,7 @@ namespace Spectrum.Model
         {
             if (Background != null)
             {
-                Background.DrawFrame(spriteBatch, CurrentColor, Vector2.Zero, SpriteEffects.None);
+                Background.DrawFrame(spriteBatch, CurrentColor, Vector2.Zero, SpriteEffects.None, false);
             }
 
             foreach (GameObject obj in GameObjects)

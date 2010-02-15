@@ -27,4 +27,11 @@ Switches
 Combining
 Seeing all colors
 
-Do we want a z-level to specify what objects get drawn ontop of other ones?
+
+Specifying image height and width in JSON
+Tooltips for the tutorial
+Sensors (Visible & Invisible)
+Menuing, Progression through levels
+One more level
+White-Color mode
+Z-Index to draw images in order

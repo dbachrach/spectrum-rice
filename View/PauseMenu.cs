@@ -99,7 +99,7 @@ namespace Spectrum.View
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            pauseBackground.DrawFrame(spriteBatch, Colors.AllColors, new Vector2(400, 300), SpriteEffects.None);
+            pauseBackground.DrawFrame(spriteBatch, Colors.AllColors, new Vector2(400, 300), SpriteEffects.None, false);
             for (int i = 0; i < menuItem.Length; i++)
             {
                 menuItem[i].Draw(spriteBatch);

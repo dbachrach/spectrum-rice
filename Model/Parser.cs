@@ -89,13 +89,13 @@ namespace Spectrum.Model
             edgeTop.Container = level;
             level.AddGameObject(edgeTop);
 
-
+            /*
             Sensor edgeBottom = new Sensor((int)(level.Width), borderWidth);
             edgeBottom.OneTime = true;
             edgeBottom.OriginalPosition = new Vector2(0, (int)(level.Height + 1));
             edgeBottom.Id = "Bottom";
             edgeBottom.Container = level;
-            /* Add Death on collision effect */
+            // Add Death on collision effect 
             edgeBottom.Events = new List<Event>();
             Event e = new Event();
             e.Type = EventType.Collision;
@@ -107,7 +107,7 @@ namespace Spectrum.Model
             e.Actions.Add(a);
             edgeBottom.Events.Add(e);
 
-            level.AddGameObject(edgeBottom);
+            level.AddGameObject(edgeBottom);*/
 
             /* Parse Game Objects and find id*/
             foreach (Hashtable obj in levelData)

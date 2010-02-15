@@ -26,6 +26,8 @@ namespace Spectrum.Model
         public Vector2 Origin;
         private string Asset;
 
+        private int assetCount;
+
         public GameTexture(float Rotation, float Scale, float Depth)
         {
 
@@ -34,10 +36,12 @@ namespace Spectrum.Model
             this.Scale = Scale;
             this.Depth = Depth;
 
+            assetCount = 6;
         }
 
         public void Load(ContentManager content, GraphicsDevice graphicsDevice, string asset, int FrameCount, int FramesPerSec)
         {
+            
             Load(content, graphicsDevice, asset, FrameCount, FramesPerSec, 0, 0);
         }
 
@@ -47,10 +51,14 @@ namespace Spectrum.Model
             framecount = FrameCount;
             if (asset == null || asset.Equals(""))
             {
-                myTexture = CreateRectangle(w, h * 6, graphicsDevice);
+                myTexture = CreateRectangle(w, h * assetCount, graphicsDevice);
             }
             else
             {
+                if (asset.Equals("plat"))
+                {
+                    assetCount = 7;
+                }
                 myTexture = content.Load<Texture2D>(asset);
             }
 
@@ -84,24 +92,28 @@ namespace Spectrum.Model
 
         }
 
-        public void DrawFrame(SpriteBatch Batch, Colors color, Vector2 screenpos, SpriteEffects drawEffects)
+        public void DrawFrame(SpriteBatch Batch, Colors color, Vector2 screenpos, SpriteEffects drawEffects, bool whiteMode)
         {
             if (Paused)
             {
                 Frame = 0;
             }
-            DrawFrame(Batch, Frame, color, screenpos, drawEffects);
+            DrawFrame(Batch, Frame, color, screenpos, drawEffects, whiteMode);
 
         }
 
-        public void DrawFrame(SpriteBatch Batch, int Frame, Colors color, Vector2 screenpos, SpriteEffects drawEffects)
+        public void DrawFrame(SpriteBatch Batch, int Frame, Colors color, Vector2 screenpos, SpriteEffects drawEffects, bool whiteMode)
         {
 
             int FrameWidth = myTexture.Width / framecount;
 
             int divisor = 0;
 
-            if (color.Equals(Colors.RedColor))
+            if (whiteMode) 
+            {
+                divisor = 6;
+            }
+            else if (color.Equals(Colors.RedColor))
             {
                 divisor = 0;
             }
@@ -125,10 +137,10 @@ namespace Spectrum.Model
             {
                 divisor = 5;
             }
-            
 
 
-            int FrameHeight = myTexture.Height / 6;
+
+            int FrameHeight = myTexture.Height / assetCount;
 
             if (Asset == "tutorial/tutorialThumb") 
             {
@@ -143,7 +155,7 @@ namespace Spectrum.Model
         public Vector2 TextureSize()
         {
             int FrameWidth = myTexture.Width / framecount;
-            int FrameHeight = myTexture.Height / 6;
+            int FrameHeight = myTexture.Height / assetCount;
             return new Vector2(FrameWidth, FrameHeight);
         }
 
