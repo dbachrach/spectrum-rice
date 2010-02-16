@@ -106,13 +106,6 @@ namespace Spectrum.Model
             PlayerTangibility = vis;
             PlayerSensibility = vis;
         }
-        public void MakeSensor()
-        {
-            PlayerSensibility = Colors.AllColors;
-            Sensibility = Colors.AllColors;
-            Tangibility = Colors.NoColors;
-            PlayerTangibility = Colors.NoColors;
-        }
 
         public bool currentlyVisible()
         {
