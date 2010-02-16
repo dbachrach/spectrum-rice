@@ -128,7 +128,7 @@ namespace Spectrum.Model
                         break;
                 }
             }
-            else if (Property.Equals("HasBecomeVisibleInAllColors"))
+            else if (Property.Equals("whiteness"))
             {
                 switch (Type)
                 {

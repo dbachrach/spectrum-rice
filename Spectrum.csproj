@@ -181,9 +181,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Farseer\Content\Content.contentproj" />
-    <Compile Include="Model\Convenience Objects\InvisibleSensor.cs" />
     <Compile Include="Model\Convenience Objects\Switch.cs" />
-    <Compile Include="Model\Convenience Objects\Sensor.cs" />
     <Compile Include="View\ColorWheel.cs" />
     <Compile Include="View\MenuItem.cs" />
     <Compile Include="View\PauseMenu.cs" />
