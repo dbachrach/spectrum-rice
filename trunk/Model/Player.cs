@@ -245,7 +245,7 @@ namespace Spectrum.Model
 
         /* Notifications */
 
-        protected override void DidCollideWithObject(GameObject obj, ref ContactList contactList)
+        protected override void DidCollideWithObject(GameObject obj, ref ContactList contactList, bool physicsCollision)
         {
             /* TODO: Need to unset NearObject when not near anything */
             if (obj.Pickupable || (obj.Events != null && obj.Events.Count > 0))
@@ -266,43 +266,46 @@ namespace Spectrum.Model
 
             // check if the player is touching the ground
             // if his normal vector is pointing upwards (plus or minus 45 degrees), he is on solid ground
-            Vector2 normal = Vector2.Zero;
-
-            foreach (Contact contact in contactList)
+            if (physicsCollision)
             {
-                normal += contact.Normal;
-            }
+                Vector2 normal = Vector2.Zero;
 
-            double NECrossP = normal.X * NorthEast.Y - normal.Y * NorthEast.X;
-            double NWCrossP = normal.X * NorthWest.Y - normal.Y * NorthWest.X;
-
-            if (NECrossP >= 0 && NWCrossP <= 0)
-            {
-                // the normals are pointing fairly vertically
-                this.DidHitGround();
-            }
-            else
-            {
-                double SWCrossP = normal.X * SouthWest.Y - normal.Y * SouthWest.X;
-                double SECrossP = normal.X * SouthEast.Y - normal.Y * SouthEast.X;
-
-                if (SECrossP >= 0 && NECrossP <= 0)
+                foreach (Contact contact in contactList)
                 {
-                    // the normals are pointing to the right
-                    // that means there is something immediately to our left
-                    // block the player from moving there
-                    BlockLeft = true;
+                    normal += contact.Normal;
                 }
-                else if (NWCrossP >= 0 && SWCrossP <= 0)
+
+                double NECrossP = normal.X * NorthEast.Y - normal.Y * NorthEast.X;
+                double NWCrossP = normal.X * NorthWest.Y - normal.Y * NorthWest.X;
+
+                if (NECrossP >= 0 && NWCrossP <= 0)
                 {
-                    // the normals are pointing to the left
-                    // that means there is something immediately to our right
-                    // block the player from moving there
-                    BlockRight = true;
+                    // the normals are pointing fairly vertically
+                    this.DidHitGround();
+                }
+                else
+                {
+                    double SWCrossP = normal.X * SouthWest.Y - normal.Y * SouthWest.X;
+                    double SECrossP = normal.X * SouthEast.Y - normal.Y * SouthEast.X;
+
+                    if (SECrossP >= 0 && NECrossP <= 0)
+                    {
+                        // the normals are pointing to the right
+                        // that means there is something immediately to our left
+                        // block the player from moving there
+                        BlockLeft = true;
+                    }
+                    else if (NWCrossP >= 0 && SWCrossP <= 0)
+                    {
+                        // the normals are pointing to the left
+                        // that means there is something immediately to our right
+                        // block the player from moving there
+                        BlockRight = true;
+                    }
                 }
             }
 
-            base.DidCollideWithObject(obj, ref contactList);
+            base.DidCollideWithObject(obj, ref contactList, physicsCollision);
         }
 
         protected void DidHitGround()

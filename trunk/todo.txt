@@ -28,10 +28,21 @@ Combining
 Seeing all colors
 
 
-Specifying image height and width in JSON
+1 - Specifying image height and width in JSON for GameObject
 Tooltips for the tutorial
-Sensors (Visible & Invisible)
+MakeSensor isn't right. Make it convenient to add a sensor
 Menuing, Progression through levels
 One more level
-White-Color mode
 Z-Index to draw images in order
+
+Make invisible GameObject
+Add OneTime sensing to GameObject
+put sensor back on edgebottom
+fade between colors at rate of color wheel spin
+
+Did Sense:
+			//if (OneTime)
+            //{
+                /* Removes collision events with obj */
+            //    Events.RemoveAll(ev => (ev.Type == EventType.Collision && ev.CollisionTarget.Equals(obj)));
+            //}

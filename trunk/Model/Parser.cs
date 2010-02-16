@@ -89,12 +89,14 @@ namespace Spectrum.Model
             edgeTop.Container = level;
             level.AddGameObject(edgeTop);
 
-            /*
-            Sensor edgeBottom = new Sensor((int)(level.Width), borderWidth);
-            edgeBottom.OneTime = true;
+            
+            Wall edgeBottom = new Wall((int)(level.Width), borderWidth);
+            // TODO: edgeBottom.OneTime = true;
             edgeBottom.OriginalPosition = new Vector2(0, (int)(level.Height + 1));
             edgeBottom.Id = "Bottom";
             edgeBottom.Container = level;
+            edgeBottom.MakeSensor();
+
             // Add Death on collision effect 
             edgeBottom.Events = new List<Event>();
             Event e = new Event();
@@ -107,7 +109,7 @@ namespace Spectrum.Model
             e.Actions.Add(a);
             edgeBottom.Events.Add(e);
 
-            level.AddGameObject(edgeBottom);*/
+            level.AddGameObject(edgeBottom);
 
             /* Parse Game Objects and find id*/
             foreach (Hashtable obj in levelData)
@@ -143,13 +145,14 @@ namespace Spectrum.Model
                     {
                         newObject = new Block();
                     }
+                        /*
                     else if (objType.Equals("sensor"))
                     {
                         double w = (double)obj["_w"];
                         double h = (double)obj["_h"];
                         newObject = new Sensor((int) w, (int) h);
-                        
                     }
+                         */
                     else if (objType.Equals("switch"))
                     {
                         newObject = new Switch(player);
@@ -194,6 +197,14 @@ namespace Spectrum.Model
                 if (obj.ContainsKey("player-tangibility"))
                 {
                     newObject.PlayerTangibility = Colors.ColorsFromJsonArray((ArrayList)obj["player-tangibility"]);
+                }
+                if (obj.ContainsKey("sensibility"))
+                {
+                    newObject.Sensibility = Colors.ColorsFromJsonArray((ArrayList)obj["sensibility"]);
+                }
+                if (obj.ContainsKey("player-sensibility"))
+                {
+                    newObject.PlayerSensibility = Colors.ColorsFromJsonArray((ArrayList)obj["player-sensibility"]);
                 }
                 if (obj.ContainsKey("image"))
                 {

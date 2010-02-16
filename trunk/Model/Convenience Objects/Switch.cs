@@ -13,6 +13,8 @@ namespace Spectrum.Model.Convenience_Objects
             ImageName = "switchOff";
             IsStatic = true;
 
+            MakeSensor();
+
             Event e = new Event();
             e.Type = EventType.Collision;
             e.CollisionTarget = p;

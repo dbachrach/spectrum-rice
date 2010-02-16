@@ -32,9 +32,11 @@ namespace Spectrum.Model
 
         // properties
         public string Id { get; set; }
-        public Colors Visibility { get; set; }
-        public Colors Tangibility { get; set; }
-        public Colors PlayerTangibility { get; set; }
+        public Colors Visibility { get; set; } // whether object is viewable in each color
+        public Colors Tangibility { get; set; } // whether physics engine will colide or not
+        public Colors PlayerTangibility { get; set; } // whether physics engine will collide with a player or not
+        public Colors Sensibility { get; set; } // whether events will be sent on a "would be" collision
+        public Colors PlayerSensibility { get; set; } // whether events will be sent on a "would be collision with a player
 
         public string ImageName { get; set; }
         public List<GameObject> Parents { get; set; }
@@ -71,6 +73,8 @@ namespace Spectrum.Model
             Visibility = Colors.AllColors;
             Tangibility = Colors.AllColors;
             PlayerTangibility = Colors.AllColors;
+            Sensibility = Colors.AllColors;
+            PlayerSensibility = Colors.AllColors;
 
             CombinableWith = new List<GameObject>();
             CurrentlyCombined = new List<GameObject>();
@@ -100,6 +104,14 @@ namespace Spectrum.Model
         {
             Visibility = vis;
             PlayerTangibility = vis;
+            PlayerSensibility = vis;
+        }
+        public void MakeSensor()
+        {
+            PlayerSensibility = Colors.AllColors;
+            Sensibility = Colors.AllColors;
+            Tangibility = Colors.NoColors;
+            PlayerTangibility = Colors.NoColors;
         }
 
         public bool currentlyVisible()
@@ -116,6 +128,17 @@ namespace Spectrum.Model
         {
             return Container.CurrentColor.Contains(this.PlayerTangibility);
         }
+
+        public bool currentlySensible()
+        {
+            return Container.CurrentColor.Contains(this.Sensibility);
+        }
+
+        public bool currentlyPlayerSensible()
+        {
+            return Container.CurrentColor.Contains(this.PlayerSensibility);
+        }
+       
 
         public bool hasChildren()
         {
@@ -339,7 +362,7 @@ namespace Spectrum.Model
          */
 
         /* Subclasses should override this method to act on collisions with other objects */
-        protected virtual void DidCollideWithObject(GameObject obj, ref ContactList contactList)
+        protected virtual void DidCollideWithObject(GameObject obj, ref ContactList contactList, bool physicsCollision)
         {
             // a generic game object doesn't do anything special on collision
         }
@@ -434,24 +457,31 @@ namespace Spectrum.Model
                 }
             }
 
-            if (didHit)
+            /* Find out if these two object send events based on collision */
+            bool sendEvents = false;
+            if (o1 is Player || o1 == poss)
             {
-                this.DidCollideWithObject(o2, ref contactList);
-                o2.DidCollideWithObject(this, ref contactList); /* TODO: We need this right? */
+                if (o2.currentlyPlayerSensible())
+                {
+                    sendEvents = true;
+                }
+            }
+            else if (o2 is Player || o2 == poss)
+            {
+                if (o1.currentlyPlayerSensible())
+                {
+                    sendEvents = true;
+                }
+            }
+            else if (o1.currentlySensible() && o2.currentlySensible())
+            {
+                sendEvents = true;
             }
 
-            if (o1 is Sensor || o2 is Sensor)
+            if (sendEvents)
             {
-                didHit = false;
-
-                if (o1 is Sensor)
-                {
-                    ((Sensor)o1).DidSense(o2);
-                }
-                else if (o2 is Sensor)
-                {
-                    ((Sensor)o2).DidSense(o1);
-                }
+                this.DidCollideWithObject(o2, ref contactList, didHit);
+                o2.DidCollideWithObject(this, ref contactList, didHit); /* TODO: We need this right? */
             }
 
             return didHit;
