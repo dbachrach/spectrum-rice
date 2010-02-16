@@ -13,7 +13,10 @@ namespace Spectrum.Model.Convenience_Objects
             ImageName = "switchOff";
             IsStatic = true;
 
-            MakeSensor();
+            Tangibility = Colors.NoColors;
+            PlayerTangibility = Colors.NoColors;
+            Sensibility = Colors.AllColors;
+            PlayerSensibility = Colors.AllColors;
 
             Event e = new Event();
             e.Type = EventType.Collision;

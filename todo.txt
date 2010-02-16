@@ -30,14 +30,13 @@ Seeing all colors
 
 1 - Specifying image height and width in JSON for GameObject
 Tooltips for the tutorial
-MakeSensor isn't right. Make it convenient to add a sensor
+Make it convenient to add a sensor
 Menuing, Progression through levels
 One more level
 Z-Index to draw images in order
-
+Add onseparation for eventactions
 Make invisible GameObject
 Add OneTime sensing to GameObject
-put sensor back on edgebottom
 fade between colors at rate of color wheel spin
 
 Did Sense:

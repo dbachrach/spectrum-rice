@@ -95,7 +95,10 @@ namespace Spectrum.Model
             edgeBottom.OriginalPosition = new Vector2(0, (int)(level.Height + 1));
             edgeBottom.Id = "Bottom";
             edgeBottom.Container = level;
-            edgeBottom.MakeSensor();
+            edgeBottom.Tangibility = Colors.NoColors;
+            edgeBottom.PlayerTangibility = Colors.NoColors;
+            edgeBottom.Sensibility = Colors.AllColors;
+            edgeBottom.PlayerSensibility = Colors.AllColors;
 
             // Add Death on collision effect 
             edgeBottom.Events = new List<Event>();
