@@ -33,16 +33,22 @@ namespace Spectrum
         private PauseMenu pauseMenu;
         public bool Paused { get; set; }
 
+        private string levelPath = "Levels/";
+        private string[] levels = {"tutorial1.txt", "DrEvil.txt"};
+        private int levelIndex;
+        private const int GameWidth = 1200;
+        private const int GameHeight = 800;
+
         public Game1()
         {
+            levelIndex = 0;
+
             graphics = new GraphicsDeviceManager(this);
-
-            level = Parser.Parse("Levels/DrEvil.txt");
-            level.GameRef = this;
-
             // TODO: Move this to load level when we make that function
-            graphics.PreferredBackBufferHeight = (int)level.Height;
-            graphics.PreferredBackBufferWidth = (int)level.Width;
+            graphics.PreferredBackBufferWidth = GameWidth;
+            graphics.PreferredBackBufferHeight = GameHeight;
+
+            LoadLevel(false);
 
             Content.RootDirectory = "Content";
         }
@@ -58,7 +64,7 @@ namespace Spectrum
             IsFixedTimeStep = true;
             TargetElapsedTime = new TimeSpan(0, 0, 0, 0, 10);
 
-            pauseMenu = new PauseMenu(this);
+            pauseMenu = new PauseMenu(this, GameWidth, GameHeight);
             Paused = false;
 
             base.Initialize();
@@ -164,10 +170,23 @@ namespace Spectrum
         public void Restart()
         {
             // TODO: use reload current level
-            level = Parser.Parse("Levels/DrEvil.txt");
-            level.GameRef = this;
+            LoadLevel(true);
+        }
 
-            level.LoadContent(Content, GraphicsDevice);
+        public void Win()
+        {
+            levelIndex++;
+            LoadLevel(true);
+        }
+
+        public void LoadLevel(bool loadContent)
+        {
+            level = Parser.Parse(levelPath + levels[levelIndex]);
+            level.GameRef = this;
+            if (loadContent)
+            {
+                level.LoadContent(Content, GraphicsDevice);
+            }
         }
     }
 }

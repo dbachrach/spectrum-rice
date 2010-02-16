@@ -384,7 +384,7 @@ namespace Spectrum.Model
 
         public void WinLevel()
         {
-            Container.Completed = true;
+            Container.Win();
         }
         public void LoseLevel()
         {

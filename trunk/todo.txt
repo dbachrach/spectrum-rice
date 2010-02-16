@@ -13,11 +13,10 @@ Collision detect before switching colors
 when carrying an object to combine with, show things that locally you
    can interact with regardless of color
   
-Should level scroll?
+Level scrolling
 Sometimes when your next to a block it doesnt register as a collision, so you have to held MOVE keys to be considered near the block
 
 Resolve physics
-Put in tooltips
 
 Kill him if he's way off the map
 
@@ -33,7 +32,6 @@ Tooltips for the tutorial
 Make it convenient to add a sensor
 Menuing, Progression through levels
 One more level
-Z-Index to draw images in order
 Add onseparation for eventactions
 Make invisible GameObject
 Add OneTime sensing to GameObject

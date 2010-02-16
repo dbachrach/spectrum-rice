@@ -23,10 +23,16 @@ namespace Spectrum.View
         private GameTexture pauseBackground;
         private Game1 game;
 
-        public PauseMenu(Game1 g)
+        private int ViewWidth;
+        private int ViewHeight;
+
+        public PauseMenu(Game1 g, int width, int height)
         {
             pauseBackground = new GameTexture(0, 1.0f, 1.0f);
             game = g;
+
+            ViewWidth = width;
+            ViewHeight = height;
         }
 
         public void LoadContent(ContentManager content, GraphicsDevice graphics)
@@ -41,7 +47,7 @@ namespace Spectrum.View
             menuItem[2] = new MenuItem(Globals.SettingsMenuItem, Globals.SettingsMenuItem, font, new Vector2(350f, 250f), baseColor, selectedColor, false);
             menuItem[3] = new MenuItem(Globals.ExitMenuItem, Globals.ExitMenuItem, font, new Vector2(350f, 300f), baseColor, selectedColor, false);
 
-            pauseBackground.Load(content, graphics, null, 1, 1, 800, 600);
+            pauseBackground.Load(content, graphics, null, 1, 1, ViewWidth, ViewHeight);
             pauseBackground.Pause();
         }
 
