@@ -45,7 +45,7 @@ namespace Spectrum.Model
         public static GamePadState PreviousGamepad { get; set; }
 
 
-        public static int PlayerZIndex = /*TODO: 2000*/ 0;
+        public static int PlayerZIndex = 0;
 
         public static bool UserInputPress(Keys key, Buttons button)
         {

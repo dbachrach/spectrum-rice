@@ -92,7 +92,7 @@ namespace Spectrum.Model
             Mass = 1;
             IsStatic = false;
 
-            ZIndex = 0;
+            ZIndex = -100;
 
             HasBecomeVisibleInAllColors = false;
         }
@@ -145,7 +145,7 @@ namespace Spectrum.Model
 
         public int CompareTo(GameObject obj)
         {
-            return ZIndex.CompareTo(obj.ZIndex);
+            return obj.ZIndex.CompareTo(ZIndex);
         }
 
         //Load the texture for the sprite using the Content Pipeline

@@ -279,7 +279,7 @@ namespace Spectrum.Model
                 }
             }
 
-            //level.GameObjects.Sort(); TODO: Something isn't working about this sort.
+            level.GameObjects.Sort();
 
             return level;
         }

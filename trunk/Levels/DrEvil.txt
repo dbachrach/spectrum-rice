@@ -6,7 +6,7 @@
 
 {"object" : "platform","id" : "a-plat","colors" : ["orange"],"position" : [350, 375]}
 
-{"object" : "switch","id" : "a-switch","colors" : ["orange"],"position" : [360, 345], 
+{"object" : "switch","id" : "a-switch","colors" : ["orange"],"position" : [360, 345],
 	"tangibility" : ["none"],"player-tangibility" : ["none"],  "_switch-actions" : [{
 									"receiver" : "a-plat",
 									"property" : "whiteness",
