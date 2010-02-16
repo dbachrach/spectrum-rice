@@ -181,6 +181,12 @@ namespace Spectrum.Model
             throw new Exception("Could not find object in level with id " + i);
         }
 
+
+        public void Win()
+        {
+            Completed = true;
+            GameRef.Win();
+        }
         public void Restart()
         {
             GameRef.Restart();
