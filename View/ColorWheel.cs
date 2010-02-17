@@ -89,19 +89,19 @@ namespace Spectrum.View
             spriteBatch.Draw(overlayImg, new Vector2(10 + wheelImg.Width / 2, 10 + wheelImg.Height / 2), null, Color.White, MoveBG ? 0 : (float)curRotation, new Vector2(wheelImg.Width / 2, wheelImg.Height / 2), 1.0f, SpriteEffects.None, 1.0f);
         }
 
-        public void SetWheelColor(Colors colors)
+        public void SetColor(Colors colors)
         {
             finalRotation = (2 * Math.PI / 6 * (colors.Index()));
         }
 
         // delegate
-        public void DidChangeColor(Colors colors, bool clockwise)
+        public void DidChangeColor(Colors colors, bool rightward)
         {
             if (colors.IsSingularColor())
             {
-                SetWheelColor(colors);
+                SetColor(colors);
                 newRotation = true;
-                Clockwise = clockwise;
+                Clockwise = rightward;
             }
             else
             {

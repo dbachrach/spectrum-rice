@@ -20,8 +20,9 @@ namespace Spectrum.View
         void LoadContent(ContentManager manager, GraphicsDevice graphicsDevice);
         void Update(GameTime gameTime);
         void Draw(SpriteBatch spriteBatch);
-        void SetWheelColor(Colors colors);
-        void DidChangeColor(Colors colors, bool clockwise);
+        void SetColor(Colors colors);
+        void DidChangeColor(Colors colors, bool rightward);
+
 
         bool MoveBG { get; set; }
     }

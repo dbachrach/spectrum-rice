@@ -80,7 +80,7 @@ namespace Spectrum.Model
         private List<GameObject> DoomedObjects;
         private List<GameObject> ResurrectedObjects;
 
-        private IColorIndicator colorWheel;
+        private IColorIndicator colorIndicator;
 
         public int Gravity = 3000;
 
@@ -91,11 +91,19 @@ namespace Spectrum.Model
             return _allColorsMode;
         }
 
+        private bool useColorBar = false;
+
 		/* Default Constructor */
 		public Level() {
-            //colorWheel = new ColorWheel();
-            colorWheel = new ColorBar();
-
+            
+            if (useColorBar)
+            {
+                colorIndicator = new ColorBar();
+            }
+            else
+            {
+                colorIndicator = new ColorWheel();
+            }
 			Completed = false;
 			CurrentColor = Colors.NoColors;
 			AllowedColors = Colors.AllColors;
@@ -211,8 +219,8 @@ namespace Spectrum.Model
                 obj.LoadContent(manager, graphicsDevice);
             }
 
-            colorWheel.LoadContent(manager, graphicsDevice);
-            colorWheel.SetWheelColor(StartingColor);
+            colorIndicator.LoadContent(manager, graphicsDevice);
+            colorIndicator.SetColor(StartingColor);
         }
 
         public void Update(GameTime gameTime)
@@ -245,7 +253,7 @@ namespace Spectrum.Model
                 obj.Update(gameTime);
             }
 
-            colorWheel.Update(gameTime);
+            colorIndicator.Update(gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -292,7 +300,7 @@ namespace Spectrum.Model
                 spriteBatch.DrawString(font, displayName, new Vector2(350, (int)this.Height - 50), Color.White);
             }
 
-            colorWheel.Draw(spriteBatch);
+            colorIndicator.Draw(spriteBatch);
         }
 
         public override string ToString()
@@ -302,14 +310,14 @@ namespace Spectrum.Model
 
         public void ForwardColor()
         {
-            if (colorWheel.MoveBG)
+            if (colorIndicator.MoveBG)
             {
                 do
                 {
                     CurrentColor = CurrentColor.BackwardColor();
                 } while (!AllowedColors.Contains(CurrentColor));
 
-                colorWheel.DidChangeColor(CurrentColor, false);
+                colorIndicator.DidChangeColor(CurrentColor, false);
             }
             else
             {
@@ -318,20 +326,20 @@ namespace Spectrum.Model
                     CurrentColor = CurrentColor.ForwardColor();
                 } while (!AllowedColors.Contains(CurrentColor));
 
-                colorWheel.DidChangeColor(CurrentColor, true);
+                colorIndicator.DidChangeColor(CurrentColor, true);
             }
         }
 
         public void BackwardColor()
         {
-            if (colorWheel.MoveBG)
+            if (colorIndicator.MoveBG)
             {
                 do
                 {
                     CurrentColor = CurrentColor.ForwardColor();
                 } while (!AllowedColors.Contains(CurrentColor));
 
-                colorWheel.DidChangeColor(CurrentColor, true);
+                colorIndicator.DidChangeColor(CurrentColor, true);
             }
             else
             {
@@ -340,7 +348,7 @@ namespace Spectrum.Model
                     CurrentColor = CurrentColor.BackwardColor();
                 } while (!AllowedColors.Contains(CurrentColor));
 
-                colorWheel.DidChangeColor(CurrentColor, false);
+                colorIndicator.DidChangeColor(CurrentColor, false);
             }
         }
 
