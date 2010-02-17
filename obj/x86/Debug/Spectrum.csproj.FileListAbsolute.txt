@@ -106,3 +106,6 @@ C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Levels\cloudy.txt
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Levels\DrEvil.txt
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Levels\tutorial1.txt
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\plat.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\rainbow\Bar.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\rainbow\border.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\rainbow\wedge.xnb

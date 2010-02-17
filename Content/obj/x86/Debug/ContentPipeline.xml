@@ -238,6 +238,36 @@
       <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\farseer\menufont.xnb</Output>
       <Time>2010-01-26T08:14:11.7832031-06:00</Time>
     </Item>
+    <Item>
+      <Source>rainbow\border.png</Source>
+      <Name>rainbow\border</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\rainbow\border.xnb</Output>
+      <Time>2010-02-17T08:23:22-06:00</Time>
+    </Item>
+    <Item>
+      <Source>rainbow\wedge.png</Source>
+      <Name>rainbow\wedge</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\rainbow\wedge.xnb</Output>
+      <Time>2010-02-17T08:23:27-06:00</Time>
+    </Item>
+    <Item>
+      <Source>rainbow\Bar.png</Source>
+      <Name>rainbow\Bar</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Parameters>
+        <Data Key="ColorKeyEnabled">False</Data>
+      </Parameters>
+      <Options>None</Options>
+      <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\rainbow\Bar.xnb</Output>
+      <Time>2010-02-17T08:23:14-06:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

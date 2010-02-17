@@ -34,7 +34,7 @@ namespace Spectrum
         public bool Paused { get; set; }
 
         private string levelPath = "Levels/";
-        private string[] levels = {"tutorial1.txt", "DrEvil.txt"};
+        private string[] levels = {"demo.txt", "tutorial1.txt", "DrEvil.txt"};
         private int levelIndex;
         private const int GameWidth = 1200;
         private const int GameHeight = 800;
