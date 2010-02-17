@@ -12,6 +12,7 @@ namespace Spectrum.Model.Convenience_Objects
         {
             ImageName = "switchOff";
             IsStatic = true;
+            Scale = 0.1f;
 
             Tangibility = Colors.NoColors;
             PlayerTangibility = Colors.NoColors;

@@ -213,6 +213,10 @@ namespace Spectrum.Model
                 {
                     newObject.ImageName = (string)obj["image"];
                 }
+                if (obj.ContainsKey("scale"))
+                {
+                    newObject.Scale = (float)(double)obj["scale"];
+                }
                 if (obj.ContainsKey("position"))
                 {
                     ArrayList positionJson = (ArrayList)obj["position"];
