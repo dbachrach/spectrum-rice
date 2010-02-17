@@ -89,10 +89,15 @@ namespace Spectrum.View
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            /* Draws the background, a copy of the bg to the left, and a copy of the bg to the right. */
+            // TODO: Make it get cutoff so you only see on length of rainbow inside the border
+            // TODO: Make the bg offset a bit so that the indicator is inside a color rather than on the edge of 2 colors
+            // TODO: Make the color indicated match up with what it should.
             spriteBatch.Draw(barImg, new Vector2((float)curPosn,50), null, Color.White, 0, Vector2.Zero, scale, SpriteEffects.None, 1.0f);
             spriteBatch.Draw(barImg, new Vector2((float)curPosn - (barImg.Width * scale), 50), null, Color.White, 0, Vector2.Zero, scale, SpriteEffects.None, 1.0f);
             spriteBatch.Draw(barImg, new Vector2((float)curPosn + (barImg.Width * scale), 50), null, Color.White, 0, Vector2.Zero, scale, SpriteEffects.None, 1.0f);
 
+            /* Draws the border and wedge indicator above it */
             spriteBatch.Draw(borderImg, new Vector2(0, (84*scale)), null, Color.White, 0, Vector2.Zero, scale, SpriteEffects.None, 1.0f);
             spriteBatch.Draw(wedgeImg, new Vector2(((barImg.Width * scale) / 2) - ((wedgeImg.Width*scale) / 2), (80*scale)), null, Color.White, 0, Vector2.Zero, scale, SpriteEffects.None, 1.0f);
         }
