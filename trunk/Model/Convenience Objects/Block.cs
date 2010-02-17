@@ -21,6 +21,7 @@ namespace Spectrum.Model
 			Pickupable = true;
             Mass = 2000;
             Tangibility = Colors.AllColors;
+            Scale = 0.15f;
 		}
 
         public override GameObject CombineObjectWith(GameObject obj)

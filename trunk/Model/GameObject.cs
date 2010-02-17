@@ -55,6 +55,7 @@ namespace Spectrum.Model
         public Vector2 OriginalVelocity { get; set; }
         public int ZIndex { get; set; }
         public bool HasBecomeVisibleInAllColors { get; set; }
+        public float Scale { get; set; }
 
         public Body body { get; set; }
         public Geom geom { get; set; }
@@ -91,6 +92,7 @@ namespace Spectrum.Model
 
             Mass = 1;
             IsStatic = false;
+            Scale = 1.0f;
 
             ZIndex = -100;
 
@@ -151,7 +153,6 @@ namespace Spectrum.Model
         //Load the texture for the sprite using the Content Pipeline
         public virtual void LoadContent(ContentManager theContentManager, GraphicsDevice graphicsDevice)
         {
-            /* If you change this, change VisibleSensor's LoadContent as well. */
             LoadTexture();
             LoadInactiveTexture();
             LoadPhysicsBody(Size, IsStatic);
@@ -159,17 +160,17 @@ namespace Spectrum.Model
 
         public void LoadTexture()
         {
-            Texture = new GameTexture(0.0f, 1.0f, .5f);
+            Texture = new GameTexture(0.0f, this.Scale, .5f);
             Texture.Load(Container.GameRef.Content, Container.GameRef.GraphicsDevice, ImageName, FrameCount, FramesPerSec);
             Texture.Pause();
 
-            Size = Texture.TextureSize();
+            Size = Texture.TextureSize() * this.Scale;
         }
         public void LoadInactiveTexture()
         {
             if (InactiveImageName != null && !InactiveImageName.Equals(""))
             {
-                InactiveTexture = new GameTexture(0.0f, 1.0f, .5f);
+                InactiveTexture = new GameTexture(0.0f, this.Scale, .5f);
                 InactiveTexture.Load(Container.GameRef.Content, Container.GameRef.GraphicsDevice, InactiveImageName, FrameCount, FramesPerSec);
                 InactiveTexture.Pause();
             }
