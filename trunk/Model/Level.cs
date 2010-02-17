@@ -80,7 +80,7 @@ namespace Spectrum.Model
         private List<GameObject> DoomedObjects;
         private List<GameObject> ResurrectedObjects;
 
-        private ColorWheel colorWheel;
+        private IColorIndicator colorWheel;
 
         public int Gravity = 3000;
 
@@ -93,7 +93,8 @@ namespace Spectrum.Model
 
 		/* Default Constructor */
 		public Level() {
-            colorWheel = new ColorWheel();
+            //colorWheel = new ColorWheel();
+            colorWheel = new ColorBar();
 
 			Completed = false;
 			CurrentColor = Colors.NoColors;
@@ -301,7 +302,7 @@ namespace Spectrum.Model
 
         public void ForwardColor()
         {
-            if (colorWheel.moveWheel)
+            if (colorWheel.MoveBG)
             {
                 do
                 {
@@ -323,7 +324,7 @@ namespace Spectrum.Model
 
         public void BackwardColor()
         {
-            if (colorWheel.moveWheel)
+            if (colorWheel.MoveBG)
             {
                 do
                 {

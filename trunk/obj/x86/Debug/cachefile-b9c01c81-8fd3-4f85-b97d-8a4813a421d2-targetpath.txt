@@ -24,3 +24,6 @@ Content\farseer\diagnosticFont.xnb
 Content\farseer\frameRateCounterFont.xnb
 Content\farseer\gamefont.xnb
 Content\farseer\menufont.xnb
+Content\rainbow\border.xnb
+Content\rainbow\wedge.xnb
+Content\rainbow\Bar.xnb
