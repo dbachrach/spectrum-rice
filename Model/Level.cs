@@ -91,7 +91,7 @@ namespace Spectrum.Model
             return _allColorsMode;
         }
 
-        private bool useColorBar = false;
+        private bool useColorBar = true;
 
 		/* Default Constructor */
 		public Level() {
