@@ -96,19 +96,19 @@ namespace Spectrum.View
             spriteBatch.Draw(wedgeImg, new Vector2( (borderImg.Width/2)-(wedgeImg.Width/2), 50), null, Color.White, 0, Vector2.Zero, 1.0f, SpriteEffects.None, 1.0f);
         }
 
-        public void SetWheelColor(Colors colors)
+        public void SetColor(Colors colors)
         {
             finalPosn = (colors.Index() * (barImg.Width / 6));
         }
 
         // delegate
-        public void DidChangeColor(Colors colors, bool clockwise)
+        public void DidChangeColor(Colors colors, bool rightward)
         {
             if (colors.IsSingularColor())
             {
-                SetWheelColor(colors);
+                SetColor(colors);
                 newMove = true;
-                toRight = clockwise;
+                toRight = rightward;
             }
             else
             {
