@@ -23,7 +23,10 @@ namespace Spectrum.View
         void SetColor(Colors colors);
         void DidChangeColor(Colors colors, bool rightward);
 
-
+        /// <summary>
+        /// True to have the background move when the color changes. 
+        /// False to have the indicator move when the color changes.
+        /// </summary>
         bool MoveBG { get; set; }
     }
 }
