@@ -33,4 +33,10 @@
 								 }]}
 
 {"object" : "door","id" : "door","colors" : ["all"],"position" : [1100, 300]} 
+
+{"object" : "game-object", "id" : "water", "colors" : ["all"], "position" : [199, 685], "image" : "water", "static" : true, "scale" : 0.4, "player-tangibility" : ["none"]}
+{"object" : "game-object", "id" : "water2", "colors" : ["all"], "position" : [430, 685], "image" : "water", "static" : true, "scale" : 0.4, "player-tangibility" : ["none"]}
+{"object" : "game-object", "id" : "water3", "colors" : ["all"], "position" : [661, 685], "image" : "water", "static" : true, "scale" : 0.4, "player-tangibility" : ["none"]}
+{"object" : "game-object", "id" : "water4", "colors" : ["all"], "position" : [892, 685], "image" : "water", "static" : true, "scale" : 0.4, "player-tangibility" : ["none"]}
+
 ]

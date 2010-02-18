@@ -11,8 +11,6 @@
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\obj\x86\Debug\Spectrum.exe
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\obj\x86\Debug\Spectrum.pdb
-C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\demo.txt
-C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\demoLevel.txt
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\dude.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\platform.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switch.xnb
@@ -80,8 +78,6 @@ C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\color-wheel
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\color-wheel.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\clouds.xnb
 U:\comp410\bin\x86\Debug\Content\clouds.xnb
-C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\cloudy.txt
-C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\tutorial1.txt
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\clouds.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\tutorial\tutorialJump.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\tutorial\tutorialThumb.xnb
@@ -108,3 +104,12 @@ U:\comp410\bin\x86\Debug\Content\plat.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\rainbow\Bar.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\rainbow\border.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\rainbow\wedge.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Levels\demo.txt
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Levels\cloudy.txt
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Levels\tutorial1.txt
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Levels\DrEvil.txt
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\plat.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\rainbow\Bar.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\rainbow\border.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\rainbow\wedge.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\water.xnb
