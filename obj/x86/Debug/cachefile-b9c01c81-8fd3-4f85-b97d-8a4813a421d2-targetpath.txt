@@ -18,12 +18,13 @@ Content\tutorial\tutorialThumb.xnb
 Content\tutorial\tutorialTrigger.xnb
 Content\tutorial\tutorialX.xnb
 Content\plat.xnb
+Content\rainbow\Bar.xnb
+Content\rainbow\border.xnb
+Content\rainbow\wedge.xnb
+Content\water.xnb
 Content\Pesca.xnb
 Content\farseer\detailsFont.xnb
 Content\farseer\diagnosticFont.xnb
 Content\farseer\frameRateCounterFont.xnb
 Content\farseer\gamefont.xnb
 Content\farseer\menufont.xnb
-Content\rainbow\Bar.xnb
-Content\rainbow\border.xnb
-Content\rainbow\wedge.xnb
