@@ -192,6 +192,9 @@
     </None>
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
+    <None Include="Levels\Level3.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Content Include="todo.txt" />
     <None Include="Levels\DrEvil.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -72,6 +72,11 @@ namespace Spectrum.Model
 
         public bool DebugMode { get; set; }
 
+        // if the player travels outside these bounds, he will be killed
+        private int MIN_KILL_X = -10;
+        private int MIN_KILL_Y = -10;
+        private int MAX_KILL_X = 1290;
+        private int MAX_KILL_Y = 730;
 
         public Player player;
 
@@ -91,7 +96,7 @@ namespace Spectrum.Model
             return _allColorsMode;
         }
 
-        private bool useColorBar = false;
+        private bool useColorBar = true;
 
 		/* Default Constructor */
 		public Level() {
@@ -175,6 +180,12 @@ namespace Spectrum.Model
             AddGameObject(p);
         }
 
+        public void RemoveFromSimulator(GameObject obj)
+        {
+            Sim.Remove(obj.body);
+            Sim.Remove(obj.geom);
+        }
+
         // Returns a game object within this level with the id i. 
         // Throws an exception if object was not found.
         public GameObject GameObjectForId(string i)
@@ -225,8 +236,6 @@ namespace Spectrum.Model
 
         public void Update(GameTime gameTime)
         {
-            
-
             if (DoomedObjects != null)
             {
                 foreach (GameObject DoomedObj in DoomedObjects)
@@ -254,6 +263,8 @@ namespace Spectrum.Model
             }
 
             colorIndicator.Update(gameTime);
+
+            checkPlayerDeath();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -299,6 +310,18 @@ namespace Spectrum.Model
 
                 spriteBatch.DrawString(font, displayName, new Vector2(350, (int)this.Height - 50), Color.White);
             }
+
+            /*if (player.BlockLeft)
+            {
+                string label = "block left";
+                spriteBatch.DrawString(font, label, new Vector2(450, (int)this.Height - 50), Color.White);
+            }
+
+            if (player.BlockRight)
+            {
+                string label = "block right";
+                spriteBatch.DrawString(font, label, new Vector2(550, (int)this.Height - 50), Color.White);
+            }*/
 
             colorIndicator.Draw(spriteBatch);
         }
@@ -365,6 +388,17 @@ namespace Spectrum.Model
             //CurrentColor = PreviousColor;
             //PreviousColor = Colors.NoColors;
             _allColorsMode = false;
+        }
+
+        private void checkPlayerDeath()
+        {
+            float x = player.body.Position.X;
+            float y = player.body.Position.Y;
+
+            if (x < MIN_KILL_X || x > MAX_KILL_X || y < MIN_KILL_Y || y > MAX_KILL_Y)
+            {
+                Restart();
+            }
         }
     }
 }

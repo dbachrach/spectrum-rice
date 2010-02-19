@@ -188,6 +188,7 @@ namespace Spectrum.Model
             {
                 Mass = float.MaxValue;
             }
+
             body = BodyFactory.Instance.CreateRectangleBody(Container.Sim, size.X, size.Y, Mass);
             body.Position = position;
             body.isStatic = isStatic;
@@ -207,15 +208,13 @@ namespace Spectrum.Model
             //Container.Sim.Add(geom);
 
             geom = GeomFactory.Instance.CreateRectangleGeom(Container.Sim, body, size.X, size.Y);
-            
+
             geom.OnCollision += OnCollision;
             geom.OnSeparation += OnSeparation;
 
             geom.RestitutionCoefficient = 0; // bounciness
 
             geom.Tag = this;
-
-            //geom.IsSensor = IsSensor;
 
             this.DidLoadPhysicsBody();
         }
@@ -361,6 +360,16 @@ namespace Spectrum.Model
             // a generic game object doesn't do anything special on collision
         }
 
+        protected virtual Body WillLoadPhysicsBody()
+        {
+            return null;
+        }
+
+        protected virtual Geom WillLoadPhysicsGeom()
+        {
+            return null;
+        }
+
         /* Subclasses should override this method to modify physics body object after it is created */
         protected virtual void DidLoadPhysicsBody() 
         {
@@ -475,7 +484,6 @@ namespace Spectrum.Model
             if (sendEvents)
             {
                 this.DidCollideWithObject(o2, ref contactList, didHit);
-                o2.DidCollideWithObject(this, ref contactList, didHit); /* TODO: We need this right? */
             }
 
             return didHit;

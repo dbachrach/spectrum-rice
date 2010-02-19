@@ -35,21 +35,19 @@ namespace Spectrum
 
         private string levelPath = "Levels/";
         private string levelExtension = ".txt";
-        private string[] levels = { "TrainingDay", "DrEvil"};
+        private string[] levels = {"TrainingDay", "DrEvil","Level3"};
         private int levelIndex;
         private const int GameWidth = 1280;
         private const int GameHeight = 720;
 
         public Game1()
         {
-            levelIndex = 0;
-
             graphics = new GraphicsDeviceManager(this);
             // TODO: Move this to load level when we make that function
             graphics.PreferredBackBufferWidth = GameWidth;
             graphics.PreferredBackBufferHeight = GameHeight;
 
-            LoadLevel(false);
+            LoadLevel(0, false);
 
             Content.RootDirectory = "Content";
         }
@@ -171,18 +169,18 @@ namespace Spectrum
         public void Restart()
         {
             // TODO: use reload current level
-            LoadLevel(true);
+            LoadLevel(levelIndex, true);
         }
 
         public void Win()
         {
-            levelIndex++;
-            LoadLevel(true);
+            LoadLevel(levelIndex+1, true);
         }
 
-        public void LoadLevel(bool loadContent)
+        public void LoadLevel(int index, bool loadContent)
         {
-            level = Parser.Parse(levelPath + levels[levelIndex % levels.Count<string>()] + levelExtension);
+            levelIndex = index;
+            level = Parser.Parse(levelPath + levels[index % levels.Count<string>()] + levelExtension);
             level.GameRef = this;
             if (loadContent)
             {
