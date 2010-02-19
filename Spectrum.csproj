@@ -196,7 +196,7 @@
     <None Include="Levels\DrEvil.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Levels\tutorial1.txt">
+    <None Include="Levels\TrainingDay.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

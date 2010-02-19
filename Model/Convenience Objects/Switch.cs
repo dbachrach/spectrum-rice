@@ -27,7 +27,7 @@ namespace Spectrum.Model.Convenience_Objects
             act.Receiver = this;
             act.Property = Globals.ImageProperty;
             act.Type = ActionType.Change;
-            act.Value = "switchOn_sm";
+            act.Value = "switchOn";
 
             e.Actions.Add(act);
 
