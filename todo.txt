@@ -1,13 +1,9 @@
 TODO
 ----
-Combine objects together
-Make blocks not fall when you view their color.
-Picking up an object who has a combined child, removes the child
 Add more types to the Execute() method in EventAction
 Add new properties to the parser
 
 
-Possession should become part of player
 Start menu
 Collision detect before switching colors
 when carrying an object to combine with, show things that locally you
@@ -17,8 +13,6 @@ Level scrolling
 Sometimes when your next to a block it doesnt register as a collision, so you have to held MOVE keys to be considered near the block
 
 Resolve physics
-
-Kill him if he's way off the map
 
 Tutorial 2
 
@@ -45,3 +39,6 @@ Did Sense:
             
 Go through image files and make sure purple isn't transparent
 Make doors sensors - you can walk through them
+Combine ground and solid ground
+Adjust barrier in level 3
+Clean up JSON specification

@@ -18,7 +18,7 @@ namespace Spectrum.View
     class PauseMenu
     {
         private SpriteFont font;
-        private MenuItem[] menuItem = new MenuItem[4];
+        private MenuItem[] menuItem = new MenuItem[7];
         private int selectedItem = 0;
         private GameTexture pauseBackground;
         private Game1 game;
@@ -45,7 +45,10 @@ namespace Spectrum.View
             menuItem[0] = new MenuItem(Globals.ResumeMenuItem, Globals.ResumeMenuItem, font, new Vector2(350f, 150f), baseColor, selectedColor, false);
             menuItem[1] = new MenuItem(Globals.RestartMenuItem, Globals.RestartMenuItem, font, new Vector2(350f, 200f), baseColor, selectedColor, false);
             menuItem[2] = new MenuItem(Globals.SettingsMenuItem, Globals.SettingsMenuItem, font, new Vector2(350f, 250f), baseColor, selectedColor, false);
-            menuItem[3] = new MenuItem(Globals.ExitMenuItem, Globals.ExitMenuItem, font, new Vector2(350f, 300f), baseColor, selectedColor, false);
+            menuItem[3] = new MenuItem("lev1", "Level 1: Training Day", font, new Vector2(350f, 300f), baseColor, selectedColor, false);
+            menuItem[4] = new MenuItem("lev2", "Level 2: Dr. Evil's Quarters", font, new Vector2(350f, 350f), baseColor, selectedColor, false);
+            menuItem[5] = new MenuItem("lev3", "Level 3: Level 3", font, new Vector2(350f, 400f), baseColor, selectedColor, false);
+            menuItem[6] = new MenuItem(Globals.ExitMenuItem, Globals.ExitMenuItem, font, new Vector2(350f, 450f), baseColor, selectedColor, false);
 
             pauseBackground.Load(content, graphics, null, 1, 1, ViewWidth, ViewHeight);
             pauseBackground.Pause();
@@ -98,6 +101,25 @@ namespace Spectrum.View
                     game.Exit();
                     selectedItem = 0;
                 }
+                else if (menuItem[selectedItem].Name.Equals("lev1"))
+                {
+                    game.Paused = false;
+                    game.LoadLevel(0,true);
+
+                    selectedItem = 0;
+                }
+                else if (menuItem[selectedItem].Name.Equals("lev2"))
+                {
+                    game.Paused = false;
+                    game.LoadLevel(1,true);
+                    selectedItem = 0;
+                }
+                else if (menuItem[selectedItem].Name.Equals("lev3"))
+                {
+                    game.Paused = false;
+                    game.LoadLevel(2,true);
+                    selectedItem = 0;
+                }
             }
 
             menuItem[selectedItem].Selected = true;
@@ -105,7 +127,7 @@ namespace Spectrum.View
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            pauseBackground.DrawFrame(spriteBatch, Colors.AllColors, new Vector2(400, 300), SpriteEffects.None, false);
+            pauseBackground.DrawFrame(spriteBatch, Colors.AllColors, new Vector2(ViewWidth/2, ViewHeight/2), SpriteEffects.None, false);
             for (int i = 0; i < menuItem.Length; i++)
             {
                 menuItem[i].Draw(spriteBatch);

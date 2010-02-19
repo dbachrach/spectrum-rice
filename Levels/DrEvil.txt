@@ -1,5 +1,5 @@
 ﻿[
-{"object" : "level","id" : "level","number" : 2,"name" : "Dr. Evil's Quarters","width" : 1280,"height" : 720,"allowed-colors" : ["orange","green","purple"], "starting-color" : ["purple"], "start-position" : [25,300] }
+{"object" : "level","id" : "level","number" : 2,"name" : "Dr. Evil's Quarters","width" : 1280,"height" : 720,"allowed-colors" : ["orange","green","purple"], "starting-color" : ["purple"], "start-position" : [25,220] }
 
 {"object" : "solid-ground", "id" : "west-bank", "position" : [0,320], "_w" : 240, "_h" : 400}
 {"object" : "solid-ground", "id" : "east-bank", "position" : [1040,320], "_w" : 240, "_h" : 400}
@@ -34,9 +34,7 @@
 
 {"object" : "door","id" : "door","colors" : ["all"],"position" : [1140, 220]} 
 
-{"object" : "game-object", "id" : "water", "colors" : ["all"], "position" : [199, 605], "image" : "water", "static" : true, "scale" : 0.4, "player-tangibility" : ["none"]}
-{"object" : "game-object", "id" : "water2", "colors" : ["all"], "position" : [430, 605], "image" : "water", "static" : true, "scale" : 0.4, "player-tangibility" : ["none"]}
-{"object" : "game-object", "id" : "water3", "colors" : ["all"], "position" : [661, 605], "image" : "water", "static" : true, "scale" : 0.4, "player-tangibility" : ["none"]}
-{"object" : "game-object", "id" : "water4", "colors" : ["all"], "position" : [892, 605], "image" : "water", "static" : true, "scale" : 0.4, "player-tangibility" : ["none"]}
+{"object" : "game-object", "id" : "water", "colors" : ["all"], "position" : [209, 605], "image" : "water", "static" : true, "scale" : 1, "player-tangibility" : ["none"]}
+{"object" : "game-object", "id" : "water2", "colors" : ["all"], "position" : [800, 605], "image" : "water", "static" : true, "scale" : 1, "player-tangibility" : ["none"]}
 
 ]

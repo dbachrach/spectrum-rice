@@ -37,7 +37,7 @@ namespace Spectrum.Model
 
         public GameObject NearObject { get; set;}
 
-        public Joint Connector { get; set; }
+        public WeldJoint Connector { get; set; }
 
         // whether or not to allow the player to add sideways impulse to the player by pushing the
         // arrows keys
@@ -90,6 +90,7 @@ namespace Spectrum.Model
         {
             if (Possession != null)
             {
+                Possession.body.Position = new Vector2(this.body.position.X, this.body.position.Y);
                 Possession.Draw(spriteBatch);
             }
 
@@ -132,7 +133,7 @@ namespace Spectrum.Model
                 if (!BlockLeft)
                 {
                     /* Chooses a horizontal vector that is adjusted either for moving on the ground or in the air */
-                    this.body.ApplyImpulse((IsTouchingGround) ? moveLeft : moveLeftAir);
+                   this.body.ApplyImpulse((IsTouchingGround) ? moveLeft : moveLeftAir);
                 }
 
                 d = Direction.Left;
@@ -274,7 +275,8 @@ namespace Spectrum.Model
                 {
                     normal += contact.Normal;
                 }
-
+                normal.Normalize();
+    
                 double NECrossP = normal.X * NorthEast.Y - normal.Y * NorthEast.X;
                 double NWCrossP = normal.X * NorthWest.Y - normal.Y * NorthWest.X;
 
@@ -334,12 +336,18 @@ namespace Spectrum.Model
 
             obj.body.position = new Vector2(this.body.position.X, this.body.position.Y - (this.Size.Y / 2) - (obj.Size.Y / 2));
             obj.body.Mass = 0.0001f;
-            SliderJoint connector = JointFactory.Instance.CreateSliderJoint(this.body, new Vector2(0, -(this.Size.Y / 2)), obj.body, new Vector2(0, (obj.Size.Y / 2)), 0, 0);
+            WeldJoint connector = new WeldJoint(this.body, Possession.body, new Vector2(this.body.position.X, this.body.position.Y + this.Size.Y / 2.0f-50));
 
             Connector = connector;
             Container.Sim.Add(connector);
 
             obj.Reap(false);
+
+            //Container.RemoveFromSimulator(this);
+
+            //obj.Reap(true);
+
+            //this.LoadPhysicsBody(new Vector2(this.body.position.X, this.body.position.Y - Possession.Size.Y/2.0f), new Vector2(Size.X, Size.Y + Possession.Size.Y), this.IsStatic);
         }
 
         private void Drop()
@@ -350,6 +358,9 @@ namespace Spectrum.Model
             {
                 return;
             }
+
+            //Container.RemoveFromSimulator(this);
+            //this.LoadPhysicsBody(new Vector2(this.body.position.X, this.body.position.Y + Possession.Size.Y / 2.0f), new Vector2(Size.X, Size.Y), this.IsStatic);
 
             int myWidth = (int)this.Size.X;
             int myHeight = (int)this.Size.Y;
@@ -369,13 +380,29 @@ namespace Spectrum.Model
             // Restores mass from what it used to be before we zeroed it
             Possession.body.Mass = Possession.Mass;
 
-            // remove the joint from the simulator
             Container.Sim.Remove(Connector);
-            Connector = null;
 
             Possession = null;
         }
+        /*
+        protected override Body WillLoadPhysicsBody()
+        {
+            if (Possession == null)
+            {
+                return null;
+            }
+            return BodyFactory.Instance.CreateRectangleBody(Container.Sim, Size.X, Size.Y + Possession.Size.Y, Mass); ;
+        }
 
+        protected override Geom WillLoadPhysicsGeom()
+        {
+            if (Possession == null)
+            {
+                return null;
+            }
+            return GeomFactory.Instance.CreateRectangleGeom(Container.Sim, body, Size.X, Size.Y + Possession.Size.Y);
+        }
+        */
         protected override void DidLoadPhysicsBody()
         {
             geom.FrictionCoefficient = 2.0f;
