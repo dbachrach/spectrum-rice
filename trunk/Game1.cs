@@ -34,10 +34,11 @@ namespace Spectrum
         public bool Paused { get; set; }
 
         private string levelPath = "Levels/";
-        private string[] levels = { "DrEvil.txt", "tutorial1.txt"};
+        private string levelExtension = ".txt";
+        private string[] levels = { "TrainingDay", "DrEvil"};
         private int levelIndex;
-        private const int GameWidth = 1200;
-        private const int GameHeight = 800;
+        private const int GameWidth = 1280;
+        private const int GameHeight = 720;
 
         public Game1()
         {
@@ -181,7 +182,7 @@ namespace Spectrum
 
         public void LoadLevel(bool loadContent)
         {
-            level = Parser.Parse(levelPath + levels[levelIndex]);
+            level = Parser.Parse(levelPath + levels[levelIndex % levels.Count<string>()] + levelExtension);
             level.GameRef = this;
             if (loadContent)
             {

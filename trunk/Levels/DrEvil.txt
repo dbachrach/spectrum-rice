@@ -1,12 +1,12 @@
 ﻿[
-{"object" : "level","id" : "level","number" : 2,"name" : "Dr. Evil's Quarters","width" : 1200,"height" : 800,"allowed-colors" : ["orange","green","purple"], "starting-color" : ["purple"], "start-position" : [25,300] }
+{"object" : "level","id" : "level","number" : 2,"name" : "Dr. Evil's Quarters","width" : 1280,"height" : 720,"allowed-colors" : ["orange","green","purple"], "starting-color" : ["purple"], "start-position" : [25,300] }
 
-{"object" : "solid-ground", "id" : "west-bank", "position" : [0,400], "_w" : 200, "_h" : 400}
-{"object" : "solid-ground", "id" : "east-bank", "position" : [1000,400], "_w" : 200, "_h" : 400}
+{"object" : "solid-ground", "id" : "west-bank", "position" : [0,320], "_w" : 240, "_h" : 400}
+{"object" : "solid-ground", "id" : "east-bank", "position" : [1040,320], "_w" : 240, "_h" : 400}
 
-{"object" : "platform","id" : "a-plat","colors" : ["orange"],"position" : [350, 375]}
+{"object" : "platform","id" : "a-plat","colors" : ["orange"],"position" : [390, 295]}
 
-{"object" : "switch","id" : "a-switch","colors" : ["orange"],"position" : [360, 345],
+{"object" : "switch","id" : "a-switch","colors" : ["orange"],"position" : [480, 265],
 	"tangibility" : ["none"],"player-tangibility" : ["none"],  "_switch-actions" : [{
 									"receiver" : "a-plat",
 									"property" : "whiteness",
@@ -14,8 +14,8 @@
 									"value" : true
 								 }]}
 								 
-{"object" : "platform","id" : "b-plat","colors" : ["green"],"position" : [550, 375]}
-{"object" : "switch","id" : "b-switch","colors" : ["green"],"position" : [560, 345],
+{"object" : "platform","id" : "b-plat","colors" : ["green"],"position" : [590, 295]}
+{"object" : "switch","id" : "b-switch","colors" : ["green"],"position" : [680, 265],
 	"tangibility" : ["none"],"player-tangibility" : ["none"], "_switch-actions" : [{
 									"receiver" : "b-plat",
 									"property" : "whiteness",
@@ -23,8 +23,8 @@
 									"value" : true
 								 }]}
 								 
-{"object" : "platform","id" : "c-plat","colors" : ["purple"],"position" : [750, 375]}
-{"object" : "switch","id" : "c-switch","colors" : ["purple"],"position" : [760, 345],
+{"object" : "platform","id" : "c-plat","colors" : ["purple"],"position" : [790, 295]}
+{"object" : "switch","id" : "c-switch","colors" : ["purple"],"position" : [880, 265],
 	"tangibility" : ["none"],"player-tangibility" : ["none"], "_switch-actions" : [{
 									"receiver" : "c-plat",
 									"property" : "whiteness",
@@ -32,11 +32,11 @@
 									"value" : true
 								 }]}
 
-{"object" : "door","id" : "door","colors" : ["all"],"position" : [1100, 300]} 
+{"object" : "door","id" : "door","colors" : ["all"],"position" : [1140, 220]} 
 
-{"object" : "game-object", "id" : "water", "colors" : ["all"], "position" : [199, 685], "image" : "water", "static" : true, "scale" : 0.4, "player-tangibility" : ["none"]}
-{"object" : "game-object", "id" : "water2", "colors" : ["all"], "position" : [430, 685], "image" : "water", "static" : true, "scale" : 0.4, "player-tangibility" : ["none"]}
-{"object" : "game-object", "id" : "water3", "colors" : ["all"], "position" : [661, 685], "image" : "water", "static" : true, "scale" : 0.4, "player-tangibility" : ["none"]}
-{"object" : "game-object", "id" : "water4", "colors" : ["all"], "position" : [892, 685], "image" : "water", "static" : true, "scale" : 0.4, "player-tangibility" : ["none"]}
+{"object" : "game-object", "id" : "water", "colors" : ["all"], "position" : [199, 605], "image" : "water", "static" : true, "scale" : 0.4, "player-tangibility" : ["none"]}
+{"object" : "game-object", "id" : "water2", "colors" : ["all"], "position" : [430, 605], "image" : "water", "static" : true, "scale" : 0.4, "player-tangibility" : ["none"]}
+{"object" : "game-object", "id" : "water3", "colors" : ["all"], "position" : [661, 605], "image" : "water", "static" : true, "scale" : 0.4, "player-tangibility" : ["none"]}
+{"object" : "game-object", "id" : "water4", "colors" : ["all"], "position" : [892, 605], "image" : "water", "static" : true, "scale" : 0.4, "player-tangibility" : ["none"]}
 
 ]

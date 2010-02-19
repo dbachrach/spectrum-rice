@@ -27,7 +27,6 @@ Combining
 Seeing all colors
 
 
-1 - Specifying image height and width in JSON for GameObject
 Tooltips for the tutorial
 Make it convenient to add a sensor
 Menuing, Progression through levels
@@ -43,3 +42,6 @@ Did Sense:
                 /* Removes collision events with obj */
             //    Events.RemoveAll(ev => (ev.Type == EventType.Collision && ev.CollisionTarget.Equals(obj)));
             //}
+            
+Go through image files and make sure purple isn't transparent
+Make doors sensors - you can walk through them
