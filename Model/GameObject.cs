@@ -483,7 +483,13 @@ namespace Spectrum.Model
 
             if (sendEvents)
             {
-                this.DidCollideWithObject(o2, ref contactList, didHit);
+                o1.DidCollideWithObject(o2, ref contactList, didHit);
+                if (!didHit)
+                {
+                    // TODO: I think we need this to inform o2 of the collision. Looks like phys won't call onCollision to the o
+                    // other object if we return false
+                    o2.DidCollideWithObject(o1, ref contactList, didHit);
+                }
             }
 
             return didHit;

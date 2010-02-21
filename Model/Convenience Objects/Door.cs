@@ -20,6 +20,12 @@ namespace Spectrum.Model
             ImageName = "dr";
 			Pickupable = false;
             IsStatic = true;
+            ZIndex = 100; // draw below player
+
+            Tangibility = Colors.NoColors;
+            PlayerTangibility = Colors.NoColors;
+            Sensibility = Colors.AllColors;
+            PlayerSensibility = Colors.AllColors;
 
             Events = new List<Event>();
 
@@ -35,5 +41,11 @@ namespace Spectrum.Model
             e.Actions.Add(a);
             Events.Add(e);
 		}
+
+        public override void setVisibility(Colors vis)
+        {
+            Visibility = vis;
+            PlayerSensibility = vis;
+        }
     }
 }
