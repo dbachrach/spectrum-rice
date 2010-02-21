@@ -42,3 +42,6 @@ Make doors sensors - you can walk through them
 Combine ground and solid ground
 Adjust barrier in level 3
 Clean up JSON specification
+
+Make PushButton have both the box and the pusher as 2 different objects.
+    That way we can animate the pusher being pushed in, and player will actually sit properly on the button.

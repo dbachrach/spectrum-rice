@@ -57,7 +57,7 @@ namespace Spectrum.Model
             else
             {
                 // TODO: Get all images to have the white space at the bottom so that we don't need these special cases
-                if (asset.Equals("plat") || asset.Equals("box") || asset.Equals("switchOff") || asset.Equals("water") || asset.Equals("switchOn"))
+                if (asset.Equals("plat") || asset.Equals("box") || asset.Equals("switchOff") || asset.Equals("water") || asset.Equals("switchOn") || asset.Equals("switchBoxUp") || asset.Equals("switchBoxDown"))
                 {
                     assetCount = 7;
                 }

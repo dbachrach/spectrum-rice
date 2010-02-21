@@ -7,4 +7,6 @@
 {"object" : "block","id" : "red-block", "position" : [50, 570], "colors" : ["red"],"combinable-with" : ["blue-block"]}
 {"object" : "block","id" : "blue-block", "position" : [300, 570], "colors" : ["blue"],"combinable-with" : ["red-block"]}
 
+{"object" : "push","id" : "pusher", "position" : [600, 570], "colors" : ["purple"]}
+
 {"object" : "door","id" : "door","colors" : ["all"],"position" : [1180, 390]}]
