@@ -22,13 +22,15 @@ Content\rainbow\Bar.xnb
 Content\rainbow\border.xnb
 Content\rainbow\wedge.xnb
 Content\water.xnb
+Content\switchOn.xnb
 Content\Pesca.xnb
 Content\farseer\detailsFont.xnb
 Content\farseer\diagnosticFont.xnb
 Content\farseer\frameRateCounterFont.xnb
 Content\farseer\gamefont.xnb
 Content\farseer\menufont.xnb
-Content\switchOn.xnb
+Content\switchBoxDown.xnb
+Content\switchBoxUp.xnb
 Levels\demo.txt
 Levels\cloudy.txt
 Levels\Level3.txt

@@ -160,6 +160,10 @@ namespace Spectrum.Model
                     {
                         newObject = new Switch(player);
                     }
+                    else if (objType.Equals("push"))
+                    {
+                        newObject = new PushButton(player);
+                    }
 
                     /* Set properties */
                     if (obj.ContainsKey("id"))
