@@ -130,3 +130,5 @@ U:\comp410\bin\x86\Debug\Content\switchBoxDown.xnb
 U:\comp410\bin\x86\Debug\Content\switchBoxUp.xnb
 U:\comp410\bin\x86\Debug\Content\rainbow\circle.xnb
 U:\comp410\bin\x86\Debug\Content\rainbow\WedgeCircle.xnb
+U:\comp410\bin\x86\Debug\Content\flowerBottoms.xnb
+U:\comp410\bin\x86\Debug\Content\flowerTops.xnb

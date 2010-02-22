@@ -1,34 +1,12 @@
 TODO
 ----
-Add more types to the Execute() method in EventAction
-Add new properties to the parser
-
-
 Start menu
-Collision detect before switching colors
-when carrying an object to combine with, show things that locally you
-   can interact with regardless of color
-  
-Level scrolling
-Sometimes when your next to a block it doesnt register as a collision, so you have to held MOVE keys to be considered near the block
-
-Resolve physics
-
-Tutorial 2
-
-Switches
-Combining
-Seeing all colors
-
-
+when carrying an object to combine with, show things that locally you can interact with regardless of color
 Tooltips for the tutorial
 Make it convenient to add a sensor
-Menuing, Progression through levels
-One more level
 Add onseparation for eventactions
 Make invisible GameObject
 Add OneTime sensing to GameObject
-fade between colors at rate of color wheel spin
 
 Did Sense:
 			//if (OneTime)
@@ -38,14 +16,17 @@ Did Sense:
             //}
             
 Go through image files and make sure purple isn't transparent
-Make doors sensors - you can walk through them
 Combine ground and solid ground
-Adjust barrier in level 3
+Adjust barrier in level 3 (NO HACKY JUMPS YO)
 Clean up JSON specification
 
 Make PushButton have both the box and the pusher as 2 different objects.
     That way we can animate the pusher being pushed in, and player will actually sit properly on the button.
-    
-I think we can get rid of didLoadPhysicsBody by adding properties to objects like InitialBounciness...
 
-Remove param future from Execute in Event and EventAction. No longer using it.
+EventAction: PlaySound
+
+Defer
+-----   
+Sometimes when your next to a block it doesnt register as a collision, so you have to held MOVE keys to be considered near the block
+fade between colors at rate of color wheel spin
+

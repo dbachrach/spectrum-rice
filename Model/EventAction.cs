@@ -74,7 +74,7 @@ namespace Spectrum.Model
             }
         }
 
-        public void Execute(List<EventAction> future, List<EventAction> defer, double curMs)
+        public void Execute(List<EventAction> deferFuture, double curMs)
         {
             if (Delay > 0)
             {
@@ -82,7 +82,7 @@ namespace Spectrum.Model
                 LaunchTime = curMs + Delay;
                 Delay = 0;
                 Console.WriteLine("Adding {0} to futures at launch time {1}", this, LaunchTime);
-                defer.Add(this);
+                deferFuture.Add(this);
             }
             else
             {
@@ -181,7 +181,7 @@ namespace Spectrum.Model
                         {
                             this.RepeatCount--;
                         }
-                        defer.Add(this);
+                        deferFuture.Add(this);
                     }
                 }
 

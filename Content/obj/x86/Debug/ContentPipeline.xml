@@ -328,6 +328,24 @@
       <Output>U:\comp410\bin\x86\Debug\Content\rainbow\WedgeCircle.xnb</Output>
       <Time>2010-02-22T12:28:11.657-06:00</Time>
     </Item>
+    <Item>
+      <Source>flowerBottoms.png</Source>
+      <Name>flowerBottoms</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>U:\comp410\bin\x86\Debug\Content\flowerBottoms.xnb</Output>
+      <Time>2010-02-22T12:28:11.025-06:00</Time>
+    </Item>
+    <Item>
+      <Source>flowerTops.png</Source>
+      <Name>flowerTops</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>U:\comp410\bin\x86\Debug\Content\flowerTops.xnb</Output>
+      <Time>2010-02-22T12:30:35.708-06:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
