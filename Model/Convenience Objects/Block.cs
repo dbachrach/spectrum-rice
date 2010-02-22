@@ -22,6 +22,8 @@ namespace Spectrum.Model
             Mass = 2000;
             Tangibility = Colors.AllColors;
             Scale = 0.15f;
+
+            InitialFriction = .8f;
 		}
 
         public override GameObject CombineObjectWith(GameObject obj)
@@ -50,7 +52,7 @@ namespace Spectrum.Model
 
         protected override void DidLoadPhysicsBody()
         {
-            geom.FrictionCoefficient = .8f; // TODO: Pick a good value for friction
+            //geom.FrictionCoefficient = .8f; // TODO: Pick a good value for friction
         }
     }
 }

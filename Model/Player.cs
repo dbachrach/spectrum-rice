@@ -84,6 +84,9 @@ namespace Spectrum.Model
             BlockRight = false;
 
             ZIndex = Globals.PlayerZIndex;
+
+            InitialFriction = 2.0f;
+            InitialLinearDrag = 2.0f;
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -332,6 +335,7 @@ namespace Spectrum.Model
 
         private void Pickup(GameObject obj)
         {
+            
             Possession = obj;
 
             obj.body.position = new Vector2(this.body.position.X, this.body.position.Y - (this.Size.Y / 2) - (obj.Size.Y / 2));
@@ -340,7 +344,6 @@ namespace Spectrum.Model
 
             Connector = connector;
             Container.Sim.Add(connector);
-
             obj.Reap(false);
 
             //Container.RemoveFromSimulator(this);
@@ -405,8 +408,8 @@ namespace Spectrum.Model
         */
         protected override void DidLoadPhysicsBody()
         {
-            geom.FrictionCoefficient = 2.0f;
-            body.LinearDragCoefficient = 2.0f;
+            //geom.FrictionCoefficient = 2.0f;
+            //body.LinearDragCoefficient = 2.0f;
         }
 
         public void WinLevel()

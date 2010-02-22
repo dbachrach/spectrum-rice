@@ -63,6 +63,9 @@ namespace Spectrum.Model
         public float Mass { get; set; }
         public bool IsStatic { get; set; }
         public Vector2 Size { get; set; }
+        public float InitialBounciness { get; set; }
+        public float InitialLinearDrag { get; set; }
+        public float InitialFriction { get; set; }
 
         // constants to figure out if objects are "close enough"
         private static int FUZZY_DX_TOLERANCE = 10; /* TODO: Readjust both parent blocks when we create a combine block */
@@ -95,6 +98,10 @@ namespace Spectrum.Model
             Mass = 1;
             IsStatic = false;
             Scale = 1.0f;
+
+            InitialBounciness = 0;
+            InitialLinearDrag = .001f;
+            InitialFriction = .2f;
 
             ZIndex = -100;
 
@@ -194,6 +201,7 @@ namespace Spectrum.Model
             body = BodyFactory.Instance.CreateRectangleBody(Container.Sim, size.X, size.Y, Mass);
             body.Position = position;
             body.isStatic = isStatic;
+            body.LinearDragCoefficient = InitialLinearDrag;
             
             joint = JointFactory.Instance.CreateFixedAngleJoint(Container.Sim, body);
 
@@ -214,7 +222,8 @@ namespace Spectrum.Model
             geom.OnCollision += OnCollision;
             geom.OnSeparation += OnSeparation;
 
-            geom.RestitutionCoefficient = 0; // bounciness
+            geom.RestitutionCoefficient = InitialBounciness; // bounciness
+            geom.FrictionCoefficient = InitialFriction;
 
             geom.Tag = this;
 

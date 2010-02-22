@@ -1,8 +1,8 @@
 ﻿[
 {"object" : "level","id" : "level","number" : 2,"name" : "Dr. Evil's Quarters","width" : 1280,"height" : 720,"allowed-colors" : ["orange","green","purple"], "starting-color" : ["purple"], "start-position" : [25,220] },
 
-{"object" : "solid-ground", "id" : "west-bank", "position" : [0,320], "_w" : 240, "_h" : 400},
-{"object" : "solid-ground", "id" : "east-bank", "position" : [1040,320], "_w" : 240, "_h" : 400},
+{"object" : "solid-ground", "id" : "west-bank", "position" : [0,320], "_w" : 240, "_h" : 400, "bounce" : 1.0, "friction" : 0, "drag" : 0},
+{"object" : "solid-ground", "id" : "east-bank", "position" : [1040,320], "_w" : 240, "_h" : 400, "bounce" : 1.0, "friction" : 0, "drag" : 0},
 
 {"object" : "platform","id" : "a-plat","colors" : ["orange"],"position" : [390, 295]},
 
@@ -34,47 +34,18 @@
 
 {"object" : "door","id" : "door","colors" : ["all"],"position" : [1140, 220]} ,
 
-{"object" : "game-object", "id" : "water", "colors" : ["all"], "position" : [309, 405], 
+{"object" : "game-object", "id" : "water", "colors" : ["all"], "position" : [309, 405], "friction" : 0, "drag" : 0,
 	"image" : "water", "scale" : 0.8, "player-tangibility" : ["none"],
 	"events" : [{ "type" : "behavior",
 		"actions" : [{
 			"receiver" : "water",
 			"property" : "force",
 			"type" : "change",
-			"value" : [50, 0],
-			"repeats" : true,
-			"repeat-delay" : 6000
-		},
-		{
-			"receiver" : "water",
-			"property" : "force",
-			"type" : "change",
-			"value" : [50, 0],
-			"delay": 6002,
-			"repeats" : true,
-			"repeat-delay" : 6000
-		},
-		{
-			"receiver" : "water",
-			"property" : "force",
-			"type" : "change",
-			"value" : [-50, 0],
-			"delay" : 3000,
-			"repeats" : true,
-			"repeat-delay" : 6000
-		},
-		{
-			"receiver" : "water",
-			"property" : "force",
-			"type" : "change",
-			"value" : [-50, 0],
-			"delay" : 3002,
-			"repeats" : true,
-			"repeat-delay" : 6000
+			"value" : [50000, 0]
 		}]
 	}]
 },
-{"object" : "solid-ground", "id" : "way_bottom", "position" : [0,716], "_w" : 1280, "_h" : 200},
+{"object" : "solid-ground", "id" : "way_bottom", "position" : [0,716], "_w" : 1280, "_h" : 200, "friction" : 0, "drag" : 0},
 
 
 

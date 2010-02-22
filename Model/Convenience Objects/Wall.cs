@@ -12,11 +12,12 @@ namespace Spectrum.Model
         public Wall(int w, int h)
             : base(w,h)
         {
+            InitialFriction = 0.0f;
         }
 
         protected override void DidLoadPhysicsBody()
         {
-            geom.FrictionCoefficient = 0.0f; // TODO: Pick a good value for friction
+            //geom.FrictionCoefficient = 0.0f; // TODO: Pick a good value for friction
         }
     }
 }
