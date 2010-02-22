@@ -25,6 +25,7 @@ namespace Spectrum.Model
         public static string ColorsProperty = "colors";
         public static string PlayerTangibilityProperty = "player-tangibility";
         public static string ImageProperty = "image";
+        public static string PositionProperty = "position";
 
         public static string ChangeAction = "change";
         public static string IncrementAction = "increment";
@@ -32,6 +33,7 @@ namespace Spectrum.Model
         public static string AddColorsAction = "add-colors";
         public static string RemoveColorsAction = "remove-colors";
         public static string DisplayTextAction = "display-text";
+        public static string RangeAction = "range";
 
         public static string WinSpecial = "win";
         public static string LoseSpecial = "lose";
