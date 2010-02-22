@@ -92,8 +92,6 @@ namespace Spectrum.View
             float halfwayOffset = (barImg.Width * scale) / 12;
             /* Draws the background, a copy of the bg to the left, and a copy of the bg to the right. */
             // TODO: Make it get cutoff so you only see on length of rainbow inside the border
-            // TODO: Make the bg offset a bit so that the indicator is inside a color rather than on the edge of 2 colors
-            // TODO: Make the color indicated match up with what it should.
             spriteBatch.Draw(barImg, new Vector2((float)curPosn + halfwayOffset, 108*scale), null, Color.White, 0, Vector2.Zero, scale, SpriteEffects.None, 1.0f);
             spriteBatch.Draw(barImg, new Vector2((float)curPosn - (barImg.Width * scale) + halfwayOffset, 108 * scale), null, Color.White, 0, Vector2.Zero, scale, SpriteEffects.None, 1.0f);
             spriteBatch.Draw(barImg, new Vector2((float)curPosn + (barImg.Width * scale) + halfwayOffset, 108 * scale), null, Color.White, 0, Vector2.Zero, scale, SpriteEffects.None, 1.0f);

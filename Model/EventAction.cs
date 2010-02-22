@@ -78,7 +78,6 @@ namespace Spectrum.Model
         {
             if (Delay > 0)
             {
-
                 LaunchTime = curMs + Delay;
                 Delay = 0;
                 Console.WriteLine("Adding {0} to futures at launch time {1}", this, LaunchTime);
@@ -105,7 +104,6 @@ namespace Spectrum.Model
                 }
                 else if (Property.Equals(Globals.ColorsProperty))
                 {
-                    /* TODO: Indicate this to user with flash of light or something */
                     switch (Type)
                     {
                         case ActionType.Change:
@@ -121,7 +119,6 @@ namespace Spectrum.Model
                 }
                 else if (Property.Equals(Globals.PlayerTangibilityProperty))
                 {
-                    /* TODO: Indicate this to user with flash of light or something */
                     switch (Type)
                     {
                         case ActionType.Change:

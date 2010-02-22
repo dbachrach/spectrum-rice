@@ -37,15 +37,13 @@ namespace Spectrum
         private string levelExtension = ".txt";
         private string[] levels = {"TrainingDay", "DrEvil","Level3", "demo", "cloudy"};
         private int levelIndex;
-        private const int GameWidth = 1280;
-        private const int GameHeight = 720;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
 
-            graphics.PreferredBackBufferWidth = GameWidth;
-            graphics.PreferredBackBufferHeight = GameHeight;
+            graphics.PreferredBackBufferWidth = Globals.GameWidth;
+            graphics.PreferredBackBufferHeight = Globals.GameHeight;
 
             LoadLevel(4, false);
 
@@ -63,7 +61,7 @@ namespace Spectrum
             IsFixedTimeStep = true;
             TargetElapsedTime = new TimeSpan(0, 0, 0, 0, 10);
 
-            pauseMenu = new PauseMenu(this, GameWidth, GameHeight);
+            pauseMenu = new PauseMenu(this, Globals.GameWidth, Globals.GameHeight);
             Paused = false;
 
             base.Initialize();

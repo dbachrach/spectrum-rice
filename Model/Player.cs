@@ -251,7 +251,6 @@ namespace Spectrum.Model
 
         protected override void DidCollideWithObject(GameObject obj, ref ContactList contactList, bool physicsCollision)
         {
-            /* TODO: Need to unset NearObject when not near anything */
             if (obj.Pickupable || (obj.Events != null && obj.Events.Count > 0))
             {
                 NearObject = obj;
@@ -316,7 +315,7 @@ namespace Spectrum.Model
         protected void DidHitGround()
         {
             IsTouchingGround = true;
-            // todo: do we want to remove this and whole idea of state
+
             if (State == PlayerState.Jumping)
             {
                 State = PlayerState.None;
@@ -355,8 +354,6 @@ namespace Spectrum.Model
 
         private void Drop()
         {
-            /* TODO: Check to see if we are dropping on an existent object */
-
             if (Possession == null)
             {
                 return;
