@@ -89,7 +89,6 @@ U:\comp410\bin\x86\Debug\Content\tutorial\tutorialTrigger.xnb
 U:\comp410\bin\x86\Debug\Content\tutorial\tutorialX.xnb
 U:\comp410\bin\x86\Debug\Levels\demo.txt
 U:\comp410\bin\x86\Debug\Levels\cloudy.txt
-U:\comp410\bin\x86\Debug\Levels\tutorial1.txt
 U:\comp410\bin\x86\Debug\Levels\DrEvil.txt
 U:\comp410\bin\x86\Debug\Content\plat.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Levels\demo.txt
@@ -120,3 +119,14 @@ C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Levels\TrainingDay.
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switchOn.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switchBoxDown.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switchBoxUp.xnb
+U:\comp410\bin\x86\Debug\Levels\Level3.txt
+U:\comp410\bin\x86\Debug\Levels\TrainingDay.txt
+U:\comp410\bin\x86\Debug\Content\rainbow\Bar.xnb
+U:\comp410\bin\x86\Debug\Content\rainbow\border.xnb
+U:\comp410\bin\x86\Debug\Content\rainbow\wedge.xnb
+U:\comp410\bin\x86\Debug\Content\water.xnb
+U:\comp410\bin\x86\Debug\Content\switchOn.xnb
+U:\comp410\bin\x86\Debug\Content\switchBoxDown.xnb
+U:\comp410\bin\x86\Debug\Content\switchBoxUp.xnb
+U:\comp410\bin\x86\Debug\Content\rainbow\circle.xnb
+U:\comp410\bin\x86\Debug\Content\rainbow\WedgeCircle.xnb

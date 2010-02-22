@@ -18,7 +18,7 @@ namespace Spectrum.View
     class ColorBar : IColorIndicator
     {
         private const string contentPath = "rainbow/";
-        private const float scale = .25f;
+        private float scale = .25f;
         private Texture2D borderImg;
         private Texture2D barImg;
         private Texture2D wedgeImg;

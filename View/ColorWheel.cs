@@ -17,8 +17,12 @@ namespace Spectrum.View
 {
     class ColorWheel : IColorIndicator
     {
+        private const string contentPath = "rainbow/";
+
         private Texture2D wheelImg;
         private Texture2D overlayImg;
+
+        private float scale = .25f;
 
         private double curRotation;
         private double finalRotation;
@@ -45,8 +49,8 @@ namespace Spectrum.View
 
         public void LoadContent(ContentManager manager, GraphicsDevice graphicsDevice)
         {
-            wheelImg = manager.Load<Texture2D>("color-wheel");
-            overlayImg = manager.Load<Texture2D>("color-wheel-overlay");
+            wheelImg = manager.Load<Texture2D>(contentPath + "circle");
+            overlayImg = manager.Load<Texture2D>(contentPath + "WedgeCircle");
         }
 
         public void Update(GameTime gameTime)
@@ -85,8 +89,11 @@ namespace Spectrum.View
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(wheelImg, new Vector2(10 + wheelImg.Width / 2, 10 + wheelImg.Height / 2), null, Color.White, MoveBG ? (float)-curRotation : 0, new Vector2(wheelImg.Width / 2, wheelImg.Height / 2), 1.0f, SpriteEffects.None, 1.0f);
-            spriteBatch.Draw(overlayImg, new Vector2(10 + wheelImg.Width / 2, 10 + wheelImg.Height / 2), null, Color.White, MoveBG ? 0 : (float)curRotation, new Vector2(wheelImg.Width / 2, wheelImg.Height / 2), 1.0f, SpriteEffects.None, 1.0f);
+            Vector2 cent = new Vector2((wheelImg.Width * scale) / 2, (wheelImg.Height * scale) / 2);
+            Vector2 srcCenter = new Vector2(wheelImg.Width / 2, wheelImg.Height / 2);
+
+            spriteBatch.Draw(wheelImg, cent, null, Color.White, MoveBG ? (float)-curRotation : 0, srcCenter, scale, SpriteEffects.None, 1.0f);
+            spriteBatch.Draw(overlayImg, new Vector2(cent.X - (overlayImg.Width*scale/2), 0), null, Color.White, MoveBG ? 0 : (float)curRotation, Vector2.Zero, scale, SpriteEffects.None, 1.0f);
         }
 
         public void SetColor(Colors colors)
