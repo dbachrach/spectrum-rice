@@ -73,10 +73,7 @@ namespace Spectrum.Model
         public bool DebugMode { get; set; }
 
         // if the player travels outside these bounds, he will be killed
-        private int MIN_KILL_X = -10;
-        private int MIN_KILL_Y = -10;
-        private int MAX_KILL_X = 1290;
-        private int MAX_KILL_Y = 730;
+        private const int KILL_VAL = 10;
 
         public Player player;
 
@@ -100,6 +97,10 @@ namespace Spectrum.Model
 
         public List<EventAction> FutureActions;
         public List<EventAction> DeferFuture;
+
+        public Vector2 CameraPosition { get; set; }
+
+        public GameTime CurrentTime { get; set; }
 
 		/* Default Constructor */
 		public Level() {
@@ -136,6 +137,8 @@ namespace Spectrum.Model
 
             FutureActions = new List<EventAction>();
             DeferFuture = new List<EventAction>();
+
+            CameraPosition = Vector2.Zero;
 		}
 
         // Adds obj to the level
@@ -242,6 +245,8 @@ namespace Spectrum.Model
 
         public void Update(GameTime gameTime)
         {
+            CurrentTime = gameTime;
+
             if (DoomedObjects != null)
             {
                 foreach (GameObject DoomedObj in DoomedObjects)
@@ -270,7 +275,7 @@ namespace Spectrum.Model
             {
                 if (ms >= a.LaunchTime)
                 {
-                    a.Execute(FutureActions, DeferFuture, ms);
+                    a.Execute(DeferFuture, ms);
                 }
             }
             FutureActions.RemoveAll(item => ms >= item.LaunchTime);
@@ -285,6 +290,13 @@ namespace Spectrum.Model
             colorIndicator.Update(gameTime);
 
             checkPlayerDeath();
+
+            //if (player.body.position.X + 100 >= CameraPosition.X + 1280) 
+            //{
+            //    CameraPosition = new Vector2(CameraPosition.X + 100, CameraPosition.Y);
+            //}
+
+            AdjustCamera();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -415,10 +427,18 @@ namespace Spectrum.Model
             float x = player.body.Position.X;
             float y = player.body.Position.Y;
 
-            if (x < MIN_KILL_X || x > MAX_KILL_X || y < MIN_KILL_Y || y > MAX_KILL_Y)
+            if (x < -KILL_VAL || x > Width + KILL_VAL || y < -KILL_VAL || y > Height + KILL_VAL)
             {
                 Restart();
             }
+        }
+
+        public void AdjustCamera()
+        {
+            // TODO: Get rid of hardcoded 1280 and 720
+            float x = (float)Math.Min(Math.Max(player.body.position.X - 1280 / 2, 0), Width - 1280);
+            float y = (float)Math.Min(Math.Max(player.body.position.Y - 720 / 2, 0), Height - 720);
+            CameraPosition = new Vector2(x, y);
         }
     }
 }

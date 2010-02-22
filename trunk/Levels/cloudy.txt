@@ -1,8 +1,32 @@
-﻿[{"object" : "level","id" : "level","number" : 5,"name" : "Cloudy with a chance of death","width" : 1000,"height" : 600,"allowed-colors" : ["all"], "starting-color" : ["yellow"], "start-position" : [50,450] }
+﻿[{"object" : "level","id" : "level","number" : 5,"name" : "Cloudy with a chance of WTF", "width" : 2560,"height" : 720,"allowed-colors" : ["all"], "starting-color" : ["purple"], "start-position" : [250,50] },
 
-{"object" : "solid-ground", "id" : "groundA", "position" : [0,550], "_w" : 450, "_h" : 50}
-{"object" : "solid-ground", "id" : "groundB", "position" : [750,550], "_w" : 250, "_h" : 50}
+{"object" : "solid-ground", "id" : "ground", "position" : [0,670], "_w" : 2560, "_h" : 50},
 
-{"object" : "game-object", "id" : "cloudA", "position" : [455,150],"image" : "clouds", "static" : true, "player-tangibility" : ["none"]}
+{"object" : "solid-ground", "id" : "bridge", "position" : [0,150], "_w" : 2560, "_h" : 20},
 
-{"object" : "door","id" : "door","colors" : ["all"],"position" : [900, 455],"exists-when-not-viewed" : true} ]
+{"object" : "solid-ground", "id" : "barrier", "position" : [1100,0], "_w" : 20, "_h" : 10},
+
+{"object" : "push", "id" : "pushA", "colors" : ["all"], "position" : [375,120]},
+
+{"object" : "game-object", "id" : "cloudA", "colors" : ["purple"], "position" : [250,200],"image" : "clouds", "static" : true, "scale" : 0.75},
+
+
+{"object" : "game-object", "id" : "flower_botA", "colors" : ["all"], "position" : [455,587],"image" : "flowerBottoms", "scale" : 0.25, "static" : true},
+{"object" : "game-object", "id" : "flower_topA", "colors" : ["green"], "position" : [457,564],"image" : "flowerTops", "scale" : 0.25, "static" : true},
+
+{"object" : "game-object", "id" : "cloudB", "colors" : ["orange"], "position" : [520,200],"image" : "clouds", "static" : true, "scale" : 0.75},
+
+{"object" : "game-object", "id" : "flower_botB", "colors" : ["all"], "position" : [755,587],"image" : "flowerBottoms", "scale" : 0.25, "static" : true},
+{"object" : "game-object", "id" : "flower_topB", "colors" : ["purple"], "position" : [757,564],"image" : "flowerTops", "scale" : 0.25, "static" : true},
+
+{"object" : "game-object", "id" : "cloudC", "colors" : ["blue"], "position" : [820,200],"image" : "clouds", "static" : true, "scale" : 0.75},
+
+{"object" : "game-object", "id" : "flower_botC", "colors" : ["all"], "position" : [1055,587],"image" : "flowerBottoms", "scale" : 0.25, "static" : true},
+{"object" : "game-object", "id" : "flower_topC", "colors" : ["red"], "position" : [1057,564],"image" : "flowerTops", "scale" : 0.25, "static" : true},
+
+{"object" : "game-object", "id" : "cloudD", "colors" : ["yellow"], "position" : [1120,200],"image" : "clouds", "static" : true, "scale" : 0.75},
+
+{"object" : "game-object", "id" : "flower_botD", "colors" : ["all"], "position" : [1355,587],"image" : "flowerBottoms", "scale" : 0.25, "static" : true},
+{"object" : "game-object", "id" : "flower_topD", "colors" : ["blue"], "position" : [1357,564],"image" : "flowerTops", "scale" : 0.25, "static" : true},
+
+{"object" : "door","id" : "door","colors" : ["all"],"position" : [1180, 50]} ]

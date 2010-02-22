@@ -33,3 +33,5 @@ Content\farseer\gamefont.xnb
 Content\farseer\menufont.xnb
 Content\rainbow\circle.xnb
 Content\rainbow\WedgeCircle.xnb
+Content\flowerBottoms.xnb
+Content\flowerTops.xnb

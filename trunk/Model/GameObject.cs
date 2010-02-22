@@ -226,8 +226,6 @@ namespace Spectrum.Model
             geom.FrictionCoefficient = InitialFriction;
 
             geom.Tag = this;
-
-            this.DidLoadPhysicsBody();
         }
 
         //Draw the sprite to the screen
@@ -240,7 +238,13 @@ namespace Spectrum.Model
                     col = this.Visibility;
                 }
                 Texture.Rotation = body.Rotation;
-                Texture.DrawFrame(spriteBatch, col, body.Position, DrawEffects(), HasBecomeVisibleInAllColors);
+
+                /* TODO: Don't use 1280 & 720 hardcoded */
+                if (InViewport())
+                {
+                        Texture.DrawFrame(spriteBatch, col, body.Position - Container.CameraPosition, DrawEffects(), HasBecomeVisibleInAllColors);
+                }
+                
             }
         }
 
@@ -329,7 +333,7 @@ namespace Spectrum.Model
                     {
                         if (e.Type == EventType.Behavior)
                         {
-                            e.Execute(Container.FutureActions, Container.DeferFuture, theGameTime.TotalRealTime.TotalMilliseconds);
+                            e.Execute(Container.DeferFuture, theGameTime.TotalRealTime.TotalMilliseconds);
                             BBB = false;
                         }
                     }
@@ -395,12 +399,6 @@ namespace Spectrum.Model
         protected virtual Geom WillLoadPhysicsGeom()
         {
             return null;
-        }
-
-        /* Subclasses should override this method to modify physics body object after it is created */
-        protected virtual void DidLoadPhysicsBody() 
-        {
-            // a generic game object doesn't do anything extra when loading a physics body
         }
 
         /* Subclassees should override this method to allow the object to be combined with another object */
@@ -537,5 +535,11 @@ namespace Spectrum.Model
             }
              */
         }
+        protected bool InViewport()
+        {
+            return (body.Position.X + (Size.X / 2) >= Container.CameraPosition.X && body.Position.X - (Size.X / 2) <= Container.CameraPosition.X + 1280 &&
+                   body.Position.Y + (Size.Y / 2) >= Container.CameraPosition.Y && body.Position.Y - (Size.Y / 2) <= Container.CameraPosition.Y + 720);
+        }
+
     }
 }

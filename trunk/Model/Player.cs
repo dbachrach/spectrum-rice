@@ -229,7 +229,7 @@ namespace Spectrum.Model
                         {
                             if (e.Type == EventType.XEvent)
                             {
-                                e.Execute(Container.FutureActions,Container.DeferFuture, theGameTime.TotalRealTime.TotalMilliseconds);
+                                e.Execute(Container.DeferFuture, theGameTime.TotalRealTime.TotalMilliseconds);
                             }
                         }
                     }
@@ -262,7 +262,7 @@ namespace Spectrum.Model
                     {
                         if (e.Type == EventType.Collision && e.CollisionTarget == this)
                         {
-                            e.Execute(Container.FutureActions, Container.DeferFuture, 0); // TODO: 3rd param should be game time
+                            e.Execute(Container.DeferFuture, Container.CurrentTime.TotalRealTime.TotalMilliseconds);
                         }
                     }
                 }
@@ -386,30 +386,6 @@ namespace Spectrum.Model
             Container.Sim.Remove(Connector);
 
             Possession = null;
-        }
-        /*
-        protected override Body WillLoadPhysicsBody()
-        {
-            if (Possession == null)
-            {
-                return null;
-            }
-            return BodyFactory.Instance.CreateRectangleBody(Container.Sim, Size.X, Size.Y + Possession.Size.Y, Mass); ;
-        }
-
-        protected override Geom WillLoadPhysicsGeom()
-        {
-            if (Possession == null)
-            {
-                return null;
-            }
-            return GeomFactory.Instance.CreateRectangleGeom(Container.Sim, body, Size.X, Size.Y + Possession.Size.Y);
-        }
-        */
-        protected override void DidLoadPhysicsBody()
-        {
-            //geom.FrictionCoefficient = 2.0f;
-            //body.LinearDragCoefficient = 2.0f;
         }
 
         public void WinLevel()
