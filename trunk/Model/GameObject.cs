@@ -68,6 +68,8 @@ namespace Spectrum.Model
         private static int FUZZY_DX_TOLERANCE = 10; /* TODO: Readjust both parent blocks when we create a combine block */
         private static int FUZZY_DY_TOLERANCE = 2;
 
+        private bool BBB = true;
+
 		/* Default Constructor */
         public GameObject()
         {
@@ -305,6 +307,22 @@ namespace Spectrum.Model
                         g.LoadContent(Container.GameRef.Content, Container.GameRef.GraphicsDevice);
                         Console.WriteLine("Created obj");
                         Container.DeferAddGameObject(g);
+                    }
+                }
+            }
+
+            /* TODO: Get rid of this BBB thing */
+            if (BBB)
+            {
+                if (Events != null)
+                {
+                    foreach (Event e in Events)
+                    {
+                        if (e.Type == EventType.Behavior)
+                        {
+                            e.Execute(Container.FutureActions, Container.DeferFuture, theGameTime.TotalRealTime.TotalMilliseconds);
+                            BBB = false;
+                        }
                     }
                 }
             }

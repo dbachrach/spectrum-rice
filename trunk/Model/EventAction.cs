@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
@@ -18,6 +19,8 @@ namespace Spectrum.Model
 	
     class EventAction
     {
+        private int RepeatIndef = -999;
+
         public GameObject Receiver { get; set; }
 		public string Property { get; set; }
 		public ActionType Type { get; set; }
@@ -26,8 +29,10 @@ namespace Spectrum.Model
 		public float AnimationDuration { get; set; }
 		public float Delay { get; set; }
 		public bool Repeats { get; set; }
+        public int RepeatCount { get; set; }
 		public float RepeatDelay { get; set; }
-        public string Special { get; set; } 
+        public string Special { get; set; }
+        public double LaunchTime { get; set;  }
 
 		/* Default constructor. */
         public EventAction()
@@ -36,7 +41,8 @@ namespace Spectrum.Model
 			AnimationDuration = 1;
 			Delay = 0;
 			Repeats = false;
-			RepeatDelay = 0;
+            RepeatCount = RepeatIndef;
+			RepeatDelay = 1;
             Special = "";
 		}
 
@@ -68,75 +74,117 @@ namespace Spectrum.Model
             }
         }
 
-        public void Execute()
+        public void Execute(List<EventAction> future, List<EventAction> defer, double curMs)
         {
-            /* TODO: All execution properties */
-            if (Special != null && !Special.Equals(""))
+            if (Delay > 0)
             {
-                if (Special.Equals(Globals.WinSpecial))
-                {
-                    Console.WriteLine("WIN");
-                    Player p = (Player) this.Receiver;
-                    p.WinLevel();
-                }
-                else if (Special.Equals(Globals.LoseSpecial))
-                {
-                    Console.WriteLine("LOSE");
-                    Player p = (Player)this.Receiver;
-                    p.LoseLevel();
-                }
+
+                LaunchTime = curMs + Delay;
+                Delay = 0;
+                Console.WriteLine("Adding {0} to futures at launch time {1}", this, LaunchTime);
+                defer.Add(this);
             }
-            else if (Property.Equals(Globals.ColorsProperty))
+            else
             {
-                /* TODO: Indicate this to user with flash of light or something */
-                switch (Type)
+
+                /* TODO: All execution properties */
+                if (Special != null && !Special.Equals(""))
                 {
-                    case ActionType.Change:
-                        Receiver.setVisibility(Colors.ColorsFromJsonArray((ArrayList)Value));
-                        break;
-                    case ActionType.AddColors:
-                        Receiver.setVisibility(Receiver.Visibility.Combine(Colors.ColorsFromJsonArray((ArrayList)Value)));
-                        break;
-                    case ActionType.RemoveColors:
-                        Receiver.setVisibility(Receiver.Visibility.Difference(Colors.ColorsFromJsonArray((ArrayList)Value)));
-                        break;
+                    if (Special.Equals(Globals.WinSpecial))
+                    {
+                        Console.WriteLine("WIN");
+                        Player p = (Player)this.Receiver;
+                        p.WinLevel();
+                    }
+                    else if (Special.Equals(Globals.LoseSpecial))
+                    {
+                        Console.WriteLine("LOSE");
+                        Player p = (Player)this.Receiver;
+                        p.LoseLevel();
+                    }
                 }
-            }
-            else if (Property.Equals(Globals.PlayerTangibilityProperty))
-            {
-                /* TODO: Indicate this to user with flash of light or something */
-                switch (Type)
+                else if (Property.Equals(Globals.ColorsProperty))
                 {
-                    case ActionType.Change:
-                        Receiver.PlayerTangibility = Colors.ColorsFromJsonArray((ArrayList)Value);
-                        break;
-                    case ActionType.AddColors:
-                        Receiver.PlayerTangibility = Receiver.Visibility.Combine(Colors.ColorsFromJsonArray((ArrayList)Value));
-                        break;
-                    case ActionType.RemoveColors:
-                        Receiver.PlayerTangibility = Receiver.Visibility.Difference(Colors.ColorsFromJsonArray((ArrayList)Value));
-                        break;
+                    /* TODO: Indicate this to user with flash of light or something */
+                    switch (Type)
+                    {
+                        case ActionType.Change:
+                            Receiver.setVisibility(Colors.ColorsFromJsonArray((ArrayList)Value));
+                            break;
+                        case ActionType.AddColors:
+                            Receiver.setVisibility(Receiver.Visibility.Combine(Colors.ColorsFromJsonArray((ArrayList)Value)));
+                            break;
+                        case ActionType.RemoveColors:
+                            Receiver.setVisibility(Receiver.Visibility.Difference(Colors.ColorsFromJsonArray((ArrayList)Value)));
+                            break;
+                    }
                 }
-            }
-            else if (Property.Equals(Globals.ImageProperty)) {
-                switch (Type)
+                else if (Property.Equals(Globals.PlayerTangibilityProperty))
                 {
-                    case ActionType.Change:
-                        Receiver.ImageName = (string)Value;
-                        Receiver.LoadTexture();
-                        
-                        break;
+                    /* TODO: Indicate this to user with flash of light or something */
+                    switch (Type)
+                    {
+                        case ActionType.Change:
+                            Receiver.PlayerTangibility = Colors.ColorsFromJsonArray((ArrayList)Value);
+                            break;
+                        case ActionType.AddColors:
+                            Receiver.PlayerTangibility = Receiver.Visibility.Combine(Colors.ColorsFromJsonArray((ArrayList)Value));
+                            break;
+                        case ActionType.RemoveColors:
+                            Receiver.PlayerTangibility = Receiver.Visibility.Difference(Colors.ColorsFromJsonArray((ArrayList)Value));
+                            break;
+                    }
                 }
-            }
-            else if (Property.Equals("whiteness"))
-            {
-                switch (Type)
+                else if (Property.Equals(Globals.ImageProperty))
                 {
-                    case ActionType.Change:
-                        Receiver.HasBecomeVisibleInAllColors = (bool)Value;
-                        Receiver.setVisibility(Colors.AllColors);
-                        break;
+                    switch (Type)
+                    {
+                        case ActionType.Change:
+                            Receiver.ImageName = (string)Value;
+                            Receiver.LoadTexture();
+
+                            break;
+                    }
                 }
+                else if (Property.Equals("force"))
+                {
+                    switch (Type)
+                    {
+                        case ActionType.Change:
+                            ArrayList vals = (ArrayList)Value;
+                            Vector2 vec = new Vector2((float)((double)vals[0]), (float)((double)vals[1]));
+                            Console.WriteLine("Vector behav: {0}", vec);
+                            Receiver.body.ApplyImpulse(vec);
+
+                            break;
+                    }
+                }
+                else if (Property.Equals("whiteness"))
+                {
+                    switch (Type)
+                    {
+                        case ActionType.Change:
+                            Receiver.HasBecomeVisibleInAllColors = (bool)Value;
+                            Receiver.setVisibility(Colors.AllColors);
+                            break;
+                    }
+                }
+
+
+
+                if (Repeats)
+                {
+                    if (RepeatCount == RepeatIndef || RepeatCount > 0)
+                    {
+                        this.LaunchTime = curMs + this.RepeatDelay;
+                        if (RepeatCount != RepeatIndef)
+                        {
+                            this.RepeatCount--;
+                        }
+                        defer.Add(this);
+                    }
+                }
+
             }
         }
     }
