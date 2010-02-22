@@ -52,11 +52,22 @@ namespace Spectrum.Model
             }
         }
 
-        public void Execute()
+        public void Execute(List<EventAction> future, List<EventAction> defer, double curMs)
         {
             foreach (EventAction a in Actions)
             {
-                a.Execute();
+                /*if (a.Delay > 0)
+                {
+                    
+                    a.LaunchTime = curMs + a.Delay;
+                    a.Delay = 0;
+                    Console.WriteLine("Adding {0} to futures at launch time {1}", a, a.LaunchTime);
+                    future.Add(a);
+                }
+                else
+                {*/
+                    a.Execute(future, defer, curMs);
+                //}
             }
         }
 

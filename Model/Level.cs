@@ -98,6 +98,9 @@ namespace Spectrum.Model
 
         private bool useColorBar = true;
 
+        public List<EventAction> FutureActions;
+        public List<EventAction> DeferFuture;
+
 		/* Default Constructor */
 		public Level() {
             
@@ -130,6 +133,9 @@ namespace Spectrum.Model
             DebugMode = false;
 
             _allColorsMode = false;
+
+            FutureActions = new List<EventAction>();
+            DeferFuture = new List<EventAction>();
 		}
 
         // Adds obj to the level
@@ -257,6 +263,20 @@ namespace Spectrum.Model
 
             Sim.Update(gameTime.ElapsedGameTime.Milliseconds * .001f);
 
+            
+            double ms = gameTime.TotalRealTime.TotalMilliseconds;
+            
+            foreach (EventAction a in FutureActions)
+            {
+                if (ms >= a.LaunchTime)
+                {
+                    a.Execute(FutureActions, DeferFuture, ms);
+                }
+            }
+            FutureActions.RemoveAll(item => ms >= item.LaunchTime);
+            FutureActions.AddRange(DeferFuture);
+            DeferFuture.RemoveAll(item => true);
+            
             foreach (GameObject obj in GameObjects)
             {
                 obj.Update(gameTime);

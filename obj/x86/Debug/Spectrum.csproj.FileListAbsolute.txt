@@ -105,7 +105,6 @@ U:\comp410\bin\x86\Debug\Content\plat.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\rainbow\wedge.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Levels\demo.txt
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Levels\cloudy.txt
-C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Levels\tutorial1.txt
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Levels\DrEvil.txt
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\plat.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\rainbow\Bar.xnb
@@ -116,3 +115,8 @@ C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\water.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\switchOn.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Levels\TrainingDay.txt
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Levels\Level3.txt
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Levels\Level3.txt
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Levels\TrainingDay.txt
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switchOn.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switchBoxDown.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switchBoxUp.xnb

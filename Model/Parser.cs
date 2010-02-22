@@ -300,7 +300,11 @@ namespace Spectrum.Model
                 Event e = new Event();
                 e.Type = Event.EventTypeForString((string)ev["type"]);
 
-                e.CollisionTarget = level.GameObjectForId((string)ev["collision-target"]);
+                string colTar = (string)ev["collision-target"];
+                if (colTar != null)
+                {
+                    e.CollisionTarget = level.GameObjectForId(colTar);
+                }
                 e.DisplayName = (string)ev["display-name"];
                 e.Actions = ParseActions((ArrayList)ev["actions"], level);
 
@@ -329,13 +333,15 @@ namespace Spectrum.Model
                 if (ac.ContainsKey("animated"))
                     a.Animated = (bool)ac["animated"];
                 if (ac.ContainsKey("animation-duration"))
-                    a.AnimationDuration = (float)ac["animation-duration"];
+                    a.AnimationDuration = (float)((double)ac["animation-duration"]);
                 if (ac.ContainsKey("delay"))
-                    a.Delay = (float)ac["delay"];
+                    a.Delay = (float)((double)ac["delay"]);
                 if (ac.ContainsKey("repeats"))
                     a.Repeats = (bool)ac["repeats"];
                 if (ac.ContainsKey("repeat-delay"))
-                    a.RepeatDelay = (float)ac["repeat-delay"];
+                    a.RepeatDelay = (float)((double)ac["repeat-delay"]);
+                if (ac.ContainsKey("repeat-count"))
+                    a.RepeatCount = (int)((double)ac["repeat-count"]);
 
                 acts.Add(a);
 

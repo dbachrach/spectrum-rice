@@ -104,7 +104,7 @@ namespace Spectrum.Model
             UpdateJump();
 
             UpdateColor();
-            UpdateXEvent();
+            UpdateXEvent(theGameTime);
 
 
             if (Possession != null)
@@ -206,7 +206,7 @@ namespace Spectrum.Model
 
         }
 
-        private void UpdateXEvent()
+        private void UpdateXEvent(GameTime theGameTime)
         {
             if (Globals.UserInputPress(Keys.E, Buttons.X) && !Container.allColorsMode())
             {
@@ -226,7 +226,7 @@ namespace Spectrum.Model
                         {
                             if (e.Type == EventType.XEvent)
                             {
-                                e.Execute();
+                                e.Execute(Container.FutureActions,Container.DeferFuture, theGameTime.TotalRealTime.TotalMilliseconds);
                             }
                         }
                     }
@@ -259,7 +259,7 @@ namespace Spectrum.Model
                     {
                         if (e.Type == EventType.Collision && e.CollisionTarget == this)
                         {
-                            e.Execute();
+                            e.Execute(Container.FutureActions, Container.DeferFuture, 0); // TODO: 3rd param should be game time
                         }
                     }
                 }
