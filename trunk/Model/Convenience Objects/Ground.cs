@@ -20,11 +20,13 @@ namespace Spectrum.Model
 			Pickupable = false;
             ImageName = null;
             IsStatic = true;
+
+            InitialFriction = .8f;
 		}
 
         protected override void DidLoadPhysicsBody()
         {
-            geom.FrictionCoefficient = .8f; // TODO: Pick a good value for friction
+            //geom.FrictionCoefficient = .8f; // TODO: Pick a good value for friction
         }
     }
 }

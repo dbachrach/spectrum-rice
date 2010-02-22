@@ -35,7 +35,7 @@ namespace Spectrum
 
         private string levelPath = "Levels/";
         private string levelExtension = ".txt";
-        private string[] levels = {"TrainingDay", "DrEvil","Level3"};
+        private string[] levels = {"TrainingDay", "DrEvil","Level3", "demo"};
         private int levelIndex;
         private const int GameWidth = 1280;
         private const int GameHeight = 720;
@@ -47,7 +47,7 @@ namespace Spectrum
             graphics.PreferredBackBufferWidth = GameWidth;
             graphics.PreferredBackBufferHeight = GameHeight;
 
-            LoadLevel(1, false);
+            LoadLevel(3, false);
 
             Content.RootDirectory = "Content";
         }

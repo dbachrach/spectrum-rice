@@ -19,6 +19,8 @@ namespace Spectrum.Model
 		public Platform() : base() {
             ImageName = "plat";
             IsStatic = true;
+
+            InitialFriction = .6f;
 		}
 
         protected override void DidLoadPhysicsBody()

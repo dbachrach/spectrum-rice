@@ -285,6 +285,18 @@ namespace Spectrum.Model
                         newObject.Events[0].Actions.AddRange(parsedActions);
                     }
                 }
+                if (obj.ContainsKey("friction"))
+                {
+                    newObject.InitialFriction = (float)(double)obj["friction"];
+                }
+                if (obj.ContainsKey("bounce"))
+                {
+                    newObject.InitialBounciness = (float)(double)obj["bounce"];
+                }
+                if (obj.ContainsKey("drag"))
+                {
+                    newObject.InitialLinearDrag = (float)(double)obj["drag"];
+                }
             }
 
             level.GameObjects.Sort();
