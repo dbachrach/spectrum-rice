@@ -132,3 +132,9 @@ U:\comp410\bin\x86\Debug\Content\rainbow\circle.xnb
 U:\comp410\bin\x86\Debug\Content\rainbow\WedgeCircle.xnb
 U:\comp410\bin\x86\Debug\Content\flowerBottoms.xnb
 U:\comp410\bin\x86\Debug\Content\flowerTops.xnb
+\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\switchBoxDown.xnb
+\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\switchBoxUp.xnb
+\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\rainbow\circle.xnb
+\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\rainbow\WedgeCircle.xnb
+\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\flowerBottoms.xnb
+\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\flowerTops.xnb

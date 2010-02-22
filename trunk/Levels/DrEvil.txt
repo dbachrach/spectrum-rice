@@ -1,8 +1,8 @@
 ﻿[
 {"object" : "level","id" : "level","number" : 2,"name" : "Dr. Evil's Quarters","width" : 1280,"height" : 720,"allowed-colors" : ["orange","green","purple"], "starting-color" : ["purple"], "start-position" : [25,220] },
 
-{"object" : "solid-ground", "id" : "west-bank", "position" : [0,320], "_w" : 240, "_h" : 400, "bounce" : 1.0, "friction" : 0, "drag" : 0},
-{"object" : "solid-ground", "id" : "east-bank", "position" : [1040,320], "_w" : 240, "_h" : 400, "bounce" : 1.0, "friction" : 0, "drag" : 0},
+{"object" : "solid-ground", "id" : "west-bank", "position" : [0,320], "_w" : 240, "_h" : 400, "friction" : 0, "drag" : 0},
+{"object" : "solid-ground", "id" : "east-bank", "position" : [1040,320], "_w" : 240, "_h" : 400, "friction" : 0, "drag" : 0},
 
 {"object" : "platform","id" : "a-plat","colors" : ["orange"],"position" : [390, 295]},
 
@@ -39,9 +39,12 @@
 	"events" : [{ "type" : "behavior",
 		"actions" : [{
 			"receiver" : "water",
-			"property" : "force",
-			"type" : "change",
-			"value" : [50000, 0]
+			"property" : "position",
+			"type" : "range",
+			"value" : [300, 800, 1],
+			"repeats" : true,
+			"repeat-delay" : 5,
+			"repeat-count" : -999
 		}]
 	}]
 },

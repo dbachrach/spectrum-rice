@@ -15,7 +15,7 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace Spectrum.Model
 {
-	enum ActionType { Change, Increment, Decrement, AddColors, RemoveColors }
+	enum ActionType { Change, Increment, Decrement, AddColors, RemoveColors, Range }
 	
     class EventAction
     {
@@ -33,6 +33,7 @@ namespace Spectrum.Model
 		public float RepeatDelay { get; set; }
         public string Special { get; set; }
         public double LaunchTime { get; set;  }
+        public bool Flag { get; set; }
 
 		/* Default constructor. */
         public EventAction()
@@ -44,6 +45,7 @@ namespace Spectrum.Model
             RepeatCount = RepeatIndef;
 			RepeatDelay = 1;
             Special = "";
+            Flag = true;
 		}
 
         public static ActionType ActionTypeForString(string str)
@@ -67,6 +69,10 @@ namespace Spectrum.Model
             else if (str.Equals(Globals.RemoveColorsAction))
             {
                 return ActionType.RemoveColors;
+            }
+            else if (str.Equals(Globals.RangeAction))
+            {
+                return ActionType.Range;
             }
             else
             {
@@ -100,6 +106,33 @@ namespace Spectrum.Model
                         Console.WriteLine("LOSE");
                         Player p = (Player)this.Receiver;
                         p.LoseLevel();
+                    }
+                }
+                else if(Property.Equals(Globals.PositionProperty))
+                {
+                    switch (Type)
+                    {
+                        case ActionType.Change:
+                            ArrayList vals = (ArrayList)Value;
+                            Vector2 vec = new Vector2((float)((double)vals[0]), (float)((double)vals[1]));
+                            Receiver.body.Position += vec;
+                            break;
+                        case ActionType.Range:
+                            vals = (ArrayList)Value;
+                            float minX = (float)(double)vals[0];
+                            float maxX = (float)(double)vals[1];
+                            float speed = (float)(double)vals[2];
+
+                            float newValue = Receiver.body.Position.X + (Flag ? speed : -speed);
+                            if (minX <= newValue && newValue <= maxX)
+                            {
+                                Receiver.body.Position = new Vector2(newValue, Receiver.body.Position.Y);
+                            }
+                            else
+                            {
+                                Flag = !Flag;
+                            }
+                            break;
                     }
                 }
                 else if (Property.Equals(Globals.ColorsProperty))
