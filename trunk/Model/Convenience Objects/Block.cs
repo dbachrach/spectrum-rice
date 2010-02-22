@@ -38,6 +38,12 @@ namespace Spectrum.Model
                 v.Y = v.Y - (obj.Size.Y / 2);
 
                 b.OriginalPosition = v;
+
+                obj.body.Position = body.Position;
+
+                // we set all three blocks to face the same way
+                obj.DirectionFacing = this.DirectionFacing;
+                b.DirectionFacing = this.DirectionFacing;
                 
                 b.Container = Container;
                 Colors newColor = this.Visibility.ColorByMixingWith(obj.Visibility);

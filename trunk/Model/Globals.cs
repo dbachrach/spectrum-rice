@@ -19,6 +19,9 @@ namespace Spectrum.Model
      */
     class Globals
     {
+        public static int GameWidth = 1280;
+        public static int GameHeight = 720;
+
         public static string ColorsProperty = "colors";
         public static string PlayerTangibilityProperty = "player-tangibility";
         public static string ImageProperty = "image";

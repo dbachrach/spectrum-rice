@@ -71,8 +71,6 @@ namespace Spectrum.Model
         private static int FUZZY_DX_TOLERANCE = 10; /* TODO: Readjust both parent blocks when we create a combine block */
         private static int FUZZY_DY_TOLERANCE = 2;
 
-        private bool BBB = true;
-
 		/* Default Constructor */
         public GameObject()
         {
@@ -239,7 +237,6 @@ namespace Spectrum.Model
                 }
                 Texture.Rotation = body.Rotation;
 
-                /* TODO: Don't use 1280 & 720 hardcoded */
                 if (InViewport())
                 {
                         Texture.DrawFrame(spriteBatch, col, body.Position - Container.CameraPosition, DrawEffects(), HasBecomeVisibleInAllColors);
@@ -324,20 +321,19 @@ namespace Spectrum.Model
                 }
             }
 
-            /* TODO: Get rid of this BBB thing */
-            if (BBB)
+            if (Events != null)
             {
-                if (Events != null)
+                List<Event> toDelete = new List<Event>();
+                foreach (Event e in Events)
                 {
-                    foreach (Event e in Events)
+                    if (e.Type == EventType.Behavior)
                     {
-                        if (e.Type == EventType.Behavior)
-                        {
-                            e.Execute(Container.DeferFuture, theGameTime.TotalRealTime.TotalMilliseconds);
-                            BBB = false;
-                        }
+                        e.Execute(Container.DeferFuture, theGameTime.TotalRealTime.TotalMilliseconds);
+                        toDelete.Add(e);
                     }
                 }
+
+                Events.RemoveAll(item => toDelete.Contains(item));
             }
         }
 
@@ -537,8 +533,8 @@ namespace Spectrum.Model
         }
         protected bool InViewport()
         {
-            return (body.Position.X + (Size.X / 2) >= Container.CameraPosition.X && body.Position.X - (Size.X / 2) <= Container.CameraPosition.X + 1280 &&
-                   body.Position.Y + (Size.Y / 2) >= Container.CameraPosition.Y && body.Position.Y - (Size.Y / 2) <= Container.CameraPosition.Y + 720);
+            return (body.Position.X + (Size.X / 2) >= Container.CameraPosition.X && body.Position.X - (Size.X / 2) <= Container.CameraPosition.X + Globals.GameWidth &&
+                   body.Position.Y + (Size.Y / 2) >= Container.CameraPosition.Y && body.Position.Y - (Size.Y / 2) <= Container.CameraPosition.Y + Globals.GameHeight);
         }
 
     }

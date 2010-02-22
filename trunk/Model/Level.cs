@@ -93,7 +93,7 @@ namespace Spectrum.Model
             return _allColorsMode;
         }
 
-        private bool useColorBar = false;
+        private bool useColorBar = true;
 
         public List<EventAction> FutureActions;
         public List<EventAction> DeferFuture;
@@ -291,11 +291,6 @@ namespace Spectrum.Model
 
             checkPlayerDeath();
 
-            //if (player.body.position.X + 100 >= CameraPosition.X + 1280) 
-            //{
-            //    CameraPosition = new Vector2(CameraPosition.X + 100, CameraPosition.Y);
-            //}
-
             AdjustCamera();
         }
 
@@ -435,9 +430,8 @@ namespace Spectrum.Model
 
         public void AdjustCamera()
         {
-            // TODO: Get rid of hardcoded 1280 and 720
-            float x = (float)Math.Min(Math.Max(player.body.position.X - 1280 / 2, 0), Width - 1280);
-            float y = (float)Math.Min(Math.Max(player.body.position.Y - 720 / 2, 0), Height - 720);
+            float x = (float)Math.Min(Math.Max(player.body.position.X - Globals.GameWidth / 2, 0), Width - Globals.GameWidth);
+            float y = (float)Math.Min(Math.Max(player.body.position.Y - Globals.GameHeight / 2, 0), Height - Globals.GameHeight);
             CameraPosition = new Vector2(x, y);
         }
     }
