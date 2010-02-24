@@ -32,6 +32,7 @@ Content\flowerTops.xnb
 Content\platformCenter.xnb
 Content\platformEndLeft.xnb
 Content\platformEndRight.xnb
+Content\rainbow\mask.xnb
 Content\Pesca.xnb
 Content\farseer\detailsFont.xnb
 Content\farseer\diagnosticFont.xnb

@@ -15,7 +15,7 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace Spectrum.Model
 {
-	enum ActionType { Change, Increment, Decrement, AddColors, RemoveColors, Range }
+	enum ActionType { Change, Increment, Decrement, AddColors, RemoveColors, PathAnimate }
 	
     class EventAction
     {
@@ -68,9 +68,9 @@ namespace Spectrum.Model
             {
                 return ActionType.RemoveColors;
             }
-            else if (str.Equals(Globals.RangeAction))
+            else if (str.Equals(Globals.AnimationAction))
             {
-                return ActionType.Range;
+                return ActionType.PathAnimate;
             }
             else
             {
