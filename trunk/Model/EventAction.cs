@@ -33,7 +33,6 @@ namespace Spectrum.Model
 		public float RepeatDelay { get; set; }
         public string Special { get; set; }
         public double LaunchTime { get; set;  }
-        public bool Flag { get; set; }
 
 		/* Default constructor. */
         public EventAction()
@@ -45,7 +44,6 @@ namespace Spectrum.Model
             RepeatCount = RepeatIndef;
 			RepeatDelay = 1;
             Special = "";
-            Flag = true;
 		}
 
         public static ActionType ActionTypeForString(string str)
@@ -80,16 +78,39 @@ namespace Spectrum.Model
             }
         }
 
-        public void Execute(List<EventAction> deferFuture, double curMs)
+        public virtual bool HandleDelay(List<EventAction> deferFuture, double curMs)
         {
-            if (Delay > 0)
+            bool update = (Delay > 0);
+            if (update)
             {
                 LaunchTime = curMs + Delay;
                 Delay = 0;
                 Console.WriteLine("Adding {0} to futures at launch time {1}", this, LaunchTime);
                 deferFuture.Add(this);
             }
-            else
+
+            return update;
+        }
+
+        public virtual void HandleRepeats(List<EventAction> deferFuture, double curMs)
+        {
+            if (Repeats)
+            {
+                if (RepeatCount == RepeatIndef || RepeatCount > 0)
+                {
+                    this.LaunchTime = curMs + this.RepeatDelay;
+                    if (RepeatCount != RepeatIndef)
+                    {
+                        this.RepeatCount--;
+                    }
+                    deferFuture.Add(this);
+                }
+            }
+        }
+
+        public virtual void Execute(List<EventAction> deferFuture, double curMs)
+        {
+            if(!HandleDelay(deferFuture, curMs))
             {
 
                 /* TODO: All execution properties */
@@ -116,22 +137,6 @@ namespace Spectrum.Model
                             ArrayList vals = (ArrayList)Value;
                             Vector2 vec = new Vector2((float)((double)vals[0]), (float)((double)vals[1]));
                             Receiver.body.Position += vec;
-                            break;
-                        case ActionType.Range:
-                            vals = (ArrayList)Value;
-                            float minX = (float)(double)vals[0];
-                            float maxX = (float)(double)vals[1];
-                            float speed = (float)(double)vals[2];
-
-                            float newValue = Receiver.body.Position.X + (Flag ? speed : -speed);
-                            if (minX <= newValue && newValue <= maxX)
-                            {
-                                Receiver.body.Position = new Vector2(newValue, Receiver.body.Position.Y);
-                            }
-                            else
-                            {
-                                Flag = !Flag;
-                            }
                             break;
                     }
                 }
@@ -200,21 +205,7 @@ namespace Spectrum.Model
                     }
                 }
 
-
-
-                if (Repeats)
-                {
-                    if (RepeatCount == RepeatIndef || RepeatCount > 0)
-                    {
-                        this.LaunchTime = curMs + this.RepeatDelay;
-                        if (RepeatCount != RepeatIndef)
-                        {
-                            this.RepeatCount--;
-                        }
-                        deferFuture.Add(this);
-                    }
-                }
-
+                HandleRepeats(deferFuture, curMs);
             }
         }
     }
