@@ -66,5 +66,34 @@ namespace Spectrum.Model
         {
             return (!Keyboard.IsKeyDown(key) && PreviousKeyboard.IsKeyDown(key)) || (!Gamepad.IsButtonDown(button) && PreviousGamepad.IsButtonDown(button));
         }
+
+
+
+
+
+       
+
+        public static DepthStencilBuffer CreateDepthStencil(RenderTarget2D target)
+        {
+            return new DepthStencilBuffer(target.GraphicsDevice, target.Width,
+                target.Height, target.GraphicsDevice.DepthStencilBuffer.Format,
+                target.MultiSampleType, target.MultiSampleQuality);
+        }
+        public static DepthStencilBuffer CreateDepthStencil(
+            RenderTarget2D target, DepthFormat depth)
+        {
+            if (GraphicsAdapter.DefaultAdapter.CheckDepthStencilMatch(
+                DeviceType.Hardware,
+                GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Format,
+                target.Format,
+                depth))
+            {
+                return new DepthStencilBuffer(target.GraphicsDevice,
+                    target.Width, target.Height, depth,
+                    target.MultiSampleType, target.MultiSampleQuality);
+            }
+            else
+                return CreateDepthStencil(target);
+        }
     }
 }

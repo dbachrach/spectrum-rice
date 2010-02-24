@@ -165,7 +165,7 @@ namespace Spectrum.Model
             LoadPhysicsBody(Size, IsStatic);
         }
 
-        public void LoadTexture()
+        public virtual void LoadTexture()
         {
             Texture = new GameTexture(0.0f, this.Scale, .5f);
             Texture.Load(Container.GameRef.Content, Container.GameRef.GraphicsDevice, ImageName, FrameCount, FramesPerSec);
