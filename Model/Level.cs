@@ -93,7 +93,7 @@ namespace Spectrum.Model
             return _allColorsMode;
         }
 
-        private bool useColorBar = false;
+        private bool useColorBar = true;
 
         public List<EventAction> FutureActions;
         public List<EventAction> DeferFuture;

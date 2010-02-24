@@ -1,8 +1,8 @@
 ﻿[{"object" : "level","id" : "level","number" : 3,"name" : "Level3","width" : 1280,"height" : 720,"allowed-colors" : ["red","blue","purple"], "starting-color" : ["red"], "start-position" : [150,520] }
 
-{"object" : "solid-ground", "id" : "ground", "position" : [0,620], "_w" : 1280, "_h" : 100}
-{"object" : "solid-ground", "id" : "ledge", "position" : [800,490], "_w" : 480, "_h" : 130}
-{"object" : "solid-ground", "id" : "blocker", "colors" : ["red","blue"], "position" : [0,410], "_w" : 780, "_h" : 40}
+{"object" : "ground", "id" : "ground", "position" : [0,620], "_w" : 1280, "_h" : 100}
+{"object" : "ground", "id" : "ledge", "position" : [800,490], "_w" : 480, "_h" : 130}
+{"object" : "ground", "id" : "blocker", "colors" : ["red","blue"], "position" : [0,410], "_w" : 780, "_h" : 40}
 
 {"object" : "block","id" : "red-block", "position" : [50, 570], "colors" : ["red"],"combinable-with" : ["blue-block"]}
 {"object" : "block","id" : "blue-block", "position" : [300, 570], "colors" : ["blue"],"combinable-with" : ["red-block"]}

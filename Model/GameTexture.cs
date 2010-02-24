@@ -44,6 +44,7 @@ namespace Spectrum.Model
             Asset = "";
             framecount = FrameCount;
             myTexture = tex;
+            Console.WriteLine("Loaded tex: {0}", myTexture);
 
             this.Origin = new Vector2(this.TextureSize().X / 2, this.TextureSize().Y / 2);
 
@@ -75,8 +76,10 @@ namespace Spectrum.Model
                     asset.Equals("switchOn") || asset.Equals("switchBoxUp") || asset.Equals("switchBoxDown") ||
                     asset.Equals("clouds") || asset.Equals("flowerBottoms") || asset.Equals("flowerTops") || asset.Equals(""))
                 {
+                    
                     assetCount = 7;
                 }
+                Console.WriteLine("Asset: " + assetCount);
                 myTexture = content.Load<Texture2D>(asset);
             }
 

@@ -1,10 +1,10 @@
 ﻿[{"object" : "level","id" : "level","number" : 5,"name" : "Cloudy with a chance of WTF", "width" : 2560,"height" : 720,"allowed-colors" : ["all"], "starting-color" : ["purple"], "start-position" : [250,50] },
 
-{"object" : "solid-ground", "id" : "ground", "position" : [0,670], "_w" : 2560, "_h" : 50},
+{"object" : "ground", "id" : "ground", "position" : [0,670], "_w" : 2560, "_h" : 50},
 
-{"object" : "solid-ground", "id" : "bridge", "position" : [0,150], "_w" : 2560, "_h" : 20},
+{"object" : "ground", "id" : "bridge", "position" : [0,150], "_w" : 2560, "_h" : 20},
 
-{"object" : "solid-ground", "id" : "barrier", "position" : [1100,0], "_w" : 20, "_h" : 10},
+{"object" : "ground", "id" : "barrier", "position" : [1100,0], "_w" : 20, "_h" : 10},
 
 {"object" : "push", "id" : "pushA", "colors" : ["all"], "position" : [375,120]},
 

@@ -45,4 +45,4 @@
 {"object" : "platform","id" : "green-platform-b","colors" : ["green"],"position" : [400, 150],"affected-by-gravity" : false,"exists-when-not-viewed" : false}
 {"object" : "door","id" : "door","colors" : ["green"],"position" : [560, 42],"exists-when-not-viewed" : true} 
 
-{"object" : "solid-ground", "id" : "ground", "position" : [0,535], "_w" : 800, "_h" : 65}]
+{"object" : "ground", "id" : "ground", "position" : [0,535], "_w" : 800, "_h" : 65}]

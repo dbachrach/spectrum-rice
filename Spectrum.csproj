@@ -168,7 +168,6 @@
     <Compile Include="Model\Convenience Objects\Door.cs" />
     <Compile Include="Model\Convenience Objects\Ground.cs" />
     <Compile Include="Model\Convenience Objects\Platform.cs" />
-    <Compile Include="Model\Convenience Objects\SolidGround.cs" />
     <Compile Include="Model\Event.cs" />
     <Compile Include="Model\GameObject.cs" />
     <Compile Include="Model\Level.cs" />

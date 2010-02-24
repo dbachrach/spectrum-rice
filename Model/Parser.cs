@@ -136,13 +136,9 @@ namespace Spectrum.Model
                     }
                     else if (objType.Equals("ground"))
                     {
-                        newObject = new Ground();
-                    }
-                    else if (objType.Equals("solid-ground"))
-                    {
-                        double w = (double) obj["_w"];
+                        double w = (double)obj["_w"];
                         double h = (double)obj["_h"];
-                        newObject = new SolidGround((int) w, (int) h);
+                        newObject = new Ground((int)w, (int)h);
                     }
                     else if (objType.Equals("door"))
                     {
@@ -157,14 +153,14 @@ namespace Spectrum.Model
                     {
                         newObject = new Block();
                     }
-                        /*
+                      /*  
                     else if (objType.Equals("sensor"))
                     {
                         double w = (double)obj["_w"];
                         double h = (double)obj["_h"];
                         newObject = new Sensor((int) w, (int) h);
-                    }
-                         */
+                    }*/
+                         
                     else if (objType.Equals("switch"))
                     {
                         newObject = new Switch(player);

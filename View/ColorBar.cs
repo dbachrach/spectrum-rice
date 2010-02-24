@@ -22,6 +22,7 @@ namespace Spectrum.View
         private Texture2D borderImg;
         private Texture2D barImg;
         private Texture2D wedgeImg;
+        private Texture2D maskImg;
 
         private double curPosn;
         private double finalPosn;
@@ -51,6 +52,7 @@ namespace Spectrum.View
             borderImg = manager.Load<Texture2D>(contentPath + "border");
             barImg = manager.Load<Texture2D>(contentPath + "Bar");
             wedgeImg = manager.Load<Texture2D>(contentPath + "wedge");
+            maskImg = manager.Load<Texture2D>(contentPath + "mask");
         }
 
         public void Update(GameTime gameTime)
@@ -92,13 +94,43 @@ namespace Spectrum.View
             float halfwayOffset = (barImg.Width * scale) / 12;
             /* Draws the background, a copy of the bg to the left, and a copy of the bg to the right. */
             // TODO: Make it get cutoff so you only see on length of rainbow inside the border
+
+            spriteBatch.End();
+
+            GraphicsDevice g = spriteBatch.GraphicsDevice;
+            g.RenderState.StencilEnable = true;
+            g.Clear(ClearOptions.Stencil, Color.Black, 0.0f, 0);
+            
+
+            spriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.Immediate, SaveStateMode.SaveState);  
+            g.RenderState.ColorWriteChannels = ColorWriteChannels.None;   
+            g.RenderState.StencilFunction = CompareFunction.Always;   
+            g.RenderState.StencilPass = StencilOperation.Replace;   
+            g.RenderState.ReferenceStencil = 1;
+            spriteBatch.Draw(maskImg, new Vector2(0, (84 * scale)), null, Color.White, 0, Vector2.Zero, scale, SpriteEffects.None, 1.0f); 
+            spriteBatch.End();
+
+
+
+            spriteBatch.Begin(SpriteBlendMode.AlphaBlend, SpriteSortMode.Immediate, SaveStateMode.SaveState);  
+            g.RenderState.ColorWriteChannels = ColorWriteChannels.All;   
+            g.RenderState.StencilFunction = CompareFunction.Equal;   
+            g.RenderState.ReferenceStencil = 1;
+
             spriteBatch.Draw(barImg, new Vector2((float)curPosn + halfwayOffset, 108*scale), null, Color.White, 0, Vector2.Zero, scale, SpriteEffects.None, 1.0f);
             spriteBatch.Draw(barImg, new Vector2((float)curPosn - (barImg.Width * scale) + halfwayOffset, 108 * scale), null, Color.White, 0, Vector2.Zero, scale, SpriteEffects.None, 1.0f);
             spriteBatch.Draw(barImg, new Vector2((float)curPosn + (barImg.Width * scale) + halfwayOffset, 108 * scale), null, Color.White, 0, Vector2.Zero, scale, SpriteEffects.None, 1.0f);
+            spriteBatch.End();
 
+            g.RenderState.StencilEnable = false;
+
+            spriteBatch.Begin();
             /* Draws the border and wedge indicator above it */
             spriteBatch.Draw(borderImg, new Vector2(0, (84*scale)), null, Color.White, 0, Vector2.Zero, scale, SpriteEffects.None, 1.0f);
             spriteBatch.Draw(wedgeImg, new Vector2(((barImg.Width * scale) / 2) - ((wedgeImg.Width*scale) / 2), (50*scale)), null, Color.White, 0, Vector2.Zero, scale, SpriteEffects.None, 1.0f);
+            
+
+            
         }
 
         public void SetColor(Colors colors)
