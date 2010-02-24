@@ -45,7 +45,7 @@ namespace Spectrum
             graphics.PreferredBackBufferWidth = Globals.GameWidth;
             graphics.PreferredBackBufferHeight = Globals.GameHeight;
 
-            LoadLevel(4, false);
+            LoadLevel(1, false);
 
             Content.RootDirectory = "Content";
         }

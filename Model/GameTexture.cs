@@ -39,6 +39,20 @@ namespace Spectrum.Model
             assetCount = 6;
         }
 
+        public void Load(Texture2D tex, int FrameCount, int FramesPerSec)
+        {
+            Asset = "";
+            framecount = FrameCount;
+            myTexture = tex;
+
+            this.Origin = new Vector2(this.TextureSize().X / 2, this.TextureSize().Y / 2);
+
+            TimePerFrame = (float)1 / FramesPerSec;
+            Frame = 0;
+            TotalElapsed = 0;
+            Paused = false;
+
+        }
         public void Load(ContentManager content, GraphicsDevice graphicsDevice, string asset, int FrameCount, int FramesPerSec)
         {
             
@@ -59,7 +73,7 @@ namespace Spectrum.Model
                 // TODO: Get all images to have the white space at the bottom so that we don't need these special cases
                 if (asset.Equals("plat") || asset.Equals("box") || asset.Equals("switchOff") || asset.Equals("water") ||
                     asset.Equals("switchOn") || asset.Equals("switchBoxUp") || asset.Equals("switchBoxDown") ||
-                    asset.Equals("clouds") || asset.Equals("flowerBottoms") || asset.Equals("flowerTops"))
+                    asset.Equals("clouds") || asset.Equals("flowerBottoms") || asset.Equals("flowerTops") || asset.Equals(""))
                 {
                     assetCount = 7;
                 }

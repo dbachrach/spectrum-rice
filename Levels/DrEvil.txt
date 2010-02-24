@@ -4,7 +4,7 @@
 {"object" : "solid-ground", "id" : "west-bank", "position" : [0,320], "_w" : 240, "_h" : 400, "friction" : 0, "drag" : 0},
 {"object" : "solid-ground", "id" : "east-bank", "position" : [1040,320], "_w" : 240, "_h" : 400, "friction" : 0, "drag" : 0},
 
-{"object" : "platform","id" : "a-plat","colors" : ["orange"],"position" : [390, 295]},
+{"object" : "platform","id" : "a-plat","colors" : ["orange"],"position" : [390, 295], "_w" : 800},
 
 {"object" : "switch","id" : "a-switch","colors" : ["orange"],"position" : [480, 265],
 	"tangibility" : ["none"],"player-tangibility" : ["none"],  "_switch-actions" : [{
@@ -14,7 +14,7 @@
 									"value" : true
 								 }]},
 								 
-{"object" : "platform","id" : "b-plat","colors" : ["green"],"position" : [590, 295]},
+{"object" : "platform","id" : "b-plat","colors" : ["green"],"position" : [590, 295], "_w" : 130},
 {"object" : "switch","id" : "b-switch","colors" : ["green"],"position" : [680, 265],
 	"tangibility" : ["none"],"player-tangibility" : ["none"], "_switch-actions" : [{
 									"receiver" : "b-plat",
@@ -23,7 +23,7 @@
 									"value" : true
 								 }]},
 								 
-{"object" : "platform","id" : "c-plat","colors" : ["purple"],"position" : [790, 295]},
+{"object" : "platform","id" : "c-plat","colors" : ["purple"],"position" : [790, 295], "_w" : 130},
 {"object" : "switch","id" : "c-switch","colors" : ["purple"],"position" : [880, 265],
 	"tangibility" : ["none"],"player-tangibility" : ["none"], "_switch-actions" : [{
 									"receiver" : "c-plat",

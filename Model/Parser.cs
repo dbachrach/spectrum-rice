@@ -149,7 +149,8 @@ namespace Spectrum.Model
                     }
                     else if (objType.Equals("platform"))
                     {
-                        newObject = new Platform();
+                        int w = (int)(double)obj["_w"];
+                        newObject = new Platform(w);
                     }
                     else if (objType.Equals("block"))
                     {

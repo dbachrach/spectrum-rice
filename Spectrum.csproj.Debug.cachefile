@@ -35,6 +35,9 @@ Content\farseer\diagnosticFont.xnb
 Content\farseer\frameRateCounterFont.xnb
 Content\farseer\gamefont.xnb
 Content\farseer\menufont.xnb
+Content\platformCenter.xnb
+Content\platformEndLeft.xnb
+Content\platformEndRight.xnb
 Levels\demo.txt
 Levels\cloudy.txt
 Levels\Level3.txt
