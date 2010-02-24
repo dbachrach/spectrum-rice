@@ -41,11 +41,13 @@ namespace Spectrum
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.PreferredDepthStencilFormat = DepthFormat.Depth24Stencil8Single;
+
 
             graphics.PreferredBackBufferWidth = Globals.GameWidth;
             graphics.PreferredBackBufferHeight = Globals.GameHeight;
 
-            LoadLevel(1, false);
+            LoadLevel(4, false);
 
             Content.RootDirectory = "Content";
         }

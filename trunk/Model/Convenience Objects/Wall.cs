@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Spectrum.Model
 {
-    class Wall : SolidGround
+    class Wall : Ground
     {
         public Wall() : base() {
 		}

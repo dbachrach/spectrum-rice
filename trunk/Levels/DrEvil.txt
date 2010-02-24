@@ -1,8 +1,8 @@
 ﻿[
 {"object" : "level","id" : "level","number" : 2,"name" : "Dr. Evil's Quarters","width" : 1280,"height" : 720,"allowed-colors" : ["orange","green","purple"], "starting-color" : ["purple"], "start-position" : [25,220] },
 
-{"object" : "solid-ground", "id" : "west-bank", "position" : [0,320], "_w" : 240, "_h" : 400, "friction" : 0, "drag" : 0},
-{"object" : "solid-ground", "id" : "east-bank", "position" : [1040,320], "_w" : 240, "_h" : 400, "friction" : 0, "drag" : 0},
+{"object" : "ground", "id" : "west-bank", "position" : [0,320], "_w" : 240, "_h" : 400, "friction" : 0, "drag" : 0},
+{"object" : "ground", "id" : "east-bank", "position" : [1040,320], "_w" : 240, "_h" : 400, "friction" : 0, "drag" : 0},
 
 {"object" : "platform","id" : "a-plat","colors" : ["orange"],"position" : [390, 295], "_w" : 800},
 
@@ -14,7 +14,7 @@
 									"value" : true
 								 }]},
 								 
-{"object" : "platform","id" : "b-plat","colors" : ["green"],"position" : [590, 295], "_w" : 130},
+{"object" : "platform","id" : "b-plat","colors" : ["green"],"position" : [590, 295], "_w" : 400},
 {"object" : "switch","id" : "b-switch","colors" : ["green"],"position" : [680, 265],
 	"tangibility" : ["none"],"player-tangibility" : ["none"], "_switch-actions" : [{
 									"receiver" : "b-plat",
@@ -23,7 +23,7 @@
 									"value" : true
 								 }]},
 								 
-{"object" : "platform","id" : "c-plat","colors" : ["purple"],"position" : [790, 295], "_w" : 130},
+{"object" : "platform","id" : "c-plat","colors" : ["purple"],"position" : [790, 295], "_w" : 220},
 {"object" : "switch","id" : "c-switch","colors" : ["purple"],"position" : [880, 265],
 	"tangibility" : ["none"],"player-tangibility" : ["none"], "_switch-actions" : [{
 									"receiver" : "c-plat",
@@ -48,7 +48,7 @@
 		}]
 	}]
 },
-{"object" : "solid-ground", "id" : "way_bottom", "position" : [0,716], "_w" : 1280, "_h" : 200, "friction" : 0, "drag" : 0},
+{"object" : "ground", "id" : "way_bottom", "position" : [0,716], "_w" : 1280, "_h" : 200, "friction" : 0, "drag" : 0},
 
 
 
