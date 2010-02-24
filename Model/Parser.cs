@@ -13,6 +13,7 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 using Spectrum.Model.Convenience_Objects;
+using Spectrum.Model.EventActions;
 
 namespace Spectrum.Model
 {
@@ -343,6 +344,25 @@ namespace Spectrum.Model
                     || !ac.ContainsKey("value"))
                 {
                     Console.WriteLine("Action must have all required properties.");
+                }
+
+                if (((string)ac["type"]) == "animate")
+                {
+                    PathAnimate animation = new PathAnimate();
+
+                    List<Vector2> path = new List<Vector2>();
+
+                    ArrayList points = (ArrayList)ac["value"];
+                    foreach (var pt in points)
+                    {
+                        ArrayList point = (ArrayList)pt;
+
+                        Vector2 newPoint = new Vector2((float)(double)point[0], (float)(double)point[1]);
+                        path.Add(newPoint);
+                    }
+
+                    animation.Path = path;
+                    a = animation;
                 }
 
                 a.Receiver = level.GameObjectForId((string)ac["receiver"]);
