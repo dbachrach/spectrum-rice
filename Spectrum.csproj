@@ -183,6 +183,7 @@
     <None Include="Farseer\Content\Content.contentproj" />
     <Compile Include="Model\Convenience Objects\PushButton.cs" />
     <Compile Include="Model\Convenience Objects\Switch.cs" />
+    <Compile Include="Model\EventActions\PathAnimate.cs" />
     <Compile Include="View\ColorBar.cs" />
     <Compile Include="View\ColorWheel.cs" />
     <Compile Include="View\IColorIndicator.cs" />

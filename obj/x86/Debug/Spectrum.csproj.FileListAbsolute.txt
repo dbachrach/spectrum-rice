@@ -145,3 +145,6 @@ C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\flowerTops.
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\platformCenter.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\platformEndLeft.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\platformEndRight.xnb
+\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\platformCenter.xnb
+\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\platformEndLeft.xnb
+\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\platformEndRight.xnb
