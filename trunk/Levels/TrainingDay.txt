@@ -9,6 +9,6 @@
 
 {"object" : "block","id" : "block", "position" : [475, 480], "colors" : ["green"]}
 
-{"object" : "platform","id" : "platform","colors" : ["blue"],"position" : [950, 425], "_w" : 400}
+{"object" : "platform","id" : "platform","colors" : ["blue"],"position" : [950, 425]}
 
 {"object" : "door","id" : "door","colors" : ["green","blue"],"position" : [1180, 265]}]

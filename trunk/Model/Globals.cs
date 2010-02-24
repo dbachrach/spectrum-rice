@@ -33,7 +33,7 @@ namespace Spectrum.Model
         public static string AddColorsAction = "add-colors";
         public static string RemoveColorsAction = "remove-colors";
         public static string DisplayTextAction = "display-text";
-        public static string RangeAction = "range";
+        public static string AnimationAction = "animation";
 
         public static string WinSpecial = "win";
         public static string LoseSpecial = "lose";
@@ -48,6 +48,8 @@ namespace Spectrum.Model
         public static GamePadState Gamepad { get; set; }
         public static KeyboardState PreviousKeyboard { get; set; }
         public static GamePadState PreviousGamepad { get; set; }
+
+        public static float Epsilon = 0.000001f;
 
 
         public static int PlayerZIndex = 0;

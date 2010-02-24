@@ -109,16 +109,7 @@ namespace Spectrum.Model
             edgeBottom.PlayerSensibility = Colors.AllColors;
 
             // Add Death on collision effect 
-            edgeBottom.Events = new List<Event>();
-            Event e = new Event();
-            e.Type = EventType.Collision;
-            e.CollisionTarget = player;
-            e.Actions = new List<EventAction>();
-            EventAction a = new EventAction();
-            a.Special = Globals.LoseSpecial;
-            a.Receiver = player;
-            e.Actions.Add(a);
-            edgeBottom.Events.Add(e);
+            edgeBottom.MakeDeadly();
 
             level.AddGameObject(edgeBottom);
 
@@ -146,7 +137,12 @@ namespace Spectrum.Model
                     }
                     else if (objType.Equals("platform"))
                     {
-                        int w = (int)(double)obj["_w"];
+                        int w = 0;
+                        if (obj.ContainsKey("_w"))
+                        {
+                            w = (int)(double)obj["_w"];
+                        }
+                        
                         newObject = new Platform(w);
                     }
                     else if (objType.Equals("block"))
@@ -281,6 +277,14 @@ namespace Spectrum.Model
                 {
                     newObject.ZIndex = (int)(double)obj["zindex"];
                 }
+                if (obj.ContainsKey("deadly"))
+                {
+                    bool isDeadly = (bool)obj["deadly"];
+                    if (isDeadly)
+                    {
+                        newObject.MakeDeadly();
+                    }
+                }
                 if (obj.ContainsKey("_switch-actions"))
                 {
                     
@@ -335,14 +339,14 @@ namespace Spectrum.Model
             List<EventAction> acts = new List<EventAction>();
             foreach (Hashtable ac in actions)
             {
-                EventAction a = new EventAction();
+                EventAction a;
                 if (!ac.ContainsKey("receiver") || !ac.ContainsKey("property") || !ac.ContainsKey("type")
                     || !ac.ContainsKey("value"))
                 {
                     Console.WriteLine("Action must have all required properties.");
                 }
 
-                if (((string)ac["type"]) == "animate")
+                if (((string)ac["type"]) == Globals.AnimationAction)
                 {
                     PathAnimate animation = new PathAnimate();
 
@@ -358,7 +362,17 @@ namespace Spectrum.Model
                     }
 
                     animation.Path = path;
+
+                    if (ac.ContainsKey("speed"))
+                    {
+                        animation.Speed = (float)(double)ac["speed"];
+                    }
+
                     a = animation;
+                }
+                else
+                {
+                    a = new EventAction();
                 }
 
                 a.Receiver = level.GameObjectForId((string)ac["receiver"]);
@@ -378,6 +392,8 @@ namespace Spectrum.Model
                     a.RepeatDelay = (float)((double)ac["repeat-delay"]);
                 if (ac.ContainsKey("repeat-count"))
                     a.RepeatCount = (int)((double)ac["repeat-count"]);
+                if (ac.ContainsKey("special"))
+                    a.Special = (string)ac["special"];
 
                 acts.Add(a);
 

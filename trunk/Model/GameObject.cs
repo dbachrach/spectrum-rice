@@ -537,5 +537,22 @@ namespace Spectrum.Model
                    body.Position.Y + (Size.Y / 2) >= Container.CameraPosition.Y && body.Position.Y - (Size.Y / 2) <= Container.CameraPosition.Y + Globals.GameHeight);
         }
 
+        public void MakeDeadly()
+        {
+            if (Events == null)
+            {
+                Events = new List<Event>();
+            }
+            Event e = new Event();
+            e.Type = EventType.Collision;
+            e.CollisionTarget = Container.player;
+            e.Actions = new List<EventAction>();
+            EventAction a = new EventAction();
+            a.Special = Globals.LoseSpecial;
+            a.Receiver = Container.player;
+            e.Actions.Add(a);
+            Events.Add(e);
+        }
+
     }
 }

@@ -18,10 +18,17 @@ namespace Spectrum.Model
     {
         private int _width;
 		public Platform(int w) : base() {
-            
+
             ImageName = "plat";
             IsStatic = true;
-            Scale = .25f;
+            if (w == 0)
+            {
+                Scale = 1.0f;
+            }
+            else
+            {
+                Scale = 0.25f;
+            }
 
             InitialFriction = .6f;
             _width = w;
@@ -29,8 +36,13 @@ namespace Spectrum.Model
 
         public override void LoadTexture()
         {
-            GraphicsDevice g = Container.GameRef.GraphicsDevice;
+            if (_width == 0)
+            {
+                base.LoadTexture();
+                return;
+            }
 
+            GraphicsDevice g = Container.GameRef.GraphicsDevice;
 
             int w = Math.Max((int) (_width * (1 / Scale)), 78*2);
             int repeats = (w - 78*2) / 377;

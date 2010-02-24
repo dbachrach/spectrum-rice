@@ -4,7 +4,7 @@
 {"object" : "ground", "id" : "west-bank", "position" : [0,320], "_w" : 240, "_h" : 400, "friction" : 0, "drag" : 0},
 {"object" : "ground", "id" : "east-bank", "position" : [1040,320], "_w" : 240, "_h" : 400, "friction" : 0, "drag" : 0},
 
-{"object" : "platform","id" : "a-plat","colors" : ["orange"],"position" : [390, 295], "_w" : 800},
+{"object" : "platform","id" : "a-plat","colors" : ["orange"],"position" : [390, 295]},
 
 {"object" : "switch","id" : "a-switch","colors" : ["orange"],"position" : [480, 265],
 	"tangibility" : ["none"],"player-tangibility" : ["none"],  "_switch-actions" : [{
@@ -14,7 +14,7 @@
 									"value" : true
 								 }]},
 								 
-{"object" : "platform","id" : "b-plat","colors" : ["green"],"position" : [590, 295], "_w" : 400},
+{"object" : "platform","id" : "b-plat","colors" : ["green"],"position" : [590, 295]},
 {"object" : "switch","id" : "b-switch","colors" : ["green"],"position" : [680, 265],
 	"tangibility" : ["none"],"player-tangibility" : ["none"], "_switch-actions" : [{
 									"receiver" : "b-plat",
@@ -23,7 +23,7 @@
 									"value" : true
 								 }]},
 								 
-{"object" : "platform","id" : "c-plat","colors" : ["purple"],"position" : [790, 295], "_w" : 220},
+{"object" : "platform","id" : "c-plat","colors" : ["purple"],"position" : [790, 295]},
 {"object" : "switch","id" : "c-switch","colors" : ["purple"],"position" : [880, 265],
 	"tangibility" : ["none"],"player-tangibility" : ["none"], "_switch-actions" : [{
 									"receiver" : "c-plat",
@@ -34,21 +34,22 @@
 
 {"object" : "door","id" : "door","colors" : ["all"],"position" : [1140, 220]} ,
 
-{"object" : "game-object", "id" : "water", "colors" : ["all"], "position" : [309, 405], "friction" : 0, "drag" : 0,
+{"object" : "game-object", "id" : "water", "colors" : ["all"], "position" : [150,600], "static": true, "friction" : 0, "drag" : 0,
 	"image" : "water", "scale" : 0.8, "player-tangibility" : ["none"],
 	"events" : [{ "type" : "behavior",
 		"actions" : [{
 			"receiver" : "water",
 			"property" : "position",
-			"type" : "range",
-			"value" : [300, 800, 1],
+			"type" : "animation",
+			"value" : [[150, 600],[600,600]],
+			"speed" : 2,
 			"repeats" : true,
 			"repeat-delay" : 5,
 			"repeat-count" : -999
 		}]
 	}]
 },
-{"object" : "ground", "id" : "way_bottom", "position" : [0,716], "_w" : 1280, "_h" : 200, "friction" : 0, "drag" : 0},
+
 
 
 
