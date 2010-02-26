@@ -27,7 +27,8 @@ Did Sense:
 5 Platforms (variable width) with new graphics
 4 Add pickup animations
 3 Code for color wheel rotation depending on number of colors in level
-7 Set Position Event Action (for animating waves)
+
+Preload switch on graphic at beginning so it doesn't lag the first time you hit it
 
 Defer
 -----   

@@ -101,7 +101,7 @@ namespace Spectrum.Model.EventActions
 
             // check if we've passed the destination
             // if so, set destination to next target point
-            if (SegmentDistance < Globals.Epsilon || 
+            if (SegmentDistance < Globals.Epsilon ||
                 toDest.Length() < Globals.Epsilon ||
                 toStart.Length() > SegmentDistance)
             {
@@ -110,6 +110,14 @@ namespace Spectrum.Model.EventActions
                 NextDestination = (NextDestination + 1) % TotalSegments;
                 UpdateDirection();
             }
+            else
+            {
+                /*Receiver.IsStatic = false;
+                Receiver.body.IgnoreGravity = true;
+                Console.WriteLine(Direction.ToString());
+                Receiver.body.ApplyForce(100*Direction);*/
+            }
+            
 
             Receiver.body.Position = newPosition;
 

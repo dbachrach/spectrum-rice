@@ -35,7 +35,7 @@ namespace Spectrum
 
         private string levelPath = "Levels/";
         private string levelExtension = ".txt";
-        private string[] levels = {"TrainingDay", "DrEvil","Level3", "demo", "cloudy"};
+        private string[] levels = {"TrainingDay", "DrEvil","CombinationPizzaHut", "cloudy", "DodgeDuckDip"};
         private int levelIndex;
 
         public Game1()

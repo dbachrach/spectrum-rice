@@ -47,7 +47,7 @@ namespace Spectrum.View
             menuItem[2] = new MenuItem(Globals.SettingsMenuItem, Globals.SettingsMenuItem, font, new Vector2(350f, 250f), baseColor, selectedColor, false);
             menuItem[3] = new MenuItem("lev1", "Level 1: Training Day", font, new Vector2(350f, 300f), baseColor, selectedColor, false);
             menuItem[4] = new MenuItem("lev2", "Level 2: Dr. Evil's Quarters", font, new Vector2(350f, 350f), baseColor, selectedColor, false);
-            menuItem[5] = new MenuItem("lev3", "Level 3: Level 3", font, new Vector2(350f, 400f), baseColor, selectedColor, false);
+            menuItem[5] = new MenuItem("lev3", "Level 3: Combination Pizza Hut", font, new Vector2(350f, 400f), baseColor, selectedColor, false);
             menuItem[6] = new MenuItem(Globals.ExitMenuItem, Globals.ExitMenuItem, font, new Vector2(350f, 450f), baseColor, selectedColor, false);
 
             pauseBackground.Load(content, graphics, null, 1, 1, ViewWidth, ViewHeight);
