@@ -193,7 +193,10 @@
     </None>
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
-    <None Include="Levels\Level3.txt">
+    <None Include="Levels\CombinationPizzaHut.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Levels\DodgeDuckDip.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Content Include="todo.txt" />

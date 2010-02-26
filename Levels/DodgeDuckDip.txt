@@ -1,0 +1,45 @@
+﻿[{"object" : "level","id" : "level","number" : 4,"name" : "Dodge, Duck, Dip, Dive and Dodge","width" : 1280,"height" : 1440,"allowed-colors" : ["red","orange","yellow","green"], "starting-color" : ["yellow"], "start-position" : [100,1240] },
+
+{"object" : "ground", "id" : "below-start", "position" : [0,1340], "_w" : 200, "_h" : 100},
+{"object" : "ground", "id" : "above-start", "position" : [0,1140], "_w" : 200, "_h" : 100},
+
+{"object" : "platform","id" : "a-plat","colors" : ["green"],"position" : [700, 1260]},
+{"object" : "switch","id" : "b-switch","colors" : ["green"],"position" : [780, 1230],
+	"tangibility" : ["none"],"player-tangibility" : ["none"], "_switch-actions" : [{
+									"receiver" : "a-plat",
+									"property" : "whiteness",
+									"type" : "change",
+									"value" : true
+								 }]},
+								 
+{"object" : "block","id" : "block-1", "position" : [650, 1340], "colors" : ["red","green"], "static" : true}
+								 
+{"object" : "platform","id" : "move-plat-1","colors" : ["yellow"],"position" : [850, 1260],
+			"events" : [{ "type" : "behavior",
+					"actions" : [{
+						"receiver" : "move-plat-1",
+						"property" : "position",
+						"type" : "animation",
+						"value" : [[850, 960],[850,1210]],
+						"speed" : 2,
+						"repeats" : true,
+						"repeat-delay" : 5,
+						"repeat-count" : -999
+					}]
+				}]},
+				
+{"object" : "platform","id" : "move-plat-2","colors" : ["red"],"position" : [600, 1340],
+			"events" : [{ "type" : "behavior",
+					"actions" : [{
+						"receiver" : "move-plat-2",
+						"property" : "position",
+						"type" : "animation",
+						"value" : [[100,1340],[600,1340]],
+						"speed" : 2,
+						"repeats" : true,
+						"repeat-delay" : 5,
+						"repeat-count" : -999
+					}]
+				}]},
+				
+]
