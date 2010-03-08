@@ -28,7 +28,7 @@ namespace Spectrum.Model
 		}
 
         public Ground(int w, int h)
-            : base()
+            : this()
         {
             _w = w;
             _h = h;

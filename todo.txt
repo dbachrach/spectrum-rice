@@ -15,8 +15,6 @@ Did Sense:
             //    Events.RemoveAll(ev => (ev.Type == EventType.Collision && ev.CollisionTarget.Equals(obj)));
             //}
             
-
-2 Combine ground and solid ground
 4 Adjust barrier in level 3 (NO HACKY JUMPS YO)
 2 Clean up JSON specification
 

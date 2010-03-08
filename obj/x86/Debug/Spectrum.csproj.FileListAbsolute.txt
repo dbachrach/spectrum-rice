@@ -118,7 +118,6 @@ C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Levels\TrainingDay.
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switchOn.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switchBoxDown.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switchBoxUp.xnb
-U:\comp410\bin\x86\Debug\Levels\Level3.txt
 U:\comp410\bin\x86\Debug\Levels\TrainingDay.txt
 U:\comp410\bin\x86\Debug\Content\rainbow\Bar.xnb
 U:\comp410\bin\x86\Debug\Content\rainbow\border.xnb
@@ -154,3 +153,5 @@ U:\comp410\bin\x86\Debug\Content\rainbow\mask.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\rainbow\mask.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Levels\CombinationPizzaHut.txt
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Levels\DodgeDuckDip.txt
+U:\comp410\bin\x86\Debug\Levels\CombinationPizzaHut.txt
+U:\comp410\bin\x86\Debug\Levels\DodgeDuckDip.txt
