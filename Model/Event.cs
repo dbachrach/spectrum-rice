@@ -29,6 +29,17 @@ namespace Spectrum.Model
             CollisionTarget = null;
         }
 
+        public void LoadContent(ContentManager theContentManager, GraphicsDevice theGraphicsDevice)
+        {
+            if (Actions != null)
+            {
+                foreach (EventAction a in this.Actions)
+                {
+                    a.LoadContent(theContentManager, theGraphicsDevice);
+                }
+            }
+        }
+
         public static EventType EventTypeForString(string str) {
             if (str.Equals("x-event"))
             {

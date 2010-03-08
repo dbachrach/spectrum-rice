@@ -46,6 +46,20 @@ namespace Spectrum.Model
             Special = "";
 		}
 
+        public void LoadContent(ContentManager theContentManager, GraphicsDevice theGraphicsDevice)
+        {
+            if (Property != null)
+            {
+                if (Property.Equals(Globals.ImageProperty))
+                {
+                    if (Type == ActionType.Change)
+                    {
+                        theContentManager.Load<Texture2D>((string)Value);
+                    }
+                }
+            }
+        }
+
         public static ActionType ActionTypeForString(string str)
         {
             if (str.Equals(Globals.ChangeAction))
