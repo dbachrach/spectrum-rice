@@ -94,6 +94,8 @@ namespace Spectrum.Model.EventActions
                 UpdateDirection();
             }
 
+            UpdateDirection();
+
             Vector2 newPosition = Receiver.body.Position;
             newPosition += Direction;
             Vector2 toDest = Destination - newPosition;
@@ -109,17 +111,19 @@ namespace Spectrum.Model.EventActions
                 Destination = Path[NextDestination];
                 NextDestination = (NextDestination + 1) % TotalSegments;
                 UpdateDirection();
+                Receiver.body.LinearVelocity = Vector2.Zero;
             }
             else
             {
-                /*Receiver.IsStatic = false;
+                //Receiver.IsStatic = false;
                 Receiver.body.IgnoreGravity = true;
                 Console.WriteLine(Direction.ToString());
-                Receiver.body.ApplyForce(100*Direction);*/
+                Receiver.body.LinearVelocity = 100*Direction;
+                //Receiver.body.ApplyForce(100*Direction);
             }
             
 
-            Receiver.body.Position = newPosition;
+            //Receiver.body.Position = newPosition;
 
         }
     }

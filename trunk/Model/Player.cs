@@ -136,10 +136,12 @@ namespace Spectrum.Model
                 if (!BlockLeft)
                 {
                     /* Chooses a horizontal vector that is adjusted either for moving on the ground or in the air */
-                   this.body.ApplyImpulse((IsTouchingGround) ? moveLeft : moveLeftAir);
+                    this.body.ApplyImpulse((IsTouchingGround) ? moveLeft : moveLeftAir);
+                    //this.geom.FrictionCoefficient = 0.5f;
                 }
 
                 d = Direction.Left;
+
             }
             else if (Globals.UserInputHold(Keys.D, Buttons.LeftThumbstickRight))
             {
@@ -147,9 +149,11 @@ namespace Spectrum.Model
                 {
                     /* Chooses a horizontal vector that is adjusted either for moving on the ground or in the air */
                     this.body.ApplyImpulse((IsTouchingGround) ? moveRight : moveRightAir);
+                    //this.geom.FrictionCoefficient = 0.5f;
                 }
 
                 d = Direction.Right;
+
             }
 
             if (d != Direction.None)
@@ -329,6 +333,8 @@ namespace Spectrum.Model
             NearObject = null;
             BlockLeft = false;
             BlockRight = false;
+
+            this.geom.FrictionCoefficient = 2.0f;
         }
 
 
