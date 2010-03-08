@@ -26,7 +26,7 @@ namespace Spectrum.Model
         public Vector2 Origin;
         private string Asset;
 
-        private int assetCount;
+        public int AssetCount { get; set; }
 
         public GameTexture(float Rotation, float Scale, float Depth)
         {
@@ -36,7 +36,7 @@ namespace Spectrum.Model
             this.Scale = Scale;
             this.Depth = Depth;
 
-            assetCount = 6;
+            AssetCount = 6;
         }
 
         public void Load(Texture2D tex, int FrameCount, int FramesPerSec)
@@ -66,8 +66,8 @@ namespace Spectrum.Model
             framecount = FrameCount;
             if (asset == null || asset.Equals(""))
             {
-                assetCount = 1;
-                myTexture = CreateRectangle(w, h * assetCount, graphicsDevice);
+                AssetCount = 1;
+                myTexture = CreateRectangle(w, h * AssetCount, graphicsDevice);
             }
             else
             {
@@ -77,9 +77,9 @@ namespace Spectrum.Model
                     asset.Equals("clouds") || asset.Equals("flowerBottoms") || asset.Equals("flowerTops") || asset.Equals(""))
                 {
                     
-                    assetCount = 7;
+                    AssetCount = 7;
                 }
-                Console.WriteLine("Asset: " + assetCount);
+                Console.WriteLine("Asset: " + AssetCount);
                 myTexture = content.Load<Texture2D>(asset);
             }
 
@@ -161,7 +161,7 @@ namespace Spectrum.Model
 
 
 
-            int FrameHeight = myTexture.Height / assetCount;
+            int FrameHeight = myTexture.Height / AssetCount;
 
             if (Asset == "tutorial/tutorialThumb") 
             {
@@ -176,7 +176,7 @@ namespace Spectrum.Model
         public Vector2 TextureSize()
         {
             int FrameWidth = myTexture.Width / framecount;
-            int FrameHeight = myTexture.Height / assetCount;
+            int FrameHeight = myTexture.Height / AssetCount;
             return new Vector2(FrameWidth, FrameHeight);
         }
 
