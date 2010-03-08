@@ -38,6 +38,11 @@ namespace Spectrum
         private string[] levels = {"TrainingDay", "DrEvil","CombinationPizzaHut", "cloudy", "DodgeDuckDip"};
         private int levelIndex;
 
+        private SplashScreen splash;
+        public bool Splashed { get; set; }
+
+        private bool showSplash = true;
+
         public SpectrumGame()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -46,8 +51,6 @@ namespace Spectrum
 
             graphics.PreferredBackBufferWidth = Globals.GameWidth;
             graphics.PreferredBackBufferHeight = Globals.GameHeight;
-
-            LoadLevel(4, false);
 
             Content.RootDirectory = "Content";
         }
@@ -66,6 +69,17 @@ namespace Spectrum
             pauseMenu = new PauseMenu(this, Globals.GameWidth, Globals.GameHeight);
             Paused = false;
 
+            if (showSplash)
+            {
+                splash = new SplashScreen(this, Globals.GameWidth, Globals.GameHeight);
+                Splashed = true;
+            }
+            else
+            {
+                StartGame();
+            }
+            
+
             base.Initialize();
         }
         
@@ -80,8 +94,7 @@ namespace Spectrum
             spriteBatch = new SpriteBatch(GraphicsDevice);
             
             pauseMenu.LoadContent(Content, GraphicsDevice);
-
-            level.LoadContent(Content, GraphicsDevice);
+            splash.LoadContent(Content, GraphicsDevice);
         }
 
         /// <summary>
@@ -91,6 +104,12 @@ namespace Spectrum
         protected override void UnloadContent()
         {
             
+        }
+
+        public void StartGame()
+        {
+            LoadLevel(0, true);
+            Splashed = false;
         }
 
         /// <summary>
@@ -113,24 +132,30 @@ namespace Spectrum
                 frameCount = 0;
             }
 
-
-            if (Globals.UserInputPress(Keys.P, Buttons.Back))
+            if (Splashed)
             {
-                level.DebugMode = !level.DebugMode;
-            }
-
-            if (Globals.UserInputPress(Keys.Escape, Buttons.Start))
-            {
-                Paused = !Paused;
-            }
-
-            if (Paused)
-            {
-                pauseMenu.Update(gameTime);
+                splash.Update(gameTime);
             }
             else
             {
-                level.Update(gameTime);
+                if (Globals.UserInputPress(Keys.P, Buttons.Back))
+                {
+                    level.DebugMode = !level.DebugMode;
+                }
+
+                if (Globals.UserInputPress(Keys.Escape, Buttons.Start))
+                {
+                    Paused = !Paused;
+                }
+
+                if (Paused)
+                {
+                    pauseMenu.Update(gameTime);
+                }
+                else
+                {
+                    level.Update(gameTime);
+                }
             }
 
             base.Update(gameTime);
@@ -147,20 +172,27 @@ namespace Spectrum
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(level.CurrentColor.SystemColor());
-
-            frameCount++;
-            string fps = string.Format("fps: {0}", frameRate);
 
             spriteBatch.Begin();
-            level.Draw(spriteBatch);
-            spriteBatch.DrawString(level.font, fps, Vector2.Zero, Color.Black);
-
-            if (Paused)
+            if (Splashed)
             {
-                pauseMenu.Draw(spriteBatch);
+                GraphicsDevice.Clear(Color.Black);
+                splash.Draw(spriteBatch);
             }
+            else
+            {
+                GraphicsDevice.Clear(level.CurrentColor.SystemColor());
 
+                frameCount++;
+                string fps = string.Format("fps: {0}", frameRate);
+                level.Draw(spriteBatch);
+                spriteBatch.DrawString(level.font, fps, Vector2.Zero, Color.Black);
+
+                if (Paused)
+                {
+                    pauseMenu.Draw(spriteBatch);
+                }
+            }
             spriteBatch.End();
 
             base.Draw(gameTime);
