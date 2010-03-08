@@ -255,6 +255,13 @@ namespace Spectrum.Model
 
         protected override void DidCollideWithObject(GameObject obj, ref ContactList contactList, bool physicsCollision)
         {
+            if (Leader == null && obj is Platform)
+            {
+                Console.WriteLine("Lead");
+                Leader = obj;
+                this.geom.FrictionCoefficient = 0.0f;
+            }
+
             if (obj.Pickupable || (obj.Events != null && obj.Events.Count > 0))
             {
                 NearObject = obj;
@@ -334,7 +341,7 @@ namespace Spectrum.Model
             BlockLeft = false;
             BlockRight = false;
 
-            this.geom.FrictionCoefficient = 2.0f;
+            Leader = null;
         }
 
 
@@ -389,6 +396,17 @@ namespace Spectrum.Model
             Container.Sim.Remove(Connector);
 
             Possession = null;
+        }
+
+        protected override void DidSeparateWith(GameObject other)
+        {
+            
+            if (other == Leader)
+            {
+                Console.WriteLine("Sep");
+                Leader = null;
+                this.geom.FrictionCoefficient = 2.0f;
+            }
         }
 
         public void WinLevel()

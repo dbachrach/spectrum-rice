@@ -117,7 +117,7 @@ namespace Spectrum.Model.EventActions
             {
                 //Receiver.IsStatic = false;
                 Receiver.body.IgnoreGravity = true;
-                Console.WriteLine(Direction.ToString());
+                //Console.WriteLine(Direction.ToString());
                 Receiver.body.LinearVelocity = 100*Direction;
                 //Receiver.body.ApplyForce(100*Direction);
             }

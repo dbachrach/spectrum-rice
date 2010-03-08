@@ -67,6 +67,8 @@ namespace Spectrum.Model
         public float InitialLinearDrag { get; set; }
         public float InitialFriction { get; set; }
 
+        public GameObject Leader { get; set; }
+
         // constants to figure out if objects are "close enough"
         private static int FUZZY_DX_TOLERANCE = 10; /* TODO: Readjust both parent blocks when we create a combine block */
         private static int FUZZY_DY_TOLERANCE = 2;
@@ -104,6 +106,8 @@ namespace Spectrum.Model
             ZIndex = -100;
 
             HasBecomeVisibleInAllColors = false;
+
+            Leader = null;
         }
 
         // the default property for game objects is that the player can only collide with this
@@ -330,6 +334,11 @@ namespace Spectrum.Model
                 }
             }
 
+            if (Leader != null)
+            {
+                this.body.LinearVelocity.X = Leader.body.LinearVelocity.X;
+            }
+
             if (Events != null)
             {
                 List<Event> toDelete = new List<Event>();
@@ -525,8 +534,15 @@ namespace Spectrum.Model
             return didHit;
         }
 
-        private void OnSeparation(Geom g1, Geom g2)
+        protected virtual void DidSeparateWith(GameObject other)
         {
+            /* generic game objects don't do anything on separation */
+        }
+
+        protected virtual void OnSeparation(Geom g1, Geom g2)
+        {
+            ((GameObject)g1.Tag).DidSeparateWith((GameObject)g2.Tag);
+            ((GameObject)g2.Tag).DidSeparateWith((GameObject)g1.Tag);
             /*
             GameObject o1 = (GameObject)g1.Tag;
             GameObject o2 = (GameObject)g2.Tag;
