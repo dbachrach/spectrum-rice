@@ -1,6 +1,3 @@
-\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\dude.xnb
-\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\platform.xnb
-\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\switch.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\box.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\dr.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\pl.xnb
@@ -69,13 +66,10 @@ C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\farseer\men
 U:\comp410\bin\x86\Debug\Content\switchOn_sm.xnb
 U:\comp410\bin\x86\Debug\Content\switchOff.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switchOn_sm.xnb
-\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\switchOn_sm.xnb
 U:\comp410\bin\x86\Debug\Content\color-wheel-overlay.xnb
 U:\comp410\bin\x86\Debug\Content\color-wheel.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\color-wheel-overlay.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\color-wheel.xnb
-\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\color-wheel-overlay.xnb
-\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\color-wheel.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\clouds.xnb
 U:\comp410\bin\x86\Debug\Content\clouds.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\clouds.xnb

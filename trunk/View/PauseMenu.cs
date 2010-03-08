@@ -21,12 +21,12 @@ namespace Spectrum.View
         private MenuItem[] menuItem = new MenuItem[7];
         private int selectedItem = 0;
         private GameTexture pauseBackground;
-        private Game1 game;
+        private SpectrumGame game;
 
         private int ViewWidth;
         private int ViewHeight;
 
-        public PauseMenu(Game1 g, int width, int height)
+        public PauseMenu(SpectrumGame g, int width, int height)
         {
             pauseBackground = new GameTexture(0, 1.0f, 1.0f);
             game = g;

@@ -1,6 +1,9 @@
-Content\dude.xnb
-Content\platform.xnb
-Content\switch.xnb
+Content\Pesca.xnb
+Content\farseer\detailsFont.xnb
+Content\farseer\diagnosticFont.xnb
+Content\farseer\frameRateCounterFont.xnb
+Content\farseer\gamefont.xnb
+Content\farseer\menufont.xnb
 Content\box.xnb
 Content\dr.xnb
 Content\pl.xnb
@@ -9,9 +12,6 @@ Content\farseer\blank.xnb
 Content\farseer\gradient.xnb
 Content\farseer\logo.xnb
 Content\switchOff.xnb
-Content\switchOn_sm.xnb
-Content\color-wheel-overlay.xnb
-Content\color-wheel.xnb
 Content\clouds.xnb
 Content\tutorial\tutorialJump.xnb
 Content\tutorial\tutorialThumb.xnb
@@ -33,9 +33,3 @@ Content\platformCenter.xnb
 Content\platformEndLeft.xnb
 Content\platformEndRight.xnb
 Content\rainbow\mask.xnb
-Content\Pesca.xnb
-Content\farseer\detailsFont.xnb
-Content\farseer\diagnosticFont.xnb
-Content\farseer\frameRateCounterFont.xnb
-Content\farseer\gamefont.xnb
-Content\farseer\menufont.xnb

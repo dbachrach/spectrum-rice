@@ -20,7 +20,7 @@ namespace Spectrum
     /// <summary>
     /// This is the main type for your game
     /// </summary>
-    public class Game1 : Microsoft.Xna.Framework.Game
+    public class SpectrumGame : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -38,7 +38,7 @@ namespace Spectrum
         private string[] levels = {"TrainingDay", "DrEvil","CombinationPizzaHut", "cloudy", "DodgeDuckDip"};
         private int levelIndex;
 
-        public Game1()
+        public SpectrumGame()
         {
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredDepthStencilFormat = DepthFormat.Depth24Stencil8Single;

@@ -65,7 +65,7 @@ namespace Spectrum.Model
 
         public Vector2 TopCorner = new Vector2(0, 0);
 
-        public Game1 GameRef { get; set; }
+        public SpectrumGame GameRef { get; set; }
 
         public PhysicsSimulator Sim { get; set; }
         private PhysicsSimulatorView SimView;
