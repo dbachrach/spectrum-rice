@@ -163,6 +163,14 @@ namespace Spectrum.Model
             LoadTexture();
             LoadInactiveTexture();
             LoadPhysicsBody(Size, IsStatic);
+
+            if (Events != null)
+            {
+                foreach (Event e in Events)
+                {
+                    e.LoadContent(theContentManager, graphicsDevice);
+                }
+            }
         }
 
         public virtual void LoadTexture()
@@ -173,6 +181,7 @@ namespace Spectrum.Model
 
             Size = Texture.TextureSize() * this.Scale;
         }
+
         public void LoadInactiveTexture()
         {
             if (InactiveImageName != null && !InactiveImageName.Equals(""))
