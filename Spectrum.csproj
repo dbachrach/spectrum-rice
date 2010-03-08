@@ -173,7 +173,7 @@
     <Compile Include="Model\Level.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Game1.cs" />
+    <Compile Include="SpectrumGame.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Levels\demo.txt">
@@ -199,6 +199,7 @@
     <None Include="Levels\DodgeDuckDip.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="Levels\tutorial1.txt" />
     <Content Include="todo.txt" />
     <None Include="Levels\DrEvil.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
