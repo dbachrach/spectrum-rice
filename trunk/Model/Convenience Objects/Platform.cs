@@ -61,7 +61,7 @@ namespace Spectrum.Model
             g.SetRenderTarget(0, targ);
             // Set our custom depth buffer
             g.DepthStencilBuffer = stenBuf;
-            g.Clear(ClearOptions.Target | ClearOptions.DepthBuffer, Color.Black, 1.0f, 0); 
+            g.Clear(ClearOptions.Target | ClearOptions.DepthBuffer, Color.TransparentBlack, 1.0f, 0); 
 
             SpriteBatch b = new SpriteBatch(g);
             b.Begin();
