@@ -15,7 +15,7 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace Spectrum.Model.EventActions
 {
-    class PathAnimate : EventAction
+    abstract class PathAnimate : EventAction
     {
         private List<Vector2> _path;
         public List<Vector2> Path {
@@ -89,11 +89,6 @@ namespace Spectrum.Model.EventActions
                 AdjustPath();
             }
 
-            if (Direction == Vector2.Zero)
-            {
-                UpdateDirection();
-            }
-
             UpdateDirection();
 
             Vector2 newPosition = Receiver.body.Position;
@@ -107,24 +102,23 @@ namespace Spectrum.Model.EventActions
                 toDest.Length() < Globals.Epsilon ||
                 toStart.Length() > SegmentDistance)
             {
-                newPosition = Destination;
-                Destination = Path[NextDestination];
-                NextDestination = (NextDestination + 1) % TotalSegments;
+                SelectNextWaypoint();
+
                 UpdateDirection();
                 Receiver.body.LinearVelocity = Vector2.Zero;
             }
             else
             {
-                //Receiver.IsStatic = false;
                 Receiver.body.IgnoreGravity = true;
-                //Console.WriteLine(Direction.ToString());
                 Receiver.body.LinearVelocity = 100*Direction;
-                //Receiver.body.ApplyForce(100*Direction);
             }
-            
-
-            //Receiver.body.Position = newPosition;
-
         }
+
+        /**
+         * This function needs to be overridden by any subclasses.
+         * It is called when the animation needs to pick the next target point.
+         * This behavior will differ depending if we're doing a loop or a linear path 
+         */
+        public abstract void SelectNextWaypoint();
     }
 }

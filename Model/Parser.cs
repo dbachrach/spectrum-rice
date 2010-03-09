@@ -348,7 +348,16 @@ namespace Spectrum.Model
 
                 if (((string)ac["type"]) == Globals.AnimationAction)
                 {
-                    PathAnimate animation = new PathAnimate();
+                    PathAnimate animation;
+
+                    if (ac.ContainsKey("animation-type") && ((string)ac["animation-type"]) == "linear")
+                    {
+                        animation = new LinearPathAnimate();
+                    }
+                    else
+                    {
+                        animation = new LoopPathAnimate();
+                    }
 
                     List<Vector2> path = new List<Vector2>();
 

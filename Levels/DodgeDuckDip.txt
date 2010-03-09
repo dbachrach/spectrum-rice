@@ -43,6 +43,7 @@
 						"receiver" : "move-plat-2",
 						"property" : "position",
 						"type" : "animation",
+						"animation-type" : "linear",
 						"value" : [[200,1340],[500,1340]],
 						"speed" : 2,
 						"repeats" : true,
