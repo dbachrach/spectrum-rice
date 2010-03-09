@@ -8,9 +8,6 @@
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\obj\x86\Debug\Spectrum.exe
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\obj\x86\Debug\Spectrum.pdb
-C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\dude.xnb
-C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\platform.xnb
-C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switch.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\box.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\dr.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\pl.xnb
@@ -61,9 +58,6 @@ C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\farseer\men
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\farseer\gamefont.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\farseer\menufont.xnb
 U:\comp410\bin\x86\Debug\Content\switchOff.xnb
-C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switchOn_sm.xnb
-C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\color-wheel-overlay.xnb
-C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\color-wheel.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\clouds.xnb
 U:\comp410\bin\x86\Debug\Content\clouds.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\clouds.xnb
@@ -101,7 +95,6 @@ C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\water.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\water.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\switchOn.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Levels\TrainingDay.txt
-C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Levels\Level3.txt
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Levels\TrainingDay.txt
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switchOn.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switchBoxDown.xnb
@@ -144,3 +137,7 @@ U:\comp410\bin\x86\Debug\Content\rainbow\mask.xnb
 U:\comp410\bin\x86\Debug\Levels\CombinationPizzaHut.txt
 U:\comp410\bin\x86\Debug\Levels\DodgeDuckDip.txt
 U:\comp410\bin\x86\Debug\Content\SplashScreen.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Levels\CombinationPizzaHut.txt
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Levels\DodgeDuckDip.txt
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\rainbow\mask.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\SplashScreen.xnb
