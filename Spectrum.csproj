@@ -187,6 +187,7 @@
     <Compile Include="View\ColorWheel.cs" />
     <Compile Include="View\IColorIndicator.cs" />
     <Compile Include="View\MenuItem.cs" />
+    <Compile Include="View\MenuScreen.cs" />
     <Compile Include="View\PauseMenu.cs" />
     <Compile Include="View\SplashScreen.cs" />
     <None Include="Levels\cloudy.txt">

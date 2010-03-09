@@ -15,123 +15,79 @@ using Spectrum.Model;
 
 namespace Spectrum.View
 {
-    class PauseMenu
+    class PauseMenu : MenuScreen
     {
-        private SpriteFont font;
-        private MenuItem[] menuItem = new MenuItem[7];
-        private int selectedItem = 0;
-        private GameTexture pauseBackground;
-        private SpectrumGame game;
-
-        private int ViewWidth;
-        private int ViewHeight;
-
+        
         public PauseMenu(SpectrumGame g, int width, int height)
+            : base(g, width, height)
         {
-            pauseBackground = new GameTexture(0, 1.0f, 1.0f);
-            game = g;
-
-            ViewWidth = width;
-            ViewHeight = height;
+            
         }
 
-        public void LoadContent(ContentManager content, GraphicsDevice graphics)
+        public override void LoadContent(ContentManager content, GraphicsDevice graphics)
         {
-            font = content.Load<SpriteFont>("Pesca");
-
+            base.LoadContent(content, graphics);
             Color baseColor = Color.White;
             Color selectedColor = Color.Red;
 
-            menuItem[0] = new MenuItem(Globals.ResumeMenuItem, Globals.ResumeMenuItem, font, new Vector2(350f, 150f), baseColor, selectedColor, false);
-            menuItem[1] = new MenuItem(Globals.RestartMenuItem, Globals.RestartMenuItem, font, new Vector2(350f, 200f), baseColor, selectedColor, false);
-            menuItem[2] = new MenuItem(Globals.SettingsMenuItem, Globals.SettingsMenuItem, font, new Vector2(350f, 250f), baseColor, selectedColor, false);
-            menuItem[3] = new MenuItem("lev1", "Level 1: Training Day", font, new Vector2(350f, 300f), baseColor, selectedColor, false);
-            menuItem[4] = new MenuItem("lev2", "Level 2: Dr. Evil's Quarters", font, new Vector2(350f, 350f), baseColor, selectedColor, false);
-            menuItem[5] = new MenuItem("lev3", "Level 3: Combination Pizza Hut", font, new Vector2(350f, 400f), baseColor, selectedColor, false);
-            menuItem[6] = new MenuItem(Globals.ExitMenuItem, Globals.ExitMenuItem, font, new Vector2(350f, 450f), baseColor, selectedColor, false);
-
-            pauseBackground.Load(content, graphics, null, 1, 1, ViewWidth, ViewHeight);
-            pauseBackground.Pause();
-        }
-
-        public void Update(GameTime gameTime)
-        {
-            for (int i = 0; i < menuItem.Length; i++)
+            MenuItem m1 = new MenuItem(Globals.ResumeMenuItem, Globals.ResumeMenuItem, font, new Vector2(350f, 150f), baseColor, selectedColor, false);
+            m1.Clicked += delegate()
             {
-                menuItem[i].Selected = false;
-            }
+                game.Paused = false;
+                selectedItem = 0;
+            };
+            menuItems.Add(m1);
 
-            if (Globals.UserInputPress(Keys.Up, Buttons.LeftThumbstickUp))
+            MenuItem m2 = new MenuItem(Globals.RestartMenuItem, Globals.RestartMenuItem, font, new Vector2(350f, 200f), baseColor, selectedColor, false);
+            m2.Clicked += delegate()
             {
-                selectedItem -= 1;
-                if (selectedItem == -1)
-                {
-                    selectedItem = menuItem.Length - 1;
-                }
-            }
+                game.Restart();
+                game.Paused = false;
+                selectedItem = 0;
+            };
+            menuItems.Add(m2);
 
-            if (Globals.UserInputPress(Keys.Down, Buttons.LeftThumbstickDown))
+            MenuItem m3 = new MenuItem(Globals.SettingsMenuItem, Globals.SettingsMenuItem, font, new Vector2(350f, 250f), baseColor, selectedColor, false);
+            m3.Clicked += delegate()
             {
-                selectedItem += 1;
-                if (selectedItem == menuItem.Length)
-                {
-                    selectedItem = 0;
-                }
-            }
+                // TODO: Show settings
+            };
+            menuItems.Add(m3);
 
-            if (Globals.UserInputPress(Keys.Enter, Buttons.A))
+            MenuItem m4 = new MenuItem("lev1", "Level 1: Training Day", font, new Vector2(350f, 300f), baseColor, selectedColor, false);
+            m4.Clicked += delegate()
             {
-                if (menuItem[selectedItem].Name.Equals(Globals.ResumeMenuItem))
-                {
-                    game.Paused = false;
-                    selectedItem = 0;
-                }
-                else if (menuItem[selectedItem].Name.Equals(Globals.RestartMenuItem))
-                {
-                    game.Restart();
-                    game.Paused = false;
-                    selectedItem = 0;
-                }
-                else if (menuItem[selectedItem].Name.Equals(Globals.SettingsMenuItem))
-                {
-                    // TODO: Show settings
-                }
-                else if (menuItem[selectedItem].Name.Equals(Globals.ExitMenuItem))
-                {
-                    game.Exit();
-                    selectedItem = 0;
-                }
-                else if (menuItem[selectedItem].Name.Equals("lev1"))
-                {
-                    game.Paused = false;
-                    game.LoadLevel(0,true);
+                game.Paused = false;
+                game.LoadLevel(0, true);
+                selectedItem = 0;
+            };
+            menuItems.Add(m4);
 
-                    selectedItem = 0;
-                }
-                else if (menuItem[selectedItem].Name.Equals("lev2"))
-                {
-                    game.Paused = false;
-                    game.LoadLevel(1,true);
-                    selectedItem = 0;
-                }
-                else if (menuItem[selectedItem].Name.Equals("lev3"))
-                {
-                    game.Paused = false;
-                    game.LoadLevel(2,true);
-                    selectedItem = 0;
-                }
-            }
-
-            menuItem[selectedItem].Selected = true;
-        }
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            pauseBackground.DrawFrame(spriteBatch, Colors.AllColors, new Vector2(ViewWidth/2, ViewHeight/2), SpriteEffects.None, false);
-            for (int i = 0; i < menuItem.Length; i++)
+            MenuItem m5 = new MenuItem("lev2", "Level 2: Dr. Evil's Quarters", font, new Vector2(350f, 350f), baseColor, selectedColor, false);
+            m5.Clicked += delegate()
             {
-                menuItem[i].Draw(spriteBatch);
-            }
+                game.Paused = false;
+                game.LoadLevel(1, true);
+                selectedItem = 0;
+            };
+            menuItems.Add(m5);
+
+            MenuItem m6 = new MenuItem("lev3", "Level 3: Combination Pizza Hut", font, new Vector2(350f, 400f), baseColor, selectedColor, false);
+            m6.Clicked += delegate()
+            {
+                game.Paused = false;
+                game.LoadLevel(2, true);
+                selectedItem = 0;
+            };
+            menuItems.Add(m6);
+
+            MenuItem m7 = new MenuItem(Globals.ExitMenuItem, Globals.ExitMenuItem, font, new Vector2(350f, 450f), baseColor, selectedColor, false);
+            m7.Clicked += delegate()
+            {
+                game.Exit();
+                selectedItem = 0;
+            };
+            menuItems.Add(m7);
         }
     }
 }

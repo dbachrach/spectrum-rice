@@ -38,6 +38,10 @@ namespace Spectrum.Model
         public static string WinSpecial = "win";
         public static string LoseSpecial = "lose";
 
+        public static string NewGameMenuItem = "New Game";
+        public static string ContinueGameMenuItem = "Continue Game";
+        public static string CreditsMenuItem = "Credits";
+
         public static string ResumeMenuItem = "Resume";
         public static string RestartMenuItem = "Restart";
         public static string SettingsMenuItem = "Settings";

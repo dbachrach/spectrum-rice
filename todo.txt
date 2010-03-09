@@ -1,6 +1,5 @@
 TODO
 ----
-1 Start menu
 1 when carrying an object to combine with, show things that locally you can interact with regardless of color
 3 Tooltips for the tutorial
 2 Make it convenient to add a sensor
@@ -9,7 +8,7 @@ TODO
 2 Add OneTime sensing to GameObject
 
 Did Sense:
-			//if (OneTime)
+                        //if (OneTime)
             //{
                 /* Removes collision events with obj */
             //    Events.RemoveAll(ev => (ev.Type == EventType.Collision && ev.CollisionTarget.Equals(obj)));
@@ -24,7 +23,11 @@ Did Sense:
 1 EventAction: PlaySound
 5 Platforms (variable width) with new graphics
 4 Add pickup animations
-3 Code for color wheel rotation depending on number of colors in level
+3 Code for color bar depending on number of colors in level
+6 Music
+5 All color mode
+9 Fix platform friction issue
+7 Linear path
 
 Defer
 -----   
@@ -32,4 +35,3 @@ Sometimes when your next to a block it doesnt register as a collision, so you ha
 fade between colors at rate of color wheel spin
 Zoom in and out ("that would be kewl")
 Go through image files and make sure purple isn't transparent
-
