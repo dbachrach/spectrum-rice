@@ -110,7 +110,7 @@ namespace Spectrum
 
         public void StartGame()
         {
-            LoadLevel(0, true);
+            LoadLevel(4, true);
             Splashed = false;
         }
 

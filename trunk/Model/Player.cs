@@ -257,7 +257,6 @@ namespace Spectrum.Model
         {
             if (Leader == null && obj is Platform)
             {
-                Console.WriteLine("Lead");
                 Leader = obj;
                 this.geom.FrictionCoefficient = 0.0f;
             }
