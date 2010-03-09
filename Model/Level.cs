@@ -308,7 +308,7 @@ namespace Spectrum.Model
 
             if (DebugMode)
             {
-                SimView.Draw(spriteBatch);
+                SimView.Draw(spriteBatch, CameraPosition);
             }
 
             if (Completed)

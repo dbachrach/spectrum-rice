@@ -141,3 +141,4 @@ C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Levels\CombinationP
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Levels\DodgeDuckDip.txt
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\rainbow\mask.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\SplashScreen.xnb
+\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\SplashScreen.xnb
