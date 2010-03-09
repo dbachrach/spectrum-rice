@@ -29,9 +29,11 @@ Did Sense:
 9 Fix platform friction issue
 7 Linear path
 
+
 Defer
 -----   
 Sometimes when your next to a block it doesnt register as a collision, so you have to held MOVE keys to be considered near the block
 fade between colors at rate of color wheel spin
 Zoom in and out ("that would be kewl")
 Go through image files and make sure purple isn't transparent
+Json comments
