@@ -54,40 +54,31 @@ namespace Spectrum.View
             };
             menuItems.Add(m3);
 
-            MenuItem m4 = new MenuItem("lev1", "Level 1: Training Day", font, new Vector2(350f, 300f), baseColor, selectedColor, false);
+            int i = 0;
+            foreach (string lev in game.levelsPresentable)
+            {
+                int x = i;
+                MenuItem m = new MenuItem("Level " + (i + 1) + ": " + lev, "Level " + (i + 1) + ": " + lev, font, new Vector2(350f, 300f + 50f * i), baseColor, selectedColor, false);
+                m.Clicked += delegate()
+                {
+                    Console.WriteLine("load lev " + x);
+                    game.Paused = false;
+                    game.LoadLevel(x, true);
+                    selectedItem = 0;
+                };
+                menuItems.Add(m);
+                i++;
+            }
+
+            
+
+            MenuItem m4 = new MenuItem(Globals.ExitMenuItem, Globals.ExitMenuItem, font, new Vector2(350f, 300f +50f*i), baseColor, selectedColor, false);
             m4.Clicked += delegate()
-            {
-                game.Paused = false;
-                game.LoadLevel(0, true);
-                selectedItem = 0;
-            };
-            menuItems.Add(m4);
-
-            MenuItem m5 = new MenuItem("lev2", "Level 2: Dr. Evil's Quarters", font, new Vector2(350f, 350f), baseColor, selectedColor, false);
-            m5.Clicked += delegate()
-            {
-                game.Paused = false;
-                game.LoadLevel(1, true);
-                selectedItem = 0;
-            };
-            menuItems.Add(m5);
-
-            MenuItem m6 = new MenuItem("lev3", "Level 3: Combination Pizza Hut", font, new Vector2(350f, 400f), baseColor, selectedColor, false);
-            m6.Clicked += delegate()
-            {
-                game.Paused = false;
-                game.LoadLevel(2, true);
-                selectedItem = 0;
-            };
-            menuItems.Add(m6);
-
-            MenuItem m7 = new MenuItem(Globals.ExitMenuItem, Globals.ExitMenuItem, font, new Vector2(350f, 450f), baseColor, selectedColor, false);
-            m7.Clicked += delegate()
             {
                 game.Exit();
                 selectedItem = 0;
             };
-            menuItems.Add(m7);
+            menuItems.Add(m4);
         }
     }
 }
