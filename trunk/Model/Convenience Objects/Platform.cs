@@ -61,7 +61,7 @@ namespace Spectrum.Model
             g.SetRenderTarget(0, targ);
             // Set our custom depth buffer
             g.DepthStencilBuffer = stenBuf;
-            g.Clear(ClearOptions.Target | ClearOptions.DepthBuffer, Color.TransparentBlack, 1.0f, 0); 
+            g.Clear(ClearOptions.Target | ClearOptions.DepthBuffer, Color.TransparentWhite, 1.0f, 0); 
 
             SpriteBatch b = new SpriteBatch(g);
             b.Begin();
@@ -90,6 +90,7 @@ namespace Spectrum.Model
             Texture = new GameTexture(0.0f, this.Scale, .5f);
             Texture.Load(platformTexture, FrameCount, FramesPerSec);
             Texture.Pause();
+            Texture.AssetCount = 7;
 
             Size = Texture.TextureSize() * this.Scale;
         }
