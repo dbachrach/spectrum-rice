@@ -422,23 +422,23 @@ namespace FarseerGames.FarseerPhysics.Debug
             _sliderJointRectangleBrush.Load(graphicsDevice);
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 offset)
         {
             if (_enableVerticeView || _enableEdgeView)
             {
-                DrawVerticesAndEdges(spriteBatch);
+                DrawVerticesAndEdges(spriteBatch, offset);
             }
             if (_enableAABBView)
             {
-                DrawAABB(spriteBatch);
+                DrawAABB(spriteBatch, offset);
             }
             if (_enableCoordinateAxisView)
             {
-                DrawCoordinateAxis(spriteBatch);
+                DrawCoordinateAxis(spriteBatch, offset);
             }
             if (_enableContactView)
             {
-                DrawContacts(spriteBatch);
+                DrawContacts(spriteBatch, offset);
             }
             if (_enablePerformancePanelView)
             {
@@ -446,19 +446,19 @@ namespace FarseerGames.FarseerPhysics.Debug
             }
             if (EnableSpringView)
             {
-                DrawSprings(spriteBatch);
+                DrawSprings(spriteBatch, offset);
             }
             if (EnableRevoluteJointView)
             {
-                DrawRevoluteJoints(spriteBatch);
+                DrawRevoluteJoints(spriteBatch, offset);
             }
             if (EnablePinJointView)
             {
-                DrawPinJoints(spriteBatch);
+                DrawPinJoints(spriteBatch, offset);
             }
             if (EnableSliderJointView)
             {
-                DrawSliderJoints(spriteBatch);
+                DrawSliderJoints(spriteBatch, offset);
             }
         }
 
@@ -517,19 +517,19 @@ namespace FarseerGames.FarseerPhysics.Debug
             //spriteBatch.DrawString(_spriteFont, String.Format("Broadphase Pairs: {0}",this._physicsSimulator.sweepAndPrune.collisionPairs.Keys.Count), new Vector2(120, 215), Color.White);
         }
 
-        private void DrawContacts(SpriteBatch spriteBatch)
+        private void DrawContacts(SpriteBatch spriteBatch, Vector2 offset)
         {
             //draw contact textures
             for (int i = 0; i < _physicsSimulator.ArbiterList.Count; i++)
             {
                 for (int j = 0; j < _physicsSimulator.ArbiterList[i].ContactList.Count; j++)
                 {
-                    _contactCircleBrush.Draw(spriteBatch, _physicsSimulator.ArbiterList[i].ContactList[j].Position);
+                    _contactCircleBrush.Draw(spriteBatch, _physicsSimulator.ArbiterList[i].ContactList[j].Position-offset);
                 }
             }
         }
 
-        private void DrawVerticesAndEdges(SpriteBatch spriteBatch)
+        private void DrawVerticesAndEdges(SpriteBatch spriteBatch, Vector2 offset)
         {
             //draw vertice texture
             for (int i = 0; i < _physicsSimulator.GeomList.Count; i++)
@@ -541,30 +541,30 @@ namespace FarseerGames.FarseerPhysics.Debug
                     {
                         if (j < verticeCount - 1)
                         {
-                            _edgeLineBrush.Draw(spriteBatch, _physicsSimulator.GeomList[i].WorldVertices[j],
-                                                _physicsSimulator.GeomList[i].WorldVertices[j + 1]);
+                            _edgeLineBrush.Draw(spriteBatch, _physicsSimulator.GeomList[i].WorldVertices[j]-offset,
+                                                _physicsSimulator.GeomList[i].WorldVertices[j + 1]-offset);
                         }
                         else
                         {
-                            _edgeLineBrush.Draw(spriteBatch, _physicsSimulator.GeomList[i].WorldVertices[j],
-                                                _physicsSimulator.GeomList[i].WorldVertices[0]);
+                            _edgeLineBrush.Draw(spriteBatch, _physicsSimulator.GeomList[i].WorldVertices[j]-offset,
+                                                _physicsSimulator.GeomList[i].WorldVertices[0]-offset);
                         }
                     }
                     if (_enableVerticeView)
                     {
-                        _verticeCircleBrush.Draw(spriteBatch, _physicsSimulator.GeomList[i].WorldVertices[j]);
+                        _verticeCircleBrush.Draw(spriteBatch, _physicsSimulator.GeomList[i].WorldVertices[j]-offset);
                     }
                 }
             }
         }
 
-        private void DrawAABB(SpriteBatch spriteBatch)
+        private void DrawAABB(SpriteBatch spriteBatch, Vector2 offset)
         {
             //draw aabb
             for (int i = 0; i < _physicsSimulator.GeomList.Count; i++)
             {
-                Vector2 min = _physicsSimulator.GeomList[i].AABB.Min;
-                Vector2 max = _physicsSimulator.GeomList[i].AABB.Max;
+                Vector2 min = _physicsSimulator.GeomList[i].AABB.Min - offset;
+                Vector2 max = _physicsSimulator.GeomList[i].AABB.Max - offset;
 
                 Vector2 topRight = new Vector2(max.X, min.Y);
                 Vector2 bottomLeft = new Vector2(min.X, max.Y);
@@ -575,25 +575,25 @@ namespace FarseerGames.FarseerPhysics.Debug
             }
         }
 
-        private void DrawCoordinateAxis(SpriteBatch spriteBatch)
+        private void DrawCoordinateAxis(SpriteBatch spriteBatch, Vector2 offset)
         {
             for (int i = 0; i < _physicsSimulator.BodyList.Count; i++)
             {
                 Vector2 startX =
-                    _physicsSimulator.BodyList[i].GetWorldPosition(new Vector2(-_coordinateAxisLineLength / 2f, 0));
+                    _physicsSimulator.BodyList[i].GetWorldPosition(new Vector2(-_coordinateAxisLineLength / 2f, 0)) - offset;
                 Vector2 endX =
-                    _physicsSimulator.BodyList[i].GetWorldPosition(new Vector2(_coordinateAxisLineLength / 2f, 0));
+                    _physicsSimulator.BodyList[i].GetWorldPosition(new Vector2(_coordinateAxisLineLength / 2f, 0)) - offset;
                 Vector2 startY =
-                    _physicsSimulator.BodyList[i].GetWorldPosition(new Vector2(0, -_coordinateAxisLineLength / 2f));
+                    _physicsSimulator.BodyList[i].GetWorldPosition(new Vector2(0, -_coordinateAxisLineLength / 2f)) - offset;
                 Vector2 endY =
-                    _physicsSimulator.BodyList[i].GetWorldPosition(new Vector2(0, _coordinateAxisLineLength / 2f));
+                    _physicsSimulator.BodyList[i].GetWorldPosition(new Vector2(0, _coordinateAxisLineLength / 2f)) - offset;
 
                 _coordinateAxisLineBrush.Draw(spriteBatch, startX, endX);
                 _coordinateAxisLineBrush.Draw(spriteBatch, startY, endY);
             }
         }
 
-        private void DrawSprings(SpriteBatch spriteBatch)
+        private void DrawSprings(SpriteBatch spriteBatch, Vector2 offset)
         {
             for (int i = 0; i < _physicsSimulator.SpringList.Count; i++)
             {
@@ -601,9 +601,9 @@ namespace FarseerGames.FarseerPhysics.Debug
                     continue;
 
                 FixedLinearSpring fixedLinearSpring = (FixedLinearSpring)_physicsSimulator.SpringList[i];
-                _worldAttachPoint = fixedLinearSpring.WorldAttachPoint;
+                _worldAttachPoint = fixedLinearSpring.WorldAttachPoint - offset;
                 _body1AttachPointInWorldCoordinates =
-                    fixedLinearSpring.Body.GetWorldPosition(fixedLinearSpring.BodyAttachPoint);
+                    fixedLinearSpring.Body.GetWorldPosition(fixedLinearSpring.BodyAttachPoint) - offset;
                 _springCircleBrush.Draw(spriteBatch, _body1AttachPointInWorldCoordinates);
                 _springCircleBrush.Draw(spriteBatch, _worldAttachPoint);
 
@@ -617,7 +617,7 @@ namespace FarseerGames.FarseerPhysics.Debug
                 _springCircleBrush.Draw(spriteBatch, _vectorTemp1);
 
                 _springLineBrush.Draw(spriteBatch, _body1AttachPointInWorldCoordinates,
-                                      fixedLinearSpring.WorldAttachPoint);
+                                      _worldAttachPoint);
             }
 
             for (int i = 0; i < _physicsSimulator.SpringList.Count; i++)
@@ -625,8 +625,8 @@ namespace FarseerGames.FarseerPhysics.Debug
                 if (!(_physicsSimulator.SpringList[i] is LinearSpring)) continue;
 
                 LinearSpring linearSpring = (LinearSpring)_physicsSimulator.SpringList[i];
-                _attachPoint1 = linearSpring.AttachPoint1;
-                _attachPoint2 = linearSpring.AttachPoint2;
+                _attachPoint1 = linearSpring.AttachPoint1 - offset;
+                _attachPoint2 = linearSpring.AttachPoint2 - offset;
                 linearSpring.Body1.GetWorldPosition(ref _attachPoint1, out _body1AttachPointInWorldCoordinates);
                 linearSpring.Body2.GetWorldPosition(ref _attachPoint2, out _body2AttachPointInWorldCoordinates);
                 _springCircleBrush.Draw(spriteBatch, _body1AttachPointInWorldCoordinates);
@@ -649,26 +649,26 @@ namespace FarseerGames.FarseerPhysics.Debug
             }
         }
 
-        private void DrawRevoluteJoints(SpriteBatch spriteBatch)
+        private void DrawRevoluteJoints(SpriteBatch spriteBatch, Vector2 offset)
         {
             for (int i = 0; i < _physicsSimulator.JointList.Count; i++)
             {
                 if (_physicsSimulator.JointList[i] is FixedRevoluteJoint)
                 {
                     FixedRevoluteJoint fixedRevoluteJoint = (FixedRevoluteJoint)_physicsSimulator.JointList[i];
-                    _revoluteJointRectangleBrush.Draw(spriteBatch, fixedRevoluteJoint.Anchor, 0);
+                    _revoluteJointRectangleBrush.Draw(spriteBatch, fixedRevoluteJoint.Anchor - offset, 0);
                 }
 
                 if (!(_physicsSimulator.JointList[i] is RevoluteJoint)) continue;
 
                 RevoluteJoint revoluteJoint = (RevoluteJoint)_physicsSimulator.JointList[i];
-                _revoluteJointRectangleBrush.Draw(spriteBatch, revoluteJoint.CurrentAnchor, 0);
-                _revoluteJointLineBrush.Draw(spriteBatch, revoluteJoint.CurrentAnchor, revoluteJoint.Body1.Position);
-                _revoluteJointLineBrush.Draw(spriteBatch, revoluteJoint.CurrentAnchor, revoluteJoint.Body2.Position);
+                _revoluteJointRectangleBrush.Draw(spriteBatch, revoluteJoint.CurrentAnchor - offset, 0);
+                _revoluteJointLineBrush.Draw(spriteBatch, revoluteJoint.CurrentAnchor-offset, revoluteJoint.Body1.Position-offset);
+                _revoluteJointLineBrush.Draw(spriteBatch, revoluteJoint.CurrentAnchor-offset, revoluteJoint.Body2.Position-offset);
             }
         }
 
-        private void DrawPinJoints(SpriteBatch spriteBatch)
+        private void DrawPinJoints(SpriteBatch spriteBatch, Vector2 offset)
         {
             for (int i = 0; i < _physicsSimulator.JointList.Count; i++)
             {
@@ -676,13 +676,13 @@ namespace FarseerGames.FarseerPhysics.Debug
                     continue;
 
                 PinJoint pinJoint = (PinJoint)_physicsSimulator.JointList[i];
-                _pinJointRectangleBrush.Draw(spriteBatch, pinJoint.WorldAnchor1, 0);
-                _pinJointRectangleBrush.Draw(spriteBatch, pinJoint.WorldAnchor2, 0);
-                _pinJointLineBrush.Draw(spriteBatch, pinJoint.WorldAnchor1, pinJoint.WorldAnchor2);
+                _pinJointRectangleBrush.Draw(spriteBatch, pinJoint.WorldAnchor1-offset, 0);
+                _pinJointRectangleBrush.Draw(spriteBatch, pinJoint.WorldAnchor2-offset, 0);
+                _pinJointLineBrush.Draw(spriteBatch, pinJoint.WorldAnchor1-offset, pinJoint.WorldAnchor2-offset);
             }
         }
 
-        private void DrawSliderJoints(SpriteBatch spriteBatch)
+        private void DrawSliderJoints(SpriteBatch spriteBatch, Vector2 offset)
         {
             for (int i = 0; i < _physicsSimulator.JointList.Count; i++)
             {
@@ -690,9 +690,9 @@ namespace FarseerGames.FarseerPhysics.Debug
                     continue;
 
                 SliderJoint sliderJoint = (SliderJoint)_physicsSimulator.JointList[i];
-                _sliderJointRectangleBrush.Draw(spriteBatch, sliderJoint.WorldAnchor1, 0);
-                _sliderJointRectangleBrush.Draw(spriteBatch, sliderJoint.WorldAnchor2, 0);
-                _sliderJointLineBrush.Draw(spriteBatch, sliderJoint.WorldAnchor1, sliderJoint.WorldAnchor2);
+                _sliderJointRectangleBrush.Draw(spriteBatch, sliderJoint.WorldAnchor1-offset, 0);
+                _sliderJointRectangleBrush.Draw(spriteBatch, sliderJoint.WorldAnchor2-offset, 0);
+                _sliderJointLineBrush.Draw(spriteBatch, sliderJoint.WorldAnchor1-offset, sliderJoint.WorldAnchor2-offset);
             }
         }
     }
