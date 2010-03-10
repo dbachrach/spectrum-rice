@@ -9,6 +9,6 @@
 
 {"object" : "block","id" : "block", "position" : [475, 310], "colors" : ["green"]}
 
-{"object" : "platform","id" : "platform","colors" : ["blue"],"position" : [950, 255],"affected-by-gravity" : false,"exists-when-not-viewed" : true}
+{"object" : "platform", "id" : "platform","colors" : ["blue"],"position" : [950, 255],"affected-by-gravity" : false,"exists-when-not-viewed" : true}
 
 {"object" : "door","id" : "door","colors" : ["green","blue"],"position" : [1100, 95],"exists-when-not-viewed" : true}]

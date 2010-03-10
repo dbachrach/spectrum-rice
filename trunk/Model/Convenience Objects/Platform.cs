@@ -21,14 +21,17 @@ namespace Spectrum.Model
 
             ImageName = "plat";
             IsStatic = true;
+            
             if (w == 0)
             {
-                Scale = 1.0f;
+                //Scale = 1.0f;
+                w = 150;
             }
             else
             {
-                Scale = 0.25f;
+                //Scale = 0.25f;
             }
+            Scale = .25f;
 
             InitialFriction = 0.0f;
             Mass = 10000;

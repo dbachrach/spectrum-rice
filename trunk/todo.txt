@@ -21,13 +21,13 @@ Did Sense:
     That way we can animate the pusher being pushed in, and player will actually sit properly on the button.
 
 1 EventAction: PlaySound
-5 Platforms (variable width) with new graphics
 4 Add pickup animations
 3 Code for color bar depending on number of colors in level
 6 Music
 5 All color mode
 9 Fix platform friction issue
 7 Linear path
+5 Should not be allowed to drop a block into solid ground when you are up against it
 
 
 Defer
