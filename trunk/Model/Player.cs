@@ -398,15 +398,15 @@ namespace Spectrum.Model
             Possession = null;
         }
 
-        protected override void DidSeparateWith(GameObject other)
+        protected override void DidSeparateWithObject(GameObject other)
         {
-            
             if (other == Leader)
             {
                 Console.WriteLine("Sep");
                 Leader = null;
                 this.geom.FrictionCoefficient = 2.0f;
             }
+            base.DidSeparateWithObject(other);
         }
 
         public void WinLevel()

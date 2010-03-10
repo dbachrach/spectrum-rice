@@ -37,3 +37,4 @@ fade between colors at rate of color wheel spin
 Zoom in and out ("that would be kewl")
 Go through image files and make sure purple isn't transparent
 Json comments
+Come up with XBox Live Achievements

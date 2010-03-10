@@ -28,45 +28,169 @@ namespace Spectrum.Model
     {
         // instance variables
         protected GameTexture Texture;
-        protected GameTexture InactiveTexture;
 
-        // properties
+        /// <summary>
+        /// String reference to this object
+        /// </summary>
         public string Id { get; set; }
-        public Colors Visibility { get; set; } // whether object is viewable in each color
-        public Colors Tangibility { get; set; } // whether physics engine will colide or not
-        public Colors PlayerTangibility { get; set; } // whether physics engine will collide with a player or not
-        public Colors Sensibility { get; set; } // whether events will be sent on a "would be" collision
-        public Colors PlayerSensibility { get; set; } // whether events will be sent on a "would be collision with a player
 
+        /// <summary>
+        /// Colors this object is visible in
+        /// </summary>
+        public Colors Visibility { get; set; }
+
+        /// <summary>
+        /// Colors this object will collide in (for physics engine)
+        /// </summary>
+        public Colors Tangibility { get; set; }
+
+        /// <summary>
+        /// Colors this object will collide with the player in
+        /// </summary>
+        public Colors PlayerTangibility { get; set; }
+
+        /// <summary>
+        /// Colors in which this object will be sent a "would be" collision
+        /// </summary>
+        public Colors Sensibility { get; set; }
+
+        /// <summary>
+        /// Colors in which this object will be sent a "would be" collision with the player
+        /// </summary>
+        public Colors PlayerSensibility { get; set; }
+
+        /// <summary>
+        /// Name of the image file (without file extension) to draw for this object
+        /// </summary>
         public string ImageName { get; set; }
+
+        /// <summary>
+        /// List of objects that were combined together to make this object. 
+        /// Empty if this object was not made from a combination.
+        /// </summary>
         public List<GameObject> Parents { get; set; }
+
+        /// <summary>
+        /// List of objects that this parent has made via combination.
+        /// Empty if this object has made no objects.
+        /// </summary>
         public List<GameObject> Children { get; set; }
+
+        /// <summary>
+        /// List of objects that this object may combine with
+        /// </summary>
 		public List<GameObject> CombinableWith { get; set; }
+
+        /// <summary>
+        /// List of objects this object is currently combined with
+        /// </summary>
         public List<GameObject> CurrentlyCombined { get; set; }
+
+        /// <summary>
+        /// Whether this object may be picked up by the player
+        /// </summary>
         public bool Pickupable { get; set; }
-        public bool Inactive { get; set; }
-        public string InactiveImageName { get; set; }
+
+        /// <summary>
+        /// List of events that this object may fire
+        /// </summary>
         public List<Event> Events { get; set; }
+
+        /// <summary>
+        /// Level that this object is contained in
+        /// </summary>
         public Level Container { get; set; }
+
+        /// <summary>
+        /// Number of frames in the animation to draw this object
+        /// </summary>
         public int FrameCount { get; set; }
+
+        /// <summary>
+        /// Speed to render the animation at
+        /// </summary>
         public int FramesPerSec { get; set; }
+
+        /// <summary>
+        /// Direction this object is currently facing
+        /// </summary>
         public Direction DirectionFacing { get; set; }
+
+        /// <summary>
+        /// Original coordinates for this object when it is initially loaded
+        /// </summary>
         public Vector2 OriginalPosition { get; set; }
+
+        /// <summary>
+        /// Original velocity to start the object at when it is loaded
+        /// </summary>
         public Vector2 OriginalVelocity { get; set; }
+
+        /// <summary>
+        /// Index to order this object when drawn to the screen.
+        /// Positive numbers draw behind the player.
+        /// Negative numbers draw in front of the player.
+        /// </summary>
         public int ZIndex { get; set; }
+
+        /// <summary>
+        /// Whether this object should now be displayed in White Mode
+        /// </summary>
         public bool HasBecomeVisibleInAllColors { get; set; }
+
+        /// <summary>
+        /// Scale at which to render the image to the screen
+        /// </summary>
         public float Scale { get; set; }
 
+        /// <summary>
+        /// Physics body representing this object
+        /// </summary>
         public Body body { get; set; }
+
+        /// <summary>
+        /// Physics geometry representing this object
+        /// </summary>
         public Geom geom { get; set; }
+
+        /// <summary>
+        /// Physics joint associated with this object
+        /// </summary>
         public FixedAngleJoint joint { get; set; }
+
+        /// <summary>
+        /// Physics mass this object has
+        /// </summary>
         public float Mass { get; set; }
+
+        /// <summary>
+        /// Whether this object appears in a static location on the screen
+        /// </summary>
         public bool IsStatic { get; set; }
+
+        /// <summary>
+        /// Size of this object in screen pixels
+        /// </summary>
         public Vector2 Size { get; set; }
+
+        /// <summary>
+        /// Initial physical bounciness
+        /// </summary>
         public float InitialBounciness { get; set; }
+
+        /// <summary>
+        /// Initial physical linear drag
+        /// </summary>
         public float InitialLinearDrag { get; set; }
+
+        /// <summary>
+        /// Initial physical friction
+        /// </summary>
         public float InitialFriction { get; set; }
 
+        /// <summary>
+        /// Object that this object will follow
+        /// </summary>
         public GameObject Leader { get; set; }
 
         // constants to figure out if objects are "close enough"
@@ -88,8 +212,7 @@ namespace Spectrum.Model
             Children = new List<GameObject>();
             Parents = new List<GameObject>();
             Pickupable = false;
-            Inactive = false;
-            
+
             DirectionFacing = Direction.Right;
 
             FrameCount = 1;
@@ -161,11 +284,12 @@ namespace Spectrum.Model
             return obj.ZIndex.CompareTo(ZIndex);
         }
 
-        //Load the texture for the sprite using the Content Pipeline
+        /// <summary>
+        /// Load the texture for the sprite using the Content Pipeline
+        /// </summary>
         public virtual void LoadContent(ContentManager theContentManager, GraphicsDevice graphicsDevice)
         {
             LoadTexture();
-            LoadInactiveTexture();
             LoadPhysicsBody(Size, IsStatic);
 
             if (Events != null)
@@ -186,17 +310,11 @@ namespace Spectrum.Model
             Size = Texture.TextureSize() * this.Scale;
         }
 
-        public void LoadInactiveTexture()
-        {
-            if (InactiveImageName != null && !InactiveImageName.Equals(""))
-            {
-                InactiveTexture = new GameTexture(0.0f, this.Scale, .5f);
-                InactiveTexture.Load(Container.GameRef.Content, Container.GameRef.GraphicsDevice, InactiveImageName, FrameCount, FramesPerSec);
-                InactiveTexture.Pause();
-            }
-        }
-
-        // load the Farseer body and geometry objects for this GameObject
+        /// <summary>
+        /// Load the Farseer body and geometry objects for this object
+        /// </summary>
+        /// <param name="size">Size of the object</param>
+        /// <param name="isStatic">Whether the object should be rendered at a static position</param>
         public virtual void LoadPhysicsBody(Vector2 size, bool isStatic)
         {
             LoadPhysicsBody(new Vector2(OriginalPosition.X + (size.X / 2), OriginalPosition.Y + (size.Y / 2)), size, isStatic);
@@ -258,9 +376,13 @@ namespace Spectrum.Model
             }
         }
 
-        // removes the object and all of its children and cleans up references in its parents
-        // devestation: true to remove the object from the level and the physics engine
-        //              false to just remove the object from the level but not the engine
+ 
+
+        /// <summary>
+        /// Removes the object and all of its children and cleans up references in its parents
+        /// </summary>
+        /// <param name="devestation">true to remove the object from the level and the physics engine
+        ///                           false to just remove the object from the level but not the engine </param>
         public void Reap(bool devestation)
         {
             ReapChildren();
@@ -287,7 +409,9 @@ namespace Spectrum.Model
             }
         }
 
-        // Calls reap on all of the object's children
+        /// <summary>
+        /// Calls reap on all of the object's children
+        /// </summary>
         public void ReapChildren()
         {
             if (hasChildren())
@@ -301,7 +425,6 @@ namespace Spectrum.Model
             }
         }
 
-        //Update the Sprite and change it's position based on the passed in speed, direction and elapsed time.
         public virtual void Update(GameTime theGameTime)
         {
             float elapsed = (float)theGameTime.ElapsedGameTime.TotalSeconds;
@@ -406,16 +529,6 @@ namespace Spectrum.Model
             // a generic game object doesn't do anything special on collision
         }
 
-        protected virtual Body WillLoadPhysicsBody()
-        {
-            return null;
-        }
-
-        protected virtual Geom WillLoadPhysicsGeom()
-        {
-            return null;
-        }
-
         /* Subclassees should override this method to allow the object to be combined with another object */
         public virtual GameObject CombineObjectWith(GameObject obj)
         {
@@ -423,9 +536,11 @@ namespace Spectrum.Model
             return null;
         }
 
-        // Gets called by the physics engine to determine if two objects should colide.
-        // Returns a boolean based on whether the objects are both tangible and should colide.
-        // If two objects colide, this calls the DidCollideWithObject notification on both objects.
+        /// <summary>
+        /// Gets called by the physics engine to determine if two objects should collide.
+        /// Returns a boolean based on whether the objects are both tangible and should collide.
+        /// If two objects colide, this calls the DidCollideWithObject() notification on both objects.
+        /// </summary>
         private bool OnCollision(Geom g1, Geom g2, ContactList contactList)
         {
             GameObject o1 = (GameObject) g1.Tag;
@@ -535,15 +650,21 @@ namespace Spectrum.Model
             return didHit;
         }
 
-        protected virtual void DidSeparateWith(GameObject other)
+        
+        protected virtual void DidSeparateWithObject(GameObject other)
         {
             /* generic game objects don't do anything on separation */
         }
 
+        /// <summary>
+        /// Gets called by the physics engine when two objects separate.
+        /// This calls the DidSeparateWith() notification on both objects.
+        /// </summary>
+        /// <returns></returns>
         protected virtual void OnSeparation(Geom g1, Geom g2)
         {
-            ((GameObject)g1.Tag).DidSeparateWith((GameObject)g2.Tag);
-            ((GameObject)g2.Tag).DidSeparateWith((GameObject)g1.Tag);
+            ((GameObject)g1.Tag).DidSeparateWithObject((GameObject)g2.Tag);
+            ((GameObject)g2.Tag).DidSeparateWithObject((GameObject)g1.Tag);
             /*
             GameObject o1 = (GameObject)g1.Tag;
             GameObject o2 = (GameObject)g2.Tag;
@@ -557,12 +678,19 @@ namespace Spectrum.Model
             }
              */
         }
+
+        /// <summary>
+        /// Whether any part of this object is currently within the borders of the window.
+        /// </summary>
         protected bool InViewport()
         {
             return (body.Position.X + (Size.X / 2) >= Container.CameraPosition.X && body.Position.X - (Size.X / 2) <= Container.CameraPosition.X + Globals.GameWidth &&
                    body.Position.Y + (Size.Y / 2) >= Container.CameraPosition.Y && body.Position.Y - (Size.Y / 2) <= Container.CameraPosition.Y + Globals.GameHeight);
         }
 
+        /// <summary>
+        /// Makes player lose if he collides with this object
+        /// </summary>
         public void MakeDeadly()
         {
             if (Events == null)
