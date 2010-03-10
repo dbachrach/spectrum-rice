@@ -48,7 +48,7 @@ namespace Spectrum.Model
             const int leftWidth = 79;
             const int rightWidth = 78;
             const int minWidth = leftWidth + rightWidth;
-            const int centerWidth = 150;
+            const int centerWidth = 377;
             const int allHeight = 1221;
 
             int w = Math.Max((int) (_width * (1 / Scale)), minWidth);
@@ -58,7 +58,7 @@ namespace Spectrum.Model
                 w = minWidth + repeats * centerWidth;
             }
 
-            RenderTarget2D targ = new RenderTarget2D(g, w, allHeight, 1, SurfaceFormat.Rgba1010102);
+            RenderTarget2D targ = new RenderTarget2D(g, w, allHeight, 1, SurfaceFormat.Color);
             DepthStencilBuffer stenBuf = Globals.CreateDepthStencil(targ);
             // Cache the current depth buffer
             DepthStencilBuffer oldStenBuf = g.DepthStencilBuffer;
