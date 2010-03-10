@@ -292,6 +292,7 @@ namespace Spectrum.Model
             checkPlayerDeath();
 
             AdjustCamera();
+
         }
 
         public void Draw(SpriteBatch spriteBatch)

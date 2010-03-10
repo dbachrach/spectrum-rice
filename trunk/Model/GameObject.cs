@@ -460,6 +460,7 @@ namespace Spectrum.Model
             if (Leader != null)
             {
                 this.body.LinearVelocity.X = Leader.body.LinearVelocity.X;
+                
             }
 
             if (Events != null)
