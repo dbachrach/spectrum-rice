@@ -208,25 +208,23 @@ namespace Spectrum.Model
 
             CombinableWith = new List<GameObject>();
             CurrentlyCombined = new List<GameObject>();
-
             Children = new List<GameObject>();
             Parents = new List<GameObject>();
+
             Pickupable = false;
 
             DirectionFacing = Direction.Right;
+            Scale = 1.0f;
+            ZIndex = -100;
 
             FrameCount = 1;
             FramesPerSec = 1;
 
             Mass = 1;
             IsStatic = false;
-            Scale = 1.0f;
-
             InitialBounciness = 0;
             InitialLinearDrag = .001f;
             InitialFriction = .2f;
-
-            ZIndex = -100;
 
             HasBecomeVisibleInAllColors = false;
 

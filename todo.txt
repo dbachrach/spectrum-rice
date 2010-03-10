@@ -28,7 +28,8 @@ Did Sense:
 9 Fix platform friction issue
 7 Linear path
 5 Should not be allowed to drop a block into solid ground when you are up against it
-
+Killing you when you pick up a box?
+Combine after one time
 
 Defer
 -----   
@@ -38,3 +39,18 @@ Zoom in and out ("that would be kewl")
 Go through image files and make sure purple isn't transparent
 Json comments
 Come up with XBox Live Achievements
+
+
+720 x 1280 background image
+New platform (aligned)
+Colorbar with better colors
+Need help
+Animation sprite sheet aligned
+Exit animation
+Funnel
++ & -
+Pie pieces
+bridge
+font
+character jump animation
+push button separated

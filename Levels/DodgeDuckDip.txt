@@ -2,6 +2,7 @@
 
 {"object" : "ground", "id" : "below-start", "position" : [0,1340], "_w" : 200, "_h" : 100},
 {"object" : "ground", "id" : "above-start", "position" : [0,1140], "_w" : 200, "_h" : 100},
+{"object" : "door", "id" : "door", "position" : [50, 1040]},
 
 {"object" : "platform","id" : "a-plat","colors" : ["green"],"position" : [720, 1260]},
 {"object" : "switch","id" : "b-switch","colors" : ["green"],"position" : [780, 1230],
@@ -43,7 +44,6 @@
 						"receiver" : "move-plat-2",
 						"property" : "position",
 						"type" : "animation",
-						"animation-type" : "linear",
 						"value" : [[200,1340],[500,1340]],
 						"speed" : 2,
 						"repeats" : true,

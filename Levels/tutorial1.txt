@@ -2,7 +2,7 @@
 
 {"object" : "solid-ground", "id" : "ground", "position" : [0,350], "_w" : 725, "_h" : 50}
 {"object" : "solid-ground", "id" : "barrier", "position" : [250,300], "_w" : 100, "_h" : 50}
-{"object" : "solid-ground", "id" : "superbarrier", "position" : [675,230], "_w" : 50, "_h" : 120}
+{"object" : "solid-ground", "id" : "superbarrier", "position" : [675,230], "_w" : 200, "_h" : 120}
 {"object" : "solid-ground", "id" : "pit", "position" : [725,380], "_w" : 325, "_h" : 20}
 {"object" : "solid-ground", "id" : "stepstone", "position" : [825,330], "_w" : 60, "_h" : 50}
 {"object" : "solid-ground", "id" : "ledge", "position" : [1050,195], "_w" : 150, "_h" : 205}
