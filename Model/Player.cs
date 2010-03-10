@@ -25,6 +25,7 @@ namespace Spectrum.Model
 
     class Player : GameObject
     {
+        
         public int TimesDied { get; set; }
 
         public TimeSpan PlayTime { get; set; }
