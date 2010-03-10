@@ -253,14 +253,6 @@ namespace Spectrum.Model
                 {
                     newObject.Pickupable = (bool)obj["pickupable"];
                 }
-                if (obj.ContainsKey("inactive"))
-                {
-                    newObject.Inactive = (bool)obj["inactive"];
-                }
-                if (obj.ContainsKey("inactive-image"))
-                {
-                    newObject.InactiveImageName = (string) obj["inactive-image"];
-                }
                 if (obj.ContainsKey("events"))
                 {
                     List<Event> parsedEvents = ParseEvents((ArrayList)(obj["events"]), level);
