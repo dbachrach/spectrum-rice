@@ -33,6 +33,7 @@ namespace Spectrum.Model.Convenience_Objects
 
             Events = new List<Event>();
             Events.Add(e);
+            
         }
 
         public override void setVisibility(Colors vis)

@@ -5,7 +5,6 @@ Content\farseer\frameRateCounterFont.xnb
 Content\farseer\gamefont.xnb
 Content\farseer\menufont.xnb
 Content\box.xnb
-Content\dr.xnb
 Content\pl.xnb
 Content\farseer\background.xnb
 Content\farseer\blank.xnb
@@ -17,14 +16,11 @@ Content\tutorial\tutorialJump.xnb
 Content\tutorial\tutorialThumb.xnb
 Content\tutorial\tutorialTrigger.xnb
 Content\tutorial\tutorialX.xnb
-Content\plat.xnb
 Content\rainbow\Bar.xnb
 Content\rainbow\border.xnb
 Content\rainbow\wedge.xnb
 Content\water.xnb
 Content\switchOn.xnb
-Content\switchBoxDown.xnb
-Content\switchBoxUp.xnb
 Content\rainbow\circle.xnb
 Content\rainbow\WedgeCircle.xnb
 Content\flowerBottoms.xnb
@@ -34,3 +30,10 @@ Content\platformEndLeft.xnb
 Content\platformEndRight.xnb
 Content\rainbow\mask.xnb
 Content\SplashScreen.xnb
+Content\rainbow\BarBG.xnb
+Content\rainbow\BarGYOR.xnb
+Content\rainbow\BarPBR.xnb
+Content\rainbow\BarPGO.xnb
+Content\door.xnb
+Content\switchBox.xnb
+Content\switchBoxButton.xnb

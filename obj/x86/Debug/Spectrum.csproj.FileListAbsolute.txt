@@ -9,7 +9,6 @@
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\obj\x86\Debug\Spectrum.exe
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\obj\x86\Debug\Spectrum.pdb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\box.xnb
-C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\dr.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\pl.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\Pesca.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Spectrum.exe
@@ -87,7 +86,6 @@ U:\comp410\bin\x86\Debug\Content\plat.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Levels\demo.txt
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Levels\cloudy.txt
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Levels\DrEvil.txt
-C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\plat.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\rainbow\Bar.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\rainbow\border.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\rainbow\wedge.xnb
@@ -97,8 +95,6 @@ C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\water.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Levels\TrainingDay.txt
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Levels\TrainingDay.txt
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switchOn.xnb
-C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switchBoxDown.xnb
-C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switchBoxUp.xnb
 U:\comp410\bin\x86\Debug\Levels\TrainingDay.txt
 U:\comp410\bin\x86\Debug\Content\rainbow\Bar.xnb
 U:\comp410\bin\x86\Debug\Content\rainbow\border.xnb
@@ -142,3 +138,10 @@ C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Levels\DodgeDuckDip
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\rainbow\mask.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\SplashScreen.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\SplashScreen.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\rainbow\BarBG.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\rainbow\BarGYOR.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\rainbow\BarPBR.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\rainbow\BarPGO.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\door.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switchBox.xnb
+C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switchBoxButton.xnb

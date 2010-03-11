@@ -10,7 +10,7 @@ namespace Spectrum.Model.Convenience_Objects
         public PushButton(Player p)
             : base()
         {
-            ImageName = "switchBoxUp";
+            ImageName = "switchBox";
             IsStatic = true;
             Scale = 0.1f;
 
@@ -22,7 +22,7 @@ namespace Spectrum.Model.Convenience_Objects
             act.Receiver = this;
             act.Property = Globals.ImageProperty;
             act.Type = ActionType.Change;
-            act.Value = "switchBoxDown";
+            act.Value = "switchBoxButton"; // TODO: Make this a corrrect event action
 
             e.Actions.Add(act);
 
