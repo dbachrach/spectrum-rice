@@ -17,10 +17,11 @@ namespace Spectrum.Model
     class Door : GameObject
     {
 		public Door(Player player) : base() {
-            ImageName = "dr";
+            ImageName = "door";
 			Pickupable = false;
             IsStatic = true;
             ZIndex = 100; // draw below player
+            Scale = .2f;
 
             Tangibility = Colors.NoColors;
             PlayerTangibility = Colors.NoColors;
