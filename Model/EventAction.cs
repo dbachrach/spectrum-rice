@@ -170,10 +170,10 @@ namespace Spectrum.Model
                         Receiver.setVisibility(Colors.ColorsFromJsonArray((ArrayList)Value));
                         break;
                     case ActionType.AddColors:
-                        Receiver.setVisibility(Receiver.Visibility.Combine(Colors.ColorsFromJsonArray((ArrayList)Value)));
+                        Receiver.setVisibility(Receiver.Visibility.ColorsByCombiningWith(Colors.ColorsFromJsonArray((ArrayList)Value)));
                         break;
                     case ActionType.RemoveColors:
-                        Receiver.setVisibility(Receiver.Visibility.Difference(Colors.ColorsFromJsonArray((ArrayList)Value)));
+                        Receiver.setVisibility(Receiver.Visibility.ColorsByDifferencingWith(Colors.ColorsFromJsonArray((ArrayList)Value)));
                         break;
                 }
             }
@@ -185,10 +185,10 @@ namespace Spectrum.Model
                         Receiver.PlayerTangibility = Colors.ColorsFromJsonArray((ArrayList)Value);
                         break;
                     case ActionType.AddColors:
-                        Receiver.PlayerTangibility = Receiver.Visibility.Combine(Colors.ColorsFromJsonArray((ArrayList)Value));
+                        Receiver.PlayerTangibility = Receiver.Visibility.ColorsByCombiningWith(Colors.ColorsFromJsonArray((ArrayList)Value));
                         break;
                     case ActionType.RemoveColors:
-                        Receiver.PlayerTangibility = Receiver.Visibility.Difference(Colors.ColorsFromJsonArray((ArrayList)Value));
+                        Receiver.PlayerTangibility = Receiver.Visibility.ColorsByDifferencingWith(Colors.ColorsFromJsonArray((ArrayList)Value));
                         break;
                 }
             }

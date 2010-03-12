@@ -98,7 +98,12 @@ namespace Spectrum.View
 
         public void SetColor(Colors colors)
         {
-            finalRotation = (2 * Math.PI / 6 * (colors.Index()));
+            finalRotation = (2 * Math.PI / 6 * (colors.IndexIn(Colors.AllColors))); //TODO
+        }
+
+        public void SetVisibleColors(Colors colors)
+        {
+            //TODO
         }
 
         // delegate

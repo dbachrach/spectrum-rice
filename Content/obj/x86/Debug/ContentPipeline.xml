@@ -164,18 +164,6 @@
       <Time>2010-02-12T09:04:24-06:00</Time>
     </Item>
     <Item>
-      <Source>rainbow\Bar.png</Source>
-      <Name>rainbow\Bar</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Parameters>
-        <Data Key="ColorKeyEnabled">False</Data>
-      </Parameters>
-      <Options>None</Options>
-      <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\rainbow\Bar.xnb</Output>
-      <Time>2010-03-10T23:30:43-06:00</Time>
-    </Item>
-    <Item>
       <Source>rainbow\border.png</Source>
       <Name>rainbow\border</Name>
       <Importer>TextureImporter</Importer>
@@ -360,6 +348,69 @@
       <Options>None</Options>
       <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switchBoxButton.xnb</Output>
       <Time>2010-03-10T23:27:55-06:00</Time>
+    </Item>
+    <Item>
+      <Source>rainbow\BarPBGYOR.png</Source>
+      <Name>rainbow\BarPBGYOR</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\rainbow\BarPBGYOR.xnb</Output>
+      <Time>2010-03-11T14:34:58.8759766-06:00</Time>
+    </Item>
+    <Item>
+      <Source>levelBGblue.png</Source>
+      <Name>levelBGblue</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\levelBGblue.xnb</Output>
+      <Time>2010-03-11T23:38:13-06:00</Time>
+    </Item>
+    <Item>
+      <Source>levelBGgreen.png</Source>
+      <Name>levelBGgreen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\levelBGgreen.xnb</Output>
+      <Time>2010-03-11T23:38:19-06:00</Time>
+    </Item>
+    <Item>
+      <Source>levelBGorange.png</Source>
+      <Name>levelBGorange</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\levelBGorange.xnb</Output>
+      <Time>2010-03-11T23:38:25-06:00</Time>
+    </Item>
+    <Item>
+      <Source>levelBGpurple.png</Source>
+      <Name>levelBGpurple</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\levelBGpurple.xnb</Output>
+      <Time>2010-03-11T23:38:30-06:00</Time>
+    </Item>
+    <Item>
+      <Source>levelBGred.png</Source>
+      <Name>levelBGred</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\levelBGred.xnb</Output>
+      <Time>2010-03-11T23:38:35-06:00</Time>
+    </Item>
+    <Item>
+      <Source>levelBGyellow.png</Source>
+      <Name>levelBGyellow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\levelBGyellow.xnb</Output>
+      <Time>2010-03-11T23:38:40-06:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
