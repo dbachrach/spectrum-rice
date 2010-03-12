@@ -21,6 +21,7 @@ namespace Spectrum.View
         void Update(GameTime gameTime);
         void Draw(SpriteBatch spriteBatch);
         void SetColor(Colors colors);
+        void SetVisibleColors(Colors colors);
         void DidChangeColor(Colors colors, bool rightward);
 
         /// <summary>

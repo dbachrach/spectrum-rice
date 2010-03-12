@@ -23,7 +23,7 @@ namespace Spectrum.Model
 {
     class Level
     {
-        private GameTexture Background;
+        private List<GameTexture> Background;
 
         // a unique id for this level
         public string Id { get; set; }
@@ -122,6 +122,7 @@ namespace Spectrum.Model
             DoomedObjects = new List<GameObject>();
             ResurrectedObjects = new List<GameObject>();
 
+            BackgroundImageName = "levelBG";
             BackgroundFrameCount = 1;
             BackgroundFramesPerSec = 1;
 
@@ -227,9 +228,18 @@ namespace Spectrum.Model
 
             if (BackgroundImageName != null && !BackgroundImageName.Equals(""))
             {
-                Background = new GameTexture(0.0f, 1.0f, .5f);
-                Background.Load(manager, graphicsDevice, BackgroundImageName, BackgroundFrameCount, BackgroundFramesPerSec);
-                Background.Pause();
+                Background = new List<GameTexture>();
+                Console.WriteLine("bg image name " + BackgroundImageName);
+                foreach (string color in Colors.ListOfColorsNames)
+                {
+                    GameTexture b;
+                    b = new GameTexture(0.0f, 1.0f, .5f);
+                    b.AssetCount = 1;
+                    b.Load(manager, graphicsDevice, BackgroundImageName + color, BackgroundFrameCount, BackgroundFramesPerSec);
+                    b.Pause();
+
+                    Background.Add(b);
+                }
             }
             
             font = manager.Load<SpriteFont>("Pesca");
@@ -239,8 +249,10 @@ namespace Spectrum.Model
                 obj.LoadContent(manager, graphicsDevice);
             }
 
+            
             colorIndicator.LoadContent(manager, graphicsDevice);
             colorIndicator.SetColor(StartingColor);
+            colorIndicator.SetVisibleColors(AllowedColors);
         }
 
         public void Update(GameTime gameTime)
@@ -299,7 +311,8 @@ namespace Spectrum.Model
         {
             if (Background != null)
             {
-                Background.DrawFrame(spriteBatch, CurrentColor, Vector2.Zero, SpriteEffects.None, false);
+                int index = CurrentColor.IndexIn(Colors.AllColors);
+                Background[index].DrawFrame(spriteBatch, CurrentColor, new Vector2(Background[index].TextureSize().X / 2, Background[index].TextureSize().Y / 2), SpriteEffects.None, false);
             }
 
             foreach (GameObject obj in GameObjects)

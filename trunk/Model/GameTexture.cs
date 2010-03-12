@@ -168,6 +168,11 @@ namespace Spectrum.Model
                 FrameHeight = myTexture.Height;
                 divisor = 0;
             }
+
+            if (AssetCount == 1)
+            {
+                divisor = 0;
+            }
             Rectangle sourcerect = new Rectangle(FrameWidth * Frame, FrameHeight * divisor, FrameWidth, FrameHeight);
             Batch.Draw(myTexture, screenpos, sourcerect, Color.White,Rotation, Origin, Scale, drawEffects, Depth);
 

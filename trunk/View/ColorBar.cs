@@ -36,6 +36,10 @@ namespace Spectrum.View
 
         public bool MoveBG { get; set; }
 
+        private ContentManager content;
+
+        private Colors visibleColors;
+
         public ColorBar()
         {
             newMove = false;
@@ -45,14 +49,20 @@ namespace Spectrum.View
             toRight = false;
 
             MoveBG = true;
+
+            visibleColors = Colors.AllColors;
+            content = null;
         }
 
         public void LoadContent(ContentManager manager, GraphicsDevice graphicsDevice)
         {
             borderImg = manager.Load<Texture2D>(contentPath + "border");
-            barImg = manager.Load<Texture2D>(contentPath + "Bar");
             wedgeImg = manager.Load<Texture2D>(contentPath + "wedge");
             maskImg = manager.Load<Texture2D>(contentPath + "mask");
+
+            content = manager;
+
+            SetVisibleColors(visibleColors);
         }
 
         public void Update(GameTime gameTime)
@@ -91,7 +101,7 @@ namespace Spectrum.View
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            float halfwayOffset = (barImg.Width * scale) / 12;
+            float halfwayOffset = (barImg.Width * scale) / (visibleColors.Count() * 2.0f);
             /* Draws the background, a copy of the bg to the left, and a copy of the bg to the right. */
             // TODO: Make it get cutoff so you only see on length of rainbow inside the border
 
@@ -135,7 +145,19 @@ namespace Spectrum.View
 
         public void SetColor(Colors colors)
         {
-            finalPosn = ( ((colors.Index()+3)%6) * ((barImg.Width * scale) / 6));
+            int totalColors = visibleColors.Count();
+            finalPosn = colors.IndexIn(visibleColors) * ((barImg.Width * scale) / totalColors);
+            //finalPosn = ( ((colors.Index()+ 3) % totalColors) * ((barImg.Width * scale) / totalColors));
+        }
+
+        public void SetVisibleColors(Colors colors)
+        {
+            Console.WriteLine("Setting bar's colors to: " + colors.ToString());
+            visibleColors = colors;
+            if (content != null)
+            {
+                barImg = content.Load<Texture2D>(contentPath + "Bar" + colors.ToString());
+            }
         }
 
         // delegate

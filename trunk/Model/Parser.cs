@@ -62,7 +62,10 @@ namespace Spectrum.Model
                         level.CameraPosition = new Vector2((float)((double)cameraJson[0]), (float)((double)cameraJson[1]));
                     }
                     level.StartingColor = Colors.ColorsFromJsonArray((ArrayList)obj["starting-color"]);
-                    level.BackgroundImageName = (string) obj["background"];
+                    if ((string)obj["background"] != null)
+                    {
+                        level.BackgroundImageName = (string)obj["background"];
+                    }
                     level.AllowedColors = Colors.ColorsFromJsonArray((ArrayList)obj["allowed-colors"]);
                     level.CurrentColor = level.StartingColor;
                 }

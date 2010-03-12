@@ -141,12 +141,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="rainbow\Bar.png">
-      <Name>Bar</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <ProcessorParameters_ColorKeyEnabled>False</ProcessorParameters_ColorKeyEnabled>
-    </Compile>
     <Compile Include="rainbow\border.png">
       <Name>border</Name>
       <Importer>TextureImporter</Importer>
@@ -268,6 +262,45 @@
     </Compile>
     <Compile Include="switchBoxButton.png">
       <Name>switchBoxButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="rainbow\BarPBGYOR.png">
+      <Name>BarPBGYOR</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="levelBGblue.png">
+      <Name>levelBGblue</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="levelBGgreen.png">
+      <Name>levelBGgreen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="levelBGorange.png">
+      <Name>levelBGorange</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="levelBGpurple.png">
+      <Name>levelBGpurple</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="levelBGred.png">
+      <Name>levelBGred</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="levelBGyellow.png">
+      <Name>levelBGyellow</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

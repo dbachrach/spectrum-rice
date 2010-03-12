@@ -16,7 +16,6 @@ Content\tutorial\tutorialJump.xnb
 Content\tutorial\tutorialThumb.xnb
 Content\tutorial\tutorialTrigger.xnb
 Content\tutorial\tutorialX.xnb
-Content\rainbow\Bar.xnb
 Content\rainbow\border.xnb
 Content\rainbow\wedge.xnb
 Content\water.xnb
@@ -37,6 +36,13 @@ Content\rainbow\BarPGO.xnb
 Content\door.xnb
 Content\switchBox.xnb
 Content\switchBoxButton.xnb
+Content\rainbow\BarPBGYOR.xnb
+Content\levelBGblue.xnb
+Content\levelBGgreen.xnb
+Content\levelBGorange.xnb
+Content\levelBGpurple.xnb
+Content\levelBGred.xnb
+Content\levelBGyellow.xnb
 Levels\demo.txt
 Levels\cloudy.txt
 Levels\CombinationPizzaHut.txt
