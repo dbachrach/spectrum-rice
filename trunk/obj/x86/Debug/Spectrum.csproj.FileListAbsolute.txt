@@ -18,7 +18,6 @@ C:\Users\Administrator\Documents\spectrum-rice\obj\x86\Debug\Microsoft.Xna.Frame
 C:\Users\Administrator\Documents\spectrum-rice\obj\x86\Debug\Spectrum.exe
 C:\Users\Administrator\Documents\spectrum-rice\obj\x86\Debug\Spectrum.pdb
 U:\comp410\bin\x86\Debug\Content\box.xnb
-U:\comp410\bin\x86\Debug\Content\dr.xnb
 U:\comp410\bin\x86\Debug\Content\pl.xnb
 U:\comp410\bin\x86\Debug\Content\Pesca.xnb
 U:\comp410\bin\x86\Debug\Spectrum.exe
@@ -71,7 +70,6 @@ U:\comp410\bin\x86\Debug\Content\tutorial\tutorialX.xnb
 U:\comp410\bin\x86\Debug\Levels\demo.txt
 U:\comp410\bin\x86\Debug\Levels\cloudy.txt
 U:\comp410\bin\x86\Debug\Levels\DrEvil.txt
-U:\comp410\bin\x86\Debug\Content\plat.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Levels\demo.txt
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Levels\cloudy.txt
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Levels\DrEvil.txt
@@ -95,13 +93,10 @@ C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\water.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Levels\TrainingDay.txt
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\switchOn.xnb
 U:\comp410\bin\x86\Debug\Levels\TrainingDay.txt
-U:\comp410\bin\x86\Debug\Content\rainbow\Bar.xnb
 U:\comp410\bin\x86\Debug\Content\rainbow\border.xnb
 U:\comp410\bin\x86\Debug\Content\rainbow\wedge.xnb
 U:\comp410\bin\x86\Debug\Content\water.xnb
 U:\comp410\bin\x86\Debug\Content\switchOn.xnb
-U:\comp410\bin\x86\Debug\Content\switchBoxDown.xnb
-U:\comp410\bin\x86\Debug\Content\switchBoxUp.xnb
 U:\comp410\bin\x86\Debug\Content\rainbow\circle.xnb
 U:\comp410\bin\x86\Debug\Content\rainbow\WedgeCircle.xnb
 U:\comp410\bin\x86\Debug\Content\flowerBottoms.xnb
@@ -151,3 +146,17 @@ C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\levelBGoran
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\levelBGpurple.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\levelBGred.xnb
 C:\Users\Administrator\Documents\spectrum-rice\bin\x86\Debug\Content\levelBGyellow.xnb
+U:\comp410\bin\x86\Debug\Content\rainbow\BarBG.xnb
+U:\comp410\bin\x86\Debug\Content\rainbow\BarGYOR.xnb
+U:\comp410\bin\x86\Debug\Content\rainbow\BarPBR.xnb
+U:\comp410\bin\x86\Debug\Content\rainbow\BarPGO.xnb
+U:\comp410\bin\x86\Debug\Content\door.xnb
+U:\comp410\bin\x86\Debug\Content\switchBox.xnb
+U:\comp410\bin\x86\Debug\Content\switchBoxButton.xnb
+U:\comp410\bin\x86\Debug\Content\rainbow\BarPBGYOR.xnb
+U:\comp410\bin\x86\Debug\Content\levelBGblue.xnb
+U:\comp410\bin\x86\Debug\Content\levelBGgreen.xnb
+U:\comp410\bin\x86\Debug\Content\levelBGorange.xnb
+U:\comp410\bin\x86\Debug\Content\levelBGpurple.xnb
+U:\comp410\bin\x86\Debug\Content\levelBGred.xnb
+U:\comp410\bin\x86\Debug\Content\levelBGyellow.xnb

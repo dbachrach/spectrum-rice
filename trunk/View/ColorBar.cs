@@ -101,9 +101,20 @@ namespace Spectrum.View
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            float halfwayOffset = (barImg.Width * scale) / (visibleColors.Count() * 2.0f);
+            float halfwayOffset;
+            /*
+            if (visibleColors.Count() % 2 == 1)
+            {
+                halfwayOffset = 0;
+            }
+            else
+            {
+                //halfwayOffset = (barImg.Width * scale) / (visibleColors.Count() * 2.0f);
+                halfwayOffset = 0;
+            }
+            */
+            halfwayOffset = (barImg.Width * scale) / (visibleColors.Count() * 2.0f);
             /* Draws the background, a copy of the bg to the left, and a copy of the bg to the right. */
-            // TODO: Make it get cutoff so you only see on length of rainbow inside the border
 
             spriteBatch.End();
 
@@ -127,9 +138,9 @@ namespace Spectrum.View
             g.RenderState.StencilFunction = CompareFunction.Equal;   
             g.RenderState.ReferenceStencil = 1;
 
-            spriteBatch.Draw(barImg, new Vector2((float)curPosn + halfwayOffset, 108*scale), null, Color.White, 0, Vector2.Zero, scale, SpriteEffects.None, 1.0f);
-            spriteBatch.Draw(barImg, new Vector2((float)curPosn - (barImg.Width * scale) + halfwayOffset, 108 * scale), null, Color.White, 0, Vector2.Zero, scale, SpriteEffects.None, 1.0f);
-            spriteBatch.Draw(barImg, new Vector2((float)curPosn + (barImg.Width * scale) + halfwayOffset, 108 * scale), null, Color.White, 0, Vector2.Zero, scale, SpriteEffects.None, 1.0f);
+            spriteBatch.Draw(barImg, new Vector2((float)curPosn + ((barImg.Width * scale)/2) + halfwayOffset, 108*scale), null, Color.White, 0, Vector2.Zero, scale, SpriteEffects.None, 1.0f);
+            spriteBatch.Draw(barImg, new Vector2((float)curPosn - (barImg.Width * scale) + ((barImg.Width * scale)/2) + halfwayOffset, 108 * scale), null, Color.White, 0, Vector2.Zero, scale, SpriteEffects.None, 1.0f);
+            spriteBatch.Draw(barImg, new Vector2((float)curPosn + (barImg.Width * scale) + ((barImg.Width * scale)/2) + halfwayOffset, 108 * scale), null, Color.White, 0, Vector2.Zero, scale, SpriteEffects.None, 1.0f);
             spriteBatch.End();
 
             g.RenderState.StencilEnable = false;
@@ -146,7 +157,9 @@ namespace Spectrum.View
         public void SetColor(Colors colors)
         {
             int totalColors = visibleColors.Count();
-            finalPosn = colors.IndexIn(visibleColors) * ((barImg.Width * scale) / totalColors);
+            finalPosn = -1 * ((colors.IndexIn(visibleColors) + 1) % totalColors) * ((barImg.Width * scale) / totalColors);
+
+            Console.WriteLine("Color: " + colors + " index: " + colors.IndexIn(visibleColors) + " in: " + visibleColors + " finalposn: " + finalPosn);
             //finalPosn = ( ((colors.Index()+ 3) % totalColors) * ((barImg.Width * scale) / totalColors));
         }
 
