@@ -44,7 +44,7 @@ namespace Spectrum
         public bool Splashed { get; set; }
 
         private bool showSplash = true;
-        private bool fullscreen = true;
+        private bool fullscreen = false;
 
         public SpectrumGame()
         {
