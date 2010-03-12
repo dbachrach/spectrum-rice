@@ -243,27 +243,32 @@ namespace Spectrum.Model
 
         public bool currentlyVisible()
         {
-            return Container.CurrentColor.Contains(this.Visibility);
+            //return Container.CurrentColor.Contains(this.Visibility);
+            return this.Visibility.Contains(Container.CurrentColor);
         }
 
         public bool currentlyTangible()
         {
-            return Container.CurrentColor.Contains(this.Tangibility);
+            //return Container.CurrentColor.Contains(this.Tangibility);
+            return this.Tangibility.Contains(Container.CurrentColor);
         }
 
         public bool currentlyPlayerTangible()
         {
-            return Container.CurrentColor.Contains(this.PlayerTangibility);
+            //return Container.CurrentColor.Contains(this.PlayerTangibility);
+            return this.PlayerTangibility.Contains(Container.CurrentColor);
         }
 
         public bool currentlySensible()
         {
-            return Container.CurrentColor.Contains(this.Sensibility);
+            //return Container.CurrentColor.Contains(this.Sensibility);
+            return this.Sensibility.Contains(Container.CurrentColor);
         }
 
         public bool currentlyPlayerSensible()
         {
-            return Container.CurrentColor.Contains(this.PlayerSensibility);
+            //return Container.CurrentColor.Contains(this.PlayerSensibility);
+            return this.PlayerSensibility.Contains(Container.CurrentColor);
         }
        
 
