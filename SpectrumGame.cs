@@ -44,6 +44,7 @@ namespace Spectrum
         public bool Splashed { get; set; }
 
         private bool showSplash = true;
+        private bool fullscreen = true;
 
         public SpectrumGame()
         {
@@ -53,6 +54,8 @@ namespace Spectrum
 
             graphics.PreferredBackBufferWidth = Globals.GameWidth;
             graphics.PreferredBackBufferHeight = Globals.GameHeight;
+            this.graphics.IsFullScreen = fullscreen;
+
 
             Content.RootDirectory = "Content";
         }
