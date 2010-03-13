@@ -25,25 +25,46 @@ namespace Spectrum.Model
     {
         private List<GameTexture> Background;
 
-        // a unique id for this level
+        /// <summary>
+        /// Uniqute identifier for this level
+        /// </summary>
         public string Id { get; set; }
 
-        // the number of this level in the sequence of the levels
+        /// <summary>
+        /// Number of this level in the sequence of levels
+        /// </summary>
         public double Number { get; set; }
 
-        // the name of the level
+        /// <summary>
+        /// Displayed name of the level
+        /// </summary>
         public string Name { get; set; }
 
-        // width of the level
+        /// <summary>
+        /// Width in pixels of the level. Sizes greater than 1280 will cause the level
+        /// to autmoatically scroll. 
+        /// </summary>
         public double Width { get; set; }
 
-        // height of the level
+        /// <summary>
+        /// Height in pixels of the level. Sizes greater than 720 will cause the level
+        /// to automatically scroll.
+        /// </summary>
         public double Height { get; set; }
 
-        // flag whether this level has been completed
+        /// <summary>
+        /// Whether this level has been completed by the player
+        /// </summary>
         public bool Completed { get; set; }
         
-        // the background image of this level
+        /// <summary>
+        /// Name of the image file for the background of this image. Do not include file extension.
+        /// By default this value is "levelBG", which will load the default background image.
+        /// Since background images are very large, each color should be placed in its own file.
+        /// Name each file with the same name followed by the color for that image.
+        /// For example, the blue default image is named "levelBGblue", and the red is named "levelBGred".
+        /// Animated background images are allowed. See <see cref="BackgroundFrameCount"/> and <see cref="BackgroundFrameCount"/>.
+        /// </summary>
         public string BackgroundImageName { get; set; }
         public int BackgroundFrameCount { get; set; }
         public int BackgroundFramesPerSec { get; set; }
