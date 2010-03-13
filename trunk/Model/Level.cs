@@ -251,8 +251,8 @@ namespace Spectrum.Model
 
             
             colorIndicator.LoadContent(manager, graphicsDevice);
-            colorIndicator.SetColor(StartingColor);
             colorIndicator.SetVisibleColors(AllowedColors);
+            colorIndicator.SetColor(StartingColor);
         }
 
         public void Update(GameTime gameTime)

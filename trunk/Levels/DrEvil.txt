@@ -5,8 +5,7 @@
 {"object" : "ground", "id" : "east-bank", "position" : [1040,320], "_w" : 240, "_h" : 400, "friction" : 0, "drag" : 0},
 
 {"object" : "platform","id" : "a-plat","colors" : ["orange"],"position" : [390, 295], "_w" : 180},
-
-{"object" : "switch","id" : "a-switch","colors" : ["orange"],"position" : [480, 265],
+{"object" : "switch","id" : "a-switch","colors" : ["orange"],"position" : [480, 250],
 	"tangibility" : ["none"],"player-tangibility" : ["none"],  "_switch-actions" : [{
 									"receiver" : "a-plat",
 									"property" : "whiteness",
@@ -15,7 +14,7 @@
 								 }]},
 								 
 {"object" : "platform","id" : "b-plat","colors" : ["green"],"position" : [590, 295], "_w" : 180},
-{"object" : "switch","id" : "b-switch","colors" : ["green"],"position" : [680, 265],
+{"object" : "switch","id" : "b-switch","colors" : ["green"],"position" : [680, 250],
 	"tangibility" : ["none"],"player-tangibility" : ["none"], "_switch-actions" : [{
 									"receiver" : "b-plat",
 									"property" : "whiteness",
@@ -24,7 +23,7 @@
 								 }]},
 								 
 {"object" : "platform","id" : "c-plat","colors" : ["purple"],"position" : [790, 295], "_w" : 180},
-{"object" : "switch","id" : "c-switch","colors" : ["purple"],"position" : [880, 265],
+{"object" : "switch","id" : "c-switch","colors" : ["purple"],"position" : [880, 250],
 	"tangibility" : ["none"],"player-tangibility" : ["none"], "_switch-actions" : [{
 									"receiver" : "c-plat",
 									"property" : "whiteness",
@@ -41,7 +40,22 @@
 			"receiver" : "water",
 			"property" : "position",
 			"type" : "animation",
-			"value" : [[240, 600],[600,600]],
+			"value" : [[240, 600],[610,600]],
+			"speed" : 3,
+			"repeats" : true,
+			"repeat-delay" : 5,
+			"repeat-count" : -999
+		}]
+	}]
+},
+{"object" : "game-object", "id" : "waterb", "colors" : ["all"], "position" : [713,600], "static": false, "zindex" : -75,
+	"image" : "water", "scale" : 0.8, "player-tangibility" : ["none"], "tangibility" : ["none"],
+	"events" : [{ "type" : "behavior",
+		"actions" : [{
+			"receiver" : "waterb",
+			"property" : "position",
+			"type" : "animation",
+			"value" : [[713, 600],[1083,600]],
 			"speed" : 3,
 			"repeats" : true,
 			"repeat-delay" : 5,
@@ -57,7 +71,7 @@
 			"receiver" : "water2",
 			"property" : "position",
 			"type" : "animation",
-			"value" : [[240, 560],[600,560]],
+			"value" : [[240, 560],[610,560]],
 			"speed" : 2,
 			"repeats" : true,
 			"repeat-delay" : 5,
@@ -65,15 +79,15 @@
 		}]
 	}]
 },
-{"object" : "game-object", "id" : "water3", "colors" : ["all"], "position" : [240,520], "static": false, "zindex" : 75,
+{"object" : "game-object", "id" : "water2b", "colors" : ["all"], "position" : [713,560], "static": false, "zindex" : 50,
 	"image" : "water", "scale" : 0.8, "player-tangibility" : ["none"], "tangibility" : ["none"],
 	"events" : [{ "type" : "behavior",
 		"actions" : [{
-			"receiver" : "water3",
+			"receiver" : "water2b",
 			"property" : "position",
 			"type" : "animation",
-			"value" : [[240, 520],[600,520]],
-			"speed" : 4,
+			"value" : [[713, 560],[1083,560]],
+			"speed" : 2,
 			"repeats" : true,
 			"repeat-delay" : 5,
 			"repeat-count" : -999
@@ -81,6 +95,36 @@
 	}]
 },
 
+{"object" : "game-object", "id" : "water3", "colors" : ["all"], "position" : [240,520], "static": false, "zindex" : 75,
+	"image" : "water", "scale" : 0.8, "player-tangibility" : ["none"], "tangibility" : ["none"],
+	"events" : [{ "type" : "behavior",
+		"actions" : [{
+			"receiver" : "water3",
+			"property" : "position",
+			"type" : "animation",
+			"value" : [[240, 520],[610,520]],
+			"speed" : 4,
+			"repeats" : true,
+			"repeat-delay" : 5,
+			"repeat-count" : -999
+		}]
+	}]
+},
+{"object" : "game-object", "id" : "water3b", "colors" : ["all"], "position" : [713,520], "static": false, "zindex" : 75,
+	"image" : "water", "scale" : 0.8, "player-tangibility" : ["none"], "tangibility" : ["none"],
+	"events" : [{ "type" : "behavior",
+		"actions" : [{
+			"receiver" : "water3b",
+			"property" : "position",
+			"type" : "animation",
+			"value" : [[713, 520],[1083,520]],
+			"speed" : 4,
+			"repeats" : true,
+			"repeat-delay" : 5,
+			"repeat-count" : -999
+		}]
+	}]
+},
 
 
 
