@@ -22,7 +22,6 @@ Did Sense:
 
 1 EventAction: PlaySound
 4 Add pickup animations
-3 Code for color bar depending on number of colors in level
 6 Music
 5 All color mode
 9 Fix platform friction issue
