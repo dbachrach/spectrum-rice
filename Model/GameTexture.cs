@@ -62,12 +62,16 @@ namespace Spectrum.Model
 
         public void Load(ContentManager content, GraphicsDevice graphicsDevice, string asset, int FrameCount, int FramesPerSec, int w, int h)
         {
+            Load(content, graphicsDevice, asset, FrameCount, FramesPerSec, w, h, 150);
+        }
+        public void Load(ContentManager content, GraphicsDevice graphicsDevice, string asset, int FrameCount, int FramesPerSec, int w, int h, int alpha)
+        {
             Asset = asset;
             framecount = FrameCount;
             if (asset == null || asset.Equals(""))
             {
                 AssetCount = 1;
-                myTexture = CreateRectangle(w, h * AssetCount, graphicsDevice);
+                myTexture = CreateRectangle(w, h * AssetCount, graphicsDevice, (byte)alpha);
             }
             else
             {
@@ -226,11 +230,16 @@ namespace Spectrum.Model
 
         private Texture2D CreateRectangle(int width, int height, GraphicsDevice graphicsDevice)
         {
+            return CreateRectangle(width, height, graphicsDevice, 150);
+        }
+
+        private Texture2D CreateRectangle(int width, int height, GraphicsDevice graphicsDevice, byte alpha)
+        {
             Texture2D rectangleTexture = new Texture2D(graphicsDevice, width, height, 1, TextureUsage.None, SurfaceFormat.Color); // create the rectangle texture, ,but it will have no color! lets fix that
             Color[] color = new Color[width * height]; //set the color to the amount of pixels in the textures
             for (int i = 0; i < color.Length; i++) //loop through all the colors setting them to whatever values we want
             {
-                color[i] = new Color(0, 0, 0, 150);
+                color[i] = new Color(0, 0, 0, alpha);
             }
             rectangleTexture.SetData(color); //set the color data on the texture
             return rectangleTexture; //return the texture

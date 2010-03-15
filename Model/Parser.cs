@@ -132,7 +132,14 @@ namespace Spectrum.Model
                     {
                         double w = (double)obj["_w"];
                         double h = (double)obj["_h"];
-                        newObject = new Ground((int)w, (int)h);
+                        if (obj["alpha"] != null)
+                        {
+                            newObject = new Ground((int)w, (int)h, (int)(double)obj["alpha"]);
+                        }
+                        else
+                        {
+                            newObject = new Ground((int)w, (int)h);
+                        }
                     }
                     else if (objType.Equals("door"))
                     {
