@@ -18,6 +18,7 @@ namespace Spectrum.Model
     {
         protected int _w;
         protected int _h;
+        protected int alpha;
 
 		public Ground() : base() {
 			Pickupable = false;
@@ -25,6 +26,7 @@ namespace Spectrum.Model
             IsStatic = true;
             Visibility = Colors.AllColors;
             InitialFriction = .8f;
+            alpha = 150;
 		}
 
         public Ground(int w, int h)
@@ -33,11 +35,16 @@ namespace Spectrum.Model
             _w = w;
             _h = h;
         }
+        public Ground(int w, int h, int a)
+            : this(w,h)
+        {
+            alpha = a;
+        }
 
         public override void LoadContent(ContentManager theContentManager, GraphicsDevice graphicsDevice)
         {
             Texture = new GameTexture(0.0f, 1.0f, .5f);
-            Texture.Load(theContentManager, graphicsDevice, ImageName, FrameCount, FramesPerSec, _w, _h);
+            Texture.Load(theContentManager, graphicsDevice, ImageName, FrameCount, FramesPerSec, _w, _h, alpha);
             Texture.Pause();
 
             LoadPhysicsBody(Texture.TextureSize(), true);
