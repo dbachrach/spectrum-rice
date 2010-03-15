@@ -69,26 +69,41 @@ namespace Spectrum.Model
         public int BackgroundFrameCount { get; set; }
         public int BackgroundFramesPerSec { get; set; }
 
-        // the color the user is viewing the level at the moment
+        /// <summary>
+        /// Color player is currently viewing the level in
+        /// </summary>
         public Colors CurrentColor { get; set; }
 
-        // position where the player starts at
+        /// <summary>
+        /// Position where player starts when the level is loaded
+        /// </summary>
         public Vector2 StartPosition { get; set; }
 
-        // the colors this level can be viewed in
+        /// <summary>
+        /// Colors this level can be viewed in
+        /// </summary>
         public Colors AllowedColors { get; set; }
 
         // indicates which color the level starts in
         public Colors StartingColor { get; set; }
 
-        // the objects contained in this level
+        /// <summary>
+        /// Allo objects contained in this level
+        /// </summary>
         public List<GameObject> GameObjects { get; set; }
 
         public Vector2 TopCorner = new Vector2(0, 0);
 
         public SpectrumGame GameRef { get; set; }
 
+        /// <summary>
+        /// Physics simulator for this level
+        /// </summary>
         public PhysicsSimulator Sim { get; set; }
+
+        /// <summary>
+        /// Specailzied view of the physics simulator
+        /// </summary>
         private PhysicsSimulatorView SimView;
 
         public bool DebugMode { get; set; }
@@ -108,7 +123,6 @@ namespace Spectrum.Model
         public int Gravity = 3000;
 
         private bool _allColorsMode;
-
         public bool allColorsMode()
         {
             return _allColorsMode;
@@ -124,6 +138,9 @@ namespace Spectrum.Model
         public GameTime CurrentTime { get; set; }
 
 		/* Default Constructor */
+        /// <summary>
+        /// Creates a default level. Also creates the physics simulator for the level.
+        /// </summary>
 		public Level() {
             
             if (useColorBar)
@@ -163,19 +180,26 @@ namespace Spectrum.Model
             CameraPosition = Vector2.Zero;
 		}
 
-        // Adds obj to the level
+        /// <summary>
+        /// Adds an object to the list of objects this level contains
+        /// </summary>
         public void AddGameObject(GameObject obj)
         {
             GameObjects.Add(obj);
         }
 
-        // Adds obj to the level at the next update cycle.
+        /// <summary>
+        /// Adds an object to the list of objects this level contains, but does so at the next iteration of the update() loop.
+        /// Useful adding game objects to a level while iterating through the level's objects.
+        /// </summary>
         public void DeferAddGameObject(GameObject obj)
         {
             ResurrectedObjects.Add(obj);
         }
 
-        // Removes obj from the level and from the simulator.
+        /// <summary>
+        /// Removes an object from the level and from the simulator
+        /// </summary>
         public void Obliterate(GameObject obj)
         {
             RemoveObjectFromLevel(obj);
@@ -183,8 +207,11 @@ namespace Spectrum.Model
             Sim.Remove(obj.geom);
         }
 
-        // Removes obj from the level and from the simulator at the next update cycle.
-        // (Calls through to RemoveObjectFromLevel not Obliterate)
+        /// <summary>
+        /// Removes an object from the level and from the simulator, but does so at the next iteration of the update() loop.
+        /// Useful for removing objects from a level while iterating through the level's objects.
+        /// (Calls through to RemoveObjectFromLevel not Obliterate)
+        /// </summary>
         public void DeferObliterate(GameObject obj)
         {
             DoomedObjects.Add(obj);
@@ -192,33 +219,47 @@ namespace Spectrum.Model
             Sim.Remove(obj.geom);
         }
 
-        // Immediately removes obj from the level
+        /// <summary>
+        /// Immediately removes obj from 
+        /// </summary>
         public void RemoveObjectFromLevel(GameObject obj)
         {
             GameObjects.Remove(obj);
         }
 
-        // Removes obj from the level at the next update cycle.
+        // 
+        /// <summary>
+        /// Removes obj from the level's list of game objects, but does so at the next iteration of the update() loop.
+        /// Useful for removing objects from a level while iterating through the level's objects.
+        /// </summary>
         public void DeferRemoveObjectFromLevel(GameObject obj) 
         {
             DoomedObjects.Add(obj);
         }
         
-        // Adds p to the level and marks p as the player of the level
+        /// <summary>
+        /// Adds a player to the level's list of game objects and sets this player as the player of the level
+        /// </summary>
         public void AddPlayer(Player p)
         {
             player = p;
             AddGameObject(p);
         }
 
+        /// <summary>
+        /// Removes an object from the physics simulator.
+        /// Does not remove the object from the list of objects contained in the level.
+        /// </summary>
         public void RemoveFromSimulator(GameObject obj)
         {
             Sim.Remove(obj.body);
             Sim.Remove(obj.geom);
         }
 
-        // Returns a game object within this level with the id i. 
-        // Throws an exception if object was not found.
+        /// <summary>
+        /// Returns a game object within this level with a given id.
+        /// Throws an exception if the object was not found.
+        /// </summary>
         public GameObject GameObjectForId(string i)
         {
             foreach (GameObject o in GameObjects) 
@@ -232,12 +273,18 @@ namespace Spectrum.Model
             throw new Exception("Could not find object in level with id " + i);
         }
 
-
+        /// <summary>
+        /// Wins the current level
+        /// </summary>
         public void Win()
         {
             Completed = true;
             GameRef.Win();
         }
+
+        /// <summary>
+        /// Restarts the current level
+        /// </summary>
         public void Restart()
         {
             GameRef.Restart();
@@ -393,6 +440,9 @@ namespace Spectrum.Model
             return string.Format("Level-- id {0}\nnumber {1}\n width {2}\n height {3}\n allowed colors {4}", this.Id, this.Number, this.Width, this.Height, this.AllowedColors);
         }
 
+        /// <summary>
+        /// Changes the current color to the next color.
+        /// </summary>
         public void ForwardColor()
         {
             if (colorIndicator.MoveBG)
@@ -415,6 +465,9 @@ namespace Spectrum.Model
             }
         }
 
+        /// <summary>
+        /// Changes the current color to the previous color.
+        /// </summary>
         public void BackwardColor()
         {
             if (colorIndicator.MoveBG)
@@ -437,6 +490,9 @@ namespace Spectrum.Model
             }
         }
 
+        /// <summary>
+        /// Activates All-Colors mode
+        /// </summary>
         public void ActivateAllColorsMode()
         {
             //PreviousColor = CurrentColor;
@@ -444,7 +500,9 @@ namespace Spectrum.Model
             _allColorsMode = true;
         }
 
-        // Must be called only once after a call to ActivateAllColorsMode()
+        /// <summary>
+        /// Deactivates All-Colors mode
+        /// </summary>
         public void DeactivateAllColorsMode()
         {
             //CurrentColor = PreviousColor;
@@ -452,6 +510,10 @@ namespace Spectrum.Model
             _allColorsMode = false;
         }
 
+        /// <summary>
+        /// Checks to see if the player is too far off the level's coordinates.
+        /// Restarts the level if the player is.
+        /// </summary>
         private void checkPlayerDeath()
         {
             float x = player.body.Position.X;
@@ -463,6 +525,9 @@ namespace Spectrum.Model
             }
         }
 
+        /// <summary>
+        /// Adjusts the camera to display where the player is in the level
+        /// </summary>
         public void AdjustCamera()
         {
             float x = (float)Math.Min(Math.Max(player.body.position.X - Globals.GameWidth / 2, 0), Width - Globals.GameWidth);
