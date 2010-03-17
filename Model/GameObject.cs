@@ -363,7 +363,13 @@ namespace Spectrum.Model
         //Draw the sprite to the screen
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            if(currentlyVisible() || Container.allColorsMode()) {
+            Draw(spriteBatch, body.Position);
+        }
+
+        public virtual void Draw(SpriteBatch spriteBatch, Vector2 posn)
+        {
+            if (currentlyVisible() || Container.allColorsMode())
+            {
                 Colors col = Container.CurrentColor;
                 if (Container.allColorsMode())
                 {
@@ -371,11 +377,11 @@ namespace Spectrum.Model
                 }
                 Texture.Rotation = body.Rotation;
 
-                if (InViewport())
+                if (InViewport(posn))
                 {
-                        Texture.DrawFrame(spriteBatch, col, body.Position - Container.CameraPosition, DrawEffects(), HasBecomeVisibleInAllColors);
+                    Texture.DrawFrame(spriteBatch, col, posn - Container.CameraPosition, DrawEffects(), HasBecomeVisibleInAllColors);
                 }
-                
+
             }
         }
 
@@ -462,7 +468,7 @@ namespace Spectrum.Model
 
             if (Leader != null)
             {
-                this.body.LinearVelocity.X = Leader.body.LinearVelocity.X;
+                //this.body.LinearVelocity.X = Leader.body.LinearVelocity.X;
                 
             }
 
@@ -571,6 +577,11 @@ namespace Spectrum.Model
             else if(o1.currentlyTangible() && o2.currentlyTangible())
             {
                 didHit = true;
+            }
+
+            if ((o1 is Player && o2 == poss) || (o2 is Player && o1 == poss))
+            {
+                didHit = false;
             }
 
             if (didHit == true)
@@ -688,8 +699,13 @@ namespace Spectrum.Model
         /// </summary>
         protected bool InViewport()
         {
-            return (body.Position.X + (Size.X / 2) >= Container.CameraPosition.X && body.Position.X - (Size.X / 2) <= Container.CameraPosition.X + Globals.GameWidth &&
-                   body.Position.Y + (Size.Y / 2) >= Container.CameraPosition.Y && body.Position.Y - (Size.Y / 2) <= Container.CameraPosition.Y + Globals.GameHeight);
+            return InViewport(this.body.Position);
+        }
+
+        protected bool InViewport(Vector2 posn)
+        {
+            return (posn.X + (Size.X / 2) >= Container.CameraPosition.X && posn.X - (Size.X / 2) <= Container.CameraPosition.X + Globals.GameWidth &&
+                   posn.Y + (Size.Y / 2) >= Container.CameraPosition.Y && posn.Y - (Size.Y / 2) <= Container.CameraPosition.Y + Globals.GameHeight);
         }
 
         /// <summary>
