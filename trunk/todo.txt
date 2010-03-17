@@ -24,10 +24,8 @@ Did Sense:
 4 Add pickup animations
 6 Music
 5 All color mode
-9 Fix platform friction issue
 7 Linear path
 5 Should not be allowed to drop a block into solid ground when you are up against it
-9 Killing you when you pick up a box?
 9 Combine after one time
 3 Alpha value for every object in JSON?
 
@@ -36,6 +34,7 @@ Benchmarking
 Player gets stuck inside white platform. completely pooched.
 Water comes in from offscreen. should be in the right place already.
 physics seems to change based on computer?
+picking up a block makes you jump faster
 when level 1 loads, the player and block fall a bit
 platform on level one now cuts into his head.
 

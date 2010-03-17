@@ -49,10 +49,10 @@ namespace Spectrum.Model
             GraphicsDevice g = Container.GameRef.GraphicsDevice;
 
             const int leftWidth = 79;
-            const int rightWidth = 78;
+            const int rightWidth = 79;
             const int minWidth = leftWidth + rightWidth;
             const int centerWidth = 377;
-            const int allHeight = 1221;
+            const int allHeight = 1200;
 
             int w = Math.Max((int) (_width * (1 / Scale)), minWidth);
             int repeats = (w - minWidth) / centerWidth;
@@ -74,11 +74,11 @@ namespace Spectrum.Model
 
             SpriteBatch b = new SpriteBatch(g);
             b.Begin();
-            Texture2D left = Container.GameRef.Content.Load<Texture2D>("platformEndLeft");
+            Texture2D left = Container.GameRef.Content.Load<Texture2D>("platformLeft");
             b.Draw(left, new Vector2(0, 0), Color.White);
-            Texture2D right = Container.GameRef.Content.Load<Texture2D>("platformEndRight");
+            Texture2D right = Container.GameRef.Content.Load<Texture2D>("platformRight");
             b.Draw(right, new Vector2(w - rightWidth, 0), Color.White);
-            Texture2D mid = Container.GameRef.Content.Load<Texture2D>("platformCenter");
+            Texture2D mid = Container.GameRef.Content.Load<Texture2D>("platform");
             for (int cnt = 0; cnt < repeats; cnt++)
             {
                 b.Draw(mid, new Vector2(leftWidth + (centerWidth * cnt), 0), Color.White);
