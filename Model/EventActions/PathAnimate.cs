@@ -110,7 +110,10 @@ namespace Spectrum.Model.EventActions
             else
             {
                 Receiver.body.IgnoreGravity = true;
-                Receiver.body.LinearVelocity = 100*Direction;
+
+                Receiver.body.Position = Receiver.body.Position + Direction;
+                Receiver.PathVector = Direction;
+                //Receiver.body.LinearVelocity = 100*Direction;
             }
         }
 

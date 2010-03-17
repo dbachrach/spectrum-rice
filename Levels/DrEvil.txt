@@ -5,7 +5,7 @@
 {"object" : "ground", "id" : "east-bank", "position" : [1040,320], "_w" : 240, "_h" : 400, "friction" : 0, "drag" : 0, "alpha" : 255},
 
 {"object" : "platform","id" : "a-plat","colors" : ["orange"],"position" : [390, 295], "_w" : 180},
-{"object" : "switch","id" : "a-switch","colors" : ["orange"],"position" : [480, 250],
+{"object" : "switch","id" : "a-switch","colors" : ["orange"],"position" : [495, 250],
 	"tangibility" : ["none"],"player-tangibility" : ["none"],  "_switch-actions" : [{
 									"receiver" : "a-plat",
 									"property" : "whiteness",
@@ -14,7 +14,7 @@
 								 }]},
 								 
 {"object" : "platform","id" : "b-plat","colors" : ["green"],"position" : [590, 295], "_w" : 180},
-{"object" : "switch","id" : "b-switch","colors" : ["green"],"position" : [680, 250],
+{"object" : "switch","id" : "b-switch","colors" : ["green"],"position" : [695, 250],
 	"tangibility" : ["none"],"player-tangibility" : ["none"], "_switch-actions" : [{
 									"receiver" : "b-plat",
 									"property" : "whiteness",
@@ -23,7 +23,7 @@
 								 }]},
 								 
 {"object" : "platform","id" : "c-plat","colors" : ["purple"],"position" : [790, 295], "_w" : 180},
-{"object" : "switch","id" : "c-switch","colors" : ["purple"],"position" : [880, 250],
+{"object" : "switch","id" : "c-switch","colors" : ["purple"],"position" : [895, 250],
 	"tangibility" : ["none"],"player-tangibility" : ["none"], "_switch-actions" : [{
 									"receiver" : "c-plat",
 									"property" : "whiteness",

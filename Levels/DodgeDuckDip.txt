@@ -24,15 +24,15 @@
 {"object" : "block","id" : "left-blocker-bottom", "position" : [300, 880], "colors" : ["orange","yellow"], "static" : true}
 {"object" : "block","id" : "left-blocker-top", "position" : [300, 830], "colors" : ["orange","yellow"], "static" : true}
 								 
-{"object" : "platform","id" : "move-plat-1","colors" : ["orange","yellow","green"], "static" : false, "tangibility" : ["none"], "position" : [1290, 1270],
+{"object" : "platform","id" : "move-plat-1","colors" : ["orange","yellow","green"], "static" : false, "tangibility" : ["none"], "position" : [1285, 1270],
 			"events" : [{ "type" : "behavior",
 					"actions" : [{
 						"receiver" : "move-plat-1",
 						"property" : "position",
 						"type" : "animation",
-						"animation-type" : "linear",
+						
 						"value" : [[1285,1270],[870,1270],[870, 960],[-200,960],[0,0]],
-						"speed" : 2,
+						"speed" : 10,
 						"repeats" : true,
 						"repeat-delay" : 5,
 						"repeat-count" : -999
