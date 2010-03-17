@@ -66,6 +66,8 @@ namespace Spectrum.Model
         private static Vector2 SouthWest = -NorthEast;
         private static Vector2 SouthEast = -NorthWest;
 
+        private static Vector2 OffscreenVector = new Vector2(-10000, -10000);
+
         public bool IsTouchingGround { get; set; }
 
         public Player()
@@ -351,21 +353,10 @@ namespace Spectrum.Model
             
             Possession = obj;
 
-            //obj.body.position = new Vector2(this.body.position.X, this.body.position.Y - (this.Size.Y / 2) - (obj.Size.Y / 2));
-            //obj.body.Mass = 0.0001f;
-            //PinJoint connector = new PinJoint(this.body, Vector2.Zero, Possession.body, Vector2.Zero);//new WeldJoint(this.body, Possession.body, new Vector2(this.body.position.X, this.body.position.Y + this.Size.Y / 2.0f-50));
-
-            //Connector = connector;
-            //Container.Sim.Add(connector);
-            Possession.body.Position = new Vector2(-10000, -10000);
+            // move the object offscreen
+            Possession.body.Position = OffscreenVector;
 
             obj.Reap(false);
-
-            //Container.RemoveFromSimulator(this);
-
-            //obj.Reap(true);
-
-            //this.LoadPhysicsBody(new Vector2(this.body.position.X, this.body.position.Y - Possession.Size.Y/2.0f), new Vector2(Size.X, Size.Y + Possession.Size.Y), this.IsStatic);
         }
 
         private void Drop()

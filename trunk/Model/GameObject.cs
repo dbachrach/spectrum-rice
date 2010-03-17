@@ -192,10 +192,12 @@ namespace Spectrum.Model
         /// Object that this object will follow
         /// </summary>
         public GameObject Leader { get; set; }
+        public Vector2 PathVector { get; set; }
 
         // constants to figure out if objects are "close enough"
         private static int FUZZY_DX_TOLERANCE = 10; /* TODO: Readjust both parent blocks when we create a combine block */
         private static int FUZZY_DY_TOLERANCE = 2;
+
 
 		/* Default Constructor */
         public GameObject()
@@ -469,7 +471,7 @@ namespace Spectrum.Model
             if (Leader != null)
             {
                 //this.body.LinearVelocity.X = Leader.body.LinearVelocity.X;
-                
+                this.body.Position = this.body.position + Leader.PathVector;
             }
 
             if (Events != null)
