@@ -27,8 +27,17 @@ Did Sense:
 9 Fix platform friction issue
 7 Linear path
 5 Should not be allowed to drop a block into solid ground when you are up against it
-Killing you when you pick up a box?
-Combine after one time
+9 Killing you when you pick up a box?
+9 Combine after one time
+3 Alpha value for every object in JSON?
+
+FIX LINEAR PATH WHY DOES IT NOT START SAME POSITION, ALSO OFF BY ONE AT END.
+Benchmarking
+Player gets stuck inside white platform. completely pooched.
+Water comes in from offscreen. should be in the right place already.
+physics seems to change based on computer?
+when level 1 loads, the player and block fall a bit
+platform on level one now cuts into his head.
 
 Defer
 -----   
