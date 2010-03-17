@@ -315,7 +315,13 @@ namespace FarseerGames.FarseerPhysics
         public void Remove(Joint joint)
         {
             if (joint == null)
-                throw new ArgumentNullException("joint", "Can't remove null joint");
+                
+                
+                
+                
+                    
+                
+                        throw new ArgumentNullException("joint", "Can't remove null joint");
 
             _jointRemoveList.Add(joint);
         }

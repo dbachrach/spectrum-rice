@@ -38,7 +38,7 @@ namespace Spectrum.Model
 
         public GameObject NearObject { get; set;}
 
-        public WeldJoint Connector { get; set; }
+        public Joint Connector { get; set; }
 
         // whether or not to allow the player to add sideways impulse to the player by pushing the
         // arrows keys
@@ -94,8 +94,9 @@ namespace Spectrum.Model
         {
             if (Possession != null)
             {
-                Possession.body.Position = new Vector2(this.body.position.X, this.body.position.Y);
-                Possession.Draw(spriteBatch);
+                //Possession.body.Position = new Vector2(this.body.position.X, this.body.position.Y);
+                //Possession.Draw(spriteBatch);
+                Possession.Draw(spriteBatch, new Vector2(this.body.position.X, this.body.position.Y));
             }
 
             base.Draw(spriteBatch);
@@ -350,12 +351,13 @@ namespace Spectrum.Model
             
             Possession = obj;
 
-            obj.body.position = new Vector2(this.body.position.X, this.body.position.Y - (this.Size.Y / 2) - (obj.Size.Y / 2));
-            obj.body.Mass = 0.0001f;
-            WeldJoint connector = new WeldJoint(this.body, Possession.body, new Vector2(this.body.position.X, this.body.position.Y + this.Size.Y / 2.0f-50));
+            //obj.body.position = new Vector2(this.body.position.X, this.body.position.Y - (this.Size.Y / 2) - (obj.Size.Y / 2));
+            //obj.body.Mass = 0.0001f;
+            //PinJoint connector = new PinJoint(this.body, Vector2.Zero, Possession.body, Vector2.Zero);//new WeldJoint(this.body, Possession.body, new Vector2(this.body.position.X, this.body.position.Y + this.Size.Y / 2.0f-50));
 
-            Connector = connector;
-            Container.Sim.Add(connector);
+            //Connector = connector;
+            //Container.Sim.Add(connector);
+            Possession.body.Position = new Vector2(-10000, -10000);
 
             obj.Reap(false);
 
@@ -389,12 +391,13 @@ namespace Spectrum.Model
                 offset = myWidth;
             }
             Possession.body.Position = new Vector2( (int) (this.body.Position.X + offset), (int) (this.body.Position.Y + myHeight/2.0 - Possession.Size.Y/2.0));
+            Possession.body.LinearVelocity = this.body.LinearVelocity;
             Container.DeferAddGameObject(Possession);
 
             // Restores mass from what it used to be before we zeroed it
-            Possession.body.Mass = Possession.Mass;
+            //Possession.body.Mass = Possession.Mass;
 
-            Container.Sim.Remove(Connector);
+            //Container.Sim.Remove(Connector);
 
             Possession = null;
         }
