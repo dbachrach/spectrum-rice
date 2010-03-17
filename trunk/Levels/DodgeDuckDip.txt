@@ -5,7 +5,7 @@
 {"object" : "door", "id" : "door", "position" : [50, 1040]},
 
 {"object" : "platform","id" : "a-plat","colors" : ["green"],"position" : [720, 1260]},
-{"object" : "switch","id" : "b-switch","colors" : ["green"],"position" : [780, 1230],
+{"object" : "switch","id" : "b-switch","colors" : ["green"],"position" : [780, 1215],
 	"tangibility" : ["none"],"player-tangibility" : ["none"], "_switch-actions" : [{
 									"receiver" : "a-plat",
 									"property" : "whiteness",
@@ -24,19 +24,38 @@
 {"object" : "block","id" : "left-blocker-bottom", "position" : [300, 880], "colors" : ["orange","yellow"], "static" : true}
 {"object" : "block","id" : "left-blocker-top", "position" : [300, 830], "colors" : ["orange","yellow"], "static" : true}
 								 
-{"object" : "platform","id" : "move-plat-1","colors" : ["orange","yellow","green"], "static" : false, "tangibility" : ["none"], "position" : [850, 1260],
+{"object" : "platform","id" : "move-plat-1","colors" : ["orange","yellow","green"], "static" : false, "tangibility" : ["none"], "position" : [1290, 1270],
 			"events" : [{ "type" : "behavior",
 					"actions" : [{
 						"receiver" : "move-plat-1",
 						"property" : "position",
 						"type" : "animation",
-						"value" : [[850, 960],[850,1210],[850, 960],[200,960]],
+						"animation-type" : "linear",
+						"value" : [[1285,1270],[870,1270],[870, 960],[-200,960],[0,0]],
 						"speed" : 2,
 						"repeats" : true,
 						"repeat-delay" : 5,
 						"repeat-count" : -999
 					}]
 				}]},
+				
+{"object" : "platform","id" : "move-plat-1-a","colors" : ["orange","yellow","green"], "static" : false, "tangibility" : ["none"], "position" : [1290, 1270],
+			"events" : [{ "type" : "behavior",
+					"actions" : [{
+						"receiver" : "move-plat-1-a",
+						"property" : "position",
+						"type" : "animation",
+						"animation-type" : "linear",
+						"value" : [[1285,1270],[870,1270],[870, 960],[-200,960],[0,0]],
+						"speed" : 2,
+						"repeats" : true,
+						"repeat-delay" : 5,
+						"repeat-count" : -999,
+						"delay" : 500
+					}]
+				}]},
+				
+
 				
 {"object" : "platform","id" : "move-plat-2","colors" : ["red"], "static" : false, "tangibility" : ["none"],"position" : [600, 1340],
 			"events" : [{ "type" : "behavior",

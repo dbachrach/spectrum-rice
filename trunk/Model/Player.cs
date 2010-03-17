@@ -356,6 +356,7 @@ namespace Spectrum.Model
 
             Connector = connector;
             Container.Sim.Add(connector);
+
             obj.Reap(false);
 
             //Container.RemoveFromSimulator(this);
