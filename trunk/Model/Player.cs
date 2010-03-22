@@ -96,11 +96,8 @@ namespace Spectrum.Model
         {
             if (Possession != null)
             {
-                //Possession.body.Position = new Vector2(this.body.position.X, this.body.position.Y);
-                //Possession.Draw(spriteBatch);
                 Possession.Draw(spriteBatch, new Vector2(this.body.position.X, this.body.position.Y));
             }
-
             base.Draw(spriteBatch);
         }
 
@@ -113,14 +110,10 @@ namespace Spectrum.Model
             UpdateColor();
             UpdateXEvent(theGameTime);
 
-
             if (Possession != null)
             {
-                //Possession.body.Position = new Vector2(this.body.Position.X, this.body.Position.Y - Possession.geom.Height);
-                // TODO: Move the possesion to above the player
                 Possession.DirectionFacing = this.DirectionFacing;
                 Possession.Update(theGameTime);
-
             }
 
             base.Update(theGameTime);
@@ -145,7 +138,6 @@ namespace Spectrum.Model
                 }
 
                 d = Direction.Left;
-
             }
             else if (Globals.UserInputHold(Keys.D, Buttons.LeftThumbstickRight))
             {
@@ -157,7 +149,6 @@ namespace Spectrum.Model
                 }
 
                 d = Direction.Right;
-
             }
 
             if (d != Direction.None)
@@ -183,6 +174,7 @@ namespace Spectrum.Model
 
         private void UpdateJump()
         {
+            /* Only allow jump when player is on the ground and not in All Colors Mode */
             if (IsTouchingGround && !Container.allColorsMode())
             {
                 if (Globals.UserInputPress(Keys.W, Buttons.A))

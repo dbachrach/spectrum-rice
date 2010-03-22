@@ -396,20 +396,27 @@ namespace Spectrum.Model
         ///                           false to just remove the object from the level but not the engine </param>
         public void Reap(bool devestation)
         {
+            Console.WriteLine("Reaping " + this.Visibility.ToString());
+            Console.WriteLine("hasChildren: {0}", hasChildren());
             ReapChildren();
+            Console.WriteLine("2 hasChildren: {0}", hasChildren());
 
             // remove this object from its parents' list of children
             if (hasParents())
             {
-                foreach (GameObject obj in Parents)
+                Console.WriteLine("Has parents: " + Parents);
+                foreach (GameObject parent in Parents)
                 {
-                    obj.Children.Remove(this);
-                    foreach(GameObject parent in Parents)
+                    Console.WriteLine("parent: " + parent);
+                    //parent.Children.Remove(this);
+                    foreach(GameObject parent2 in Parents)
                     {
-                        obj.CurrentlyCombined.Remove(parent);
+                        parent.CurrentlyCombined.Remove(parent2);
+                        Console.WriteLine("Remove {0} from {1}", parent2, parent);
                     }
                 }
             }
+
             if (devestation)
             {
                 Container.DeferObliterate(this);
@@ -427,10 +434,10 @@ namespace Spectrum.Model
         {
             if (hasChildren())
             {
-                foreach (GameObject obj in Children)
+                foreach (GameObject child in Children)
                 {
-                    obj.Parents.Remove(this);
-                    obj.Reap(true);
+                    child.Reap(true);
+                    child.Parents.Remove(this);
                 }
                 Children.RemoveAll(x => true);
             }
@@ -445,14 +452,14 @@ namespace Spectrum.Model
             }
 
             // check if this object is close enough to combine with any of the possible objects
-            if (CombinableWith != null && Children.Count == 0)
+            if (CombinableWith != null && !hasChildren() /*Children.Count == 0*/)
             {
                 foreach (GameObject obj in CombinableWith)
                 {
                     if (!CurrentlyCombined.Contains(obj) && this.PositionFuzzyEqual(obj))
                     {
                         GameObject g = this.CombineObjectWith(obj);
-                        CurrentlyCombined.Add(obj);
+                        this.CurrentlyCombined.Add(obj);
                         obj.CurrentlyCombined.Add(this);
                         
                         this.Children.Add(g);

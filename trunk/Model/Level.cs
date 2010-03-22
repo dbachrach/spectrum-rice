@@ -385,6 +385,7 @@ namespace Spectrum.Model
 
             foreach (GameObject obj in GameObjects)
             {
+                
                 obj.Draw(spriteBatch);
             }
 

@@ -1,0 +1,4 @@
+﻿[{"object" : "level","id" : "level","number" : 6,"name" : "Clouds Run Faster With Knives","width" : 1280,"height" : 720,"allowed-colors" : ["orange", "purple"], "starting-color" : ["orange"], "start-position" : [100,1240] }
+,
+
+]
