@@ -1,0 +1,36 @@
+[{"object" : "level","id" : "level","number" : 2,"name" : "Switcharoo","width" : 1280,"height" : 720,"allowed-colors" : ["all"], "starting-color" : ["red"], "start-position" : [50,410] },
+
+{"object" : "block","id" : "blue-block-a", "position" : [325, 480], "colors" : ["blue"], "combinable-with" : ["yellow-block-b","yellow-block-a","red-block"]},
+{"object" : "block","id" : "yellow-block-a", "position" : [445, 480],"colors" : ["yellow"], "combinable-with" : ["red-block", "blue-block-a", "blue-block-b"]},
+{"object" : "block","id" : "yellow-block-b", "position" : [600, 480],"colors" : ["yellow"], "combinable-with" : ["red-block", "blue-block-a", "blue-block-b"]},
+{"object" : "block","id" : "red-block","position" : [495, 300],"colors" : ["red"], "combinable-with" : ["yellow-block-b","yellow-block-a","blue-block-a","blue-block-b"]},
+{"object" : "block","id" : "blue-block-b","position" : [375, 200],"colors" : ["blue"], "combinable-with" : ["yellow-block-b","yellow-block-a","red-block"]},
+
+{"object" : "platform","id" : "green-platform-a","colors" : ["green"],"position" : [400, 390], "_w" : 400},
+{"object" : "switch","id" : "green-switch","colors" : ["green"],"position" : [425, 345], "events" : [{
+					"type" : "collision",
+					"collision-target" : "player",
+					"actions" : [{
+									"receiver" : "green-platform-a",
+									"property" : "colors",
+									"type" : "change",
+									"value" : ["all"]
+								 }]
+				}]}, 
+
+{"object" : "platform","id" : "orange-platform","colors" : ["orange"],"position" : [150, 255], "_w" : 300},
+{"object" : "switch","id" : "orange-switch","colors" : ["orange"],"position" : [285, 210], "events" : [{
+					"type" : "collision",
+					"collision-target" : "player",
+					"actions" : [{
+									"receiver" : "orange-platform",
+									"property" : "colors",
+									"type" : "change",
+									"value" : ["all"]
+								 }]
+				}]} ,
+
+{"object" : "platform","id" : "green-platform-b","colors" : ["green"],"position" : [400, 150], "_w" : 300},
+{"object" : "door","id" : "door","colors" : ["green"],"position" : [560, 42]} ,
+
+{"object" : "ground", "id" : "ground", "position" : [0,535], "_w" : 1280, "_h" : 185}]

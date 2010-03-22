@@ -178,7 +178,7 @@
     <Compile Include="SpectrumGame.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Levels\demo.txt">
+    <None Include="Levels\Switcharoo.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Farseer\Content\Content.contentproj" />
