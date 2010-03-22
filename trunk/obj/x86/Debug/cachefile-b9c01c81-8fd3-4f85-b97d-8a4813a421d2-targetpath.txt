@@ -43,3 +43,6 @@ Content\levelBGorange.xnb
 Content\levelBGpurple.xnb
 Content\levelBGred.xnb
 Content\levelBGyellow.xnb
+Content\platform.xnb
+Content\platformLeft.xnb
+Content\platformRight.xnb
