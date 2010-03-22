@@ -33,7 +33,7 @@
 
 {"object" : "door","id" : "door","colors" : ["all"],"position" : [1140, 220]} ,
 
-{"object" : "game-object", "id" : "water1a", "colors" : ["all"], "position" : [-233,600], "static": false, "zindex" : -75,
+{"object" : "game-object", "id" : "water1a", "colors" : ["all"], "position" : [-233,600], "static": true, "zindex" : -75,
 	"image" : "water", "scale" : 0.8, "player-tangibility" : ["none"], "tangibility" : ["none"],
 	"events" : [{ "type" : "behavior",
 		"actions" : [{
@@ -48,7 +48,7 @@
 		}]
 	}]
 },
-{"object" : "game-object", "id" : "water1b", "colors" : ["all"], "position" : [240,600], "static": false, "zindex" : -75,
+{"object" : "game-object", "id" : "water1b", "colors" : ["all"], "position" : [240,600], "static": true, "zindex" : -75,
 	"image" : "water", "scale" : 0.8, "player-tangibility" : ["none"], "tangibility" : ["none"],
 	"events" : [{ "type" : "behavior",
 		"actions" : [{
@@ -63,7 +63,7 @@
 		}]
 	}]
 },
-{"object" : "game-object", "id" : "water1c", "colors" : ["all"], "position" : [713,600], "static": false, "zindex" : -75,
+{"object" : "game-object", "id" : "water1c", "colors" : ["all"], "position" : [713,600], "static": true, "zindex" : -75,
 	"image" : "water", "scale" : 0.8, "player-tangibility" : ["none"], "tangibility" : ["none"],
 	"events" : [{ "type" : "behavior",
 		"actions" : [{
@@ -79,7 +79,7 @@
 	}]
 },
 
-{"object" : "game-object", "id" : "water2a", "colors" : ["all"], "position" : [-233,560], "static": false, "zindex" : 50,
+{"object" : "game-object", "id" : "water2a", "colors" : ["all"], "position" : [-233,560], "static": true, "zindex" : 50,
 	"image" : "water", "scale" : 0.8, "player-tangibility" : ["none"], "tangibility" : ["none"],
 	"events" : [{ "type" : "behavior",
 		"actions" : [{
@@ -94,7 +94,7 @@
 		}]
 	}]
 },
-{"object" : "game-object", "id" : "water2b", "colors" : ["all"], "position" : [240,560], "static": false, "zindex" : 50,
+{"object" : "game-object", "id" : "water2b", "colors" : ["all"], "position" : [240,560], "static": true, "zindex" : 50,
 	"image" : "water", "scale" : 0.8, "player-tangibility" : ["none"], "tangibility" : ["none"],
 	"events" : [{ "type" : "behavior",
 		"actions" : [{
@@ -109,7 +109,7 @@
 		}]
 	}]
 },
-{"object" : "game-object", "id" : "water2c", "colors" : ["all"], "position" : [713,560], "static": false, "zindex" : 50,
+{"object" : "game-object", "id" : "water2c", "colors" : ["all"], "position" : [713,560], "static": true, "zindex" : 50,
 	"image" : "water", "scale" : 0.8, "player-tangibility" : ["none"], "tangibility" : ["none"],
 	"events" : [{ "type" : "behavior",
 		"actions" : [{
@@ -125,7 +125,7 @@
 	}]
 },
 
-{"object" : "game-object", "id" : "water3a", "colors" : ["all"], "position" : [-233,520], "static": false, "zindex" : 75,
+{"object" : "game-object", "id" : "water3a", "colors" : ["all"], "position" : [-233,520], "static": true, "zindex" : 75,
 	"image" : "water", "scale" : 0.8, "player-tangibility" : ["none"], "tangibility" : ["none"],
 	"events" : [{ "type" : "behavior",
 		"actions" : [{
@@ -140,7 +140,7 @@
 		}]
 	}]
 },
-{"object" : "game-object", "id" : "water3b", "colors" : ["all"], "position" : [240,520], "static": false, "zindex" : 75,
+{"object" : "game-object", "id" : "water3b", "colors" : ["all"], "position" : [240,520], "static": true, "zindex" : 75,
 	"image" : "water", "scale" : 0.8, "player-tangibility" : ["none"], "tangibility" : ["none"],
 	"events" : [{ "type" : "behavior",
 		"actions" : [{
@@ -155,7 +155,7 @@
 		}]
 	}]
 },
-{"object" : "game-object", "id" : "water3c", "colors" : ["all"], "position" : [713,520], "static": false, "zindex" : 75,
+{"object" : "game-object", "id" : "water3c", "colors" : ["all"], "position" : [713,520], "static": true, "zindex" : 75,
 	"image" : "water", "scale" : 0.8, "player-tangibility" : ["none"], "tangibility" : ["none"],
 	"events" : [{ "type" : "behavior",
 		"actions" : [{

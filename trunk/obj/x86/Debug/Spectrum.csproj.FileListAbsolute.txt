@@ -69,7 +69,6 @@ U:\comp410\bin\x86\Debug\Content\tutorial\tutorialX.xnb
 U:\comp410\bin\x86\Debug\Levels\demo.txt
 U:\comp410\bin\x86\Debug\Levels\cloudy.txt
 U:\comp410\bin\x86\Debug\Levels\DrEvil.txt
-\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Levels\demo.txt
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Levels\cloudy.txt
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Levels\DrEvil.txt
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\tutorial\tutorialJump.xnb
@@ -175,3 +174,4 @@ U:\comp410\bin\x86\Debug\Content\platformRight.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\platform.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\platformLeft.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\platformRight.xnb
+\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Levels\Switcharoo.txt

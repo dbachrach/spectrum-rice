@@ -33,7 +33,7 @@ namespace Spectrum.Model
             }
             Scale = .25f;
 
-            InitialFriction = 0.0f;
+            InitialFriction = 0.1f;
             Mass = 10000;
             _width = w;
 		}

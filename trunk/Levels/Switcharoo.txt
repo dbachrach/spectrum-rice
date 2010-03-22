@@ -12,9 +12,9 @@
 					"collision-target" : "player",
 					"actions" : [{
 									"receiver" : "green-platform-a",
-									"property" : "colors",
+									"property" : "whiteness",
 									"type" : "change",
-									"value" : ["all"]
+									"value" : true
 								 }]
 				}]}, 
 
@@ -24,9 +24,9 @@
 					"collision-target" : "player",
 					"actions" : [{
 									"receiver" : "orange-platform",
-									"property" : "colors",
+									"property" : "whiteness",
 									"type" : "change",
-									"value" : ["all"]
+									"value" : true
 								 }]
 				}]} ,
 
