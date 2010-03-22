@@ -35,9 +35,9 @@ namespace Spectrum
 
         private string levelPath = "Levels/";
         private string levelExtension = ".txt";
-        private string[] levels = {"TrainingDay", "DrEvil","CombinationPizzaHut", "cloudy", "DodgeDuckDip", "CloudKnives"};
+        private string[] levels = {"TrainingDay", "DrEvil","CombinationPizzaHut", "cloudy", "DodgeDuckDip", "CloudKnives", "Switcharoo"};
         // TODO: Remove this later since its in the level file itself
-        public string[] levelsPresentable = { "Training Day", "Dr. Evil's Quarters", "Combination Pizza Hut", "Cloudy with a chance of death", "Dodge, Duck, Dip, Dive and Dodge", "Clouds Run Faster With Knives" };
+        public string[] levelsPresentable = { "Training Day", "Dr. Evil's Quarters", "Combination Pizza Hut", "Cloudy with a chance of death", "Dodge, Duck, Dip, Dive and Dodge", "Clouds Run Faster With Knives", "Switcharoo"};
         private int levelIndex;
 
         private SplashScreen splash;
