@@ -25,7 +25,8 @@ namespace Spectrum.Model.EventActions
 
         public override void SelectNextWaypoint()
         {
-            if (NextDestination >= TotalSegments - 1)
+            // When the object gets to its last point, warp it back to start
+            if (NextDestination == 0)
             {
                 Receiver.body.Position = Path[0];
                 Destination = Path[1];

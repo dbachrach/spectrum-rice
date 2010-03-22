@@ -102,6 +102,7 @@ namespace Spectrum.Model.EventActions
                 toDest.Length() < Globals.Epsilon ||
                 toStart.Length() > SegmentDistance)
             {
+                Receiver.body.Position = Destination;
                 SelectNextWaypoint();
 
                 UpdateDirection();
