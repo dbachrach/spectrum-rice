@@ -172,3 +172,6 @@ U:\comp410\bin\x86\Debug\Content\levelBGyellow.xnb
 U:\comp410\bin\x86\Debug\Content\platform.xnb
 U:\comp410\bin\x86\Debug\Content\platformLeft.xnb
 U:\comp410\bin\x86\Debug\Content\platformRight.xnb
+\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\platform.xnb
+\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\platformLeft.xnb
+\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\platformRight.xnb

@@ -45,13 +45,15 @@ namespace Spectrum.Model
         public bool BlockLeft { get; set; }
         public bool BlockRight { get; set; }
 
-        private const float _speed = 50;
+        private const float _speed = 80;
         private const float _hops = -900;
         private Vector2 moveLeft = new Vector2(-_speed, 0);
         private Vector2 moveRight = new Vector2(_speed, 0);
-        private Vector2 moveLeftAir = new Vector2(-_speed / 3, 0);
-        private Vector2 moveRightAir = new Vector2(_speed / 3, 0);
+        private Vector2 moveLeftAir = new Vector2(-_speed / 10, 0);
+        private Vector2 moveRightAir = new Vector2(_speed / 10, 0);
         private Vector2 jumpUp = new Vector2(0, _hops);
+
+        private const float velocityCap = 750;
 
         private const int JumpAmount = 25;
 
@@ -114,6 +116,15 @@ namespace Spectrum.Model
             {
                 Possession.DirectionFacing = this.DirectionFacing;
                 Possession.Update(theGameTime);
+            }
+
+            if (body.LinearVelocity.X > velocityCap)
+            {
+                body.LinearVelocity.X = velocityCap;
+            }
+            else if (body.LinearVelocity.X < -velocityCap)
+            {
+                body.LinearVelocity.X = -velocityCap;
             }
 
             base.Update(theGameTime);
