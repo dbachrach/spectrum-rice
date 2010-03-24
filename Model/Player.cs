@@ -52,6 +52,7 @@ namespace Spectrum.Model
         private Vector2 moveLeftAir = new Vector2(-_speed / 10, 0);
         private Vector2 moveRightAir = new Vector2(_speed / 10, 0);
         private Vector2 jumpUp = new Vector2(0, _hops);
+        private float superJumpFactor = 1.75f;
 
         private const float velocityCap = 750;
 
@@ -71,6 +72,7 @@ namespace Spectrum.Model
         private static Vector2 OffscreenVector = new Vector2(-10000, -10000);
 
         public bool IsTouchingGround { get; set; }
+        public bool IsTouchingSuperGround { get; set; }
 
         public Player()
             : base()
@@ -132,7 +134,7 @@ namespace Spectrum.Model
 
         private void UpdateMovement()
         {
-            Texture.Pause();
+            Textures[0].Pause();
             Direction d = Direction.None;
 
             if (Container.allColorsMode())
@@ -168,12 +170,12 @@ namespace Spectrum.Model
 
                 if (!IsTouchingGround)
                 {
-                    Texture.Pause();
+                    Textures[0].Pause();
                 }
                 else
                 {
                     State = PlayerState.Walking;
-                    Texture.Play();
+                    Textures[0].Play();
                 }
             }
             else
@@ -254,7 +256,8 @@ namespace Spectrum.Model
             if (IsTouchingGround)
             {
                 State = PlayerState.Jumping;
-                body.ApplyImpulse(jumpUp);
+                // Applies vertical jump (larger if on a super jump)
+                body.ApplyImpulse(IsTouchingSuperGround ? jumpUp * superJumpFactor : jumpUp);
             }
         }
 
@@ -302,7 +305,7 @@ namespace Spectrum.Model
                 if (NECrossP >= 0 && NWCrossP <= 0)
                 {
                     // the normals are pointing fairly vertically
-                    this.DidHitGround();
+                    this.DidHitGround(obj);
                 }
                 else
                 {
@@ -329,9 +332,14 @@ namespace Spectrum.Model
             base.DidCollideWithObject(obj, ref contactList, physicsCollision);
         }
 
-        protected void DidHitGround()
+        protected void DidHitGround(GameObject obj)
         {
             IsTouchingGround = true;
+
+            if (obj is HeavyBlock) // todo: generalize
+            {
+                IsTouchingSuperGround = true;
+            }
 
             if (State == PlayerState.Jumping)
             {
@@ -346,6 +354,7 @@ namespace Spectrum.Model
             NearObject = null;
             BlockLeft = false;
             BlockRight = false;
+            IsTouchingSuperGround = false;
 
             Leader = null;
         }

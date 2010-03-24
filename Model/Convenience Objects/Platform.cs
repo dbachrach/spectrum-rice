@@ -38,11 +38,11 @@ namespace Spectrum.Model
             _width = w;
 		}
 
-        public override void LoadTexture()
+        public override void LoadTextures()
         {
             if (_width == 0)
             {
-                base.LoadTexture();
+                base.LoadTextures();
                 return;
             }
 
@@ -96,12 +96,14 @@ namespace Spectrum.Model
             b.Draw(platformTexture, Vector2.Zero, Color.White);
             b.End();
 
-            Texture = new GameTexture(0.0f, this.Scale, .5f);
-            Texture.Load(platformTexture, FrameCount, FramesPerSec);
-            Texture.Pause();
-            Texture.AssetCount = 7;
+            GameTexture t = new GameTexture(0.0f, this.Scale, .5f);
+            t.Load(platformTexture, FrameCount, FramesPerSec);
+            t.Pause();
+            t.AssetCount = 7;
 
-            Size = Texture.TextureSize() * this.Scale;
+            Size = t.TextureSize() * this.Scale;
+
+            Textures.Add(t);
         }
             
     }

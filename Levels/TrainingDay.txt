@@ -8,7 +8,7 @@
 {"object" : "ground", "id" : "stepstone", "position" : [825,500], "_w" : 60, "_h" : 50}
 {"object" : "ground", "id" : "ledge", "position" : [1050,365], "_w" : 230, "_h" : 355}
 
-{"object" : "block","id" : "block", "position" : [475, 460], "colors" : ["green"]}
+{"object" : "heavy-block","id" : "block", "position" : [475, 460], "colors" : ["green"]}
 
 {"object" : "platform","id" : "platform","colors" : ["blue"],"position" : [950, 425]}
 

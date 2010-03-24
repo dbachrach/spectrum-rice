@@ -198,7 +198,7 @@ namespace Spectrum.Model
                 {
                     case ActionType.Change:
                         Receiver.ImageName = (string)Value;
-                        Receiver.LoadTexture();
+                        Receiver.LoadTextures();
 
                         break;
                 }

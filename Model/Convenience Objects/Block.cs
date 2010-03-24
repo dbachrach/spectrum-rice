@@ -30,8 +30,7 @@ namespace Spectrum.Model
         {
             if (obj is Block)
             {
-                Block b = new Block();
-                b.Pickupable = false;
+                HeavyBlock b = new HeavyBlock();
 
                 Vector2 v = body.Position;
                 v.X = v.X - (obj.Size.X / 2);

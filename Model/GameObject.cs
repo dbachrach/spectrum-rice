@@ -27,7 +27,7 @@ namespace Spectrum.Model
     class GameObject : IComparable<GameObject>
     {
         // instance variables
-        protected GameTexture Texture;
+        protected List<GameTexture> Textures;
 
         /// <summary>
         /// String reference to this object
@@ -198,6 +198,12 @@ namespace Spectrum.Model
         private static int FUZZY_DX_TOLERANCE = 10; /* TODO: Readjust both parent blocks when we create a combine block */
         private static int FUZZY_DY_TOLERANCE = 2;
 
+        /// <summary>
+        /// If the player stands on this object, he jumps higher.
+        /// False by default.
+        /// </summary>
+        public bool SuperJumpable { get; set; }
+
 
 		/* Default Constructor */
         public GameObject()
@@ -231,6 +237,10 @@ namespace Spectrum.Model
             HasBecomeVisibleInAllColors = false;
 
             Leader = null;
+
+            SuperJumpable = false;
+
+            Textures = new List<GameTexture>();
         }
 
         // the default property for game objects is that the player can only collide with this
@@ -294,7 +304,7 @@ namespace Spectrum.Model
         /// </summary>
         public virtual void LoadContent(ContentManager theContentManager, GraphicsDevice graphicsDevice)
         {
-            LoadTexture();
+            LoadTextures();
             LoadPhysicsBody(Size, IsStatic);
 
             if (Events != null)
@@ -306,13 +316,15 @@ namespace Spectrum.Model
             }
         }
 
-        public virtual void LoadTexture()
+        public virtual void LoadTextures()
         {
-            Texture = new GameTexture(0.0f, this.Scale, .5f);
-            Texture.Load(Container.GameRef.Content, Container.GameRef.GraphicsDevice, ImageName, FrameCount, FramesPerSec);
-            Texture.Pause();
+            GameTexture t = new GameTexture(0.0f, this.Scale, .5f);
+            t.Load(Container.GameRef.Content, Container.GameRef.GraphicsDevice, ImageName, FrameCount, FramesPerSec);
+            t.Pause();
 
-            Size = Texture.TextureSize() * this.Scale;
+            Size = t.TextureSize() * this.Scale;
+
+            Textures.Add(t);
         }
 
         /// <summary>
@@ -377,11 +389,18 @@ namespace Spectrum.Model
                 {
                     col = this.Visibility;
                 }
-                Texture.Rotation = body.Rotation;
+
+                foreach (GameTexture t in Textures)
+                {
+                    t.Rotation = body.Rotation;
+                }
 
                 if (InViewport(posn))
                 {
-                    Texture.DrawFrame(spriteBatch, col, posn - Container.CameraPosition, DrawEffects(), HasBecomeVisibleInAllColors);
+                    foreach (GameTexture t in Textures)
+                    {
+                        t.DrawFrame(spriteBatch, col, posn - Container.CameraPosition, DrawEffects(), HasBecomeVisibleInAllColors);
+                    }
                 }
 
             }
@@ -446,9 +465,12 @@ namespace Spectrum.Model
         public virtual void Update(GameTime theGameTime)
         {
             float elapsed = (float)theGameTime.ElapsedGameTime.TotalSeconds;
-            if (Texture != null)
+            if (Textures != null)
             {
-                Texture.UpdateFrame(elapsed);
+                foreach (GameTexture t in Textures)
+                {
+                    t.UpdateFrame(elapsed);
+                }
             }
 
             // check if this object is close enough to combine with any of the possible objects
