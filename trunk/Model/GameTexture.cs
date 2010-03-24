@@ -26,6 +26,8 @@ namespace Spectrum.Model
         public Vector2 Origin;
         private string Asset;
 
+        public Vector2 LocalOffset { get; set; }
+
         public int AssetCount { get; set; }
 
         public GameTexture(float Rotation, float Scale, float Depth)
@@ -35,8 +37,9 @@ namespace Spectrum.Model
             this.Rotation = Rotation;
             this.Scale = Scale;
             this.Depth = Depth;
+            this.LocalOffset = Vector2.Zero;
 
-            AssetCount = 6;
+            AssetCount = 7;
         }
 
         public void Load(Texture2D tex, int FrameCount, int FramesPerSec)
@@ -76,12 +79,10 @@ namespace Spectrum.Model
             else
             {
                 // TODO: Get all images to have the white space at the bottom so that we don't need these special cases
-                if (asset.Equals("plat") || asset.Equals("box") || asset.Equals("switchOff") || asset.Equals("water") ||
-                    asset.Equals("switchOn") || asset.Equals("switchBoxUp") || asset.Equals("switchBoxDown") ||
-                    asset.Equals("clouds") || asset.Equals("flowerBottoms") || asset.Equals("flowerTops") || asset.Equals("door"))
+                if (asset.Equals("pl"))
                 {
                     
-                    AssetCount = 7;
+                    AssetCount = 6;
                 }
                 Console.WriteLine("Asset: " + AssetCount);
                 myTexture = content.Load<Texture2D>(asset);
@@ -178,7 +179,7 @@ namespace Spectrum.Model
                 divisor = 0;
             }
             Rectangle sourcerect = new Rectangle(FrameWidth * Frame, FrameHeight * divisor, FrameWidth, FrameHeight);
-            Batch.Draw(myTexture, screenpos, sourcerect, Color.White,Rotation, Origin, Scale, drawEffects, Depth);
+            Batch.Draw(myTexture, screenpos + LocalOffset, sourcerect, Color.White,Rotation, Origin, Scale, drawEffects, Depth);
 
         }
 

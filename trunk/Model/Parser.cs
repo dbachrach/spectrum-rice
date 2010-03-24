@@ -159,6 +159,10 @@ namespace Spectrum.Model
                     {
                         newObject = new Block();
                     }
+                    else if (objType.Equals("heavy-block"))
+                    {
+                        newObject = new HeavyBlock();
+                    }
                       /*  
                     else if (objType.Equals("sensor"))
                     {
@@ -307,6 +311,10 @@ namespace Spectrum.Model
                 if (obj.ContainsKey("drag"))
                 {
                     newObject.InitialLinearDrag = (float)(double)obj["drag"];
+                }
+                if (obj.ContainsKey("superjumpable"))
+                {
+                    newObject.SuperJumpable = (bool)obj["superjumpable"];
                 }
             }
 

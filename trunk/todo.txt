@@ -37,6 +37,10 @@ physics seems to change based on computer?
 platform on level one now cuts into his head.
 Make push button class
 
+In viewport, needs to determine if thing is offscreen (rotation and based on all textures)
+Compute bounding box of all texture
+
+
 Defer
 -----   
 Sometimes when your next to a block it doesnt register as a collision, so you have to held MOVE keys to be considered near the block

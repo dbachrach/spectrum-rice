@@ -43,11 +43,13 @@ namespace Spectrum.Model
 
         public override void LoadContent(ContentManager theContentManager, GraphicsDevice graphicsDevice)
         {
-            Texture = new GameTexture(0.0f, 1.0f, .5f);
-            Texture.Load(theContentManager, graphicsDevice, ImageName, FrameCount, FramesPerSec, _w, _h, alpha);
-            Texture.Pause();
+            GameTexture t = new GameTexture(0.0f, 1.0f, .5f);
+            t.Load(theContentManager, graphicsDevice, ImageName, FrameCount, FramesPerSec, _w, _h, alpha);
+            t.Pause();
 
-            LoadPhysicsBody(Texture.TextureSize(), true);
+            LoadPhysicsBody(t.TextureSize(), true);
+
+            Textures.Add(t);
         }
     }
 }
