@@ -39,7 +39,8 @@ Make push button class
 
 In viewport, needs to determine if thing is offscreen (rotation and based on all textures)
 Compute bounding box of all texture
-
+ground gets cut off
+the camera shouldn't follow him so closely
 
 Defer
 -----   
