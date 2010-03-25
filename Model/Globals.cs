@@ -99,7 +99,9 @@ namespace Spectrum.Model
                     target.MultiSampleType, target.MultiSampleQuality);
             }
             else
+            {
                 return CreateDepthStencil(target);
+            }
         }
     }
 }
