@@ -180,3 +180,8 @@ U:\comp410\bin\x86\Debug\Content\arrow.xnb
 U:\comp410\bin\x86\Debug\Content\funnel-bg.xnb
 U:\comp410\bin\x86\Debug\Content\funnel-indicator.xnb
 U:\comp410\bin\x86\Debug\Content\funnel.xnb
+\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\heavyBox.xnb
+\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\arrow.xnb
+\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\funnel-bg.xnb
+\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\funnel-indicator.xnb
+\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\funnel.xnb

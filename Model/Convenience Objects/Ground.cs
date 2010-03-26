@@ -27,6 +27,8 @@ namespace Spectrum.Model
             Visibility = Colors.AllColors;
             InitialFriction = .8f;
             alpha = 150;
+            Size = new Vector2(_w, _h);
+            Scale = 1;
 		}
 
         public Ground(int w, int h)
@@ -43,9 +45,12 @@ namespace Spectrum.Model
 
         public override void LoadContent(ContentManager theContentManager, GraphicsDevice graphicsDevice)
         {
+            // TODO: The ground shouldn't override all of this stuff
             GameTexture t = new GameTexture(0.0f, 1.0f, .5f);
             t.Load(theContentManager, graphicsDevice, "", FrameCount, FramesPerSec, _w, _h, alpha);
             t.Pause();
+
+            Size = t.TextureSize() * Scale;
 
             LoadPhysicsBody(t.TextureSize(), true);
 

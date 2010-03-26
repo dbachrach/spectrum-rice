@@ -48,9 +48,9 @@ Content\platformLeft.xnb
 Content\platformRight.xnb
 Content\heavyBox.xnb
 Content\arrow.xnb
-Content\funnel-bg.xnb
-Content\funnel-indicator.xnb
-Content\funnel.xnb
+funnel-bg.xnb
+funnel-indicator.xnb
+funnel.xnb
 Levels\Switcharoo.txt
 Levels\cloudy.txt
 Levels\CombinationPizzaHut.txt
