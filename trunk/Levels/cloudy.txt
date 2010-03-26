@@ -8,11 +8,11 @@
 
 {"object" : "push", "id" : "pushA", "colors" : ["all"], "position" : [375,120]},
 
-{"object" : "game-object", "id" : "cloudA", "colors" : ["purple"], "position" : [250,200],"image" : "clouds", "static" : true, "scale" : 0.75},
-
-
+{"object" : "game-object", "id" : "cloudA", "colors" : ["purple"], "position" : [250,200],"image" : "clouds", "static" : true, "scale" : 0.6},
+{"object" : "funnel", "id" : "fun1","position" : [330,340]}
 {"object" : "game-object", "id" : "flower_botA", "colors" : ["all"], "position" : [455,587],"image" : "flowerBottoms", "scale" : 0.25, "static" : true},
 {"object" : "game-object", "id" : "flower_topA", "colors" : ["green"], "position" : [457,564],"image" : "flowerTops", "scale" : 0.25, "static" : true},
+
 
 {"object" : "game-object", "id" : "cloudB", "colors" : ["orange"], "position" : [520,200],"image" : "clouds", "static" : true, "scale" : 0.75},
 
@@ -31,5 +31,5 @@
 
 {"object" : "door","id" : "door","position" : [1180, 50]} 
 
-{"object" : "funnel", "id" : "fun1","position" : [325,287]}
+
 ]
