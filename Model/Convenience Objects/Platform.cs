@@ -19,7 +19,7 @@ namespace Spectrum.Model
         private int _width;
 		public Platform(int w) : base() {
 
-            ImageName = "plat";
+            ImageNames = new List<string>() {"plat"};
             IsStatic = true;
             
             if (w == 0)

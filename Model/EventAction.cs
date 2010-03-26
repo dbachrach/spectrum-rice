@@ -197,7 +197,8 @@ namespace Spectrum.Model
                 switch (Type)
                 {
                     case ActionType.Change:
-                        Receiver.ImageName = (string)Value;
+                        // TODO: Make this so it works to change all images names
+                        Receiver.ImageNames[0] = (string)Value;
                         Receiver.LoadTextures();
 
                         break;

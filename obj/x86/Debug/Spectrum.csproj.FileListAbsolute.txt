@@ -177,3 +177,6 @@ U:\comp410\bin\x86\Debug\Content\platformRight.xnb
 U:\comp410\bin\x86\Debug\Levels\Switcharoo.txt
 U:\comp410\bin\x86\Debug\Content\heavyBox.xnb
 U:\comp410\bin\x86\Debug\Content\arrow.xnb
+U:\comp410\bin\x86\Debug\Content\funnel-bg.xnb
+U:\comp410\bin\x86\Debug\Content\funnel-indicator.xnb
+U:\comp410\bin\x86\Debug\Content\funnel.xnb

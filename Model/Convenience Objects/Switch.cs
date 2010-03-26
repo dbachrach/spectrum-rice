@@ -10,7 +10,7 @@ namespace Spectrum.Model.Convenience_Objects
         public Switch(Player p)
             : base()
         {
-            ImageName = "switchOff";
+            ImageNames = new List<string>() {"switchOff"};
             IsStatic = true;
             Scale = 0.1f;
 

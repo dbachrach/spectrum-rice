@@ -29,4 +29,7 @@
 {"object" : "game-object", "id" : "flower_botD", "colors" : ["all"], "position" : [1355,587],"image" : "flowerBottoms", "scale" : 0.25, "static" : true},
 {"object" : "game-object", "id" : "flower_topD", "colors" : ["blue"], "position" : [1357,564],"image" : "flowerTops", "scale" : 0.25, "static" : true},
 
-{"object" : "door","id" : "door","colors" : ["all"],"position" : [1180, 50]} ]
+{"object" : "door","id" : "door","position" : [1180, 50]} 
+
+{"object" : "funnel", "id" : "fun1","position" : [325,287]}
+]

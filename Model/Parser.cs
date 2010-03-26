@@ -179,6 +179,10 @@ namespace Spectrum.Model
                     {
                         newObject = new PushButton(player);
                     }
+                    else if (objType.Equals("funnel"))
+                    {
+                        newObject = new Funnel();
+                    }
 
                     /* Set properties */
                     if (obj.ContainsKey("id"))
@@ -230,7 +234,17 @@ namespace Spectrum.Model
                 }
                 if (obj.ContainsKey("image"))
                 {
-                    newObject.ImageName = (string)obj["image"];
+                    newObject.ImageNames = new List<string>() {(string)obj["image"]};
+                }
+                else if (obj.ContainsKey("images"))
+                {
+                    newObject.ImageNames = new List<string>();
+                    List<string> strings = new List<string>();
+                    foreach (string s in (ArrayList)obj["images"]) 
+                    {
+                        strings.Add(s);
+                    }
+                    newObject.ImageNames.AddRange(strings);
                 }
                 if (obj.ContainsKey("scale"))
                 {

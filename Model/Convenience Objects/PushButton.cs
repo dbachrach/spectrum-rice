@@ -10,7 +10,7 @@ namespace Spectrum.Model.Convenience_Objects
         public PushButton(Player p)
             : base()
         {
-            ImageName = "switchBox";
+            ImageNames = new List<string>() {"switchBox" };
             IsStatic = true;
             Scale = 0.1f;
 

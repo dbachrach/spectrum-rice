@@ -60,9 +60,9 @@ namespace Spectrum.Model
         public Colors PlayerSensibility { get; set; }
 
         /// <summary>
-        /// Name of the image file (without file extension) to draw for this object
+        /// Names of the image file (without file extension) to draw for this object
         /// </summary>
-        public string ImageName { get; set; }
+        public List<string> ImageNames { get; set; }
 
         /// <summary>
         /// List of objects that were combined together to make this object. 
@@ -318,13 +318,16 @@ namespace Spectrum.Model
 
         public virtual void LoadTextures()
         {
-            GameTexture t = new GameTexture(0.0f, this.Scale, .5f);
-            t.Load(Container.GameRef.Content, Container.GameRef.GraphicsDevice, ImageName, FrameCount, FramesPerSec);
-            t.Pause();
+            foreach (string imgName in ImageNames)
+            {
+                GameTexture t = new GameTexture(0.0f, this.Scale, .5f);
+                t.Load(Container.GameRef.Content, Container.GameRef.GraphicsDevice, imgName, FrameCount, FramesPerSec);
+                t.Pause();
 
-            Size = t.TextureSize() * this.Scale;
+                Size = t.TextureSize() * this.Scale;
 
-            Textures.Add(t);
+                Textures.Add(t);
+            }
         }
 
         /// <summary>

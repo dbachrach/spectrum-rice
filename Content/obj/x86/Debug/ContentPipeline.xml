@@ -457,6 +457,33 @@
       <Output>U:\comp410\bin\x86\Debug\Content\arrow.xnb</Output>
       <Time>2010-03-24T15:12:26.102-05:00</Time>
     </Item>
+    <Item>
+      <Source>funnel-bg.png</Source>
+      <Name>funnel-bg</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>U:\comp410\bin\x86\Debug\Content\funnel-bg.xnb</Output>
+      <Time>2010-03-26T14:27:29.494-05:00</Time>
+    </Item>
+    <Item>
+      <Source>funnel-indicator.png</Source>
+      <Name>funnel-indicator</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>U:\comp410\bin\x86\Debug\Content\funnel-indicator.xnb</Output>
+      <Time>2010-03-26T14:27:40.896-05:00</Time>
+    </Item>
+    <Item>
+      <Source>funnel.png</Source>
+      <Name>funnel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>U:\comp410\bin\x86\Debug\Content\funnel.xnb</Output>
+      <Time>2010-03-26T14:27:17.47-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

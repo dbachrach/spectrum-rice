@@ -17,7 +17,7 @@ namespace Spectrum.Model
     class Door : GameObject
     {
 		public Door(Player player) : base() {
-            ImageName = "door";
+            ImageNames = new List<string>() {"door"};
 			Pickupable = false;
             IsStatic = true;
             ZIndex = 100; // draw below player

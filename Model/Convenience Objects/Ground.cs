@@ -22,7 +22,7 @@ namespace Spectrum.Model
 
 		public Ground() : base() {
 			Pickupable = false;
-            ImageName = null;
+            ImageNames = null;
             IsStatic = true;
             Visibility = Colors.AllColors;
             InitialFriction = .8f;
@@ -44,7 +44,7 @@ namespace Spectrum.Model
         public override void LoadContent(ContentManager theContentManager, GraphicsDevice graphicsDevice)
         {
             GameTexture t = new GameTexture(0.0f, 1.0f, .5f);
-            t.Load(theContentManager, graphicsDevice, ImageName, FrameCount, FramesPerSec, _w, _h, alpha);
+            t.Load(theContentManager, graphicsDevice, "", FrameCount, FramesPerSec, _w, _h, alpha);
             t.Pause();
 
             LoadPhysicsBody(t.TextureSize(), true);
