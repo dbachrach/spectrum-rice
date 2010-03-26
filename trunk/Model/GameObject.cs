@@ -393,7 +393,7 @@ namespace Spectrum.Model
                     col = this.Visibility;
                 }
 
-                foreach (GameTexture t in Textures)
+                foreach (GameTexture t in Textures) 
                 {
                     t.Rotation = body.Rotation;
                 }
@@ -405,7 +405,6 @@ namespace Spectrum.Model
                         t.DrawFrame(spriteBatch, col, posn - Container.CameraPosition, DrawEffects(), HasBecomeVisibleInAllColors);
                     }
                 }
-
             }
         }
 
@@ -738,6 +737,10 @@ namespace Spectrum.Model
 
         protected bool InViewport(Vector2 posn)
         {
+            if (this is Ground && Id == "ground")
+            {
+                Console.WriteLine(posn + " " + Size + " " + Container.CameraPosition);
+            }
             return (posn.X + (Size.X / 2) >= Container.CameraPosition.X && posn.X - (Size.X / 2) <= Container.CameraPosition.X + Globals.GameWidth &&
                    posn.Y + (Size.Y / 2) >= Container.CameraPosition.Y && posn.Y - (Size.Y / 2) <= Container.CameraPosition.Y + Globals.GameHeight);
         }
