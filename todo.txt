@@ -29,7 +29,6 @@ Did Sense:
 3 Alpha value for every object in JSON?
 
 OnSeparation event for uncombining blocks
-Double jump on combined blocks
 
 Benchmarking
 Player gets stuck inside white platform. completely pooched.
