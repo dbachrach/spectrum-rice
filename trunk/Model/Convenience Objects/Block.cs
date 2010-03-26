@@ -17,7 +17,7 @@ namespace Spectrum.Model
     class Block : GameObject
     {
 		public Block() : base() {
-            ImageName = "box";
+            ImageNames = new List<string>() {"box"};
 			Pickupable = true;
             Mass = 2000;
             Tangibility = Colors.AllColors;

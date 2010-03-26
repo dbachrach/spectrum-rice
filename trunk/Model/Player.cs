@@ -78,7 +78,7 @@ namespace Spectrum.Model
             : base()
         {
             Id = "player";
-            ImageName = "pl";
+            ImageNames = new List<string>() {"pl"};
             TimesDied = 0;
             PlayTime = TimeSpan.Zero;
             Possession = null;

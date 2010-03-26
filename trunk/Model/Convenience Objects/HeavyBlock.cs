@@ -10,7 +10,7 @@ namespace Spectrum.Model
         public HeavyBlock()
             : base()
         {
-            ImageName = "heavyBox";
+            ImageNames = new List<string>() {"heavyBox"};
             Pickupable = false;
             Mass = 4000;
             SuperJumpable = true;
