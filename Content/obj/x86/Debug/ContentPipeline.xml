@@ -484,6 +484,42 @@
       <Output>U:\comp410\bin\x86\Debug\Content\funnel.xnb</Output>
       <Time>2010-03-26T15:08:51.729-05:00</Time>
     </Item>
+    <Item>
+      <Source>Audio\aaa.wav</Source>
+      <Name>Audio\aaa</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\Audio\aaa.xnb</Output>
+      <Time>2010-03-29T15:26:01.074-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\bg_music.wav</Source>
+      <Name>Audio\bg_music</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\Audio\bg_music.xnb</Output>
+      <Time>2010-03-29T15:42:52.429-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\hyperspace_activate.wav</Source>
+      <Name>Audio\hyperspace_activate</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\Audio\hyperspace_activate.xnb</Output>
+      <Time>2007-12-09T17:16:00-06:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\splash.wav</Source>
+      <Name>Audio\splash</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\Audio\splash.xnb</Output>
+      <Time>2010-03-29T15:35:08.956-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

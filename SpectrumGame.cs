@@ -43,6 +43,10 @@ namespace Spectrum
         private SplashScreen splash;
         public bool Splashed { get; set; }
 
+        AudioEngine audioEngine;
+        SoundBank soundBank;
+        WaveBank waveBank;
+
         private bool showSplash = true;
         private bool fullscreen = false;
 
@@ -73,6 +77,13 @@ namespace Spectrum
 
             pauseMenu = new PauseMenu(this, Globals.GameWidth, Globals.GameHeight);
             Paused = false;
+
+            audioEngine = new AudioEngine("Content\\Audio\\Media.xgs");
+            soundBank = new SoundBank(audioEngine, "Content\\Audio\\Sound Bank.xsb");
+            waveBank = new WaveBank(audioEngine, "Content\\Audio\\Wave Bank.xwb");
+
+            Cue cue = soundBank.GetCue("bg_music");
+            cue.Play();
 
             if (showSplash)
             {
@@ -126,6 +137,8 @@ namespace Spectrum
         {
             Globals.Keyboard = Keyboard.GetState();
             Globals.Gamepad = GamePad.GetState(PlayerIndex.One);
+
+            audioEngine.Update();
 
             // update frame rate
             elapsedTime += gameTime.ElapsedGameTime;
