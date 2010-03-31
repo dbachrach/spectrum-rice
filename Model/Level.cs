@@ -350,15 +350,19 @@ namespace Spectrum.Model
 
             
             double ms = gameTime.TotalRealTime.TotalMilliseconds;
-            
+
+            List<EventAction> toDelete = new List<EventAction>();
+
             foreach (EventAction a in FutureActions)
             {
                 if (ms >= a.LaunchTime)
                 {
+                    toDelete.Add(a);
                     a.Execute(DeferFuture, ms);
                 }
             }
-            FutureActions.RemoveAll(item => ms >= item.LaunchTime);
+            //FutureActions.RemoveAll(item => ms >= item.LaunchTime);
+            FutureActions.RemoveAll(item => toDelete.Contains(item));
             FutureActions.AddRange(DeferFuture);
             DeferFuture.RemoveAll(item => true);
             
@@ -446,6 +450,9 @@ namespace Spectrum.Model
         /// </summary>
         public void ForwardColor()
         {
+            Cue c = GameRef.soundBank.GetCue("hyperspace_activate");
+            c.Play();
+
             if (colorIndicator.MoveBG)
             {
                 do
@@ -471,6 +478,9 @@ namespace Spectrum.Model
         /// </summary>
         public void BackwardColor()
         {
+            Cue c = GameRef.soundBank.GetCue("hyperspace_activate");
+            c.Play();
+
             if (colorIndicator.MoveBG)
             {
                 do
