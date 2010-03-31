@@ -63,11 +63,11 @@ namespace Spectrum.Model
             }
         }
 
-        public void Execute(List<EventAction> deferFuture, double curMs)
+        public void Execute(List<EventAction> deferFuture)
         {
             foreach (EventAction a in Actions)
             {
-                a.Execute(deferFuture, curMs);
+                a.Execute(deferFuture);
             }
         }
 

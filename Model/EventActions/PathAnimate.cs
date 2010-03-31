@@ -82,7 +82,7 @@ namespace Spectrum.Model.EventActions
             HasAdjustedPath = true;
         }
 
-        public override void InnerExecute(List<EventAction> deferFuture, double curMs)
+        public override void InnerExecute(List<EventAction> deferFuture)
         {
             if (!HasAdjustedPath)
             {

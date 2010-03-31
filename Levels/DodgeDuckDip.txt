@@ -1,4 +1,4 @@
-﻿[{"object" : "level","id" : "level","number" : 4,"name" : "Dodge, Duck, Dip, Dive and Dodge","width" : 1280,"height" : 1440,"allowed-colors" : ["red","orange","yellow","green"], "starting-color" : ["red"], "start-position" : [100,1240] },
+﻿[{"object" : "level","id" : "level","number" : 4,"name" : "Dodge, Duck, Dip, Dive and Dodge","width" : 1280,"height" : 1440,"allowed-colors" : ["red","orange","yellow","green"], "starting-color" : ["orange"], "start-position" : [100,1240] },
 
 {"object" : "ground", "id" : "below-start", "position" : [0,1340], "_w" : 200, "_h" : 100},
 {"object" : "ground", "id" : "above-start", "position" : [0,1140], "_w" : 200, "_h" : 100},
@@ -32,7 +32,7 @@
 						"type" : "animation",
 						"animation-type" : "linear"
 						"value" : [[1285,1270],[870,1270],[870, 960],[-200,960]],
-						"speed" : 4,
+						"speed" : 3,
 						"repeats" : true,
 					}]
 				}]},
@@ -45,9 +45,9 @@
 						"type" : "animation",
 						"animation-type" : "linear",
 						"value" : [[1285,1270],[870,1270],[870, 960],[-200,960]],
-						"speed" : 4,
+						"speed" : 3,
 						"repeats" : true,
-						"delay" : 2500
+						"delay" : 220
 					}]
 				}]},
 				

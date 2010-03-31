@@ -135,7 +135,6 @@ namespace Spectrum
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            //Console.WriteLine("GLOBAL UPDATE");
             Globals.Keyboard = Keyboard.GetState();
             Globals.Gamepad = GamePad.GetState(PlayerIndex.One);
 

@@ -348,20 +348,21 @@ namespace Spectrum.Model
 
             Sim.Update(gameTime.ElapsedGameTime.Milliseconds * .001f);
 
-            
-            double ms = gameTime.TotalRealTime.TotalMilliseconds;
-
             List<EventAction> toDelete = new List<EventAction>();
 
             foreach (EventAction a in FutureActions)
             {
-                if (ms >= a.LaunchTime)
+                if (a.TicksRemaining == 0)
                 {
                     toDelete.Add(a);
-                    a.Execute(DeferFuture, ms);
+                    a.Execute(DeferFuture);
+                }
+                else
+                {
+                    a.TicksRemaining--;
                 }
             }
-            //FutureActions.RemoveAll(item => ms >= item.LaunchTime);
+
             FutureActions.RemoveAll(item => toDelete.Contains(item));
             FutureActions.AddRange(DeferFuture);
             DeferFuture.RemoveAll(item => true);
