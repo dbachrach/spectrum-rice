@@ -27,12 +27,12 @@ namespace Spectrum.Model
 		public object Value { get; set; }
 		public bool Animated { get; set; }
 		public float AnimationDuration { get; set; }
-		public float Delay { get; set; }
+		public int Delay { get; set; }
 		public bool Repeats { get; set; }
         public int RepeatCount { get; set; }
-		public float RepeatDelay { get; set; }
+		public int RepeatDelay { get; set; }
         public string Special { get; set; }
-        public double LaunchTime { get; set;  }
+        public int TicksRemaining { get; set;  }
 
 		/* Default constructor. */
         public EventAction()
@@ -42,8 +42,9 @@ namespace Spectrum.Model
 			Delay = 0;
 			Repeats = false;
             RepeatCount = RepeatIndef;
-			RepeatDelay = 1;
+			RepeatDelay = 0;
             Special = "";
+            TicksRemaining = 0;
 		}
 
         public void LoadContent(ContentManager theContentManager, GraphicsDevice theGraphicsDevice)
@@ -92,27 +93,27 @@ namespace Spectrum.Model
             }
         }
 
-        public virtual bool HandleDelay(List<EventAction> deferFuture, double curMs)
+        public virtual bool HandleDelay(List<EventAction> deferFuture)
         {
             bool update = (Delay > 0);
             if (update)
             {
-                LaunchTime = curMs + Delay;
+                TicksRemaining = Delay;
                 Delay = 0;
-                Console.WriteLine("Adding {0} to futures at launch time {1}", this, LaunchTime);
+                Console.WriteLine("Adding {0} to futures at launch time {1}", this, TicksRemaining);
                 deferFuture.Add(this);
             }
 
             return update;
         }
 
-        public virtual void HandleRepeats(List<EventAction> deferFuture, double curMs)
+        public virtual void HandleRepeats(List<EventAction> deferFuture)
         {
             if (Repeats)
             {
                 if (RepeatCount == RepeatIndef || RepeatCount > 0)
                 {
-                    this.LaunchTime = curMs + this.RepeatDelay;
+                    this.TicksRemaining = this.RepeatDelay;
                     if (RepeatCount != RepeatIndef)
                     {
                         this.RepeatCount--;
@@ -122,18 +123,18 @@ namespace Spectrum.Model
             }
         }
 
-        public void Execute(List<EventAction> deferFuture, double curMs)
+        public void Execute(List<EventAction> deferFuture)
         {
-            if (!HandleDelay(deferFuture, curMs))
+            if (!HandleDelay(deferFuture))
             {
                 // do this EventAction's specific action
-                InnerExecute(deferFuture, curMs);
+                InnerExecute(deferFuture);
 
-                HandleRepeats(deferFuture, curMs);
+                HandleRepeats(deferFuture);
             }
         }
 
-        public virtual void InnerExecute(List<EventAction> deferFuture, double curMs)
+        public virtual void InnerExecute(List<EventAction> deferFuture)
         {
             /* TODO: All execution properties */
             if (Special != null && !Special.Equals(""))

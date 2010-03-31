@@ -43,7 +43,6 @@
 			"value" : [[-233, 600],[137,600]],
 			"speed" : 2,
 			"repeats" : true,
-			"repeat-delay" : 5,
 			"repeat-count" : -999
 		}]
 	}]
@@ -58,7 +57,6 @@
 			"value" : [[240, 600],[610,600]],
 			"speed" : 2,
 			"repeats" : true,
-			"repeat-delay" : 5,
 			"repeat-count" : -999
 		}]
 	}]
@@ -73,7 +71,6 @@
 			"value" : [[713, 600],[1083,600]],
 			"speed" : 2,
 			"repeats" : true,
-			"repeat-delay" : 5,
 			"repeat-count" : -999
 		}]
 	}]
@@ -89,7 +86,6 @@
 			"value" : [[-233, 560],[137,560]],
 			"speed" : 1,
 			"repeats" : true,
-			"repeat-delay" : 5,
 			"repeat-count" : -999
 		}]
 	}]
@@ -104,7 +100,6 @@
 			"value" : [[240, 560],[610,560]],
 			"speed" : 1,
 			"repeats" : true,
-			"repeat-delay" : 5,
 			"repeat-count" : -999
 		}]
 	}]
@@ -119,7 +114,6 @@
 			"value" : [[713, 560],[1083,560]],
 			"speed" : 1,
 			"repeats" : true,
-			"repeat-delay" : 5,
 			"repeat-count" : -999
 		}]
 	}]
@@ -135,7 +129,6 @@
 			"value" : [[-233, 520],[137,520]],
 			"speed" : 3,
 			"repeats" : true,
-			"repeat-delay" : 5,
 			"repeat-count" : -999
 		}]
 	}]
@@ -150,7 +143,6 @@
 			"value" : [[240, 520],[610,520]],
 			"speed" : 3,
 			"repeats" : true,
-			"repeat-delay" : 5,
 			"repeat-count" : -999
 		}]
 	}]
@@ -165,7 +157,6 @@
 			"value" : [[713, 520],[1083,520]],
 			"speed" : 3,
 			"repeats" : true,
-			"repeat-delay" : 5,
 			"repeat-count" : -999
 		}]
 	}]

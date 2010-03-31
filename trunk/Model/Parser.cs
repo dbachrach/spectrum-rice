@@ -418,11 +418,11 @@ namespace Spectrum.Model
                 if (ac.ContainsKey("animation-duration"))
                     a.AnimationDuration = (float)((double)ac["animation-duration"]);
                 if (ac.ContainsKey("delay"))
-                    a.Delay = (float)((double)ac["delay"]);
+                    a.Delay = (int)((double)ac["delay"]);
                 if (ac.ContainsKey("repeats"))
                     a.Repeats = (bool)ac["repeats"];
                 if (ac.ContainsKey("repeat-delay"))
-                    a.RepeatDelay = (float)((double)ac["repeat-delay"]);
+                    a.RepeatDelay = (int)((double)ac["repeat-delay"]);
                 if (ac.ContainsKey("repeat-count"))
                     a.RepeatCount = (int)((double)ac["repeat-count"]);
                 if (ac.ContainsKey("special"))

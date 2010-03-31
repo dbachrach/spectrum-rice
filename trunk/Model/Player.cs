@@ -241,7 +241,7 @@ namespace Spectrum.Model
                         {
                             if (e.Type == EventType.XEvent)
                             {
-                                e.Execute(Container.DeferFuture, theGameTime.TotalRealTime.TotalMilliseconds);
+                                e.Execute(Container.DeferFuture);
                             }
                         }
                     }
@@ -280,7 +280,7 @@ namespace Spectrum.Model
                     {
                         if (e.Type == EventType.Collision && e.CollisionTarget == this)
                         {
-                            e.Execute(Container.DeferFuture, Container.CurrentTime.TotalRealTime.TotalMilliseconds);
+                            e.Execute(Container.DeferFuture);
                         }
                     }
                 }

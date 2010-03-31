@@ -466,16 +466,6 @@ namespace Spectrum.Model
 
         public virtual void Update(GameTime theGameTime)
         {
-            if (Id == "move-plat-2")
-            {
-                //Console.WriteLine("Platform update");
-            }
-
-            if(Id == "player")
-            {
-                //Console.WriteLine("Player update");
-            }
-
             float elapsed = (float)theGameTime.ElapsedGameTime.TotalSeconds;
             if (Textures != null)
             {
@@ -511,9 +501,7 @@ namespace Spectrum.Model
 
             if (Leader != null)
             {
-                //this.body.LinearVelocity.X = Leader.body.LinearVelocity.X;
                 this.body.Position = this.body.Position + Leader.PathVector;
-                Console.WriteLine("Player: " + Leader.PathVector);
             }
 
             if (Events != null)
@@ -524,7 +512,7 @@ namespace Spectrum.Model
                     if (e.Type == EventType.Behavior)
                     {
                         Console.WriteLine("Executing behavior {0}", e);
-                        e.Execute(Container.DeferFuture, theGameTime.TotalRealTime.TotalMilliseconds);
+                        e.Execute(Container.DeferFuture);
                         toDelete.Add(e);
                     }
                 }
