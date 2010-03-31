@@ -34,8 +34,6 @@
 						"value" : [[1285,1270],[870,1270],[870, 960],[-200,960]],
 						"speed" : 4,
 						"repeats" : true,
-						"repeat-delay" : 5,
-						"repeat-count" : -999
 					}]
 				}]},
 				
@@ -49,8 +47,6 @@
 						"value" : [[1285,1270],[870,1270],[870, 960],[-200,960]],
 						"speed" : 4,
 						"repeats" : true,
-						"repeat-delay" : 5,
-						"repeat-count" : -999,
 						"delay" : 2500
 					}]
 				}]},
@@ -66,8 +62,6 @@
 						"value" : [[520,1340],[200,1340]],
 						"speed" : 2,
 						"repeats" : true,
-						"repeat-delay" : 5,
-						"repeat-count" : -999
 					}]
 				}]},
 				

@@ -194,3 +194,12 @@ U:\comp410\bin\x86\Debug\Content\funnel.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\Audio\Sound Bank.xsb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\Audio\Media.xap
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\Audio\bg_music.wav
+U:\comp410\bin\x86\Debug\Content\Audio\aaa.xnb
+U:\comp410\bin\x86\Debug\Content\Audio\bg_music.xnb
+U:\comp410\bin\x86\Debug\Content\Audio\hyperspace_activate.xnb
+U:\comp410\bin\x86\Debug\Content\Audio\splash.xnb
+U:\comp410\bin\x86\Debug\Content\Audio\Media.xgs
+U:\comp410\bin\x86\Debug\Content\Audio\Wave Bank.xwb
+U:\comp410\bin\x86\Debug\Content\Audio\Sound Bank.xsb
+U:\comp410\bin\x86\Debug\Content\Audio\bg_music.wav
+U:\comp410\bin\x86\Debug\Content\Audio\Media.xap

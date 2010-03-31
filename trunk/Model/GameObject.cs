@@ -466,6 +466,16 @@ namespace Spectrum.Model
 
         public virtual void Update(GameTime theGameTime)
         {
+            if (Id == "move-plat-2")
+            {
+                //Console.WriteLine("Platform update");
+            }
+
+            if(Id == "player")
+            {
+                //Console.WriteLine("Player update");
+            }
+
             float elapsed = (float)theGameTime.ElapsedGameTime.TotalSeconds;
             if (Textures != null)
             {
@@ -502,7 +512,8 @@ namespace Spectrum.Model
             if (Leader != null)
             {
                 //this.body.LinearVelocity.X = Leader.body.LinearVelocity.X;
-                this.body.Position = this.body.position + Leader.PathVector;
+                this.body.Position = this.body.Position + Leader.PathVector;
+                Console.WriteLine("Player: " + Leader.PathVector);
             }
 
             if (Events != null)
@@ -737,10 +748,6 @@ namespace Spectrum.Model
 
         protected bool InViewport(Vector2 posn)
         {
-            if (this is Ground && Id == "ground")
-            {
-                Console.WriteLine(posn + " " + Size + " " + Container.CameraPosition);
-            }
             return (posn.X + (Size.X / 2) >= Container.CameraPosition.X && posn.X - (Size.X / 2) <= Container.CameraPosition.X + Globals.GameWidth &&
                    posn.Y + (Size.Y / 2) >= Container.CameraPosition.Y && posn.Y - (Size.Y / 2) <= Container.CameraPosition.Y + Globals.GameHeight);
         }

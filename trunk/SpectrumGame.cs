@@ -44,7 +44,7 @@ namespace Spectrum
         public bool Splashed { get; set; }
 
         AudioEngine audioEngine;
-        SoundBank soundBank;
+        public SoundBank soundBank;
         WaveBank waveBank;
 
         private bool showSplash = true;
@@ -135,6 +135,7 @@ namespace Spectrum
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            //Console.WriteLine("GLOBAL UPDATE");
             Globals.Keyboard = Keyboard.GetState();
             Globals.Gamepad = GamePad.GetState(PlayerIndex.One);
 

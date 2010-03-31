@@ -107,7 +107,6 @@ namespace Spectrum.Model
 
         public override void Update(GameTime theGameTime)
         {
-
             UpdateMovement();
             UpdateJump();
 

@@ -3,3 +3,4 @@
 U:\comp410\Content\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Administrator\Documents\spectrum-rice\Content\obj\x86\Debug\ResolveAssemblyReference.cache
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\Content\obj\x86\Debug\Audio\Media.xml
+U:\comp410\Content\obj\x86\Debug\Audio\Media.xml

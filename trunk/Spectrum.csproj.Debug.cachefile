@@ -48,9 +48,9 @@ Content\platformLeft.xnb
 Content\platformRight.xnb
 Content\heavyBox.xnb
 Content\arrow.xnb
-funnel-bg.xnb
-funnel-indicator.xnb
-funnel.xnb
+Content\funnel-bg.xnb
+Content\funnel-indicator.xnb
+Content\funnel.xnb
 Content\Audio\aaa.xnb
 Content\Audio\bg_music.xnb
 Content\Audio\hyperspace_activate.xnb
