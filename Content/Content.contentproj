@@ -365,11 +365,6 @@
       <Processor>SoundEffectProcessor</Processor>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Audio\hyperspace_activate.wav">
-      <Name>hyperspace_activate</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
     <Compile Include="Audio\splash.wav">
       <Name>splash</Name>
       <Importer>WavImporter</Importer>
@@ -387,6 +382,13 @@
   <ItemGroup>
     <Compile Include="Audio\downer_bg.wav">
       <Name>downer_bg</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Audio\swoosh.wav">
+      <Name>swoosh</Name>
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
