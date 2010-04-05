@@ -21,6 +21,7 @@ namespace Spectrum.Model
     {
         public static int GameWidth = 1280;
         public static int GameHeight = 720;
+        public static Vector2 GameDimensions = new Vector2(GameWidth, GameHeight);
 
         public static string ColorsProperty = "colors";
         public static string PlayerTangibilityProperty = "player-tangibility";

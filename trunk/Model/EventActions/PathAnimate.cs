@@ -111,14 +111,8 @@ namespace Spectrum.Model.EventActions
             else
             {
                 Receiver.body.IgnoreGravity = true;
-
                 Receiver.body.Position = Receiver.body.Position + Direction;
-                if (Receiver.Id == "move-plat-2")
-                {
-                    Console.WriteLine("Platform: " + Direction);
-                }
                 Receiver.PathVector = Direction;
-                //Receiver.body.LinearVelocity = 100*Direction;
             }
         }
 

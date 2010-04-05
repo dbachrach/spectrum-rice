@@ -392,16 +392,18 @@ namespace Spectrum.Model
             {
                 offset = myWidth;
             }
-            Possession.body.Position = new Vector2( (int) (this.body.Position.X + offset), (int) (this.body.Position.Y + myHeight/2.0 - Possession.Size.Y/2.0));
-            Possession.body.LinearVelocity = this.body.LinearVelocity;
-            Container.DeferAddGameObject(Possession);
 
-            // Restores mass from what it used to be before we zeroed it
-            //Possession.body.Mass = Possession.Mass;
+            Vector2 newPosition = new Vector2((int)(this.body.Position.X + offset), (int)(this.body.Position.Y + myHeight / 2.0 - Possession.Size.Y / 2.0));
+            bool shouldDrop = !Container.checkCollision(Possession, newPosition, Possession.Size);
+            
+            if (shouldDrop)
+            {
+                Possession.body.Position = newPosition;
+                Possession.body.LinearVelocity = this.body.LinearVelocity;
+                Container.DeferAddGameObject(Possession);
 
-            //Container.Sim.Remove(Connector);
-
-            Possession = null;
+                Possession = null;
+            }
         }
 
         protected override void DidSeparateWithObject(GameObject other)

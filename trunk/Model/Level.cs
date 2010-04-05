@@ -407,7 +407,7 @@ namespace Spectrum.Model
             else if (player.NearObject != null)
             {
                 string displayName = "";
-                if (player.NearObject.Pickupable)
+                if (player.NearObject.Pickupable && player.Possession == null)
                 {
                     displayName = "Pickup";
                 }
@@ -444,6 +444,25 @@ namespace Spectrum.Model
         public override string ToString()
         {
             return string.Format("Level-- id {0}\nnumber {1}\n width {2}\n height {3}\n allowed colors {4}", this.Id, this.Number, this.Width, this.Height, this.AllowedColors);
+        }
+
+        public bool checkCollision(GameObject target, Vector2 pos, Vector2 size)
+        {
+            foreach (GameObject obj in GameObjects)
+            {   
+                if(obj != this.player && target.sharesAColorWith(obj) && RectangleIntersect(pos, size, obj.body.Position, obj.Size))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+        public static bool RectangleIntersect(Vector2 pos1, Vector2 size1, Vector2 pos2, Vector2 size2)
+        {
+            return (pos1.X + (size1.X / 2) >= pos2.X - (size2.X/2) && pos1.X - (size1.X / 2) <= pos2.X + (size2.X/2) &&
+                   pos1.Y + (size1.Y / 2) >= pos2.Y - (size2.Y/2) && pos1.Y - (size1.Y / 2) <= pos2.Y + (size2.Y/2));
         }
 
         /// <summary>
