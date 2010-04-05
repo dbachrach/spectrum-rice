@@ -55,11 +55,13 @@ Content\Audio\aaa.xnb
 Content\Audio\bg_music.xnb
 Content\Audio\hyperspace_activate.xnb
 Content\Audio\splash.xnb
+Content\Audio\downer_bg.xnb
 Content\Audio\Media.xgs
 Content\Audio\Wave Bank.xwb
 Content\Audio\Sound Bank.xsb
 Content\Audio\bg_music.wav
 Content\Audio\Media.xap
+Levels\CloudsKnives.txt
 Levels\Switcharoo.txt
 Levels\cloudy.txt
 Levels\CombinationPizzaHut.txt

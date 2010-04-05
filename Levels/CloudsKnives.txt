@@ -9,7 +9,8 @@
 	"allowed-colors" : ["orange", "purple"],
 	"starting-color" : ["purple"],
 	"start-position" : [100,650]
-},
+}
+]
 
 
  
