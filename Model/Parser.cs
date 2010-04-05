@@ -187,6 +187,10 @@ namespace Spectrum.Model
                     {
                         newObject = new Funnel();
                     }
+                    else if (objType.Equals("deadlycloud"))
+                    {
+                        newObject = new DeadlyCloud(player);
+                    }
 
                     /* Set properties */
                     if (obj.ContainsKey("id"))
