@@ -1,17 +1,5 @@
-﻿[
-{
-	"object" : "level",
-	"id" : "level",
-	"number" : 6,
-	"name" : "Clouds Run Faster With Knives",
-	"width" : 1280,
-	"height" : 720,
-	"allowed-colors" : ["orange", "purple"],
-	"starting-color" : ["purple"],
-	"start-position" : [100,650]
-}
-]
+﻿[{"object" : "level","id" : "level","number" : 5,"name" : "Clouds Run Faster With Knives","width" : 1280,"height" : 1440,"allowed-colors" : ["green","blue"], "starting-color" : ["blue"], "start-position" : [50,100] }
 
-
- 
+{"object" : "ground", "id" : "starting platform", "position" : [0,200], "_w" : 200, "_h" : 50}
+{"object" : "deadlycloud","id" : "cloud1","colors" : ["blue","green"],"position" : [300, 300]}
 ]

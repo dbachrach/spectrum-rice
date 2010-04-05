@@ -744,10 +744,15 @@ namespace Spectrum.Model
                    posn.Y + (Size.Y / 2) >= Container.CameraPosition.Y && posn.Y - (Size.Y / 2) <= Container.CameraPosition.Y + Globals.GameHeight);
         }
 
+        public void MakeDeadly()
+        {
+            MakeDeadly(Container.player);
+        }
+
         /// <summary>
         /// Makes player lose if he collides with this object
         /// </summary>
-        public void MakeDeadly()
+        public void MakeDeadly(Player player)
         {
             if (Events == null)
             {
@@ -755,11 +760,11 @@ namespace Spectrum.Model
             }
             Event e = new Event();
             e.Type = EventType.Collision;
-            e.CollisionTarget = Container.player;
+            e.CollisionTarget = player;
             e.Actions = new List<EventAction>();
             EventAction a = new EventAction();
             a.Special = Globals.LoseSpecial;
-            a.Receiver = Container.player;
+            a.Receiver = player;
             e.Actions.Add(a);
             Events.Add(e);
         }
