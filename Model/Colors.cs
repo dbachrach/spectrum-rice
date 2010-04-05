@@ -190,6 +190,16 @@ namespace Spectrum.Model
 		}
 
         /// <summary>
+        /// Check if this Colors contains at least one color contained by the other colors
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns></returns>
+        public bool SharesAColorWith(Colors c)
+        {
+            return (Bitstring & c.Bitstring) != 0;
+        }
+
+        /// <summary>
         /// Creates a new Colors object by removing all of c's colors from the reciever
         /// 
         /// </summary>

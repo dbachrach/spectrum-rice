@@ -282,7 +282,11 @@ namespace Spectrum.Model
             //return Container.CurrentColor.Contains(this.PlayerSensibility);
             return this.PlayerSensibility.Contains(Container.CurrentColor);
         }
-       
+
+        public bool sharesAColorWith(GameObject other)
+        {
+            return this.Visibility.SharesAColorWith(other.Visibility);
+        }
 
         public bool hasChildren()
         {
