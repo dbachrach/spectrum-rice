@@ -7,8 +7,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\Pesca.xnb</Output>
-      <Time>2010-01-19T13:11:07.654-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\Pesca.xnb</Output>
+      <Time>2010-01-29T14:11:37.786-06:00</Time>
     </Item>
     <Item>
       <Source>farseer\detailsFont.spritefont</Source>
@@ -16,8 +16,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\farseer\detailsFont.xnb</Output>
-      <Time>2010-01-26T13:30:13.176-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\farseer\detailsFont.xnb</Output>
+      <Time>2010-01-29T14:11:29.043-06:00</Time>
     </Item>
     <Item>
       <Source>farseer\diagnosticFont.spritefont</Source>
@@ -25,8 +25,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\farseer\diagnosticFont.xnb</Output>
-      <Time>2010-01-26T13:30:13.21-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\farseer\diagnosticFont.xnb</Output>
+      <Time>2010-01-29T14:11:29.017-06:00</Time>
     </Item>
     <Item>
       <Source>farseer\frameRateCounterFont.spritefont</Source>
@@ -34,8 +34,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\farseer\frameRateCounterFont.xnb</Output>
-      <Time>2010-01-26T13:30:13.244-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\farseer\frameRateCounterFont.xnb</Output>
+      <Time>2010-01-29T14:11:28.82-06:00</Time>
     </Item>
     <Item>
       <Source>farseer\gamefont.spritefont</Source>
@@ -43,8 +43,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\farseer\gamefont.xnb</Output>
-      <Time>2010-01-26T13:30:13.279-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\farseer\gamefont.xnb</Output>
+      <Time>2010-01-29T14:11:28.894-06:00</Time>
     </Item>
     <Item>
       <Source>farseer\menufont.spritefont</Source>
@@ -52,8 +52,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\farseer\menufont.xnb</Output>
-      <Time>2010-01-26T13:30:13.314-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\farseer\menufont.xnb</Output>
+      <Time>2010-01-29T14:11:28.793-06:00</Time>
     </Item>
     <Item>
       <Source>box.png</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\box.xnb</Output>
-      <Time>2010-02-22T12:28:12.541-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\box.xnb</Output>
+      <Time>2010-02-16T21:02:00.8237858-06:00</Time>
     </Item>
     <Item>
       <Source>pl.png</Source>
@@ -70,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\pl.xnb</Output>
-      <Time>2010-01-21T12:52:57.784-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\pl.xnb</Output>
+      <Time>2010-01-29T14:11:38.137-06:00</Time>
     </Item>
     <Item>
       <Source>farseer\background.png</Source>
@@ -79,8 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\farseer\background.xnb</Output>
-      <Time>2010-01-26T13:30:12.934-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\farseer\background.xnb</Output>
+      <Time>2010-01-29T14:11:28.98-06:00</Time>
     </Item>
     <Item>
       <Source>farseer\blank.png</Source>
@@ -88,8 +88,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\farseer\blank.xnb</Output>
-      <Time>2010-01-26T13:30:12.985-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\farseer\blank.xnb</Output>
+      <Time>2010-01-29T14:11:29.12-06:00</Time>
     </Item>
     <Item>
       <Source>farseer\gradient.png</Source>
@@ -97,8 +97,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\farseer\gradient.xnb</Output>
-      <Time>2010-01-26T13:30:13.038-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\farseer\gradient.xnb</Output>
+      <Time>2010-01-29T14:11:28.576-06:00</Time>
     </Item>
     <Item>
       <Source>farseer\logo.png</Source>
@@ -106,8 +106,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\farseer\logo.xnb</Output>
-      <Time>2010-01-26T13:30:13.091-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\farseer\logo.xnb</Output>
+      <Time>2010-01-29T14:11:28.676-06:00</Time>
     </Item>
     <Item>
       <Source>switchOff.png</Source>
@@ -115,8 +115,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\switchOff.xnb</Output>
-      <Time>2010-03-12T13:29:39.68-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\switchOff.xnb</Output>
+      <Time>2010-03-15T01:18:09.35-05:00</Time>
     </Item>
     <Item>
       <Source>clouds.png</Source>
@@ -124,8 +124,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\clouds.xnb</Output>
-      <Time>2010-02-22T12:30:30.092-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\clouds.xnb</Output>
+      <Time>2010-02-16T21:04:53.8124896-06:00</Time>
     </Item>
     <Item>
       <Source>tutorial\tutorialJump.png</Source>
@@ -133,8 +133,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\tutorial\tutorialJump.xnb</Output>
-      <Time>2010-02-12T13:45:50.038-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\tutorial\tutorialJump.xnb</Output>
+      <Time>2010-02-15T13:35:37.149-06:00</Time>
     </Item>
     <Item>
       <Source>tutorial\tutorialThumb.png</Source>
@@ -142,8 +142,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\tutorial\tutorialThumb.xnb</Output>
-      <Time>2010-02-12T13:45:50.098-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\tutorial\tutorialThumb.xnb</Output>
+      <Time>2010-02-15T13:35:37.209-06:00</Time>
     </Item>
     <Item>
       <Source>tutorial\tutorialTrigger.png</Source>
@@ -151,8 +151,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\tutorial\tutorialTrigger.xnb</Output>
-      <Time>2010-02-12T13:45:50.159-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\tutorial\tutorialTrigger.xnb</Output>
+      <Time>2010-02-15T13:35:37.269-06:00</Time>
     </Item>
     <Item>
       <Source>tutorial\tutorialX.png</Source>
@@ -160,8 +160,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\tutorial\tutorialX.xnb</Output>
-      <Time>2010-02-12T13:45:50.223-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\tutorial\tutorialX.xnb</Output>
+      <Time>2010-02-15T13:35:37.331-06:00</Time>
     </Item>
     <Item>
       <Source>rainbow\border.png</Source>
@@ -172,8 +172,8 @@
         <Data Key="ColorKeyEnabled">False</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\rainbow\border.xnb</Output>
-      <Time>2010-02-17T13:12:40.901-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\rainbow\border.xnb</Output>
+      <Time>2010-02-17T14:15:12.451-06:00</Time>
     </Item>
     <Item>
       <Source>rainbow\wedge.png</Source>
@@ -184,8 +184,8 @@
         <Data Key="ColorKeyEnabled">False</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\rainbow\wedge.xnb</Output>
-      <Time>2010-02-17T13:12:41.175-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\rainbow\wedge.xnb</Output>
+      <Time>2010-02-17T14:15:13.716-06:00</Time>
     </Item>
     <Item>
       <Source>water.png</Source>
@@ -193,8 +193,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\water.xnb</Output>
-      <Time>2010-03-15T13:06:04.311-05:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\water.xnb</Output>
+      <Time>2010-03-15T01:18:10.071-05:00</Time>
     </Item>
     <Item>
       <Source>switchOn.png</Source>
@@ -202,8 +202,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\switchOn.xnb</Output>
-      <Time>2010-03-12T13:29:39.833-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\switchOn.xnb</Output>
+      <Time>2010-03-15T01:18:09.505-05:00</Time>
     </Item>
     <Item>
       <Source>rainbow\circle.png</Source>
@@ -211,8 +211,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\rainbow\circle.xnb</Output>
-      <Time>2010-02-22T12:28:09.656-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\rainbow\circle.xnb</Output>
+      <Time>2010-02-22T16:30:33.933-06:00</Time>
     </Item>
     <Item>
       <Source>rainbow\WedgeCircle.png</Source>
@@ -220,8 +220,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\rainbow\WedgeCircle.xnb</Output>
-      <Time>2010-02-22T12:28:11.657-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\rainbow\WedgeCircle.xnb</Output>
+      <Time>2010-02-22T16:30:33.776-06:00</Time>
     </Item>
     <Item>
       <Source>flowerBottoms.png</Source>
@@ -229,8 +229,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\flowerBottoms.xnb</Output>
-      <Time>2010-03-12T13:29:40.095-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\flowerBottoms.xnb</Output>
+      <Time>2010-03-15T01:18:09.706-05:00</Time>
     </Item>
     <Item>
       <Source>flowerTops.png</Source>
@@ -238,8 +238,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\flowerTops.xnb</Output>
-      <Time>2010-03-12T13:29:40.838-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\flowerTops.xnb</Output>
+      <Time>2010-03-15T01:18:10.68-05:00</Time>
     </Item>
     <Item>
       <Source>platformCenter.png</Source>
@@ -247,8 +247,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\platformCenter.xnb</Output>
-      <Time>2010-02-24T15:21:21.8-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\platformCenter.xnb</Output>
+      <Time>2010-02-24T15:54:19.637-06:00</Time>
     </Item>
     <Item>
       <Source>platformEndLeft.png</Source>
@@ -256,8 +256,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\platformEndLeft.xnb</Output>
-      <Time>2010-03-09T13:21:44.465-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\platformEndLeft.xnb</Output>
+      <Time>2010-03-10T14:35:32.478-06:00</Time>
     </Item>
     <Item>
       <Source>platformEndRight.png</Source>
@@ -265,8 +265,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\platformEndRight.xnb</Output>
-      <Time>2010-02-24T15:18:05.69-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\platformEndRight.xnb</Output>
+      <Time>2010-02-24T15:54:19.546-06:00</Time>
     </Item>
     <Item>
       <Source>rainbow\mask.png</Source>
@@ -274,8 +274,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\rainbow\mask.xnb</Output>
-      <Time>2010-02-24T15:42:44.807-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\rainbow\mask.xnb</Output>
+      <Time>2010-02-24T15:54:15.639-06:00</Time>
     </Item>
     <Item>
       <Source>SplashScreen.png</Source>
@@ -283,8 +283,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\SplashScreen.xnb</Output>
-      <Time>2010-03-08T14:30:12.249-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\SplashScreen.xnb</Output>
+      <Time>2010-03-09T11:30:05.41-06:00</Time>
     </Item>
     <Item>
       <Source>rainbow\BarBG.png</Source>
@@ -292,8 +292,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\rainbow\BarBG.xnb</Output>
-      <Time>2010-03-12T13:35:34.805-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\rainbow\BarBG.xnb</Output>
+      <Time>2010-03-15T01:18:00.734-05:00</Time>
     </Item>
     <Item>
       <Source>rainbow\BarGYOR.png</Source>
@@ -301,8 +301,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\rainbow\BarGYOR.xnb</Output>
-      <Time>2010-03-12T13:36:01.185-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\rainbow\BarGYOR.xnb</Output>
+      <Time>2010-03-15T01:18:00.889-05:00</Time>
     </Item>
     <Item>
       <Source>rainbow\BarPBR.png</Source>
@@ -310,8 +310,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\rainbow\BarPBR.xnb</Output>
-      <Time>2010-03-12T13:37:44.686-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\rainbow\BarPBR.xnb</Output>
+      <Time>2010-03-15T01:18:01.076-05:00</Time>
     </Item>
     <Item>
       <Source>rainbow\BarPGO.png</Source>
@@ -319,8 +319,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\rainbow\BarPGO.xnb</Output>
-      <Time>2010-03-12T13:38:12.421-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\rainbow\BarPGO.xnb</Output>
+      <Time>2010-03-15T01:18:01.174-05:00</Time>
     </Item>
     <Item>
       <Source>door.png</Source>
@@ -328,8 +328,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\door.xnb</Output>
-      <Time>2010-02-22T12:28:10.354-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\door.xnb</Output>
+      <Time>2010-02-16T21:06:53.4802998-06:00</Time>
     </Item>
     <Item>
       <Source>switchBox.png</Source>
@@ -337,8 +337,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\switchBox.xnb</Output>
-      <Time>2010-03-12T13:29:41.079-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\switchBox.xnb</Output>
+      <Time>2010-03-15T01:18:10.941-05:00</Time>
     </Item>
     <Item>
       <Source>switchBoxButton.png</Source>
@@ -346,8 +346,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\switchBoxButton.xnb</Output>
-      <Time>2010-03-12T13:29:39.982-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\switchBoxButton.xnb</Output>
+      <Time>2010-03-15T01:18:09.611-05:00</Time>
     </Item>
     <Item>
       <Source>rainbow\BarPBGYOR.png</Source>
@@ -355,8 +355,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\rainbow\BarPBGYOR.xnb</Output>
-      <Time>2010-03-12T13:36:21.743-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\rainbow\BarPBGYOR.xnb</Output>
+      <Time>2010-03-15T01:18:00.979-05:00</Time>
     </Item>
     <Item>
       <Source>levelBGblue.png</Source>
@@ -364,8 +364,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\levelBGblue.xnb</Output>
-      <Time>2010-03-12T13:29:40.581-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\levelBGblue.xnb</Output>
+      <Time>2010-03-15T01:18:10.244-05:00</Time>
     </Item>
     <Item>
       <Source>levelBGgreen.png</Source>
@@ -373,8 +373,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\levelBGgreen.xnb</Output>
-      <Time>2010-03-12T13:29:40.755-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\levelBGgreen.xnb</Output>
+      <Time>2010-03-15T01:18:10.461-05:00</Time>
     </Item>
     <Item>
       <Source>levelBGorange.png</Source>
@@ -382,8 +382,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\levelBGorange.xnb</Output>
-      <Time>2010-03-12T13:29:41.23-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\levelBGorange.xnb</Output>
+      <Time>2010-03-15T01:18:11.23-05:00</Time>
     </Item>
     <Item>
       <Source>levelBGpurple.png</Source>
@@ -391,8 +391,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\levelBGpurple.xnb</Output>
-      <Time>2010-03-12T13:29:40.994-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\levelBGpurple.xnb</Output>
+      <Time>2010-03-15T01:18:10.846-05:00</Time>
     </Item>
     <Item>
       <Source>levelBGred.png</Source>
@@ -400,8 +400,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\levelBGred.xnb</Output>
-      <Time>2010-03-12T13:29:40.245-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\levelBGred.xnb</Output>
+      <Time>2010-03-15T01:18:09.853-05:00</Time>
     </Item>
     <Item>
       <Source>levelBGyellow.png</Source>
@@ -409,8 +409,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\levelBGyellow.xnb</Output>
-      <Time>2010-03-12T13:29:41.345-06:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\levelBGyellow.xnb</Output>
+      <Time>2010-03-15T01:18:11.071-05:00</Time>
     </Item>
     <Item>
       <Source>platform.png</Source>
@@ -418,8 +418,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\platform.xnb</Output>
-      <Time>2010-03-17T15:49:24.766-05:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\platform.xnb</Output>
+      <Time>2010-03-17T19:51:21.02-05:00</Time>
     </Item>
     <Item>
       <Source>platformLeft.png</Source>
@@ -427,8 +427,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\platformLeft.xnb</Output>
-      <Time>2010-03-17T15:47:22.965-05:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\platformLeft.xnb</Output>
+      <Time>2010-03-17T19:51:20.641-05:00</Time>
     </Item>
     <Item>
       <Source>platformRight.png</Source>
@@ -436,8 +436,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\platformRight.xnb</Output>
-      <Time>2010-03-17T15:47:41.969-05:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\platformRight.xnb</Output>
+      <Time>2010-03-17T19:51:20.921-05:00</Time>
     </Item>
     <Item>
       <Source>heavyBox.png</Source>
@@ -445,8 +445,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\heavyBox.xnb</Output>
-      <Time>2010-03-24T14:29:05.323-05:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\heavyBox.xnb</Output>
+      <Time>2010-03-26T14:14:42.597-05:00</Time>
     </Item>
     <Item>
       <Source>arrow.png</Source>
@@ -454,8 +454,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\arrow.xnb</Output>
-      <Time>2010-03-24T15:12:26.102-05:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\arrow.xnb</Output>
+      <Time>2010-03-26T14:14:42.817-05:00</Time>
     </Item>
     <Item>
       <Source>funnel-bg.png</Source>
@@ -463,8 +463,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\funnel-bg.xnb</Output>
-      <Time>2010-03-26T14:27:29.494-05:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\funnel-bg.xnb</Output>
+      <Time>2010-03-26T15:08:51.615-05:00</Time>
     </Item>
     <Item>
       <Source>funnel-indicator.png</Source>
@@ -472,8 +472,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\funnel-indicator.xnb</Output>
-      <Time>2010-03-26T14:27:40.896-05:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\funnel-indicator.xnb</Output>
+      <Time>2010-03-26T15:08:51.524-05:00</Time>
     </Item>
     <Item>
       <Source>funnel.png</Source>
@@ -481,8 +481,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\funnel.xnb</Output>
-      <Time>2010-03-26T14:27:17.47-05:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\funnel.xnb</Output>
+      <Time>2010-03-26T15:08:51.729-05:00</Time>
     </Item>
     <Item>
       <Source>Audio\aaa.wav</Source>
@@ -490,8 +490,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\Audio\aaa.xnb</Output>
-      <Time>2010-03-31T13:19:42.67-05:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\Audio\aaa.xnb</Output>
+      <Time>2010-03-29T15:26:01.074-05:00</Time>
     </Item>
     <Item>
       <Source>Audio\bg_music.wav</Source>
@@ -499,17 +499,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\Audio\bg_music.xnb</Output>
-      <Time>2010-03-31T13:19:42.491-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Audio\hyperspace_activate.wav</Source>
-      <Name>Audio\hyperspace_activate</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\Audio\hyperspace_activate.xnb</Output>
-      <Time>2010-03-31T13:19:41.324-05:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\Audio\bg_music.xnb</Output>
+      <Time>2010-03-29T15:42:52.429-05:00</Time>
     </Item>
     <Item>
       <Source>Audio\splash.wav</Source>
@@ -517,8 +508,8 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>U:\comp410\bin\x86\Debug\Content\Audio\splash.xnb</Output>
-      <Time>2010-03-31T13:19:42.562-05:00</Time>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\Audio\splash.xnb</Output>
+      <Time>2010-03-29T15:35:08.956-05:00</Time>
     </Item>
     <Item>
       <Source>Audio\downer_bg.wav</Source>
@@ -527,17 +518,26 @@
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
       <Output>U:\comp410\bin\x86\Debug\Content\Audio\downer_bg.xnb</Output>
-      <Time>2010-04-05T14:07:38.493-05:00</Time>
+      <Time>2010-04-05T14:27:19.702-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Audio\swoosh.wav</Source>
+      <Name>Audio\swoosh</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\Audio\swoosh.xnb</Output>
+      <Time>2010-04-05T14:25:26.151-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>U:\comp410\Content\</RootDirectory>
-      <LoggerRootDirectory>U:\comp410\</LoggerRootDirectory>
-      <IntermediateDirectory>U:\comp410\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>U:\comp410\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\Content\</RootDirectory>
+      <LoggerRootDirectory>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\</LoggerRootDirectory>
+      <IntermediateDirectory>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

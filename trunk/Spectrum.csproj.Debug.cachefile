@@ -53,9 +53,9 @@ Content\funnel-indicator.xnb
 Content\funnel.xnb
 Content\Audio\aaa.xnb
 Content\Audio\bg_music.xnb
-Content\Audio\hyperspace_activate.xnb
 Content\Audio\splash.xnb
-Content\Audio\downer_bg.xnb
+downer_bg.xnb
+Content\Audio\swoosh.xnb
 Content\Audio\Media.xgs
 Content\Audio\Wave Bank.xwb
 Content\Audio\Sound Bank.xsb

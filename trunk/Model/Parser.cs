@@ -177,7 +177,11 @@ namespace Spectrum.Model
                     }
                     else if (objType.Equals("push"))
                     {
-                        newObject = new PushButton(player);
+                        newObject = new PushButtonBox(player);
+                    }
+                    else if (objType.Equals("push-but"))
+                    {
+                        newObject = new PushButtonPusher(player);
                     }
                     else if (objType.Equals("funnel"))
                     {

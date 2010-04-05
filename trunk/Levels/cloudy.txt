@@ -7,6 +7,7 @@
 {"object" : "ground", "id" : "barrier", "position" : [1100,0], "_w" : 20, "_h" : 10},
 
 {"object" : "push", "id" : "pushA", "colors" : ["all"], "position" : [375,120]},
+{"object" : "push-but", "id" : "pushbutA", "colors" : ["all"], "position" : [385, 110]},
 
 {"object" : "game-object", "id" : "cloudA", "colors" : ["purple"], "position" : [250,200],"image" : "clouds", "static" : true, "scale" : 0.6},
 {"object" : "funnel", "id" : "fun1","position" : [330,340]}

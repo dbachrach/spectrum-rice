@@ -154,13 +154,17 @@ namespace Spectrum.Model
             }
             else if(Property.Equals(Globals.PositionProperty))
             {
+                ArrayList vals = (ArrayList)Value;
+                Vector2 vec = new Vector2((float)((double)vals[0]), (float)((double)vals[1]));
                 switch (Type)
                 {
                     case ActionType.Change:
-                        ArrayList vals = (ArrayList)Value;
-                        Vector2 vec = new Vector2((float)((double)vals[0]), (float)((double)vals[1]));
+                        Receiver.body.Position = vec;
+                        break;
+                    case ActionType.Increment:
                         Receiver.body.Position += vec;
                         break;
+                        
                 }
             }
             else if (Property.Equals(Globals.ColorsProperty))
