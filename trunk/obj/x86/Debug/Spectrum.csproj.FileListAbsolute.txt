@@ -203,3 +203,5 @@ U:\comp410\bin\x86\Debug\Content\Audio\Wave Bank.xwb
 U:\comp410\bin\x86\Debug\Content\Audio\Sound Bank.xsb
 U:\comp410\bin\x86\Debug\Content\Audio\bg_music.wav
 U:\comp410\bin\x86\Debug\Content\Audio\Media.xap
+U:\comp410\bin\x86\Debug\Levels\CloudsKnives.txt
+U:\comp410\bin\x86\Debug\Content\Audio\downer_bg.xnb

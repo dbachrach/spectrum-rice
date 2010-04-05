@@ -520,6 +520,15 @@
       <Output>U:\comp410\bin\x86\Debug\Content\Audio\splash.xnb</Output>
       <Time>2010-03-31T13:19:42.562-05:00</Time>
     </Item>
+    <Item>
+      <Source>Audio\downer_bg.wav</Source>
+      <Name>Audio\downer_bg</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>U:\comp410\bin\x86\Debug\Content\Audio\downer_bg.xnb</Output>
+      <Time>2010-04-05T14:07:38.493-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

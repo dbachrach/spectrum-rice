@@ -16,8 +16,8 @@ Global Settings
     Header File = Media.h;
     Exclude Category Names = 0;
     Exclude Variable Names = 0;
-    Last Modified Low = 1626300969;
-    Last Modified High = 30068991;
+    Last Modified Low = 30068991;
+    Last Modified High = 1626300969;
 
     Category
     {
@@ -225,12 +225,8 @@ Wave Bank
     Windows Bank Path Edited = 0;
     Seek Tables = 1;
     Compression Preset Name = <none>;
-    Xbox Bank Last Modified Low = 0;
-    Xbox Bank Last Modified High = 0;
-    PC Bank Last Modified Low = 1626457220;
-    PC Bank Last Modified High = 30068991;
-    Bank Last Revised Low = 1476925013;
-    Bank Last Revised High = 30068991;
+    Bank Last Revised Low = 245637396;
+    Bank Last Revised High = 30070004;
 
     Wave
     {
@@ -323,6 +319,29 @@ Wave Bank
             Last Modified High = 30068990;
         }
     }
+
+    Wave
+    {
+        Name = downer_bg;
+        File = downer_bg.wav;
+        Build Settings Last Modified Low = 226574774;
+        Build Settings Last Modified High = 30070004;
+
+        Cache
+        {
+            Format Tag = 0;
+            Channels = 2;
+            Sampling Rate = 44100;
+            Bits Per Sample = 1;
+            Play Region Offset = 44;
+            Play Region Length = 9172800;
+            Loop Region Offset = 0;
+            Loop Region Length = 0;
+            File Type = 1;
+            Last Modified Low = 1109308112;
+            Last Modified High = 30070003;
+        }
+    }
 }
 
 Sound Bank
@@ -332,10 +351,6 @@ Sound Bank
     Windows File = Win\Sound Bank.xsb;
     Xbox Bank Path Edited = 0;
     Windows Bank Path Edited = 0;
-    Bank Last Modified Low = 1634738523;
-    Bank Last Modified High = 30068991;
-    Header Last Modified High = 0;
-    Header Last Modified Low = 0;
 
     Sound
     {
@@ -521,6 +536,52 @@ Sound Bank
         }
     }
 
+    Sound
+    {
+        Name = downer_bg;
+        Volume = -1200;
+        Pitch = 0;
+        Priority = 0;
+
+        Category Entry
+        {
+            Name = Default;
+        }
+
+        Track
+        {
+            Volume = 0;
+
+            Play Wave Event
+            {
+                Break Loop = 0;
+                Use Speaker Position = 0;
+                Use Center Speaker = 1;
+                New Speaker Position On Loop = 1;
+                Speaker Position Angle = 0.000000;
+                Speaer Position Arc = 0.000000;
+
+                Event Header
+                {
+                    Timestamp = 0;
+                    Relative = 0;
+                    Random Recurrence = 0;
+                    Random Offset = 0;
+                }
+
+                Wave Entry
+                {
+                    Bank Name = Wave Bank;
+                    Bank Index = 0;
+                    Entry Name = downer_bg;
+                    Entry Index = 4;
+                    Weight = 255;
+                    Weight Min = 0;
+                }
+            }
+        }
+    }
+
     Cue
     {
         Name = bg_music;
@@ -596,6 +657,26 @@ Sound Bank
         {
             Name = splash;
             Index = 3;
+            Weight Min = 0;
+            Weight Max = 255;
+        }
+    }
+
+    Cue
+    {
+        Name = downer_bg;
+
+        Variation
+        {
+            Variation Type = 3;
+            Variation Table Type = 1;
+            New Variation on Loop = 0;
+        }
+
+        Sound Entry
+        {
+            Name = downer_bg;
+            Index = 4;
             Weight Min = 0;
             Weight Max = 255;
         }

@@ -82,7 +82,7 @@ namespace Spectrum
             soundBank = new SoundBank(audioEngine, "Content\\Audio\\Sound Bank.xsb");
             waveBank = new WaveBank(audioEngine, "Content\\Audio\\Wave Bank.xwb");
 
-            Cue cue = soundBank.GetCue("bg_music");
+            Cue cue = soundBank.GetCue("downer_bg");
             cue.Play();
 
             if (showSplash)

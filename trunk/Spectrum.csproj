@@ -209,7 +209,9 @@
     <None Include="Levels\DodgeDuckDip.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <Content Include="Levels\CloudsKnives.txt" />
+    <Content Include="Levels\CloudsKnives.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Levels\tutorial1.txt" />
     <Content Include="todo.txt" />
     <None Include="Levels\DrEvil.txt">
