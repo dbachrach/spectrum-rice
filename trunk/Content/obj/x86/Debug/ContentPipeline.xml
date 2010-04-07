@@ -529,6 +529,15 @@
       <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\Audio\swoosh.xnb</Output>
       <Time>2010-04-05T14:25:26.151-05:00</Time>
     </Item>
+    <Item>
+      <Source>deadlyclouds.png</Source>
+      <Name>deadlyclouds</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\deadlyclouds.xnb</Output>
+      <Time>2010-04-07T14:03:56.834-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
