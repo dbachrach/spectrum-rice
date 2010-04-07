@@ -14,7 +14,7 @@ namespace Spectrum.Model
             Pickupable = false;
             IsStatic = true;
             ZIndex = 100; // draw below player
-            Scale = 0.5f;
+            Scale = 0.4f;
 
             Events = new List<Event>();
             MakeDeadly(player);
