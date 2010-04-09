@@ -159,18 +159,22 @@ namespace Spectrum.Model
                     {
                         newObject = new Block();
                     }
+                    else if (objType.Equals("ball"))
+                    {
+                        newObject = new Ball();
+                    }
                     else if (objType.Equals("heavy-block"))
                     {
                         newObject = new HeavyBlock();
                     }
-                      /*  
-                    else if (objType.Equals("sensor"))
-                    {
-                        double w = (double)obj["_w"];
-                        double h = (double)obj["_h"];
-                        newObject = new Sensor((int) w, (int) h);
-                    }*/
-                         
+                    /*  
+                  else if (objType.Equals("sensor"))
+                  {
+                      double w = (double)obj["_w"];
+                      double h = (double)obj["_h"];
+                      newObject = new Sensor((int) w, (int) h);
+                  }*/
+
                     else if (objType.Equals("switch"))
                     {
                         newObject = new Switch(player);
@@ -266,6 +270,10 @@ namespace Spectrum.Model
                 if (obj.ContainsKey("static"))
                 {
                     newObject.IsStatic = (bool)obj["static"];
+                }
+                if (obj.ContainsKey("fixed"))
+                {
+                    newObject.IsFixed = (bool)obj["fixed"];
                 }
                 if (obj.ContainsKey("mass"))
                 {

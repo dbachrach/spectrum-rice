@@ -25,6 +25,9 @@ namespace Spectrum.Model
 
     class Player : GameObject
     {
+        // standing still, 
+        //private int[] animationFrameOffset = { 0, 1, 5, 9, 12 };
+        //private int[] animationFrameCount = { 1, 4, 4, 3, 2,};
         
         public int TimesDied { get; set; }
 

@@ -169,6 +169,11 @@ namespace Spectrum.Model
         public bool IsStatic { get; set; }
 
         /// <summary>
+        /// Whether this object has a fixed joint preventing it from rotating
+        /// </summary>
+        public bool IsFixed { get; set; }
+
+        /// <summary>
         /// Size of this object in screen pixels
         /// </summary>
         public Vector2 Size { get; set; }
@@ -230,6 +235,7 @@ namespace Spectrum.Model
 
             Mass = 1;
             IsStatic = false;
+            IsFixed = true;
             InitialBounciness = 0;
             InitialLinearDrag = .001f;
             InitialFriction = .2f;
@@ -351,13 +357,15 @@ namespace Spectrum.Model
                 Mass = float.MaxValue;
             }
 
-            body = BodyFactory.Instance.CreateRectangleBody(Container.Sim, size.X, size.Y, Mass);
+            body = CreateBody(size);
             body.Position = position;
             body.isStatic = isStatic;
             body.LinearDragCoefficient = InitialLinearDrag;
-            
-            joint = JointFactory.Instance.CreateFixedAngleJoint(Container.Sim, body);
 
+            if (IsFixed)
+            {
+                joint = JointFactory.Instance.CreateFixedAngleJoint(Container.Sim, body);
+            }
              //TODO: This is subdivide code. We might need it later
             //float xv = size.X / 2;
             //float yv = size.Y / 2;
@@ -370,7 +378,7 @@ namespace Spectrum.Model
             //geom = new Geom(body, vertices, 0);
             //Container.Sim.Add(geom);
 
-            geom = GeomFactory.Instance.CreateRectangleGeom(Container.Sim, body, size.X, size.Y);
+            geom = CreateGeom(size);
 
             geom.OnCollision += OnCollision;
             geom.OnSeparation += OnSeparation;
@@ -379,6 +387,15 @@ namespace Spectrum.Model
             geom.FrictionCoefficient = InitialFriction;
 
             geom.Tag = this;
+        }
+
+        public virtual Body CreateBody(Vector2 size)
+        {
+            return BodyFactory.Instance.CreateRectangleBody(Container.Sim, size.X, size.Y, Mass);
+        }
+        public virtual Geom CreateGeom(Vector2 size)
+        {
+            return GeomFactory.Instance.CreateRectangleGeom(Container.Sim, body, size.X, size.Y);
         }
 
         //Draw the sprite to the screen

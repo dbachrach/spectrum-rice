@@ -470,8 +470,8 @@ namespace Spectrum.Model
         /// </summary>
         public void ForwardColor()
         {
-            Cue c = GameRef.soundBank.GetCue("swoosh");
-            c.Play();
+            //Cue c = GameRef.soundBank.GetCue("swoosh");
+            //c.Play();
 
             if (colorIndicator.MoveBG)
             {
@@ -498,8 +498,8 @@ namespace Spectrum.Model
         /// </summary>
         public void BackwardColor()
         {
-            Cue c = GameRef.soundBank.GetCue("swoosh");
-            c.Play();
+            //Cue c = GameRef.soundBank.GetCue("swoosh");
+            //c.Play();
 
             if (colorIndicator.MoveBG)
             {
