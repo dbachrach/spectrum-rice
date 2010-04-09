@@ -184,6 +184,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Farseer\Content\Content.contentproj" />
+    <Compile Include="Model\Convenience Objects\Ball.cs" />
     <Compile Include="Model\Convenience Objects\DeadlyCloud.cs" />
     <Compile Include="Model\Convenience Objects\Funnel.cs" />
     <Compile Include="Model\Convenience Objects\HeavyBlock.cs" />
@@ -210,6 +211,9 @@
     <None Include="Levels\DodgeDuckDip.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="Levels\Balls.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Levels\CloudsKnives.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

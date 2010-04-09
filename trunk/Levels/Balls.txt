@@ -1,0 +1,15 @@
+﻿[{"object" : "level","id" : "level","number" : 20,"name" : "Balls!","width" : 1280,"height" : 720,"allowed-colors" : ["all"], "starting-color" : ["blue"], "start-position" : [1100,520] },
+
+{"object" : "ground", "id" : "starting platform", "position" : [0,620], "_w" : 1280, "_h" : 300}
+
+{"object" : "ball", "id" : "b1", "position" : [50, 220], "events" : [
+	{ "type" : "behavior",
+					"actions" : [{
+						"receiver" : "b1",
+						"property" : "force",
+						"type" : "change",
+						"value" : [500,0],
+						"repeats" : true,
+					}]
+	}]}
+]

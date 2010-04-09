@@ -23,6 +23,8 @@ namespace Spectrum.Model
             Tangibility = Colors.AllColors;
             Scale = 0.15f;
 
+            IsFixed = false;
+
             InitialFriction = .8f;
 		}
 

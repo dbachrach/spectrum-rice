@@ -26,6 +26,9 @@ namespace Spectrum.Model
         public Vector2 Origin;
         private string Asset;
 
+        public int FrameOffset;
+
+
         public Vector2 LocalOffset { get; set; }
 
         public int AssetCount { get; set; }
@@ -94,6 +97,15 @@ namespace Spectrum.Model
             Frame = 0;
             TotalElapsed = 0;
             Paused = false;
+        }
+
+        public void SetFrameData(int count, int offset, int fps)
+        {
+            framecount = count;
+            FrameOffset = offset;
+            Frame = 0;
+            TotalElapsed = 0;
+            TimePerFrame = (float)1 / fps;
         }
 
         // class AnimatedTexture
@@ -178,7 +190,8 @@ namespace Spectrum.Model
             {
                 divisor = 0;
             }
-            Rectangle sourcerect = new Rectangle(FrameWidth * Frame, FrameHeight * divisor, FrameWidth, FrameHeight);
+
+            Rectangle sourcerect = new Rectangle(FrameWidth * (Frame + FrameOffset), FrameHeight * divisor, FrameWidth, FrameHeight);
             Batch.Draw(myTexture, screenpos + LocalOffset, sourcerect, Color.White,Rotation, Origin, Scale, drawEffects, Depth);
 
         }

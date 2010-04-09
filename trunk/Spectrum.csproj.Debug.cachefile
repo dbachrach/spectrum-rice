@@ -54,14 +54,16 @@ Content\funnel.xnb
 Content\Audio\aaa.xnb
 Content\Audio\bg_music.xnb
 Content\Audio\splash.xnb
-downer_bg.xnb
+Content\Audio\downer_bg.xnb
 Content\Audio\swoosh.xnb
 Content\deadlyclouds.xnb
+Content\soccer_ball.xnb
 Content\Audio\Media.xgs
 Content\Audio\Wave Bank.xwb
 Content\Audio\Sound Bank.xsb
 Content\Audio\bg_music.wav
 Content\Audio\Media.xap
+Levels\Balls.txt
 Levels\CloudsKnives.txt
 Levels\Switcharoo.txt
 Levels\cloudy.txt
