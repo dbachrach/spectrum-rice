@@ -124,7 +124,7 @@ namespace Spectrum
 
         public void StartGame()
         {
-            LoadLevel(0, true);
+            LoadLevel(5, true);
             Splashed = false;
         }
 

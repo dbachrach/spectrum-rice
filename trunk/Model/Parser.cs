@@ -275,6 +275,11 @@ namespace Spectrum.Model
                 {
                     newObject.IsFixed = (bool)obj["fixed"];
                 }
+                if (obj.ContainsKey("whiteness"))
+                {
+                    newObject.HasBecomeVisibleInAllColors = (bool)obj["whiteness"];
+                    newObject.setVisibility(Colors.AllColors);
+                }
                 if (obj.ContainsKey("mass"))
                 {
                     newObject.Mass = (float)(double)obj["mass"];
