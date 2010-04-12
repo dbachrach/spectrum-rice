@@ -1,14 +1,36 @@
-﻿[{"object" : "level","id" : "level","number" : 20,"name" : "Balls!","width" : 1280,"height" : 720,"allowed-colors" : ["all"], "starting-color" : ["blue"], "start-position" : [1100,520] },
+﻿[{"object" : "level","id" : "level","number" : 20,"name" : "Balls!","width" : 1280,"height" : 720,"allowed-colors" : ["blue", "green"], "starting-color" : ["green"], "start-position" : [1000,520] },
 
-{"object" : "ground", "id" : "starting platform", "position" : [0,620], "_w" : 1280, "_h" : 300}
+{"object" : "ground", "id" : "starting platform", "position" : [0,620], "_w" : 1110, "_h" : 300}
+{"object" : "door", "id" : "door", "position" : [25, 520]}
 
-{"object" : "ball", "id" : "b1", "position" : [50, 220], "events" : [
+{"object" : "ball", "id" : "b1", "position" : [50, 520], "colors" :["blue"], "scale" : 0.4, "events" : [
 	{ "type" : "behavior",
 					"actions" : [{
 						"receiver" : "b1",
 						"property" : "force",
 						"type" : "change",
-						"value" : [500,0],
+						"value" : [300,0],
+						"repeats" : true,
+					}]
+	}]}
+{"object" : "ball", "id" : "b2", "position" : [350, 520], "colors" :["green"], "scale" : 0.4, "events" : [
+	{ "type" : "behavior",
+					"actions" : [{
+						"receiver" : "b2",
+						"property" : "force",
+						"type" : "change",
+						"value" : [300,0],
+						"repeats" : true,
+					}]
+	}]}
+	
+{"object" : "ball", "id" : "b3", "position" : [0, 520], "colors" :["green", "blue"], "scale" : 0.15, "events" : [
+	{ "type" : "behavior",
+					"actions" : [{
+						"receiver" : "b3",
+						"property" : "force",
+						"type" : "change",
+						"value" : [300,0],
 						"repeats" : true,
 					}]
 	}]}

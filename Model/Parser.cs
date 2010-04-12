@@ -346,6 +346,27 @@ namespace Spectrum.Model
                 {
                     newObject.SuperJumpable = (bool)obj["superjumpable"];
                 }
+                if (obj.ContainsKey("direction"))
+                {
+                    string dir = (string)obj["direction"];
+                    if (dir.Equals("right"))
+                    {
+                        newObject.DirectionFacing = Direction.Right;
+                    }
+                    else if (dir.Equals("left"))
+                    {
+                        newObject.DirectionFacing = Direction.Left;
+                    }
+                    else if (dir.Equals("up"))
+                    {
+                        newObject.DirectionFacing = Direction.Up;
+                    }
+                    else if (dir.Equals("down"))
+                    {
+                        newObject.DirectionFacing = Direction.Down;
+                    }
+
+                }
             }
 
             level.GameObjects.Sort();
