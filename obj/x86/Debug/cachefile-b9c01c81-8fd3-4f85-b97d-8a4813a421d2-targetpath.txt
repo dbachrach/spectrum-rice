@@ -51,12 +51,13 @@ Content\arrow.xnb
 Content\funnel-bg.xnb
 Content\funnel-indicator.xnb
 Content\funnel.xnb
+Content\deadlyclouds.xnb
+Content\soccer_ball.xnb
 Content\Audio\aaa.xnb
 Content\Audio\bg_music.xnb
 Content\Audio\splash.xnb
-downer_bg.xnb
+Content\Audio\downer_bg.xnb
 Content\Audio\swoosh.xnb
-Content\deadlyclouds.xnb
 Content\Audio\Media.xgs
 Content\Audio\Wave Bank.xwb
 Content\Audio\Sound Bank.xsb

@@ -205,9 +205,11 @@ U:\comp410\bin\x86\Debug\Content\Audio\downer_bg.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\funnel-indicator.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\funnel.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\Audio\swoosh.xnb
-\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\downer_bg.xnb
 \\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\deadlyclouds.xnb
 U:\comp410\bin\x86\Debug\Content\Audio\swoosh.xnb
 U:\comp410\bin\x86\Debug\Content\deadlyclouds.xnb
 U:\comp410\bin\x86\Debug\Content\soccer_ball.xnb
 U:\comp410\bin\x86\Debug\Levels\Balls.txt
+\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Levels\Balls.txt
+\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\soccer_ball.xnb
+\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\Audio\downer_bg.xnb

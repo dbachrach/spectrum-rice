@@ -34,19 +34,90 @@
 					}]
 				}]},
 				
-{"object" : "deadlycloud","id" : "cloud3","colors" : ["blue","green"],"position" : [3325, 450]
+{"object" : "deadlycloud","id" : "circlecloud","colors" : ["blue","green"],"position" : [3325, 450]
 				"events" : [{ "type" : "behavior",
 					"actions" : [{
-						"receiver" : "cloud3",
+						"receiver" : "circlecloud",
 						"property" : "position",
 						"type" : "animation",
-						"value" : [[3325,450],[3330,453],[3335,460],[3337,465],[3335,470],[3330,477],[3325,480],[3320,477],[3315,470],[3313,465],[3315,460],[3320,453
-					
-					]],
+						"value" : [[3325,442],[3330,445],[3335,452],[3337,458],[3335,462],[3330,469],[3325,472],[3320,469],[3315,462],[3313,457],[3315,452],[3320,445]],
 						"speed" : 1,
 						"repeats" : true,
 					}]
 				}]},
 				
 {"object" : "platform","id" : "plat-2","colors" : ["blue"], "_w" : 300, "position" : [3125, 820]},
+
+{"object" : "platform","id" : "end-plat-1","colors" : ["blue"], "_w" : 220, "position" : [2825, 820], "whiteness" : true},
+{"object" : "platform","id" : "plat-3","colors" : ["green"], "_w" : 220, "position" : [2700, 820]},
+{"object" : "platform","id" : "plat-4","colors" : ["blue"], "_w" : 220, "position" : [2575, 820]},
+{"object" : "platform","id" : "plat-5","colors" : ["green"], "_w" : 220, "position" : [2450, 820]},
+{"object" : "platform","id" : "plat-6","colors" : ["blue"], "_w" : 220, "position" : [2325, 820]},
+{"object" : "platform","id" : "plat-7","colors" : ["green"], "_w" : 220, "position" : [2200, 820]},
+{"object" : "platform","id" : "plat-8","colors" : ["blue"], "_w" : 220, "position" : [2075, 820]},
+{"object" : "platform","id" : "end-plat-2","colors" : ["blue"], "_w" : 220, "position" : [1950, 820], "whiteness" : true},
+
+{"object" : "deadlycloud","id" : "nojumpcloud1","colors" : ["blue","green"],"position" : [2715, 540], "static" : true,
+				"events" : [{ "type" : "behavior",
+					"actions" : [{
+						"receiver" : "nojumpcloud1",
+						"property" : "position",
+						"type" : "animation",
+						"value" : [[2705,540],[2025,540]],
+						"speed" : 2,
+						"repeats" : true,
+					}]
+				}]},
+
+{"object" : "deadlycloud","id" : "nojumpcloud2","colors" : ["blue","green"],"position" : [2025, 545], "static" : true,
+				"events" : [{ "type" : "behavior",
+					"actions" : [{
+						"receiver" : "nojumpcloud2",
+						"property" : "position",
+						"type" : "animation",
+						"value" : [[2025,545],[2705,545]],
+						"speed" : 2,
+						"repeats" : true,
+					}]
+				}]},
+				
+{"object" : "deadlycloud","id" : "nojumpcloud3","colors" : ["blue","green"],"position" : [2350, 535], "static" : true,
+				"events" : [{ "type" : "behavior",
+					"actions" : [{
+						"receiver" : "nojumpcloud3",
+						"property" : "position",
+						"type" : "animation",
+						"value" : [[2350, 535], [2025,535],[2705,535]],
+						"speed" : 2,
+						"repeats" : true,
+					}]
+				}]},
+				
+{"object" : "deadlycloud","id" : "nojumpcloud4","colors" : ["blue","green"],"position" : [2350, 550], "static" : true,
+				"events" : [{ "type" : "behavior",
+					"actions" : [{
+						"receiver" : "nojumpcloud4",
+						"property" : "position",
+						"type" : "animation",
+						"value" : [[2350, 550], [2705,550],[2025,550]],
+						"speed" : 2,
+						"repeats" : true,
+					}]
+				}]},
+				
+{"object" : "deadlycloud","id" : "pushcloud1","colors" : ["blue","green"],"position" : [2075, 400], "static" : true, "zindex" : -200,
+				"events" : [{ "type" : "behavior",
+					"actions" : [{
+						"receiver" : "pushcloud1",
+						"property" : "position",
+						"type" : "animation",
+						"value" : [[2075, 400], [2680,400],[2680,700],[2075,700]],
+						"speed" : 6,
+						"repeats" : true,
+					}]
+				}]},
+				
+
+				
+				
 ]
