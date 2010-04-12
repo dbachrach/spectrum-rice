@@ -547,6 +547,15 @@
       <Output>U:\comp410\bin\x86\Debug\Content\soccer_ball.xnb</Output>
       <Time>2010-04-09T12:45:53.774-05:00</Time>
     </Item>
+    <Item>
+      <Source>shark.png</Source>
+      <Name>shark</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>U:\comp410\bin\x86\Debug\Content\shark.xnb</Output>
+      <Time>2010-04-12T13:37:51.493-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

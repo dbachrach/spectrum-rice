@@ -41,7 +41,7 @@
 			"property" : "position",
 			"type" : "animation",
 			"value" : [[-233, 600],[137,600]],
-			"speed" : 2,
+			"speed" : 3,
 			"repeats" : true,
 			"repeat-count" : -999
 		}]
@@ -55,7 +55,7 @@
 			"property" : "position",
 			"type" : "animation",
 			"value" : [[240, 600],[610,600]],
-			"speed" : 2,
+			"speed" : 3,
 			"repeats" : true,
 			"repeat-count" : -999
 		}]
@@ -69,7 +69,7 @@
 			"property" : "position",
 			"type" : "animation",
 			"value" : [[713, 600],[1083,600]],
-			"speed" : 2,
+			"speed" : 3,
 			"repeats" : true,
 			"repeat-count" : -999
 		}]
@@ -84,7 +84,7 @@
 			"property" : "position",
 			"type" : "animation",
 			"value" : [[-233, 560],[137,560]],
-			"speed" : 1,
+			"speed" : 4,
 			"repeats" : true,
 			"repeat-count" : -999
 		}]
@@ -98,7 +98,7 @@
 			"property" : "position",
 			"type" : "animation",
 			"value" : [[240, 560],[610,560]],
-			"speed" : 1,
+			"speed" : 4,
 			"repeats" : true,
 			"repeat-count" : -999
 		}]
@@ -112,50 +112,50 @@
 			"property" : "position",
 			"type" : "animation",
 			"value" : [[713, 560],[1083,560]],
-			"speed" : 1,
+			"speed" : 4,
 			"repeats" : true,
 			"repeat-count" : -999
 		}]
 	}]
 },
 
-{"object" : "game-object", "id" : "water3a", "colors" : ["all"], "position" : [-233,520], "static": true, "zindex" : 75,
+{"object" : "game-object", "id" : "water3a", "colors" : ["all"], "position" : [-253,520], "static": true, "zindex" : 75,
 	"image" : "water", "scale" : 0.8, "player-tangibility" : ["none"], "tangibility" : ["none"],
 	"events" : [{ "type" : "behavior",
 		"actions" : [{
 			"receiver" : "water3a",
 			"property" : "position",
 			"type" : "animation",
-			"value" : [[-233, 520],[137,520]],
-			"speed" : 3,
+			"value" : [[-253, 520],[117,520]],
+			"speed" : 2,
 			"repeats" : true,
 			"repeat-count" : -999
 		}]
 	}]
 },
-{"object" : "game-object", "id" : "water3b", "colors" : ["all"], "position" : [240,520], "static": true, "zindex" : 75,
+{"object" : "game-object", "id" : "water3b", "colors" : ["all"], "position" : [220,520], "static": true, "zindex" : 75,
 	"image" : "water", "scale" : 0.8, "player-tangibility" : ["none"], "tangibility" : ["none"],
 	"events" : [{ "type" : "behavior",
 		"actions" : [{
 			"receiver" : "water3b",
 			"property" : "position",
 			"type" : "animation",
-			"value" : [[240, 520],[610,520]],
-			"speed" : 3,
+			"value" : [[220, 520],[590,520]],
+			"speed" : 2,
 			"repeats" : true,
 			"repeat-count" : -999
 		}]
 	}]
 },
-{"object" : "game-object", "id" : "water3c", "colors" : ["all"], "position" : [713,520], "static": true, "zindex" : 75,
+{"object" : "game-object", "id" : "water3c", "colors" : ["all"], "position" : [693,520], "static": true, "zindex" : 75,
 	"image" : "water", "scale" : 0.8, "player-tangibility" : ["none"], "tangibility" : ["none"],
 	"events" : [{ "type" : "behavior",
 		"actions" : [{
 			"receiver" : "water3c",
 			"property" : "position",
 			"type" : "animation",
-			"value" : [[713, 520],[1083,520]],
-			"speed" : 3,
+			"value" : [[693, 520],[1062,520]],
+			"speed" : 2,
 			"repeats" : true,
 			"repeat-count" : -999
 		}]
@@ -164,4 +164,35 @@
 
 
 
-]
+
+
+{"object" : "game-object", "id" : "shark", "position" : [920,610], "image" : "shark", "scale" : 0.15, "static" : true,
+	"zindex" : 55, "player-tangibility" : ["none"], "tangibility" : ["none"],
+	"events" : [{ "type" : "behavior",
+		"actions" : [{
+			"receiver" : "shark",
+			"property" : "position",
+			"type" : "animation",
+			"value" : [[920, 610], [620, 545], [450,545], [150, 610]], 
+			"speed" : 3,
+			"repeats" : true,
+			"repeat-count" : -999
+		}]
+	}]
+}
+
+{"object" : "game-object", "id" : "shark2", "position" : [150,670], "image" : "shark", "scale" : 0.15, "static" : true,
+	"zindex" : -55, "player-tangibility" : ["none"], "tangibility" : ["none"], "direction" : "left",
+	"events" : [{ "type" : "behavior",
+		"actions" : [{
+			"receiver" : "shark2",
+			"property" : "position",
+			"type" : "animation",
+			"value" : [[150,655],[450, 590], [620, 590], [920, 670]],
+			"speed" : 3,
+			"repeats" : true,
+			"repeat-count" : -999,
+			"delay" : 230
+		}]
+	}]
+}]

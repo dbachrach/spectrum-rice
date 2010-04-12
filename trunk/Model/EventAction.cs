@@ -216,7 +216,6 @@ namespace Spectrum.Model
                     case ActionType.Change:
                         ArrayList vals = (ArrayList)Value;
                         Vector2 vec = new Vector2((float)((double)vals[0]), (float)((double)vals[1]));
-                        Console.WriteLine("Vector behav: {0}", vec);
                         Receiver.body.ApplyImpulse(vec);
 
                         break;
