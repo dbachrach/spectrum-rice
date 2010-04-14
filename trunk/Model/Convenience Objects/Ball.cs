@@ -25,7 +25,7 @@ namespace Spectrum.Model
         public Ball()
             : base()
         {
-            ImageNames = new List<string>() { "soccer_ball" };
+            ImageNames = new List<string>() { "ball" };
             Mass = 100;
             Tangibility = Colors.AllColors;
             Scale = 0.15f;
@@ -44,6 +44,24 @@ namespace Spectrum.Model
         {
             //return GeomFactory.Instance.CreateRectangleGeom(Container.Sim, body, size.X, size.Y);
             return GeomFactory.Instance.CreateCircleGeom(Container.Sim, body, size.X / 2, 25);
+        }
+
+        public override void Update(GameTime theGameTime)
+        {
+            base.Update(theGameTime);
+
+            Console.WriteLine("ball at " + this.body.position);
+        }
+    }
+
+    class DeadlyBall : Ball
+    {
+        public DeadlyBall(Player player)
+            : base()
+        {
+            ImageNames = new List<string>() { "deadlyball" };
+
+            MakeDeadly(player);
         }
     }
 }
