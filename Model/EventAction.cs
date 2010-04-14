@@ -231,6 +231,18 @@ namespace Spectrum.Model
                         break;
                 }
             }
+            else if (Property.Equals("static"))
+            {
+                switch (Type)
+                {
+                    case ActionType.Change:
+                        Console.WriteLine("static is false");
+                        Receiver.IsStatic = (bool)Value;
+                        Receiver.body.IsStatic = (bool)Value;
+
+                        break;
+                }
+            }
         }
     }
 }

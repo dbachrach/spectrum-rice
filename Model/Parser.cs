@@ -163,6 +163,10 @@ namespace Spectrum.Model
                     {
                         newObject = new Ball();
                     }
+                    else if (objType.Equals("deadlyball"))
+                    {
+                        newObject = new DeadlyBall(player);
+                    }
                     else if (objType.Equals("heavy-block"))
                     {
                         newObject = new HeavyBlock();
