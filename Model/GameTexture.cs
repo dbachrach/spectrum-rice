@@ -83,11 +83,10 @@ namespace Spectrum.Model
             {
                 // TODO: Get all images to have the white space at the bottom so that we don't need these special cases
                 if (asset.Equals("pl"))
-                {
-                    
+                {  
                     AssetCount = 6;
                 }
-                Console.WriteLine("Asset: " + AssetCount);
+
                 myTexture = content.Load<Texture2D>(asset);
             }
 

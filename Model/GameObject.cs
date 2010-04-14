@@ -532,7 +532,6 @@ namespace Spectrum.Model
                 {
                     if (e.Type == EventType.Behavior)
                     {
-                        Console.WriteLine("Executing behavior {0}", e);
                         e.Execute(Container.DeferFuture);
                         toDelete.Add(e);
                     }
