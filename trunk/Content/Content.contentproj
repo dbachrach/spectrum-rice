@@ -399,15 +399,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="soccer_ball.png">
-      <Name>soccer_ball</Name>
+    <Compile Include="shark.png">
+      <Name>shark</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="shark.png">
-      <Name>shark</Name>
+    <Compile Include="soccer_ball.png">
+      <Name>soccer_ball</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

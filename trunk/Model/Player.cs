@@ -48,16 +48,23 @@ namespace Spectrum.Model
         public bool BlockLeft { get; set; }
         public bool BlockRight { get; set; }
 
+        private const float xboxConstant = 0.6f;
         private const float _speed = 80;
         private const float _hops = -900;
         private Vector2 moveLeft = new Vector2(-_speed, 0);
         private Vector2 moveRight = new Vector2(_speed, 0);
         private Vector2 moveLeftAir = new Vector2(-_speed / 10, 0);
         private Vector2 moveRightAir = new Vector2(_speed / 10, 0);
+
+        private Vector2 moveLeftX = new Vector2(-_speed * xboxConstant, 0);
+        private Vector2 moveRightX = new Vector2(_speed * xboxConstant, 0);
+        private Vector2 moveLeftAirX = new Vector2(-_speed * xboxConstant / 10, 0);
+        private Vector2 moveRightAirX = new Vector2(_speed * xboxConstant / 10, 0);
+
         private Vector2 jumpUp = new Vector2(0, _hops);
         private float superJumpFactor = 1.75f;
 
-        private const float velocityCap = 750;
+        private float velocityCap = 750;
 
         private const int JumpAmount = 25;
 
@@ -122,6 +129,8 @@ namespace Spectrum.Model
                 Possession.Update(theGameTime);
             }
 
+            // limit the user's movement a bit for the faster xbox frame rate
+            velocityCap = Globals.IsUsingXboxController() ? 600 : 750; 
             if (body.LinearVelocity.X > velocityCap)
             {
                 body.LinearVelocity.X = velocityCap;
@@ -148,7 +157,8 @@ namespace Spectrum.Model
                 if (!BlockLeft)
                 {
                     /* Chooses a horizontal vector that is adjusted either for moving on the ground or in the air */
-                    this.body.ApplyImpulse((IsTouchingGround) ? moveLeft : moveLeftAir);
+                    this.body.ApplyImpulse(Globals.IsUsingXboxController() ? ((IsTouchingGround) ? moveLeftX : moveLeftAirX)
+                        : ((IsTouchingGround) ? moveLeft : moveLeftAir));
                     //this.geom.FrictionCoefficient = 0.5f;
                 }
 
@@ -159,8 +169,9 @@ namespace Spectrum.Model
                 if (!BlockRight)
                 {
                     /* Chooses a horizontal vector that is adjusted either for moving on the ground or in the air */
-                    this.body.ApplyImpulse((IsTouchingGround) ? moveRight : moveRightAir);
-                    //this.geom.FrictionCoefficient = 0.5f;
+                    this.body.ApplyImpulse(Globals.IsUsingXboxController() ? ((IsTouchingGround) ? moveRightX : moveRightAirX)
+    : ((IsTouchingGround) ? moveRight : moveRightAir));
+                    
                 }
 
                 d = Direction.Right;

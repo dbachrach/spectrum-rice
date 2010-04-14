@@ -74,11 +74,10 @@ namespace Spectrum.Model
             return (!Keyboard.IsKeyDown(key) && PreviousKeyboard.IsKeyDown(key)) || (!Gamepad.IsButtonDown(button) && PreviousGamepad.IsButtonDown(button));
         }
 
-
-
-
-
-       
+        public static bool IsUsingXboxController()
+        {
+            return Gamepad.IsConnected;
+        }
 
         public static DepthStencilBuffer CreateDepthStencil(RenderTarget2D target)
         {
