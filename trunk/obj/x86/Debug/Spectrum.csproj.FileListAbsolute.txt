@@ -218,3 +218,4 @@ U:\comp410\bin\x86\Debug\Content\shark.xnb
 U:\comp410\bin\x86\Debug\Content\ball.xnb
 U:\comp410\bin\x86\Debug\Content\sign_run.xnb
 U:\comp410\bin\x86\Debug\Content\deadlyball.xnb
+U:\comp410\bin\x86\Debug\Content\poof.xnb
