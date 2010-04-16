@@ -17,7 +17,7 @@
 						"property" : "position",
 						"type" : "animation",
 						"value" : [[3525,200],[3525,670]],
-						"speed" : 6,
+						"speed" : 5.25,
 						"repeats" : true,
 					}]
 				}]},
@@ -29,7 +29,7 @@
 						"property" : "position",
 						"type" : "animation",
 						"value" : [[3525,670],[3525,200]],
-						"speed" : 6,
+						"speed" : 5.25,
 						"repeats" : true,
 					}]
 				}]},
@@ -48,6 +48,7 @@
 				
 {"object" : "platform","id" : "plat-2","colors" : ["blue"], "_w" : 300, "position" : [3125, 820]},
 
+{"object" : "game-object", "id" : "run-sign", "image" : "sign_run", "scale" : 0.25, "position" : [2875, 740], "static" : true, "player-tangibility" : ["none"], "zindex" : 400 },
 {"object" : "platform","id" : "end-plat-1","colors" : ["blue"], "_w" : 220, "position" : [2825, 820], "whiteness" : true},
 {"object" : "platform","id" : "plat-3","colors" : ["green"], "_w" : 220, "position" : [2700, 820]},
 {"object" : "platform","id" : "plat-4","colors" : ["blue"], "_w" : 220, "position" : [2575, 820]},
