@@ -438,7 +438,7 @@ namespace Spectrum.Model
         public void LoseLevel()
         {
             // TODO: Show Death Page
-            Container.Restart();
+            Container.LoseLevel();
         }
     }
 }

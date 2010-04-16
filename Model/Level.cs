@@ -137,6 +137,10 @@ namespace Spectrum.Model
 
         public GameTime CurrentTime { get; set; }
 
+        GameObject poofImage;
+
+        int deathCountdown;
+
 		/* Default Constructor */
         /// <summary>
         /// Creates a default level. Also creates the physics simulator for the level.
@@ -178,6 +182,20 @@ namespace Spectrum.Model
             DeferFuture = new List<EventAction>();
 
             CameraPosition = Vector2.Zero;
+
+            poofImage = new GameObject();
+            poofImage.Id = "poof";
+            poofImage.FrameCount = 7;
+            poofImage.FramesPerSec = 14;
+            poofImage.ImageNames = new List<string>() { "poof" };
+            poofImage.IsStatic = true;
+            poofImage.OriginalPosition = new Vector2(-500,-500);
+            poofImage.Scale = .4f;
+            poofImage.Container = this;
+            
+            AddGameObject(poofImage);
+
+            deathCountdown = -1;
 		}
 
         /// <summary>
@@ -288,6 +306,17 @@ namespace Spectrum.Model
         public void Restart()
         {
             GameRef.Restart();
+        }
+
+        public void LoseLevel()
+        {
+            // show poof
+            deathCountdown = 3;
+
+            poofImage.body.position = player.body.position;
+            poofImage.Textures[0].Play();
+
+            // delay restart
         }
 
         public void LoadContent(ContentManager manager, GraphicsDevice graphicsDevice)

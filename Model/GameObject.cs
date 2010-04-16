@@ -27,7 +27,7 @@ namespace Spectrum.Model
     class GameObject : IComparable<GameObject>
     {
         // instance variables
-        protected List<GameTexture> Textures;
+        public List<GameTexture> Textures;
 
         /// <summary>
         /// String reference to this object
