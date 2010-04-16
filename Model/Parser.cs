@@ -52,6 +52,19 @@ namespace Spectrum.Model
                     level.Width = (double)obj["width"];
                     level.Height = (double)obj["height"];
 
+                    if (obj.ContainsKey("has-hint"))
+                    {
+                        level.HasHint = (bool)obj["has-hint"];
+                    }
+                    if (obj.ContainsKey("hint-obj"))
+                    {
+                        level.HintName = (string)obj["hint-obj"];
+                    }
+                    if (obj.ContainsKey("hint-delay"))
+                    {
+                        level.HintDelay = (int)(double)obj["hint-delay"];
+                    }
+
                     ArrayList positionJson = (ArrayList)obj["start-position"];
                     level.StartPosition = new Vector2((float)((double)positionJson[0]), (float)((double)positionJson[1]));
 
@@ -199,6 +212,10 @@ namespace Spectrum.Model
                     {
                         newObject = new DeadlyCloud(player);
                     }
+                    else if (objType.Equals("hint"))
+                    {
+                        newObject = new Hint();
+                    }
 
                     /* Set properties */
                     if (obj.ContainsKey("id"))
@@ -227,6 +244,11 @@ namespace Spectrum.Model
                 }
 
                 GameObject newObject = level.GameObjectForId(objID);
+
+                if (level.HasHint && objID == level.HintName)
+                {
+                    level.HintObject = newObject;
+                }
 
                 if (obj.ContainsKey("colors"))
                 {

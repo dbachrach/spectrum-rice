@@ -1,4 +1,4 @@
-﻿[{"object" : "level","id" : "level","number" : 5,"name" : "Clouds Run Faster With Knives","width" : 3840,"height" : 1080,"allowed-colors" : ["green","blue"], "starting-color" : ["blue"], "start-position" : [3750,520] },
+﻿[{"object" : "level","id" : "level","number" : 5,"name" : "Clouds Run Faster With Knives","width" : 3840,"height" : 1080,"allowed-colors" : ["green","blue"], "starting-color" : ["blue"], "start-position" : [2825, 720] },
 
 {"object" : "ground", "id" : "starting platform", "position" : [3700,620], "_w" : 140, "_h" : 50},
 {"object" : "platform","id" : "below-start","colors" : ["green"], "_w" : 325, "position" : [3525, 820]},
@@ -112,13 +112,13 @@
 						"receiver" : "pushcloud1",
 						"property" : "position",
 						"type" : "animation",
-						"value" : [[2075, 400], [2680,400],[2680,700],[2075,700]],
+						"value" : [[1975, 400], [2680,400],[2680,700],[1975,700]],
 						"speed" : 6,
 						"repeats" : true,
 					}]
 				}]},
 				
+{"object" : "platform","id" : "endplat","colors" : ["blue"], "_w" : 440, "position" : [1500, 920], "whiteness" : true},
+{"object" : "door", "id" : "door", "position" : [1550, 820]}
 
-				
-				
 ]

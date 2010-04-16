@@ -137,6 +137,11 @@ namespace Spectrum.Model
 
         public GameTime CurrentTime { get; set; }
 
+        public bool HasHint { get; set; }
+        public GameObject HintObject { get; set; }
+        public int HintDelay { get; set; }
+        public string HintName { get; set; }
+
         GameObject poofImage;
 
         int deathCountdown;
@@ -182,6 +187,9 @@ namespace Spectrum.Model
             DeferFuture = new List<EventAction>();
 
             CameraPosition = Vector2.Zero;
+
+            HasHint = false;
+            HintDelay = -1;
 
             poofImage = new GameObject();
             poofImage.Id = "poof";
@@ -399,6 +407,15 @@ namespace Spectrum.Model
             foreach (GameObject obj in GameObjects)
             {
                 obj.Update(gameTime);
+            }
+
+            if (HasHint && HintDelay > 0)
+            {
+                HintDelay--;
+                if (HintDelay == 0)
+                {
+                    HintObject.Visibility = Colors.AllColors;
+                }
             }
 
             colorIndicator.Update(gameTime);

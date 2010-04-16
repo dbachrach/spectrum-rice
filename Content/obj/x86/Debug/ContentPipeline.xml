@@ -556,6 +556,42 @@
       <Output>U:\comp410\bin\x86\Debug\Content\shark.xnb</Output>
       <Time>2010-04-12T15:46:23.898-05:00</Time>
     </Item>
+    <Item>
+      <Source>ball.png</Source>
+      <Name>ball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\ball.xnb</Output>
+      <Time>2010-04-16T14:11:52.532-05:00</Time>
+    </Item>
+    <Item>
+      <Source>sign_run.png</Source>
+      <Name>sign_run</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\sign_run.xnb</Output>
+      <Time>2010-04-16T14:11:52.639-05:00</Time>
+    </Item>
+    <Item>
+      <Source>deadlyball.png</Source>
+      <Name>deadlyball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\deadlyball.xnb</Output>
+      <Time>2010-04-16T14:11:52.764-05:00</Time>
+    </Item>
+    <Item>
+      <Source>poof.png</Source>
+      <Name>poof</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\poof.xnb</Output>
+      <Time>2010-04-16T15:15:46.813-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
