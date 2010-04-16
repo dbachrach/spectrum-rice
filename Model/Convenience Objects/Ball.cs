@@ -27,7 +27,7 @@ namespace Spectrum.Model
         {
             ImageNames = new List<string>() { "ball" };
             Mass = 100;
-            Tangibility = Colors.AllColors;
+            //Tangibility = Colors.AllColors;
             Scale = 0.15f;
 
             IsFixed = false;

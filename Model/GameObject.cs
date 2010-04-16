@@ -636,9 +636,13 @@ namespace Spectrum.Model
                 didHit = false;
             }
 
+            if (o1 is Ball && o2 is Ball)
+            {
+                didHit = false;
+            }
+
             if (didHit == true)
             {
-
                 /* Overriding checks on collision */
                 if (o1.CombinableWith.Contains(o2) || o2.CombinableWith.Contains(o1))
                 {
