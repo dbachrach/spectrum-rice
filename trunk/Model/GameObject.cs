@@ -411,6 +411,10 @@ namespace Spectrum.Model
                 Colors col = Container.CurrentColor;
                 if (Container.allColorsMode())
                 {
+                    if (this is Hint && !Container.HintActive)
+                    {
+                        return;
+                    }
                     col = this.Visibility;
                 }
 

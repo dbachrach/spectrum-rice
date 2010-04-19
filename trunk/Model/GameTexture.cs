@@ -145,7 +145,6 @@ namespace Spectrum.Model
 
         public void DrawFrame(SpriteBatch Batch, int Frame, Colors color, Vector2 screenpos, SpriteEffects drawEffects, bool whiteMode)
         {
-
             int FrameWidth = myTexture.Width / framecount;
 
             int divisor = 0;
@@ -178,7 +177,10 @@ namespace Spectrum.Model
             {
                 divisor = 5;
             }
-
+            else if (AssetCount == 7)
+            {
+                divisor = 6;
+            }
 
 
             int FrameHeight = myTexture.Height / AssetCount;
