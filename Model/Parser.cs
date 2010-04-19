@@ -65,6 +65,11 @@ namespace Spectrum.Model
                         level.HintDelay = (int)(double)obj["hint-delay"];
                     }
 
+                    if (obj.ContainsKey("start-left"))
+                    {
+                        level.StartLeft = (bool)obj["start-left"];
+                    }
+
                     ArrayList positionJson = (ArrayList)obj["start-position"];
                     level.StartPosition = new Vector2((float)((double)positionJson[0]), (float)((double)positionJson[1]));
 
@@ -90,6 +95,7 @@ namespace Spectrum.Model
             player.Container = level;
             Console.WriteLine("Start position {0},{1}", level.StartPosition.X, level.StartPosition.Y);
             player.OriginalPosition = level.StartPosition;
+            player.DirectionFacing = level.StartLeft ? Direction.Left : Direction.Right;
             level.AddPlayer(player);
 
             int borderWidth = 150;

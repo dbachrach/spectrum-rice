@@ -1,4 +1,4 @@
-﻿[{"object" : "level","id" : "level","number" : 5,"name" : "Clouds Run Faster With Knives","width" : 3840,"height" : 1080,"allowed-colors" : ["green","blue"], "starting-color" : ["blue"], "start-position" : [2825, 720] },
+﻿[{"object" : "level","id" : "level","number" : 5,"name" : "Clouds Run Faster With Knives","width" : 3840,"height" : 1080,"allowed-colors" : ["green","blue"], "starting-color" : ["blue"], "start-position" : [3750, 520], "start-left" : true },
 
 {"object" : "ground", "id" : "starting platform", "position" : [3700,620], "_w" : 140, "_h" : 50},
 {"object" : "platform","id" : "below-start","colors" : ["green"], "_w" : 325, "position" : [3525, 820]},

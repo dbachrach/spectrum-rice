@@ -79,6 +79,8 @@ namespace Spectrum.Model
         /// </summary>
         public Vector2 StartPosition { get; set; }
 
+        public bool StartLeft { get; set; }
+
         /// <summary>
         /// Colors this level can be viewed in
         /// </summary>
@@ -202,6 +204,9 @@ namespace Spectrum.Model
             poofImage.OriginalPosition = new Vector2(-500,-500);
             poofImage.Scale = .4f;
             poofImage.Container = this;
+
+            // whether the player starts out facing left
+            StartLeft = false;
             
             AddGameObject(poofImage);
 
