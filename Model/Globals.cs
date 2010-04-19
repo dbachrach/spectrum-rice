@@ -79,6 +79,11 @@ namespace Spectrum.Model
             return Gamepad.IsConnected;
         }
 
+        public static float GetLateralVector()
+        {
+            return Gamepad.ThumbSticks.Left.X + Gamepad.ThumbSticks.Right.X;
+        }
+
         public static DepthStencilBuffer CreateDepthStencil(RenderTarget2D target)
         {
             return new DepthStencilBuffer(target.GraphicsDevice, target.Width,

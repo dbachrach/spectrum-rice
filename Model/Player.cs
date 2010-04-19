@@ -157,7 +157,7 @@ namespace Spectrum.Model
                 if (!BlockLeft)
                 {
                     /* Chooses a horizontal vector that is adjusted either for moving on the ground or in the air */
-                    this.body.ApplyImpulse(Globals.IsUsingXboxController() ? ((IsTouchingGround) ? moveLeftX : moveLeftAirX)
+                    this.body.ApplyImpulse(Globals.IsUsingXboxController() ? Math.Abs(Globals.GetLateralVector()) * ((IsTouchingGround) ? moveLeftX : moveLeftAirX)
                         : ((IsTouchingGround) ? moveLeft : moveLeftAir));
                     //this.geom.FrictionCoefficient = 0.5f;
                 }
@@ -169,7 +169,7 @@ namespace Spectrum.Model
                 if (!BlockRight)
                 {
                     /* Chooses a horizontal vector that is adjusted either for moving on the ground or in the air */
-                    this.body.ApplyImpulse(Globals.IsUsingXboxController() ? ((IsTouchingGround) ? moveRightX : moveRightAirX)
+                    this.body.ApplyImpulse(Globals.IsUsingXboxController() ? Math.Abs(Globals.GetLateralVector()) * ((IsTouchingGround) ? moveRightX : moveRightAirX)
     : ((IsTouchingGround) ? moveRight : moveRightAir));
                     
                 }
