@@ -30,7 +30,7 @@ namespace Spectrum.View
             Color baseColor = Color.White;
             Color selectedColor = Color.Red;
 
-            MenuItem m1 = new MenuItem(Globals.ResumeMenuItem, Globals.ResumeMenuItem, font, new Vector2(350f, 150f), baseColor, selectedColor, false);
+            MenuItem m1 = new MenuItem(Globals.ResumeMenuItem, Globals.ResumeMenuItem, font, new Vector2(350f, 100f), baseColor, selectedColor, false);
             m1.Clicked += delegate()
             {
                 game.Paused = false;
@@ -38,7 +38,7 @@ namespace Spectrum.View
             };
             menuItems.Add(m1);
 
-            MenuItem m2 = new MenuItem(Globals.RestartMenuItem, Globals.RestartMenuItem, font, new Vector2(350f, 200f), baseColor, selectedColor, false);
+            MenuItem m2 = new MenuItem(Globals.RestartMenuItem, Globals.RestartMenuItem, font, new Vector2(350f, 150f), baseColor, selectedColor, false);
             m2.Clicked += delegate()
             {
                 game.Restart();
@@ -47,18 +47,18 @@ namespace Spectrum.View
             };
             menuItems.Add(m2);
 
-            MenuItem m3 = new MenuItem(Globals.SettingsMenuItem, Globals.SettingsMenuItem, font, new Vector2(350f, 250f), baseColor, selectedColor, false);
-            m3.Clicked += delegate()
-            {
-                // TODO: Show settings
-            };
-            menuItems.Add(m3);
+ //           MenuItem m3 = new MenuItem(Globals.SettingsMenuItem, Globals.SettingsMenuItem, font, new Vector2(350f, 150f), baseColor, selectedColor, false);
+  //          m3.Clicked += delegate()
+  //          {
+  //              // TODO: Show settings
+ //           };
+ //           menuItems.Add(m3);
 
             int i = 0;
             foreach (string lev in game.levelsPresentable)
             {
                 int x = i;
-                MenuItem m = new MenuItem("Level " + (i + 1) + ": " + lev, "Level " + (i + 1) + ": " + lev, font, new Vector2(350f, 300f + 50f * i), baseColor, selectedColor, false);
+                MenuItem m = new MenuItem("Level " + (i + 1) + ": " + lev, "Level " + (i + 1) + ": " + lev, font, new Vector2(350f, 200f + 50f * i), baseColor, selectedColor, false);
                 m.Clicked += delegate()
                 {
                     Console.WriteLine("load lev " + x);
@@ -72,7 +72,7 @@ namespace Spectrum.View
 
             
 
-            MenuItem m4 = new MenuItem(Globals.ExitMenuItem, Globals.ExitMenuItem, font, new Vector2(350f, 300f +50f*i), baseColor, selectedColor, false);
+            MenuItem m4 = new MenuItem(Globals.ExitMenuItem, Globals.ExitMenuItem, font, new Vector2(350f, 200f +50f*i), baseColor, selectedColor, false);
             m4.Clicked += delegate()
             {
                 game.Exit();
