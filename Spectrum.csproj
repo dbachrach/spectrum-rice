@@ -189,6 +189,7 @@
     <Compile Include="Model\Convenience Objects\Funnel.cs" />
     <Compile Include="Model\Convenience Objects\HeavyBlock.cs" />
     <Compile Include="Model\Convenience Objects\Hint.cs" />
+    <Compile Include="Model\Convenience Objects\MixPanel.cs" />
     <Compile Include="Model\Convenience Objects\PushButton.cs" />
     <Compile Include="Model\Convenience Objects\Switch.cs" />
     <Compile Include="Model\EventActions\LinearPathAnimate.cs" />

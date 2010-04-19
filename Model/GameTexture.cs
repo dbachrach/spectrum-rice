@@ -177,10 +177,6 @@ namespace Spectrum.Model
             {
                 divisor = 5;
             }
-            else if (AssetCount == 7)
-            {
-                divisor = 6;
-            }
 
 
             int FrameHeight = myTexture.Height / AssetCount;
