@@ -19,11 +19,12 @@ namespace Spectrum.Model
         public Hint()
             : base()
         {
-            ImageNames = new List<string>() { "box" };
+            ImageNames = new List<string>() { "hint" };
             Tangibility = Colors.NoColors;
             PlayerTangibility = Colors.NoColors;
             Visibility = Colors.NoColors;
             IsStatic = true;
+            Scale = 0.4f;
         }
     }
 }

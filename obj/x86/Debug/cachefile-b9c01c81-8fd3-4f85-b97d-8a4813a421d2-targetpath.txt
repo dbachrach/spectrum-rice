@@ -63,6 +63,7 @@ Content\ball.xnb
 Content\sign_run.xnb
 Content\deadlyball.xnb
 Content\poof.xnb
+Content\hint.xnb
 Content\Audio\Media.xgs
 Content\Audio\Wave Bank.xwb
 Content\Audio\Sound Bank.xsb

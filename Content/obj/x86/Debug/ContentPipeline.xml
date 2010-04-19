@@ -592,6 +592,15 @@
       <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\poof.xnb</Output>
       <Time>2010-04-16T15:15:46.813-05:00</Time>
     </Item>
+    <Item>
+      <Source>hint.png</Source>
+      <Name>hint</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\hint.xnb</Output>
+      <Time>2010-04-19T13:10:07.462-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
