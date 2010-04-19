@@ -219,6 +219,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Levels\tutorial1.txt" />
+    <Content Include="Todo v2.txt" />
     <Content Include="todo.txt" />
     <None Include="Levels\DrEvil.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

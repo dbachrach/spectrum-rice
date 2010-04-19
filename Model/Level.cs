@@ -320,13 +320,14 @@ namespace Spectrum.Model
         /// </summary>
         public void Restart()
         {
+            deathCountdown = -1;
             GameRef.Restart();
         }
 
         public void LoseLevel()
         {
             // show poof
-            deathCountdown = 3;
+            deathCountdown = 25;
 
             poofImage.body.position = player.body.position;
             poofImage.Textures[0].Play();
@@ -353,8 +354,8 @@ namespace Spectrum.Model
                     Background.Add(b);
                 }
             }
-            
-            font = manager.Load<SpriteFont>("Pesca");
+
+            font = manager.Load<SpriteFont>("mvboli");
 
             foreach (GameObject obj in GameObjects)
             {
@@ -370,6 +371,23 @@ namespace Spectrum.Model
         public void Update(GameTime gameTime)
         {
             CurrentTime = gameTime;
+
+            if (deathCountdown > 0)
+            {
+                RemoveFromSimulator(player);
+                poofImage.Update(gameTime);
+                if (deathCountdown == 15)
+                {
+                    //player.body.position = new Vector2(-500, -500);
+                    RemoveObjectFromLevel(player);
+                }
+                deathCountdown--;
+                //return;
+            }
+            else if (deathCountdown == 0)
+            {
+                Restart();
+            }
 
             if (DoomedObjects != null)
             {

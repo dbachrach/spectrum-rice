@@ -42,8 +42,8 @@ namespace Spectrum.View
 
         public virtual void LoadContent(ContentManager content, GraphicsDevice graphics)
         {
-            font = content.Load<SpriteFont>("Pesca");
-            background.Load(content, graphics, Image, 1, 1, ViewWidth, ViewHeight);
+            font = content.Load<SpriteFont>("mvboli");
+            background.Load(content, graphics, Image, 1, 1, ViewWidth, ViewHeight, 185);
             background.Pause();
         }
 

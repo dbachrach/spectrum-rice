@@ -39,16 +39,16 @@ namespace Spectrum.View
             };
             menuItems.Add(m1);
 
-            MenuItem m2 = new MenuItem(Globals.ContinueGameMenuItem, Globals.ContinueGameMenuItem, font, new Vector2(550f, 250f), baseColor, selectedColor, false);
-            m2.Clicked += delegate()
-            {
-                game.StartGame(); // TODO: Load level index
-                game.Paused = false;
-                selectedItem = 0;
-            };
-            menuItems.Add(m2);
+            //MenuItem m2 = new MenuItem(Globals.ContinueGameMenuItem, Globals.ContinueGameMenuItem, font, new Vector2(550f, 250f), baseColor, selectedColor, false);
+            //m2.Clicked += delegate()
+            //{
+            //    game.StartGame(); // TODO: Load level index
+            //    game.Paused = false;
+            //    selectedItem = 0;
+            //};
+            //menuItems.Add(m2);
 
-            MenuItem m3 = new MenuItem(Globals.CreditsMenuItem, Globals.CreditsMenuItem, font, new Vector2(550f, 300f), baseColor, selectedColor, false);
+            MenuItem m3 = new MenuItem(Globals.CreditsMenuItem, Globals.CreditsMenuItem, font, new Vector2(550f, 250f), baseColor, selectedColor, false);
             m3.Clicked += delegate()
             {
                 // TODO: Show Credits
