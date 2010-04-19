@@ -4,9 +4,7 @@ J w/hint message
 J Instructions for how to play in Level 1
 
 D Splash screen between level
-D Reformat menus
 
-N Switcharoo: Blocks not to fall, 
 J Arrow showing "Go Up"
 D Balls
 
@@ -16,3 +14,5 @@ J Credits screen
 New Level?
 
 Contextual menu
+
+Blocks should snap on combining
