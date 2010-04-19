@@ -1,11 +1,11 @@
-[{"object" : "level","id" : "level","number" : 2,"name" : "Switcharoo","width" : 1280,"height" : 1120,"allowed-colors" : ["all"], "starting-color" : ["red"], "start-position" : [50,810] },
+[{"object" : "level","id" : "level","number" : 2,"name" : "Switcharoo","width" : 1280,"height" : 1120,"allowed-colors" : ["all"], "starting-color" : ["red"], "start-position" : [50,950] },
 
 {"object" : "block","id" : "blue-block-a", "position" : [305, 880], "colors" : ["blue"], "combinable-with" : ["yellow-block-b","yellow-block-a","red-block-a","red-block-b"]},
 {"object" : "block","id" : "yellow-block-a", "position" : [495, 880],"colors" : ["yellow"], "combinable-with" : ["red-block-a","red-block-b", "blue-block-a", "blue-block-b"]},
 {"object" : "block","id" : "yellow-block-b", "position" : [600, 880],"colors" : ["yellow"], "combinable-with" : ["red-block-a","red-block-b", "blue-block-a", "blue-block-b"]},
-{"object" : "block","id" : "red-block-a","position" : [560, 600],"colors" : ["red"], "combinable-with" : ["yellow-block-b","yellow-block-a","blue-block-a","blue-block-b"]},
+{"object" : "block","id" : "red-block-a","position" : [560, 730],"colors" : ["red"], "combinable-with" : ["yellow-block-b","yellow-block-a","blue-block-a","blue-block-b"]},
 {"object" : "block","id" : "blue-block-b","position" : [470, 600],"colors" : ["blue"], "combinable-with" : ["yellow-block-b","yellow-block-a","red-block-a","red-block-b"]},
-{"object" : "block","id" : "red-block-b","position" : [170, 460],"colors" : ["red"], "combinable-with" : ["yellow-block-b","yellow-block-a","blue-block-a","blue-block-b"]},
+{"object" : "block","id" : "red-block-b","position" : [170, 490],"colors" : ["red"], "combinable-with" : ["yellow-block-b","yellow-block-a","blue-block-a","blue-block-b"]},
 
 {"object" : "platform","id" : "green-platform-a","colors" : ["green"],"position" : [400, 790], "_w" : 400},
 {"object" : "switch","id" : "green-switch","colors" : ["green"],"position" : [425, 745], "events" : [{
