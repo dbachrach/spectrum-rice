@@ -86,6 +86,10 @@ namespace Spectrum.Model
                 {  
                     AssetCount = 6;
                 }
+                else if (asset.Equals("hint"))
+                {
+                    AssetCount = 1;
+                }
 
                 myTexture = content.Load<Texture2D>(asset);
             }

@@ -141,6 +141,7 @@ namespace Spectrum.Model
         public GameObject HintObject { get; set; }
         public int HintDelay { get; set; }
         public string HintName { get; set; }
+        public bool HintActive { get; set; }
 
         GameObject poofImage;
 
@@ -190,6 +191,7 @@ namespace Spectrum.Model
 
             HasHint = false;
             HintDelay = -1;
+            HintActive = false;
 
             poofImage = new GameObject();
             poofImage.Id = "poof";
@@ -415,6 +417,7 @@ namespace Spectrum.Model
                 if (HintDelay == 0)
                 {
                     HintObject.Visibility = Colors.AllColors;
+                    HintActive = true;
                 }
             }
 
@@ -438,6 +441,11 @@ namespace Spectrum.Model
             {
                 
                 obj.Draw(spriteBatch);
+            }
+
+            if (HasHint && HintActive && Globals.UserInputHold(Keys.Y, Buttons.Y))
+            {
+                spriteBatch.DrawString(font, "Combine the red and blue blocks to make a purple one!", new Vector2(350, (int)this.Height - 100), Color.White);
             }
 
             if (DebugMode)
