@@ -1,4 +1,4 @@
-﻿[{"object" : "level","id" : "level","number" : 1,"name" : "Tutorial","width" : 1280,"height" : 720,"allowed-colors" : ["green","blue"], "starting-color" : ["green"], "start-position" : [50,420] }
+﻿[{"object" : "level","id" : "level","number" : 1,"name" : "Tutorial","width" : 1280,"height" : 720,"allowed-colors" : ["green","blue"], "mix" : false, "starting-color" : ["green"], "start-position" : [50,420] }
 
 {"object" : "ground", "id" : "ground", "position" : [0,520], "_w" : 675, "_h" : 200}
 {"object" : "ground", "id" : "barrier", "position" : [250,470], "_w" : 100, "_h" : 50}

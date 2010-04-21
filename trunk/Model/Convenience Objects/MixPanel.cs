@@ -22,7 +22,7 @@ namespace Spectrum.Model
             ImageNames = new List<string>() { "textBoxMix" };
             Tangibility = Colors.NoColors;
             PlayerTangibility = Colors.NoColors;
-            Visibility = Colors.NoColors;
+            Visibility = Colors.AllColors;
             IsStatic = true;
         }
     }

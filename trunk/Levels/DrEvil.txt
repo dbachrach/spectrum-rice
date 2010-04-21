@@ -1,5 +1,5 @@
 ﻿[
-{"object" : "level","id" : "level","number" : 2,"name" : "Dr. Evil's Quarters","width" : 1280,"height" : 720,"allowed-colors" : ["orange","green","purple"], "starting-color" : ["purple"], "start-position" : [25,220] },
+{"object" : "level","id" : "level","number" : 2,"name" : "Dr. Evil's Quarters","width" : 1280,"height" : 720,"allowed-colors" : ["orange","green","purple"], "starting-color" : ["purple"], "mix" : false, "start-position" : [25,220] },
 
 {"object" : "ground", "id" : "west-bank", "position" : [0,320], "_w" : 240, "_h" : 400, "friction" : 0, "drag" : 0, "alpha" : 255},
 {"object" : "ground", "id" : "east-bank", "position" : [1040,320], "_w" : 240, "_h" : 400, "friction" : 0, "drag" : 0, "alpha" : 255},

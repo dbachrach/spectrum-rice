@@ -145,6 +145,10 @@ namespace Spectrum.Model
         public string HintName { get; set; }
         public bool HintActive { get; set; }
 
+        public MixPanel mixPanel { get; set; }
+        public Vector2 mixPanelPosition = new Vector2(640, 360);
+        public bool SupportsMixing { get; set; }
+
         GameObject poofImage;
 
         int deathCountdown;
@@ -204,6 +208,7 @@ namespace Spectrum.Model
             poofImage.OriginalPosition = new Vector2(-500,-500);
             poofImage.Scale = .4f;
             poofImage.Container = this;
+            poofImage.ZIndex = Globals.PlayerZIndex-1;
 
             // whether the player starts out facing left
             StartLeft = false;
@@ -211,6 +216,10 @@ namespace Spectrum.Model
             AddGameObject(poofImage);
 
             deathCountdown = -1;
+
+            mixPanel = new MixPanel();
+            mixPanel.Container = this;
+            SupportsMixing = true;
 		}
 
         /// <summary>
@@ -362,6 +371,10 @@ namespace Spectrum.Model
                 obj.LoadContent(manager, graphicsDevice);
             }
 
+            if (SupportsMixing)
+            {
+                mixPanel.LoadContent(manager, graphicsDevice);
+            }
             
             colorIndicator.LoadContent(manager, graphicsDevice);
             colorIndicator.SetVisibleColors(AllowedColors);
@@ -462,13 +475,17 @@ namespace Spectrum.Model
 
             foreach (GameObject obj in GameObjects)
             {
-                
                 obj.Draw(spriteBatch);
             }
 
             if (HasHint && HintActive && Globals.UserInputHold(Keys.Y, Buttons.Y))
             {
                 spriteBatch.DrawString(font, "Combine the red and blue blocks to make a purple one!", new Vector2(350, (int)this.Height - 100), Color.White);
+            }
+
+            if (SupportsMixing && Globals.UserInputHold(Keys.B, Buttons.B))
+            {
+                mixPanel.Draw(spriteBatch, mixPanelPosition + CameraPosition);
             }
 
             if (DebugMode)
