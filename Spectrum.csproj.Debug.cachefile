@@ -4,6 +4,7 @@ Content\farseer\diagnosticFont.xnb
 Content\farseer\frameRateCounterFont.xnb
 Content\farseer\gamefont.xnb
 Content\farseer\menufont.xnb
+Content\mvboli.xnb
 Content\box.xnb
 Content\pl.xnb
 Content\farseer\background.xnb
@@ -64,7 +65,8 @@ Content\Audio\bg_music.xnb
 Content\Audio\splash.xnb
 Content\Audio\downer_bg.xnb
 Content\Audio\swoosh.xnb
-Content\mvboli.xnb
+Content\textBoxBox.xnb
+Content\textBoxMix.xnb
 Content\Audio\Media.xgs
 Content\Audio\Wave Bank.xwb
 Content\Audio\Sound Bank.xsb

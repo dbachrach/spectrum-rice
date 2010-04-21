@@ -64,6 +64,10 @@ namespace Spectrum.Model
                     {
                         level.HintDelay = (int)(double)obj["hint-delay"];
                     }
+                    if (obj.ContainsKey("mix"))
+                    {
+                        level.SupportsMixing = (bool)obj["mix"];
+                    }
 
                     if (obj.ContainsKey("start-left"))
                     {

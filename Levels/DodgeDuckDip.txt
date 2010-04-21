@@ -1,7 +1,7 @@
 ﻿[{"object" : "level","id" : "level","number" : 4,"name" : "Dodge, Duck, Dip, Dive and Dodge","width" : 1280,"height" : 1440,"allowed-colors" : ["red","orange","yellow","green"], "starting-color" : ["orange"], "start-position" : [100,1240] },
 
 {"object" : "ground", "id" : "below-start", "position" : [0,1340], "_w" : 200, "_h" : 100},
-{"object" : "ground", "id" : "above-start", "position" : [0,1140], "_w" : 200, "_h" : 100},
+{"object" : "ground", "id" : "above-start", "position" : [0,1140], "_w" : 200, "_h" : 80},
 {"object" : "door", "id" : "door", "position" : [50, 1040]},
 
 {"object" : "platform","id" : "a-plat","colors" : ["green"],"position" : [720, 1260]},
