@@ -1,0 +1,30 @@
+﻿[{"object" : "level","id" : "level","number" : 7,"name" : "Balls!","width" : 2760,"height" : 2160,"allowed-colors" : ["blue", "green"], "starting-color" : ["blue"], "start-position" : [225,2000] },
+
+
+{"object" : "door", "id" : "door", "position" : [2460, 50]},
+
+{"object" : "ground", "id" : "g1", "position" : [200,2100], "_w" : 2560, "_h" : 60},
+{"object" : "ground", "id" : "g2", "position" : [300,2060], "_w" : 2460, "_h" : 40},
+{"object" : "ground", "id" : "g3", "position" : [500,1980], "_w" : 2260, "_h" : 80},
+{"object" : "ground", "id" : "g4", "position" : [650,1910], "_w" : 2110, "_h" : 70},
+{"object" : "ground", "id" : "g5", "position" : [950,1840], "_w" : 1810, "_h" : 70},
+{"object" : "ground", "id" : "g6", "position" : [1150,1800], "_w" : 1610, "_h" : 40},
+
+{"object" : "ground", "id" : "g7", "position" : [1550,1650], "_w" : 1210, "_h" : 150},
+{"object" : "ground", "id" : "g8", "position" : [1350,1610], "_w" : 1010, "_h" : 40},
+
+{"object" : "heavy-block","id" : "block", "position" : [1200, 1700], "colors" : ["green"]}
+
+
+{"object" : "ball", "id" : "b1", "position" : [1160, 1650], "colors" :["blue"], "scale" : 0.4, "events" : [
+	{ "type" : "behavior",
+					"actions" : [
+					{
+						"receiver" : "b1",
+						"property" : "force",
+						"type" : "change",
+						"value" : [-300,0],
+						"repeats" : true,
+					}]
+	}]}
+]
