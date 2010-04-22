@@ -1,0 +1,124 @@
+﻿[{"object" : "level","id" : "level","number" : 5,"name" : "Clouds Run Faster With Knives","width" : 3840,"height" : 1080,"allowed-colors" : ["green","blue"], "starting-color" : ["blue"], "start-position" : [3750, 520], "start-left" : true },
+
+{"object" : "ground", "id" : "starting platform", "position" : [3700,620], "_w" : 140, "_h" : 50},
+{"object" : "platform","id" : "below-start","colors" : ["green"], "_w" : 325, "position" : [3525, 820]},
+{"object" : "switch","id" : "below-start-switch","colors" : ["green"],"position" : [3725, 780],
+	"tangibility" : ["none"],"player-tangibility" : ["none"],  "_switch-actions" : [{
+									"receiver" : "below-start",
+									"property" : "whiteness",
+									"type" : "change",
+									"value" : true
+								 }]},
+
+{"object" : "deadlycloud","id" : "cloud1","colors" : ["green"],"position" : [3525, 200], "static" : true,
+				"events" : [{ "type" : "behavior",
+					"actions" : [{
+						"receiver" : "cloud1",
+						"property" : "position",
+						"type" : "animation",
+						"value" : [[3525,200],[3525,670]],
+						"speed" : 5.25,
+						"repeats" : true,
+					}]
+				}]},
+				
+{"object" : "deadlycloud","id" : "cloud2","colors" : ["blue"],"position" : [3525, 670], "static" : true,
+				"events" : [{ "type" : "behavior",
+					"actions" : [{
+						"receiver" : "cloud2",
+						"property" : "position",
+						"type" : "animation",
+						"value" : [[3525,670],[3525,200]],
+						"speed" : 5.25,
+						"repeats" : true,
+					}]
+				}]},
+				
+{"object" : "deadlycloud","id" : "circlecloud","colors" : ["blue","green"],"position" : [3325, 450]
+				"events" : [{ "type" : "behavior",
+					"actions" : [{
+						"receiver" : "circlecloud",
+						"property" : "position",
+						"type" : "animation",
+						"value" : [[3325,442],[3330,445],[3335,452],[3337,458],[3335,462],[3330,469],[3325,472],[3320,469],[3315,462],[3313,457],[3315,452],[3320,445]],
+						"speed" : 1,
+						"repeats" : true,
+					}]
+				}]},
+				
+{"object" : "platform","id" : "plat-2","colors" : ["blue"], "_w" : 300, "position" : [3125, 820]},
+
+{"object" : "game-object", "id" : "run-sign", "image" : "sign_run", "scale" : 0.25, "position" : [2875, 740], "static" : true, "player-tangibility" : ["none"], "zindex" : 400 },
+{"object" : "platform","id" : "end-plat-1","colors" : ["blue"], "_w" : 220, "position" : [2825, 820], "whiteness" : true},
+{"object" : "platform","id" : "plat-3","colors" : ["green"], "_w" : 220, "position" : [2700, 820]},
+{"object" : "platform","id" : "plat-4","colors" : ["blue"], "_w" : 220, "position" : [2575, 820]},
+{"object" : "platform","id" : "plat-5","colors" : ["green"], "_w" : 220, "position" : [2450, 820]},
+{"object" : "platform","id" : "plat-6","colors" : ["blue"], "_w" : 220, "position" : [2325, 820]},
+{"object" : "platform","id" : "plat-7","colors" : ["green"], "_w" : 220, "position" : [2200, 820]},
+{"object" : "platform","id" : "plat-8","colors" : ["blue"], "_w" : 220, "position" : [2075, 820]},
+{"object" : "platform","id" : "end-plat-2","colors" : ["blue"], "_w" : 220, "position" : [1950, 820], "whiteness" : true},
+
+{"object" : "deadlycloud","id" : "nojumpcloud1","colors" : ["blue","green"],"position" : [2715, 540], "static" : true,
+				"events" : [{ "type" : "behavior",
+					"actions" : [{
+						"receiver" : "nojumpcloud1",
+						"property" : "position",
+						"type" : "animation",
+						"value" : [[2705,540],[2025,540]],
+						"speed" : 2,
+						"repeats" : true,
+					}]
+				}]},
+
+{"object" : "deadlycloud","id" : "nojumpcloud2","colors" : ["blue","green"],"position" : [2025, 545], "static" : true,
+				"events" : [{ "type" : "behavior",
+					"actions" : [{
+						"receiver" : "nojumpcloud2",
+						"property" : "position",
+						"type" : "animation",
+						"value" : [[2025,545],[2705,545]],
+						"speed" : 2,
+						"repeats" : true,
+					}]
+				}]},
+				
+{"object" : "deadlycloud","id" : "nojumpcloud3","colors" : ["blue","green"],"position" : [2350, 535], "static" : true,
+				"events" : [{ "type" : "behavior",
+					"actions" : [{
+						"receiver" : "nojumpcloud3",
+						"property" : "position",
+						"type" : "animation",
+						"value" : [[2350, 535], [2025,535],[2705,535]],
+						"speed" : 2,
+						"repeats" : true,
+					}]
+				}]},
+				
+{"object" : "deadlycloud","id" : "nojumpcloud4","colors" : ["blue","green"],"position" : [2350, 550], "static" : true,
+				"events" : [{ "type" : "behavior",
+					"actions" : [{
+						"receiver" : "nojumpcloud4",
+						"property" : "position",
+						"type" : "animation",
+						"value" : [[2350, 550], [2705,550],[2025,550]],
+						"speed" : 2,
+						"repeats" : true,
+					}]
+				}]},
+				
+{"object" : "deadlycloud","id" : "pushcloud1","colors" : ["blue","green"],"position" : [2075, 400], "static" : true, "zindex" : -200,
+				"events" : [{ "type" : "behavior",
+					"actions" : [{
+						"receiver" : "pushcloud1",
+						"property" : "position",
+						"type" : "animation",
+						"value" : [[1975, 400], [2680,400],[2680,700],[1975,700]],
+						"speed" : 6,
+						"repeats" : true,
+					}]
+				}]},
+				
+{"object" : "platform","id" : "endplat","colors" : ["blue"], "_w" : 440, "position" : [1500, 920], "whiteness" : true},
+{"object" : "door", "id" : "door", "position" : [1550, 820]}
+
+]

@@ -1,0 +1,23 @@
+﻿[{"object" : "level","id" : "level","number" : 3,"name" : "Level3","width" : 1280,"height" : 720,"allowed-colors" : ["red","blue","purple"], 
+	"starting-color" : ["red"], "start-position" : [150,520], "has-hint" : true, "hint-obj" : "hint-cloud", "hint-delay" : 1500 }
+
+{"object" : "ground", "id" : "ground", "position" : [0,620], "_w" : 1280, "_h" : 100}
+{"object" : "ground", "id" : "ledge", "position" : [800,340], "_w" : 480, "_h" : 280}
+{"object" : "platform", "id" : "blocker", "colors" : ["red","blue"], "position" : [5,366], "_w" : 850}
+
+{"object" : "block","id" : "red-block", "position" : [50, 570], "colors" : ["red"],"combinable-with" : ["blue-block"]}
+{"object" : "block","id" : "blue-block", "position" : [300, 570], "colors" : ["blue"],"combinable-with" : ["red-block"]}
+
+{"object" : "hint","id" : "hint-cloud", "position" : [1010, 37],
+		"events" : [{ "type" : "behavior",
+					"actions" : [{
+						"receiver" : "hint-cloud",
+						"property" : "position",
+						"type" : "animation",
+						"value" : [[1010,37],[1015,40],[1020,47],[1022,53],[1020,57],[1015,64],[1010,67],[1005,64],[1000,57],[998,53],[1000,47],[1005,40]],
+						"speed" : 0.5,
+						"repeats" : true,
+					}]
+				}]}
+
+{"object" : "door","id" : "door","colors" : ["all"],"position" : [1180, 240]}]

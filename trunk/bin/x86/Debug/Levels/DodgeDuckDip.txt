@@ -1,0 +1,69 @@
+﻿[{"object" : "level","id" : "level","number" : 4,"name" : "Dodge, Duck, Dip, Dive and Dodge","width" : 1280,"height" : 1440,"allowed-colors" : ["red","orange","yellow","green"], "starting-color" : ["orange"], "start-position" : [100,1240] },
+
+{"object" : "ground", "id" : "below-start", "position" : [0,1340], "_w" : 200, "_h" : 100},
+{"object" : "ground", "id" : "above-start", "position" : [0,1140], "_w" : 200, "_h" : 80},
+{"object" : "door", "id" : "door", "position" : [50, 1040]},
+
+{"object" : "platform","id" : "a-plat","colors" : ["green"],"position" : [720, 1260]},
+{"object" : "switch","id" : "b-switch","colors" : ["green"],"position" : [780, 1215],
+	"tangibility" : ["none"],"player-tangibility" : ["none"], "_switch-actions" : [{
+									"receiver" : "a-plat",
+									"property" : "whiteness",
+									"type" : "change",
+									"value" : true
+								 }]},
+								 
+{"object" : "block","id" : "block-1", "position" : [650, 1340], "colors" : ["red","green"], "static" : true}
+
+{"object" : "block","id" : "right-blocker-bottom", "position" : [700, 880], "colors" : ["yellow","green"], "static" : true}
+{"object" : "block","id" : "right-blocker-top", "position" : [700, 830], "colors" : ["yellow","green"], "static" : true}
+
+{"object" : "block","id" : "center-blocker-bottom", "position" : [500, 880], "colors" : ["orange","green"], "static" : true}
+{"object" : "block","id" : "center-blocker-top", "position" : [500, 830], "colors" : ["orange","green"], "static" : true}
+
+{"object" : "block","id" : "left-blocker-bottom", "position" : [300, 880], "colors" : ["orange","yellow"], "static" : true}
+{"object" : "block","id" : "left-blocker-top", "position" : [300, 830], "colors" : ["orange","yellow"], "static" : true}
+								 
+{"object" : "platform","id" : "move-plat-1","colors" : ["orange","yellow","green"], "static" : true, "tangibility" : ["none"], "position" : [1285, 1270],
+			"events" : [{ "type" : "behavior",
+					"actions" : [{
+						"receiver" : "move-plat-1",
+						"property" : "position",
+						"type" : "animation",
+						"animation-type" : "linear"
+						"value" : [[1285,1270],[870,1270],[870, 960],[-200,960]],
+						"speed" : 3,
+						"repeats" : true,
+					}]
+				}]},
+				
+{"object" : "platform","id" : "move-plat-1-a","colors" : ["orange","yellow","green"], "static" : true, "tangibility" : ["none"], "position" : [1285, 1270],
+			"events" : [{ "type" : "behavior",
+					"actions" : [{
+						"receiver" : "move-plat-1-a",
+						"property" : "position",
+						"type" : "animation",
+						"animation-type" : "linear",
+						"value" : [[1285,1270],[870,1270],[870, 960],[-200,960]],
+						"speed" : 3,
+						"repeats" : true,
+						"delay" : 220
+					}]
+				}]},
+				
+
+				
+{"object" : "platform","id" : "move-plat-2","colors" : ["red"], "static" : true, "tangibility" : ["none"],"position" : [520, 1340],
+			"events" : [{ "type" : "behavior",
+					"actions" : [{
+						"receiver" : "move-plat-2",
+						"property" : "position",
+						"type" : "animation",
+						"value" : [[520,1340],[200,1340]],
+						"speed" : 2,
+						"repeats" : true,
+					}]
+				}]},
+				
+				
+]
