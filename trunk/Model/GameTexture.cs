@@ -86,7 +86,7 @@ namespace Spectrum.Model
                 {  
                     AssetCount = 6;
                 }
-                else if (asset.Equals("hint") || asset.Equals("textBoxMix") || asset.Equals("textBoxBox"))
+                else if (asset.Equals("hint") || asset.Equals("textBoxMix") || asset.Equals("textBoxBox") || asset.Equals("textBoxHow") || asset.Equals("hintUp"))
                 {
                     AssetCount = 1;
                 }

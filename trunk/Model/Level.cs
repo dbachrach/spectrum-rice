@@ -152,6 +152,9 @@ namespace Spectrum.Model
         public MixHint mixHint { get; set; }
         public Vector2 mixHintPosition = new Vector2(640, 360);
 
+        public HowToBox howToBox { get; set; }
+        public Vector2 howToBoxPosition = new Vector2(640, 360);
+
         GameObject poofImage;
 
         int deathCountdown;
@@ -226,6 +229,9 @@ namespace Spectrum.Model
 
             mixHint = new MixHint();
             mixHint.Container = this;
+
+            howToBox = new HowToBox();
+            howToBox.Container = this;
 		}
 
         /// <summary>
@@ -386,6 +392,8 @@ namespace Spectrum.Model
             {
                 mixHint.LoadContent(manager, graphicsDevice);
             }
+
+            howToBox.LoadContent(manager, graphicsDevice);
             
             colorIndicator.LoadContent(manager, graphicsDevice);
             colorIndicator.SetVisibleColors(AllowedColors);
@@ -492,6 +500,11 @@ namespace Spectrum.Model
             if (HasHint && HintActive && Globals.UserInputHold(Keys.Y, Buttons.Y))
             {
                 mixHint.Draw(spriteBatch, mixHintPosition + CameraPosition);//spriteBatch.DrawString(font, "Combine the red and blue blocks to make a purple one!", new Vector2(350, (int)this.Height - 100), Color.White);
+            }
+
+            if (Globals.UserInputHold(Keys.L, Buttons.LeftShoulder))
+            {
+                howToBox.Draw(spriteBatch, howToBoxPosition + CameraPosition);
             }
 
             if (SupportsMixing && Globals.UserInputHold(Keys.B, Buttons.B))

@@ -189,6 +189,8 @@
     <Compile Include="Model\Convenience Objects\Funnel.cs" />
     <Compile Include="Model\Convenience Objects\HeavyBlock.cs" />
     <Compile Include="Model\Convenience Objects\Hint.cs" />
+    <Compile Include="Model\Convenience Objects\HintUp.cs" />
+    <Compile Include="Model\Convenience Objects\HowToBox.cs" />
     <Compile Include="Model\Convenience Objects\MixHint.cs" />
     <Compile Include="Model\Convenience Objects\MixPanel.cs" />
     <Compile Include="Model\Convenience Objects\PushButton.cs" />
