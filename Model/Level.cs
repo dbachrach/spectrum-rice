@@ -149,6 +149,9 @@ namespace Spectrum.Model
         public Vector2 mixPanelPosition = new Vector2(640, 360);
         public bool SupportsMixing { get; set; }
 
+        public MixHint mixHint { get; set; }
+        public Vector2 mixHintPosition = new Vector2(640, 360);
+
         GameObject poofImage;
 
         int deathCountdown;
@@ -220,6 +223,9 @@ namespace Spectrum.Model
             mixPanel = new MixPanel();
             mixPanel.Container = this;
             SupportsMixing = true;
+
+            mixHint = new MixHint();
+            mixHint.Container = this;
 		}
 
         /// <summary>
@@ -375,6 +381,11 @@ namespace Spectrum.Model
             {
                 mixPanel.LoadContent(manager, graphicsDevice);
             }
+
+            if (HasHint)
+            {
+                mixHint.LoadContent(manager, graphicsDevice);
+            }
             
             colorIndicator.LoadContent(manager, graphicsDevice);
             colorIndicator.SetVisibleColors(AllowedColors);
@@ -480,7 +491,7 @@ namespace Spectrum.Model
 
             if (HasHint && HintActive && Globals.UserInputHold(Keys.Y, Buttons.Y))
             {
-                spriteBatch.DrawString(font, "Combine the red and blue blocks to make a purple one!", new Vector2(350, (int)this.Height - 100), Color.White);
+                mixHint.Draw(spriteBatch, mixHintPosition + CameraPosition);//spriteBatch.DrawString(font, "Combine the red and blue blocks to make a purple one!", new Vector2(350, (int)this.Height - 100), Color.White);
             }
 
             if (SupportsMixing && Globals.UserInputHold(Keys.B, Buttons.B))
