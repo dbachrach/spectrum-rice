@@ -67,6 +67,8 @@ Content\Audio\downer_bg.xnb
 Content\Audio\swoosh.xnb
 Content\textBoxBox.xnb
 Content\textBoxMix.xnb
+Content\hintUp.xnb
+Content\textBoxHow.xnb
 Content\Audio\Media.xgs
 Content\Audio\Wave Bank.xwb
 Content\Audio\Sound Bank.xsb
