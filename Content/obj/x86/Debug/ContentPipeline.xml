@@ -628,6 +628,24 @@
       <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\textBoxMix.xnb</Output>
       <Time>2010-04-19T15:34:36.77-05:00</Time>
     </Item>
+    <Item>
+      <Source>hintUp.png</Source>
+      <Name>hintUp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\hintUp.xnb</Output>
+      <Time>2010-04-23T14:55:15.657-05:00</Time>
+    </Item>
+    <Item>
+      <Source>textBoxHow.png</Source>
+      <Name>textBoxHow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\STORAGE\N-HOME\nsb1\DOCUMENTS\Visual Studio 2008\Projects\spectrum-rice\bin\x86\Debug\Content\textBoxHow.xnb</Output>
+      <Time>2010-04-23T14:55:11.008-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
